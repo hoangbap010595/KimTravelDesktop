@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12, 13.625" name="KimTravelData">
+  <DataContextMoniker Name="/KimTravelDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="869e02c1-c90e-40de-af31-81c8cd649015" absoluteBounds="6.75, 4.75, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/KimTravelDataDataContext/ApplicationRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9c23ab89-9755-4568-a1a6-601b275c8206" absoluteBounds="6.765, 5.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1bf94764-7a96-409e-bfdf-ea1ca308824e" absoluteBounds="3.5, 1, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/KimTravelDataDataContext/Staff" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fadb07b5-7626-4390-8bc7-8f6b37cf9fd9" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="81c07302-b610-4f78-bdf8-75c5929ed08f" absoluteBounds="6.75, 6.75, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/KimTravelDataDataContext/ApplicationUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="30c6809d-8bdf-4f14-a329-05e74f550734" absoluteBounds="6.765, 7.21, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e77f2cee-5da7-446a-88c3-754a9ebe38fa" absoluteBounds="8.75, 0.75, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/KimTravelDataDataContext/ApplicationUserRole" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5fe772bc-9d4c-47f1-88d8-75eb4cafbe5b" absoluteBounds="8.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e594b28f-6d0f-4651-9cb2-83757fd9e796" absoluteBounds="0.75, 8.75, 2, 4.6554182942708309">
+      <DataClassMoniker Name="/KimTravelDataDataContext/Book" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8fce633e-4c20-4951-a09d-9468f0e5b8fc" absoluteBounds="0.765, 9.21, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="568204d8-3384-471f-8368-3d9c6d484ace" absoluteBounds="6.25, 1.375, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/KimTravelDataDataContext/Car" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fa6171af-087c-4c09-ae1a-0e026c8f5630" absoluteBounds="6.265, 1.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="392d13ff-edfc-4ba1-b407-363c08a9aeb3" absoluteBounds="0.75, 5, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/KimTravelDataDataContext/GroupTour" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2be31fb0-b395-42d3-84aa-d3e63562b055" absoluteBounds="0.765, 5.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="37c098bd-b7cc-4335-a89b-a078e4deb0cb" absoluteBounds="0.75, 1.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/KimTravelDataDataContext/Partner" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f1e7267d-8c41-441e-be95-ccd2eb69a131" absoluteBounds="0.765, 1.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="94b6f57d-ac65-42d5-9851-6c0962bce152" absoluteBounds="9.75, 2.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/KimTravelDataDataContext/ServiceType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4143115a-43c1-443b-aa30-e9bbb4400b59" absoluteBounds="9.765, 3.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dbe58775-a13b-46ba-aa7f-0dfec1196f9b" absoluteBounds="3.5, 5, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/KimTravelDataDataContext/Tour" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8ef2172c-90cd-409a-94b8-d01ad5427a5a" absoluteBounds="3.515, 5.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 2.26044840494792); (6.25 : 2.26044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/KimTravelDataDataContext/Staff/Staff_Car" />
+      <nodes>
+        <classShapeMoniker Id="1bf94764-7a96-409e-bfdf-ea1ca308824e" />
+        <classShapeMoniker Id="568204d8-3384-471f-8368-3d9c6d484ace" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.20274983723958); (3.5 : 2.20274983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/KimTravelDataDataContext/Partner/Partner_Staff" />
+      <nodes>
+        <classShapeMoniker Id="37c098bd-b7cc-4335-a89b-a078e4deb0cb" />
+        <classShapeMoniker Id="1bf94764-7a96-409e-bfdf-ea1ca308824e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 6.27005126953125); (3.5 : 6.27005126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/KimTravelDataDataContext/GroupTour/GroupTour_Tour" />
+      <nodes>
+        <classShapeMoniker Id="392d13ff-edfc-4ba1-b407-363c08a9aeb3" />
+        <classShapeMoniker Id="dbe58775-a13b-46ba-aa7f-0dfec1196f9b" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

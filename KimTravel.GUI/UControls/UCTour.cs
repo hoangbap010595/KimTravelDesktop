@@ -1,0 +1,66 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using KimTravel.GUI.FControls;
+using KimTravel.DAL.Services;
+
+namespace KimTravel.GUI.UControls
+{
+    public partial class UCTour : UserControl
+    {
+        private TourService objService;
+        public UCTour()
+        {
+            InitializeComponent();
+        }
+
+        private void loadDataGroup()
+        {
+            objService = new TourService();
+            var data = objService.GetList();
+            dataGridViewGroupTour.DataSource = data;
+            dataGridViewGroupTour.Update();
+            dataGridViewGroupTour.Refresh();
+        }
+        private void btnThemMoi_Click(object sender, EventArgs e)
+        {
+            frmActionTour frm = new frmActionTour();
+            frm.loadData = new frmActionTour.LoadData(loadDataGroup);
+            frm.ShowDialog();
+        }
+
+        private void UCGroupTour_Load(object sender, EventArgs e)
+        {
+            dataGridViewGroupTour.AutoGenerateColumns = false;
+            loadDataGroup();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                var senderGrid = (DataGridView)sender;
+                var id = int.Parse(senderGrid.Rows[e.RowIndex].Cells[0].Value.ToString());
+                if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                    e.RowIndex >= 0)
+                {
+                    frmActionTour frm = new frmActionTour(1, id);
+                    frm.loadData = new frmActionTour.LoadData(loadDataGroup);
+                    frm.ShowDialog();
+                }
+            }
+            catch { }
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            loadDataGroup();
+        }
+    }
+}
