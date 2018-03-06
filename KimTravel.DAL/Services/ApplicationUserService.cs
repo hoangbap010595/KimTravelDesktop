@@ -9,7 +9,7 @@ namespace KimTravel.DAL.Services
 {
     public class ApplicationUserService
     {
-        private readonly KimTravelDataDataContext db = new KimTravelDataDataContext();
+        private readonly KimTravelDataContext db = new KimTravelDataContext();
 
         public IQueryable GetList()
         {
@@ -60,7 +60,7 @@ namespace KimTravel.DAL.Services
             {
                 user.Password = HashText.GetSHA1HashData(user.Password);
                 user.DateCreate = DateTime.Now;
-                user.Status = 0;
+                user.Status = 1;
                 //Status:
                 //    0: Bình thường
                 //    1: Ngưng hoạt động
@@ -91,6 +91,7 @@ namespace KimTravel.DAL.Services
                     {
                         currUser.Locked = true;
                         currUser.LockDate = DateTime.Now;
+                        currUser.Status = 2;
                     }
                     else
                     {

@@ -50,6 +50,7 @@
             // txtPSID
             // 
             this.txtPSID.Depth = 0;
+            this.txtPSID.Enabled = false;
             this.txtPSID.Hint = "";
             this.txtPSID.Location = new System.Drawing.Point(119, 91);
             this.txtPSID.MouseState = MaterialSkin.MouseState.HOVER;

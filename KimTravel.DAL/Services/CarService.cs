@@ -9,21 +9,22 @@ namespace KimTravel.DAL.Services
 {
     public class CarService
     {
-        private readonly KimTravelDataDataContext db = new KimTravelDataDataContext();
+        private readonly KimTravelDataContext db = new KimTravelDataContext();
 
         public IQueryable GetList()
         {
-            var kindCar = Constant.getListKindCar();
             IQueryable data = from c in db.Cars
-                              from s in db.Staffs.Where(x => (x.Kind == 4 || x.Kind == 5) && x.Status == 1).DefaultIfEmpty()
+                              join t in db.CarTypes on c.Type equals t.ID
+                              join s in db.Staffs on c.StaffID equals s.ID
                               select new
                               {
                                   c.CarID,
                                   c.Code,
                                   c.Max,
-                                  Type = c.Type == 1 ? kindCar[0].Name : c.Type == 2 ? kindCar[1].Name : kindCar[2].Name,
+                                  Type = t.TypeName,
                                   c.StaffID,
-                                  s.Name
+                                  s.Name,
+                                  c.Note
                               };
 
             return data;
@@ -53,7 +54,7 @@ namespace KimTravel.DAL.Services
         {
             bool checkUName = db.Cars.Count(x => x.Code == obj.Code && x.CarID != obj.CarID) > 0 ? true : false;
             //bool check = db.ApplicationUsers.Count(x => x.Username == user.Username) > 0 ? true : false;
-            if (checkUName)
+            if (!checkUName)
             {
                 Car currObject = db.Cars.FirstOrDefault(x => x.CarID == obj.CarID);
                 if (currObject != null)
@@ -62,6 +63,7 @@ namespace KimTravel.DAL.Services
                     currObject.Type = obj.Type;
                     currObject.Max = obj.Max;
                     currObject.StaffID = obj.StaffID;
+                    currObject.Note = obj.Note;
                     db.SubmitChanges();
                 }
                 return true;

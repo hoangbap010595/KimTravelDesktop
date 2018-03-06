@@ -11,7 +11,7 @@ namespace KimTravel.DAL.Services
 {
     public class PartnerService
     {
-        private KimTravelDataDataContext db = new KimTravelDataDataContext();
+        private KimTravelDataContext db = new KimTravelDataContext();
 
         public IQueryable GetList()
         {
@@ -44,6 +44,13 @@ namespace KimTravel.DAL.Services
                                   Status = p.Status == 1 ? "Bình thường" : "Ngưng hợp tác"
                               };
             return data;
+        }
+        public string GetPartnerCode()
+        {
+            var data = db.Partners.OrderByDescending(x => x.PartnerCode).FirstOrDefault().PartnerCode;
+            var no = data == null ? "0" : data.Remove(0, 2);
+            int newCode = int.Parse(no) + 1;
+            return "DT" + string.Format("{0:000000}", newCode);
         }
         public Partner GetByID(int id)
         {

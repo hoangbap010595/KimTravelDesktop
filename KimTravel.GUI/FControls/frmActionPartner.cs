@@ -57,6 +57,9 @@ namespace KimTravel.GUI.FControls
                 txtPhone.Text = _objectData.Phone;
                 txtNote.Text = _objectData.Note;
                 cbbStatus.SelectedValue = _objectData.Status;
+            }else
+            {
+                txtPartnerCode.Text = gtService.GetPartnerCode();
             }
         }
 

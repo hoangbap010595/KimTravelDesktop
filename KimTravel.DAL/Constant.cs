@@ -18,14 +18,6 @@ namespace KimTravel.DAL
             data.Add(new StatusPartner { ID = 2, Name = "Ngưng hợp tác" });
             return data;
         }
-        public static List<KindCar> getListKindCar()
-        {
-            List<KindCar> data = new List<KindCar>();
-            data.Add(new KindCar { ID = 1, Name = "Dưới 10 chỗ" });
-            data.Add(new KindCar { ID = 2, Name = "Từ 10-20 chỗ" });
-            data.Add(new KindCar { ID = 3, Name = "Trên 20 chỗ" });
-            return data;
-        }
         public static List<StatusStaff> getListStatusStaff()
         {
             List<StatusStaff> data = new List<StatusStaff>();
@@ -44,9 +36,9 @@ namespace KimTravel.DAL
         public static List<KindStaff> getListKindStaff()
         {
             List<KindStaff> data = new List<KindStaff>();
-            data.Add(new KindStaff { ID = 2, Name = "Hướng dẫn viên (Nội)" });
+            data.Add(new KindStaff { ID = 2, Name = "Hướng dẫn viên" });
             data.Add(new KindStaff { ID = 3, Name = "Hướng dẫn viên (Ngoài)" });
-            data.Add(new KindStaff { ID = 4, Name = "Tài xế (Nội)" });
+            data.Add(new KindStaff { ID = 4, Name = "Tài xế" });
             data.Add(new KindStaff { ID = 5, Name = "Tài xế (Ngoài)" });
             data.Add(new KindStaff { ID = 1, Name = "Nhân viên đối tác" });
             return data;

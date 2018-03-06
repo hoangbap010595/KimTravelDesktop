@@ -68,6 +68,9 @@ namespace KimTravel.GUI.FControls
                 cbbStatus.SelectedValue = _objectData.Status;
                 cbbKindStaff.SelectedValue = _objectData.Kind;
                 cbbPartnerID.SelectedValue = _objectData.PartnerID == null ? 0 : _objectData.PartnerID;
+            }else
+            {
+                txtPSID.Text = gtService.GetPSID();
             }
         }
 

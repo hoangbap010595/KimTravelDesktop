@@ -72,9 +72,9 @@ namespace KimTravel.GUI.FControls
             Tour groupTourNew = new Tour();
             groupTourNew.TourID = _objID;
             groupTourNew.Name = txtName.Text;
-            groupTourNew.PriceSale = int.Parse(txtGiaBan.Text);
-            groupTourNew.PriceReceive = int.Parse(txtGiaNhan.Text);
-            groupTourNew.PriceVTQ = int.Parse(txtPriceVTQ.Text);
+            groupTourNew.PriceSale = int.Parse(txtGiaBan.Text == "" ? "0" : txtGiaBan.Text);
+            groupTourNew.PriceReceive = int.Parse(txtGiaNhan.Text == "" ? "0" : txtGiaNhan.Text);
+            groupTourNew.PriceVTQ = int.Parse(txtPriceVTQ.Text == "" ? "0" : txtPriceVTQ.Text);
             groupTourNew.Enable = ckEnabled.Checked;
             groupTourNew.GroupID = int.Parse(cbbGroupTour.SelectedValue.ToString());
             var rs = false;

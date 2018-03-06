@@ -21,6 +21,8 @@ namespace KimTravel.GUI.FControls
         private Car _objectData;
         private CarService carService = new CarService();
         private StaffService staffService = new StaffService();
+        private CarTypeService typeCarService = new CarTypeService();
+        
         private int _action = -1;
         private int _objID = -1;
         public delegate void LoadData();
@@ -41,9 +43,9 @@ namespace KimTravel.GUI.FControls
             mSkin.ColorScheme = new ColorScheme(Primary.Blue600, Primary.BlueGrey900, Primary.DeepPurple100, Accent.Cyan700, TextShade.WHITE);
             txtCode.Focus();
 
-            cbbType.DataSource = Constant.getListKindCar();
+            cbbType.DataSource = typeCarService.GetListCobobox();
             cbbType.ValueMember = "ID";
-            cbbType.DisplayMember = "Name";
+            cbbType.DisplayMember = "TypeName";
 
             cbbKindStaff.DataSource = staffService.GetStaffTaiXe();
             cbbKindStaff.ValueMember = "ID";
@@ -60,6 +62,7 @@ namespace KimTravel.GUI.FControls
                 txtMax.Text = _objectData.Max.ToString();
                 cbbType.SelectedValue = _objectData.Type;
                 cbbKindStaff.SelectedValue = _objectData.StaffID == null ? 0 : _objectData.StaffID;
+                txtNote.Text = _objectData.Note;
             }
         }
 
@@ -75,7 +78,7 @@ namespace KimTravel.GUI.FControls
             car.Code = txtCode.Text;
             car.Max = int.Parse(txtMax.Text);
             car.Type = int.Parse(cbbType.SelectedValue.ToString());
-
+            car.Note = txtNote.Text;
             var sID = cbbKindStaff.Enabled == true ? cbbKindStaff.SelectedValue.ToString() : "-1";
             car.StaffID = int.Parse(sID);
 
@@ -100,7 +103,7 @@ namespace KimTravel.GUI.FControls
                 this.Close();
             }
             else
-                MessageBox.Show("Mã nhân viên tồn tại trong hệ thống. Vui lòng kiểm tra lại.");
+                MessageBox.Show("Biển số xe tồn tại trong hệ thống. Vui lòng kiểm tra lại.");
 
         }
 

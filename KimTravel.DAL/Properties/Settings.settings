@@ -5,10 +5,26 @@
     <Setting Name="KimTravelConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=DESKTOP-RA24QEC\SQLEXPRESS;Initial Catalog=KimTravel;User ID=sa;Password=Hoang911&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=125.212.221.110;Initial Catalog=KimTravelDesktop;Persist Security Info=True;User ID=hoang1995&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=DESKTOP-RA24QEC\SQLEXPRESS;Initial Catalog=KimTravel;User ID=sa;Password=Hoang911</Value>
+      <Value Profile="(Default)">Data Source=125.212.221.110;Initial Catalog=KimTravelDesktop;Persist Security Info=True;User ID=hoang1995</Value>
+    </Setting>
+    <Setting Name="KimTravelDesktopConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=125.212.221.110;Initial Catalog=KimTravelDesktop;User ID=hoang1995;Password=Hoang911&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=125.212.221.110;Initial Catalog=KimTravelDesktop;User ID=hoang1995;Password=Hoang911</Value>
+    </Setting>
+    <Setting Name="KimTravelDesktopConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=125.212.221.110;Initial Catalog=KimTravelDesktop;Persist Security Info=True;User ID=hoang1995;Password=Hoang911&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=125.212.221.110;Initial Catalog=KimTravelDesktop;Persist Security Info=True;User ID=hoang1995;Password=Hoang911</Value>
     </Setting>
   </Settings>
 </SettingsFile>

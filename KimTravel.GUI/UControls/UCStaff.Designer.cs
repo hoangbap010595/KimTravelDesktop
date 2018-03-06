@@ -38,7 +38,6 @@
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnExportExcel = new System.Windows.Forms.Button();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPSID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,7 +94,6 @@
             this.dataGridViewGroupTour.ColumnHeadersHeight = 30;
             this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
-            this.colRNum,
             this.colPSID,
             this.colName,
             this.colAddress,
@@ -115,6 +113,7 @@
             this.dataGridViewGroupTour.Size = new System.Drawing.Size(1053, 468);
             this.dataGridViewGroupTour.TabIndex = 0;
             this.dataGridViewGroupTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridViewGroupTour.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewGroupTour_RowPostPaint);
             // 
             // btnThemMoi
             // 
@@ -156,15 +155,6 @@
             this.colID.Name = "colID";
             this.colID.ReadOnly = true;
             this.colID.Visible = false;
-            // 
-            // colRNum
-            // 
-            this.colRNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colRNum.DataPropertyName = "RNum";
-            this.colRNum.HeaderText = "No.";
-            this.colRNum.Name = "colRNum";
-            this.colRNum.ReadOnly = true;
-            this.colRNum.Width = 40;
             // 
             // colPSID
             // 
@@ -271,7 +261,6 @@
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnExportExcel;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPSID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAddress;

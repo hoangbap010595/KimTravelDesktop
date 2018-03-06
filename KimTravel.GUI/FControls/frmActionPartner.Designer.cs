@@ -46,6 +46,7 @@
             // txtPartnerCode
             // 
             this.txtPartnerCode.Depth = 0;
+            this.txtPartnerCode.Enabled = false;
             this.txtPartnerCode.Hint = "";
             this.txtPartnerCode.Location = new System.Drawing.Point(102, 92);
             this.txtPartnerCode.MouseState = MaterialSkin.MouseState.HOVER;

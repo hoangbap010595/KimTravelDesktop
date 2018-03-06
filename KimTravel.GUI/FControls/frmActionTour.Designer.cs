@@ -207,6 +207,8 @@
             // 
             this.ckEnabled.AutoSize = true;
             this.ckEnabled.BackColor = System.Drawing.Color.Transparent;
+            this.ckEnabled.Checked = true;
+            this.ckEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckEnabled.Depth = 0;
             this.ckEnabled.Font = new System.Drawing.Font("Roboto", 10F);
             this.ckEnabled.Location = new System.Drawing.Point(120, 304);

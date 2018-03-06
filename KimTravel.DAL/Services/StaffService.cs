@@ -9,34 +9,41 @@ namespace KimTravel.DAL.Services
 {
     public class StaffService
     {
-        private readonly KimTravelDataDataContext db = new KimTravelDataDataContext();
+        private readonly KimTravelDataContext db = new KimTravelDataContext();
 
         public IQueryable GetList()
         {
-            int index = 0;
             var kindStaff = Constant.getListKindStaff();
             var statusStaff = Constant.getListStatusStaff();
             var data = from s in db.Staffs
-                              from p in db.Partners.Where(x => x.PartnerID == s.PartnerID).DefaultIfEmpty()
-                              orderby s.Name
-                              select new
-                              {
-                                  s.ID,
-                                  s.Name,
-                                  s.Address,
-                                  s.Phone,
-                                  s.PartnerID,
-                                  PName = p.Name,
-                                  Status = s.Status == 1 ? statusStaff[0].Name : s.Status == 2 ? statusStaff[0].Name : statusStaff[0].Name,
-                                  Kind = s.Kind == 1 ? kindStaff[4].Name : s.Kind == 2 ? kindStaff[0].Name : s.Kind == 3 ? kindStaff[1].Name : s.Kind == 4 ? kindStaff[2].Name : kindStaff[3].Name,
-                                  s.Note,
-                                  s.PSID,
-                                  RNum = index + 1
-                              };
+                       from p in db.Partners.Where(x => x.PartnerID == s.PartnerID).DefaultIfEmpty()
+                       orderby s.PSID
+                       orderby s.Name
+                       orderby s.Kind
+                       select new
+                       {
+                           s.ID,
+                           s.Name,
+                           s.Address,
+                           s.Phone,
+                           s.PartnerID,
+                           PName = p.Name,
+                           Status = s.Status == 1 ? statusStaff[0].Name : s.Status == 2 ? statusStaff[0].Name : statusStaff[0].Name,
+                           Kind = s.Kind == 1 ? kindStaff[4].Name : s.Kind == 2 ? kindStaff[0].Name : s.Kind == 3 ? kindStaff[1].Name : s.Kind == 4 ? kindStaff[2].Name : kindStaff[3].Name,
+                           s.Note,
+                           s.PSID
+                       };
 
             return data;
         }
 
+        public string GetPSID()
+        {
+            var data = db.Staffs.OrderByDescending(x => x.PSID).FirstOrDefault().PSID;
+            var no = data == null ? "0" : data.Remove(0, 2);
+            int newPSID = int.Parse(no) + 1;
+            return "NV" + string.Format("{0:000000}", newPSID);
+        }
         public Staff GetByID(int id)
         {
             Staff data = db.Staffs.FirstOrDefault(x => x.ID == id);

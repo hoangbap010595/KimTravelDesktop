@@ -26,11 +26,33 @@ namespace KimTravel.DAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-RA24QEC\\SQLEXPRESS;Initial Catalog=KimTravel;User ID=sa;Passw" +
-            "ord=Hoang911")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=125.212.221.110;Initial Catalog=KimTravelDesktop;Persist Security Inf" +
+            "o=True;User ID=hoang1995")]
         public string KimTravelConnectionString {
             get {
                 return ((string)(this["KimTravelConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=125.212.221.110;Initial Catalog=KimTravelDesktop;User ID=hoang1995;Pa" +
+            "ssword=Hoang911")]
+        public string KimTravelDesktopConnectionString {
+            get {
+                return ((string)(this["KimTravelDesktopConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=125.212.221.110;Initial Catalog=KimTravelDesktop;Persist Security Inf" +
+            "o=True;User ID=hoang1995;Password=Hoang911")]
+        public string KimTravelDesktopConnectionString1 {
+            get {
+                return ((string)(this["KimTravelDesktopConnectionString1"]));
             }
         }
     }

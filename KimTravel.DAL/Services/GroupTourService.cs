@@ -10,7 +10,7 @@ namespace KimTravel.DAL.Services
 {
     public class GroupTourService
     {
-        private readonly KimTravelDataDataContext db = new KimTravelDataDataContext();
+        private readonly KimTravelDataContext db = new KimTravelDataContext();
 
         public IEnumerable<GroupTour> GetList()
         {

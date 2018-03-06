@@ -108,6 +108,7 @@
             this.dataGridViewGroupTour.Size = new System.Drawing.Size(1053, 468);
             this.dataGridViewGroupTour.TabIndex = 0;
             this.dataGridViewGroupTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridViewGroupTour.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewGroupTour_RowPostPaint);
             // 
             // btnThemMoi
             // 
@@ -165,8 +166,7 @@
             // 
             this.colPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPhone.DataPropertyName = "Phone";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Format = "dd-MM-yyyy";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.NullValue = null;
             this.colPhone.DefaultCellStyle = dataGridViewCellStyle2;
             this.colPhone.HeaderText = "Điện thoại";

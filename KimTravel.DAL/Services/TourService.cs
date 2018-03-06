@@ -9,7 +9,7 @@ namespace KimTravel.DAL.Services
 {
     public class TourService
     {
-        private readonly KimTravelDataDataContext db = new KimTravelDataDataContext();
+        private readonly KimTravelDataContext db = new KimTravelDataContext();
 
         public IQueryable GetList()
         {

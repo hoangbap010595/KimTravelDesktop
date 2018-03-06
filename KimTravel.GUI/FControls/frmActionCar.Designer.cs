@@ -37,6 +37,8 @@
             this.cbbType = new System.Windows.Forms.ComboBox();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.cbbKindStaff = new System.Windows.Forms.ComboBox();
+            this.txtNote = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
             // txtCode
@@ -100,12 +102,12 @@
             // btnUpdate
             // 
             this.btnUpdate.Depth = 0;
-            this.btnUpdate.Location = new System.Drawing.Point(85, 332);
+            this.btnUpdate.Location = new System.Drawing.Point(85, 346);
             this.btnUpdate.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Primary = true;
             this.btnUpdate.Size = new System.Drawing.Size(180, 39);
-            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.TabIndex = 8;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -158,6 +160,35 @@
             this.cbbKindStaff.Size = new System.Drawing.Size(223, 21);
             this.cbbKindStaff.TabIndex = 6;
             // 
+            // txtNote
+            // 
+            this.txtNote.Depth = 0;
+            this.txtNote.Hint = "";
+            this.txtNote.Location = new System.Drawing.Point(119, 286);
+            this.txtNote.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtNote.Name = "txtNote";
+            this.txtNote.PasswordChar = '\0';
+            this.txtNote.SelectedText = "";
+            this.txtNote.SelectionLength = 0;
+            this.txtNote.SelectionStart = 0;
+            this.txtNote.Size = new System.Drawing.Size(223, 23);
+            this.txtNote.TabIndex = 7;
+            this.txtNote.UseSystemPasswordChar = false;
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(9, 289);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(59, 19);
+            this.materialLabel2.TabIndex = 0;
+            this.materialLabel2.Text = "Ghi chú";
+            // 
             // frmActionCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -168,8 +199,10 @@
             this.Controls.Add(this.materialLabel7);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.materialLabel6);
+            this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.materialLabel3);
             this.Controls.Add(this.materialLabel1);
+            this.Controls.Add(this.txtNote);
             this.Controls.Add(this.txtMax);
             this.Controls.Add(this.txtCode);
             this.MaximizeBox = false;
@@ -198,5 +231,7 @@
         private System.Windows.Forms.ComboBox cbbType;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private System.Windows.Forms.ComboBox cbbKindStaff;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtNote;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
     }
 }
