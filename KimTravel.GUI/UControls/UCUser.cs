@@ -9,21 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using KimTravel.GUI.FControls;
 using KimTravel.DAL.Services;
-using KimTravel.DAL;
 
 namespace KimTravel.GUI.UControls
 {
-    public partial class UCStaff : UserControl
+    public partial class UCUser : UserControl
     {
-        private StaffService objService;
-        public UCStaff()
+        private ApplicationUserService objService;
+        public UCUser()
         {
             InitializeComponent();
         }
 
         private void loadDataGroup()
         {
-            objService = new StaffService();
+            objService = new ApplicationUserService();
             var data = objService.GetList();
             dataGridViewGroupTour.DataSource = data;
             dataGridViewGroupTour.Update();
@@ -31,8 +30,8 @@ namespace KimTravel.GUI.UControls
         }
         private void btnThemMoi_Click(object sender, EventArgs e)
         {
-            frmActionStaff frm = new frmActionStaff();
-            frm.loadData = new frmActionStaff.LoadData(loadDataGroup);
+            frmActionUser frm = new frmActionUser();
+            frm.loadData = new frmActionUser.LoadData(loadDataGroup);
             frm.ShowDialog();
         }
 
@@ -51,8 +50,8 @@ namespace KimTravel.GUI.UControls
                 if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                     e.RowIndex >= 0)
                 {
-                    frmActionStaff frm = new frmActionStaff(1, id);
-                    frm.loadData = new frmActionStaff.LoadData(loadDataGroup);
+                    frmActionUser frm = new frmActionUser(1, id);
+                    frm.loadData = new frmActionUser.LoadData(loadDataGroup);
                     frm.ShowDialog();
                 }
             }
@@ -62,11 +61,6 @@ namespace KimTravel.GUI.UControls
         private void btnLoad_Click(object sender, EventArgs e)
         {
             loadDataGroup();
-        }
-
-        private void btnExportExcel_Click(object sender, EventArgs e)
-        {
-            ExcelLibrary.ExportToExcel(dataGridViewGroupTour);
         }
     }
 }

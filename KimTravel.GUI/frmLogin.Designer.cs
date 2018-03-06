@@ -115,7 +115,7 @@
             this.txtUserName.SelectionStart = 0;
             this.txtUserName.Size = new System.Drawing.Size(222, 23);
             this.txtUserName.TabIndex = 1;
-            this.txtUserName.Text = "lchoang1995@gmail.com";
+            this.txtUserName.Text = "hoanglc3";
             this.txtUserName.UseSystemPasswordChar = false;
             this.txtUserName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserName_KeyPress);
             // 
@@ -132,7 +132,7 @@
             this.txtPassword.SelectionStart = 0;
             this.txtPassword.Size = new System.Drawing.Size(222, 23);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.Text = "Omega@111";
+            this.txtPassword.Text = "Hoang911";
             this.txtPassword.UseSystemPasswordChar = false;
             this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 

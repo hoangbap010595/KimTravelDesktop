@@ -28,9 +28,26 @@ namespace KimTravel.DAL.Services
                               };
             return data;
         }
+
+        public IQueryable GetListFind(string content)
+        {
+            IQueryable data = from p in db.Partners
+                              where (p.Name.Contains(content) || p.Address.Contains(content) || p.PartnerCode.Contains(content)) && p.Status == 1
+                              select new
+                              {
+                                  p.PartnerID,
+                                  p.PartnerCode,
+                                  p.Name,
+                                  p.Address,
+                                  p.Phone,
+                                  p.Note,
+                                  Status = p.Status == 1 ? "Bình thường" : "Ngưng hợp tác"
+                              };
+            return data;
+        }
         public Partner GetByID(int id)
         {
-            Partner data = db.Partners.FirstOrDefault(x=>x.PartnerID == id);
+            Partner data = db.Partners.FirstOrDefault(x => x.PartnerID == id);
 
             return data;
         }

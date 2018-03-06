@@ -45,20 +45,21 @@ namespace KimTravel.GUI
                 string user = txtUserName.Text;
                 string pass = txtPassword.Text;
                 int rs = userService.CheckLogin(user, pass);
-              
+
                 switch (rs)
                 {
                     case -1:
                         MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!\nVui lòng thử lại!");
                         break;
-                    case 0:
+                    case 1:
                         Constant.CurrentSessionUser = user;
-                        frmMain frm = new frmMain();
-                        frm.Show();
                         this.Hide();
                         this.Close();
                         break;
-                    case 1:
+                    case 2:
+                        MessageBox.Show("Tài khoản không có quyền truy cập vào hệ thống !\nVui lòng liên hệ người quản trị!");
+                        break;
+                    case 0:
                         MessageBox.Show("Tài khoản đã bị khóa !\nVui lòng liên hệ người quản trị!");
                         break;
                 }
@@ -81,7 +82,8 @@ namespace KimTravel.GUI
         }
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            if (Constant.CurrentSessionUser == "")
+                Application.Exit();
         }
 
     }

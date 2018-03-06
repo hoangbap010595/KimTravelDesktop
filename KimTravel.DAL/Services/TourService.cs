@@ -11,9 +11,41 @@ namespace KimTravel.DAL.Services
     {
         private readonly KimTravelDataDataContext db = new KimTravelDataDataContext();
 
-        public IEnumerable<Tour> GetList()
+        public IQueryable GetList()
         {
-            IEnumerable<Tour> data = db.Tours.ToList();
+            IQueryable data = from t in db.Tours
+                              join g in db.GroupTours on t.GroupID equals g.GroupID
+                              select new
+                              {
+                                  t.TourID,
+                                  t.Name,
+                                  t.PriceReceive,
+                                  t.PriceSale,
+                                  t.PriceVTQ,
+                                  t.Enable,
+                                  t.DateCreate,
+                                  GName = g.Name
+                              };
+
+            return data;
+        }
+    
+        public IEnumerable<Tour> GetListCobobox()
+        {
+            IEnumerable<Tour> data = db.Tours.Where(x => x.Enable == true);
+            return data;
+        }
+
+        public IQueryable GetListForGroup(int GroupID)
+        {
+            IQueryable data = from t in db.Tours
+                              join g in db.GroupTours on t.GroupID equals g.GroupID
+                              where t.GroupID == GroupID && t.Enable == true
+                              select new
+                              {
+                                  t.TourID,
+                                  t.Name
+                              };
 
             return data;
         }
@@ -21,7 +53,6 @@ namespace KimTravel.DAL.Services
         public Tour GetByID(int id)
         {
             Tour data = db.Tours.FirstOrDefault(x => x.TourID == id);
-
             return data;
         }
 
@@ -44,7 +75,7 @@ namespace KimTravel.DAL.Services
         {
             bool checkUName = db.Tours.Count(x => x.Name == gTour.Name && x.GroupID != gTour.GroupID) > 0 ? true : false;
             //bool check = db.ApplicationUsers.Count(x => x.Username == user.Username) > 0 ? true : false;
-            if (checkUName)
+            if (!checkUName)
             {
                 Tour currObject = db.Tours.FirstOrDefault(x => x.GroupID == gTour.GroupID);
                 if (currObject != null)

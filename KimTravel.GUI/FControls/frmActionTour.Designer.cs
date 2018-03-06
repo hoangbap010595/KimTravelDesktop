@@ -195,11 +195,12 @@
             // cbbGroupTour
             // 
             this.cbbGroupTour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbGroupTour.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbGroupTour.FormattingEnabled = true;
-            this.cbbGroupTour.ItemHeight = 13;
-            this.cbbGroupTour.Location = new System.Drawing.Point(120, 93);
+            this.cbbGroupTour.ItemHeight = 16;
+            this.cbbGroupTour.Location = new System.Drawing.Point(120, 92);
             this.cbbGroupTour.Name = "cbbGroupTour";
-            this.cbbGroupTour.Size = new System.Drawing.Size(223, 21);
+            this.cbbGroupTour.Size = new System.Drawing.Size(223, 24);
             this.cbbGroupTour.TabIndex = 6;
             // 
             // ckEnabled
@@ -208,7 +209,7 @@
             this.ckEnabled.BackColor = System.Drawing.Color.Transparent;
             this.ckEnabled.Depth = 0;
             this.ckEnabled.Font = new System.Drawing.Font("Roboto", 10F);
-            this.ckEnabled.Location = new System.Drawing.Point(120, 303);
+            this.ckEnabled.Location = new System.Drawing.Point(120, 304);
             this.ckEnabled.Margin = new System.Windows.Forms.Padding(0);
             this.ckEnabled.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ckEnabled.MouseState = MaterialSkin.MouseState.HOVER;

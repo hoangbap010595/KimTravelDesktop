@@ -13,10 +13,12 @@ namespace KimTravel.DAL.Services
 
         public IQueryable GetList()
         {
+            int index = 0;
             var kindStaff = Constant.getListKindStaff();
             var statusStaff = Constant.getListStatusStaff();
-            IQueryable data = from s in db.Staffs
+            var data = from s in db.Staffs
                               from p in db.Partners.Where(x => x.PartnerID == s.PartnerID).DefaultIfEmpty()
+                              orderby s.Name
                               select new
                               {
                                   s.ID,
@@ -28,7 +30,8 @@ namespace KimTravel.DAL.Services
                                   Status = s.Status == 1 ? statusStaff[0].Name : s.Status == 2 ? statusStaff[0].Name : statusStaff[0].Name,
                                   Kind = s.Kind == 1 ? kindStaff[4].Name : s.Kind == 2 ? kindStaff[0].Name : s.Kind == 3 ? kindStaff[1].Name : s.Kind == 4 ? kindStaff[2].Name : kindStaff[3].Name,
                                   s.Note,
-                                  s.PSID
+                                  s.PSID,
+                                  RNum = index + 1
                               };
 
             return data;
@@ -40,7 +43,18 @@ namespace KimTravel.DAL.Services
 
             return data;
         }
+        public IQueryable GetStaffOfPartner(int partnerID)
+        {
+            IQueryable data = from s in db.Staffs
+                              where s.Status == 1 && s.Kind == 1 && s.PartnerID == partnerID
+                              select new
+                              {
+                                  s.ID,
+                                  s.Name,
+                              };
 
+            return data;
+        }
         public IQueryable GetStaffTaiXe()
         {
             IQueryable data = from s in db.Staffs

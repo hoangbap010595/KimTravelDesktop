@@ -30,6 +30,7 @@ namespace KimTravel.DAL.Services
 
             return data;
         }
+
         public bool Insert(GroupTour gTour)
         {
             bool checkName = db.GroupTours.Count(x => x.Name == gTour.Name) > 0 ? true : false;

@@ -69,6 +69,18 @@
     <Compile Include="FControls\frmActionCar.Designer.cs">
       <DependentUpon>frmActionCar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FControls\frmFindPartner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FControls\frmFindPartner.Designer.cs">
+      <DependentUpon>frmFindPartner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FControls\frmActionUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FControls\frmActionUser.Designer.cs">
+      <DependentUpon>frmActionUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="FControls\frmActionTour.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +119,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UControls\UCBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControls\UCBook.Designer.cs">
+      <DependentUpon>UCBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControls\UCListBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControls\UCListBook.Designer.cs">
+      <DependentUpon>UCListBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControls\UCUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControls\UCUser.Designer.cs">
+      <DependentUpon>UCUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="UControls\UCTour.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -140,6 +170,12 @@
     <EmbeddedResource Include="FControls\frmActionCar.resx">
       <DependentUpon>frmActionCar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FControls\frmFindPartner.resx">
+      <DependentUpon>frmFindPartner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FControls\frmActionUser.resx">
+      <DependentUpon>frmActionUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FControls\frmActionTour.resx">
       <DependentUpon>frmActionTour.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +204,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UControls\UCBook.resx">
+      <DependentUpon>UCBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControls\UCListBook.resx">
+      <DependentUpon>UCListBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControls\UCUser.resx">
+      <DependentUpon>UCUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UControls\UCTour.resx">
       <DependentUpon>UCTour.cs</DependentUpon>
     </EmbeddedResource>

@@ -42,8 +42,9 @@
             this.kêtThucToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nghiêpVuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookTourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bookTourToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.danhSachTourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bookTourToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.danhSáchĐãBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.phânBôXeTheoTourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quanLyĐôiTacToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quanLyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,13 +70,13 @@
             this.txt_bar_CurrentUser.AutoSize = true;
             this.txt_bar_CurrentUser.BackColor = System.Drawing.Color.Transparent;
             this.txt_bar_CurrentUser.Depth = 0;
-            this.txt_bar_CurrentUser.Font = new System.Drawing.Font("Roboto", 11F);
+            this.txt_bar_CurrentUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txt_bar_CurrentUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.txt_bar_CurrentUser.Location = new System.Drawing.Point(9, 2);
+            this.txt_bar_CurrentUser.Location = new System.Drawing.Point(9, 4);
             this.txt_bar_CurrentUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txt_bar_CurrentUser.MouseState = MaterialSkin.MouseState.HOVER;
             this.txt_bar_CurrentUser.Name = "txt_bar_CurrentUser";
-            this.txt_bar_CurrentUser.Size = new System.Drawing.Size(117, 19);
+            this.txt_bar_CurrentUser.Size = new System.Drawing.Size(118, 18);
             this.txt_bar_CurrentUser.TabIndex = 0;
             this.txt_bar_CurrentUser.Text = "bar_CurrentUser";
             // 
@@ -88,20 +89,21 @@
             this.panelStatusBar.Location = new System.Drawing.Point(2, 505);
             this.panelStatusBar.Margin = new System.Windows.Forms.Padding(2);
             this.panelStatusBar.Name = "panelStatusBar";
-            this.panelStatusBar.Size = new System.Drawing.Size(1043, 26);
+            this.panelStatusBar.Size = new System.Drawing.Size(1093, 26);
             this.panelStatusBar.TabIndex = 6;
             // 
             // txt_bar_TimeUsed
             // 
+            this.txt_bar_TimeUsed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_bar_TimeUsed.BackColor = System.Drawing.Color.Transparent;
             this.txt_bar_TimeUsed.Depth = 0;
             this.txt_bar_TimeUsed.Font = new System.Drawing.Font("Roboto", 11F);
             this.txt_bar_TimeUsed.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.txt_bar_TimeUsed.Location = new System.Drawing.Point(747, 2);
+            this.txt_bar_TimeUsed.Location = new System.Drawing.Point(1010, 3);
             this.txt_bar_TimeUsed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txt_bar_TimeUsed.MouseState = MaterialSkin.MouseState.HOVER;
             this.txt_bar_TimeUsed.Name = "txt_bar_TimeUsed";
-            this.txt_bar_TimeUsed.Size = new System.Drawing.Size(62, 14);
+            this.txt_bar_TimeUsed.Size = new System.Drawing.Size(73, 20);
             this.txt_bar_TimeUsed.TabIndex = 0;
             this.txt_bar_TimeUsed.Text = "00:00:00";
             this.txt_bar_TimeUsed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -127,7 +129,7 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(0);
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(1047, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(1097, 25);
             this.menuStrip1.TabIndex = 7;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -149,6 +151,7 @@
             this.quanLyTaiKhoanToolStripMenuItem.Name = "quanLyTaiKhoanToolStripMenuItem";
             this.quanLyTaiKhoanToolStripMenuItem.Size = new System.Drawing.Size(203, 24);
             this.quanLyTaiKhoanToolStripMenuItem.Text = "Quản lý Tài khoản";
+            this.quanLyTaiKhoanToolStripMenuItem.Click += new System.EventHandler(this.quanLyTaiKhoanToolStripMenuItem_Click);
             // 
             // quanLyPhânQuyênToolStripMenuItem
             // 
@@ -187,26 +190,35 @@
             // bookTourToolStripMenuItem
             // 
             this.bookTourToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bookTourToolStripMenuItem1,
             this.danhSachTourToolStripMenuItem,
+            this.bookTourToolStripMenuItem1,
+            this.danhSáchĐãBookToolStripMenuItem,
             this.phânBôXeTheoTourToolStripMenuItem});
             this.bookTourToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("bookTourToolStripMenuItem.Image")));
             this.bookTourToolStripMenuItem.Name = "bookTourToolStripMenuItem";
             this.bookTourToolStripMenuItem.Size = new System.Drawing.Size(196, 24);
             this.bookTourToolStripMenuItem.Text = "Quản lý Tour";
             // 
-            // bookTourToolStripMenuItem1
-            // 
-            this.bookTourToolStripMenuItem1.Name = "bookTourToolStripMenuItem1";
-            this.bookTourToolStripMenuItem1.Size = new System.Drawing.Size(208, 24);
-            this.bookTourToolStripMenuItem1.Text = "Book tour";
-            // 
             // danhSachTourToolStripMenuItem
             // 
             this.danhSachTourToolStripMenuItem.Name = "danhSachTourToolStripMenuItem";
             this.danhSachTourToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
-            this.danhSachTourToolStripMenuItem.Text = "Danh sách tour";
+            this.danhSachTourToolStripMenuItem.Text = "Danh sách";
             this.danhSachTourToolStripMenuItem.Click += new System.EventHandler(this.danhSachTourToolStripMenuItem_Click);
+            // 
+            // bookTourToolStripMenuItem1
+            // 
+            this.bookTourToolStripMenuItem1.Name = "bookTourToolStripMenuItem1";
+            this.bookTourToolStripMenuItem1.Size = new System.Drawing.Size(208, 24);
+            this.bookTourToolStripMenuItem1.Text = "Book";
+            this.bookTourToolStripMenuItem1.Click += new System.EventHandler(this.bookTourToolStripMenuItem1_Click);
+            // 
+            // danhSáchĐãBookToolStripMenuItem
+            // 
+            this.danhSáchĐãBookToolStripMenuItem.Name = "danhSáchĐãBookToolStripMenuItem";
+            this.danhSáchĐãBookToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
+            this.danhSáchĐãBookToolStripMenuItem.Text = "Danh sách đã book";
+            this.danhSáchĐãBookToolStripMenuItem.Click += new System.EventHandler(this.danhSáchĐãBookToolStripMenuItem_Click);
             // 
             // phânBôXeTheoTourToolStripMenuItem
             // 
@@ -246,7 +258,7 @@
             // 
             this.xeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("xeToolStripMenuItem.Image")));
             this.xeToolStripMenuItem.Name = "xeToolStripMenuItem";
-            this.xeToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.xeToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
             this.xeToolStripMenuItem.Text = "Xe";
             this.xeToolStripMenuItem.Click += new System.EventHandler(this.xeToolStripMenuItem_Click);
             // 
@@ -254,7 +266,7 @@
             // 
             this.quanLyNhânViênToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("quanLyNhânViênToolStripMenuItem.Image")));
             this.quanLyNhânViênToolStripMenuItem.Name = "quanLyNhânViênToolStripMenuItem";
-            this.quanLyNhânViênToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.quanLyNhânViênToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
             this.quanLyNhânViênToolStripMenuItem.Text = "Nhân viên";
             this.quanLyNhânViênToolStripMenuItem.Click += new System.EventHandler(this.quanLyNhânViênToolStripMenuItem_Click);
             // 
@@ -262,14 +274,14 @@
             // 
             this.loaiDichVuToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loaiDichVuToolStripMenuItem.Image")));
             this.loaiDichVuToolStripMenuItem.Name = "loaiDichVuToolStripMenuItem";
-            this.loaiDichVuToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.loaiDichVuToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
             this.loaiDichVuToolStripMenuItem.Text = "Loại dịch vụ";
             // 
             // khachSanToolStripMenuItem
             // 
             this.khachSanToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("khachSanToolStripMenuItem.Image")));
             this.khachSanToolStripMenuItem.Name = "khachSanToolStripMenuItem";
-            this.khachSanToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.khachSanToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
             this.khachSanToolStripMenuItem.Text = "Khách sạn";
             // 
             // baoCaoToolStripMenuItem
@@ -317,7 +329,7 @@
             this.panelControlMain.Location = new System.Drawing.Point(2, 27);
             this.panelControlMain.Margin = new System.Windows.Forms.Padding(2);
             this.panelControlMain.Name = "panelControlMain";
-            this.panelControlMain.Size = new System.Drawing.Size(1043, 474);
+            this.panelControlMain.Size = new System.Drawing.Size(1093, 474);
             this.panelControlMain.TabIndex = 8;
             // 
             // tableLayoutPanelMain
@@ -337,23 +349,25 @@
             this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanelMain.Size = new System.Drawing.Size(1047, 533);
+            this.tableLayoutPanelMain.Size = new System.Drawing.Size(1097, 533);
             this.tableLayoutPanelMain.TabIndex = 9;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1050, 600);
+            this.ClientSize = new System.Drawing.Size(1100, 600);
             this.Controls.Add(this.tableLayoutPanelMain);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimumSize = new System.Drawing.Size(1050, 600);
+            this.MaximumSize = new System.Drawing.Size(1100, 600);
+            this.MinimumSize = new System.Drawing.Size(1100, 600);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kim Travel Version 1.0.0";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.panelStatusBar.ResumeLayout(false);
             this.panelStatusBar.PerformLayout();
@@ -394,6 +408,7 @@
         private System.Windows.Forms.ToolStripMenuItem phânBôXeTheoTourToolStripMenuItem;
         private System.Windows.Forms.Panel panelControlMain;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelMain;
+        private System.Windows.Forms.ToolStripMenuItem danhSáchĐãBookToolStripMenuItem;
     }
 }
 

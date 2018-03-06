@@ -218,11 +218,12 @@
             // cbbStatus
             // 
             this.cbbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbStatus.FormattingEnabled = true;
-            this.cbbStatus.ItemHeight = 13;
-            this.cbbStatus.Location = new System.Drawing.Point(102, 298);
+            this.cbbStatus.ItemHeight = 16;
+            this.cbbStatus.Location = new System.Drawing.Point(102, 296);
             this.cbbStatus.Name = "cbbStatus";
-            this.cbbStatus.Size = new System.Drawing.Size(223, 21);
+            this.cbbStatus.Size = new System.Drawing.Size(223, 24);
             this.cbbStatus.TabIndex = 6;
             // 
             // frmActionPartner

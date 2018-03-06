@@ -222,11 +222,12 @@
             // cbbStatus
             // 
             this.cbbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbStatus.FormattingEnabled = true;
-            this.cbbStatus.ItemHeight = 13;
-            this.cbbStatus.Location = new System.Drawing.Point(119, 301);
+            this.cbbStatus.ItemHeight = 16;
+            this.cbbStatus.Location = new System.Drawing.Point(119, 298);
             this.cbbStatus.Name = "cbbStatus";
-            this.cbbStatus.Size = new System.Drawing.Size(223, 21);
+            this.cbbStatus.Size = new System.Drawing.Size(223, 24);
             this.cbbStatus.TabIndex = 6;
             // 
             // materialLabel7
@@ -246,11 +247,12 @@
             // cbbKindStaff
             // 
             this.cbbKindStaff.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbKindStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbKindStaff.FormattingEnabled = true;
-            this.cbbKindStaff.ItemHeight = 13;
-            this.cbbKindStaff.Location = new System.Drawing.Point(119, 343);
+            this.cbbKindStaff.ItemHeight = 16;
+            this.cbbKindStaff.Location = new System.Drawing.Point(119, 340);
             this.cbbKindStaff.Name = "cbbKindStaff";
-            this.cbbKindStaff.Size = new System.Drawing.Size(223, 21);
+            this.cbbKindStaff.Size = new System.Drawing.Size(223, 24);
             this.cbbKindStaff.TabIndex = 6;
             this.cbbKindStaff.SelectedIndexChanged += new System.EventHandler(this.cbbKindStaff_SelectedIndexChanged);
             // 
@@ -271,11 +273,12 @@
             // cbbPartnerID
             // 
             this.cbbPartnerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbPartnerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbPartnerID.FormattingEnabled = true;
-            this.cbbPartnerID.ItemHeight = 13;
-            this.cbbPartnerID.Location = new System.Drawing.Point(119, 380);
+            this.cbbPartnerID.ItemHeight = 16;
+            this.cbbPartnerID.Location = new System.Drawing.Point(119, 377);
             this.cbbPartnerID.Name = "cbbPartnerID";
-            this.cbbPartnerID.Size = new System.Drawing.Size(223, 21);
+            this.cbbPartnerID.Size = new System.Drawing.Size(223, 24);
             this.cbbPartnerID.TabIndex = 6;
             // 
             // frmActionStaff

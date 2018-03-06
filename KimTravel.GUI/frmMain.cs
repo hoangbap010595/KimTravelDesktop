@@ -28,7 +28,11 @@ namespace KimTravel.GUI
             mSkin.AddFormToManage(this);
             mSkin.Theme = MaterialSkinManager.Themes.LIGHT;
             mSkin.ColorScheme = new ColorScheme(Primary.Blue600, Primary.BlueGrey900, Primary.DeepPurple100, Accent.Cyan700, TextShade.WHITE);
-            txt_bar_CurrentUser.Text = "ID: " + Constant.CurrentSessionUser + " - " + DateTime.Now.ToString("HH:mm dd-MM-yyyy");
+
+            frmLogin frm = new frmLogin();
+            frm.ShowDialog();
+
+            txt_bar_CurrentUser.Text = "Account: " + Constant.CurrentSessionUser;
         }
 
         private void timerUseSystem_Tick(object sender, EventArgs e)
@@ -79,6 +83,35 @@ namespace KimTravel.GUI
         private void danhSachTourToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UCTour uc = new UCTour();
+            addControlToPanel(uc);
+        }
+
+        private void quanLyTaiKhoanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UCUser uc = new UCUser();
+            addControlToPanel(uc);
+        }
+
+        private void bookTourToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            UCBook uc = new UCBook();
+            addControlToPanel(uc);
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (DialogResult.Yes == MessageBox.Show("Kết thúc phiên làm việc ?", "Xác thực", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                //Application.Exit();
+                e.Cancel = false;
+            }
+            else
+                e.Cancel = true;
+        }
+
+        private void danhSáchĐãBookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UCListBook uc = new UCListBook();
             addControlToPanel(uc);
         }
     }

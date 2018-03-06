@@ -36,7 +36,9 @@
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
             this.btnThemMoi = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
+            this.btnExportExcel = new System.Windows.Forms.Button();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPSID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,6 +95,7 @@
             this.dataGridViewGroupTour.ColumnHeadersHeight = 30;
             this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
+            this.colRNum,
             this.colPSID,
             this.colName,
             this.colAddress,
@@ -119,7 +122,7 @@
             this.btnThemMoi.Location = new System.Drawing.Point(956, 11);
             this.btnThemMoi.Name = "btnThemMoi";
             this.btnThemMoi.Size = new System.Drawing.Size(100, 25);
-            this.btnThemMoi.TabIndex = 3;
+            this.btnThemMoi.TabIndex = 5;
             this.btnThemMoi.Text = "Thêm";
             this.btnThemMoi.UseVisualStyleBackColor = true;
             this.btnThemMoi.Click += new System.EventHandler(this.btnThemMoi_Click);
@@ -130,10 +133,21 @@
             this.btnLoad.Location = new System.Drawing.Point(850, 11);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(100, 25);
-            this.btnLoad.TabIndex = 3;
+            this.btnLoad.TabIndex = 4;
             this.btnLoad.Text = "Làm mới";
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportExcel.Location = new System.Drawing.Point(744, 11);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(100, 25);
+            this.btnExportExcel.TabIndex = 3;
+            this.btnExportExcel.Text = "Xuất Excel";
+            this.btnExportExcel.UseVisualStyleBackColor = true;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
             // colID
             // 
@@ -142,6 +156,15 @@
             this.colID.Name = "colID";
             this.colID.ReadOnly = true;
             this.colID.Visible = false;
+            // 
+            // colRNum
+            // 
+            this.colRNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colRNum.DataPropertyName = "RNum";
+            this.colRNum.HeaderText = "No.";
+            this.colRNum.Name = "colRNum";
+            this.colRNum.ReadOnly = true;
+            this.colRNum.Width = 40;
             // 
             // colPSID
             // 
@@ -170,8 +193,7 @@
             // 
             this.colPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPhone.DataPropertyName = "Phone";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Format = "dd-MM-yyyy";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.NullValue = null;
             this.colPhone.DefaultCellStyle = dataGridViewCellStyle2;
             this.colPhone.HeaderText = "Điện thoại";
@@ -227,6 +249,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.dataGridViewGroupTour);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnThemMoi);
@@ -246,7 +269,9 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
         private System.Windows.Forms.Button btnThemMoi;
         private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.Button btnExportExcel;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPSID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAddress;

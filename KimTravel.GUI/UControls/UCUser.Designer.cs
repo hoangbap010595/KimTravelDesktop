@@ -1,6 +1,6 @@
 ﻿namespace KimTravel.GUI.UControls
 {
-    partial class UCTour
+    partial class UCUser
     {
         /// <summary> 
         /// Required designer variable.
@@ -34,19 +34,22 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
             this.btnThemMoi = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
-            this.colTourID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDateCreate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEnable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colPriceReceive = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPriceSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPriceVTQ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLocked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colLockDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLastUpdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUpdateBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ActionUpdate = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
             this.SuspendLayout();
@@ -81,7 +84,7 @@
             this.dataGridViewGroupTour.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewGroupTour.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewGroupTour.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -94,14 +97,16 @@
             this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewGroupTour.ColumnHeadersHeight = 30;
             this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colTourID,
-            this.colGName,
-            this.colName,
+            this.colID,
+            this.colUsername,
+            this.colEmail,
+            this.colPhone,
             this.colDateCreate,
-            this.colEnable,
-            this.colPriceReceive,
-            this.colPriceSale,
-            this.colPriceVTQ,
+            this.colLocked,
+            this.colLockDate,
+            this.colStatus,
+            this.colLastUpdate,
+            this.colUpdateBy,
             this.ActionUpdate});
             this.dataGridViewGroupTour.Location = new System.Drawing.Point(3, 42);
             this.dataGridViewGroupTour.MultiSelect = false;
@@ -136,100 +141,121 @@
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
-            // colTourID
+            // colID
             // 
-            this.colTourID.DataPropertyName = "TourID";
-            this.colTourID.HeaderText = "ID";
-            this.colTourID.Name = "colTourID";
-            this.colTourID.ReadOnly = true;
-            this.colTourID.Visible = false;
+            this.colID.DataPropertyName = "ID";
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            this.colID.Visible = false;
+            this.colID.Width = 43;
             // 
-            // colGName
+            // colUsername
             // 
-            this.colGName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colGName.DataPropertyName = "GName";
-            this.colGName.HeaderText = "Nhóm tour";
-            this.colGName.Name = "colGName";
-            this.colGName.ReadOnly = true;
-            this.colGName.Width = 130;
+            this.colUsername.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colUsername.DataPropertyName = "Username";
+            this.colUsername.HeaderText = "Username";
+            this.colUsername.Name = "colUsername";
+            this.colUsername.ReadOnly = true;
+            this.colUsername.Width = 140;
             // 
-            // colName
+            // colEmail
             // 
-            this.colName.DataPropertyName = "Name";
-            this.colName.HeaderText = "Tên tour";
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
+            this.colEmail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colEmail.DataPropertyName = "Email";
+            this.colEmail.HeaderText = "Email";
+            this.colEmail.Name = "colEmail";
+            this.colEmail.ReadOnly = true;
+            this.colEmail.Width = 140;
+            // 
+            // colPhone
+            // 
+            this.colPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colPhone.DataPropertyName = "Phone";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.NullValue = null;
+            this.colPhone.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colPhone.HeaderText = "Điện thoại";
+            this.colPhone.Name = "colPhone";
+            this.colPhone.ReadOnly = true;
+            this.colPhone.Width = 120;
             // 
             // colDateCreate
             // 
             this.colDateCreate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colDateCreate.DataPropertyName = "DateCreate";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Format = "dd-MM-yyyy";
-            dataGridViewCellStyle2.NullValue = null;
-            this.colDateCreate.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Format = "dd-MM-yyyy";
+            dataGridViewCellStyle3.NullValue = null;
+            this.colDateCreate.DefaultCellStyle = dataGridViewCellStyle3;
             this.colDateCreate.HeaderText = "Ngày tạo";
             this.colDateCreate.Name = "colDateCreate";
             this.colDateCreate.ReadOnly = true;
             this.colDateCreate.Width = 120;
             // 
-            // colEnable
+            // colLocked
             // 
-            this.colEnable.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colEnable.DataPropertyName = "Enable";
-            this.colEnable.HeaderText = "Kích hoạt";
-            this.colEnable.Name = "colEnable";
-            this.colEnable.ReadOnly = true;
-            this.colEnable.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colEnable.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colEnable.Width = 120;
+            this.colLocked.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colLocked.DataPropertyName = "Locked";
+            this.colLocked.HeaderText = "Bị khóa";
+            this.colLocked.Name = "colLocked";
+            this.colLocked.ReadOnly = true;
+            this.colLocked.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colLocked.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colLocked.Width = 120;
             // 
-            // colPriceReceive
+            // colLockDate
             // 
-            this.colPriceReceive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPriceReceive.DataPropertyName = "PriceReceive";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "#,###";
-            dataGridViewCellStyle3.NullValue = null;
-            this.colPriceReceive.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colPriceReceive.HeaderText = "Giá nhận";
-            this.colPriceReceive.Name = "colPriceReceive";
-            this.colPriceReceive.ReadOnly = true;
-            this.colPriceReceive.Width = 130;
+            this.colLockDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colLockDate.DataPropertyName = "LockDate";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "dd-MM-yyyy";
+            this.colLockDate.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colLockDate.HeaderText = "Ngày khóa";
+            this.colLockDate.Name = "colLockDate";
+            this.colLockDate.ReadOnly = true;
+            this.colLockDate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colLockDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colLockDate.Width = 130;
             // 
-            // colPriceSale
+            // colStatus
             // 
-            this.colPriceSale.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPriceSale.DataPropertyName = "PriceSale";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "#,###";
-            this.colPriceSale.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colPriceSale.HeaderText = "Giá bán";
-            this.colPriceSale.Name = "colPriceSale";
-            this.colPriceSale.ReadOnly = true;
-            this.colPriceSale.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colPriceSale.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colPriceSale.Width = 130;
+            this.colStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colStatus.DataPropertyName = "Status";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.colStatus.DefaultCellStyle = dataGridViewCellStyle5;
+            this.colStatus.HeaderText = "Trạng thái";
+            this.colStatus.Name = "colStatus";
+            this.colStatus.ReadOnly = true;
+            this.colStatus.Width = 130;
             // 
-            // colPriceVTQ
+            // colLastUpdate
             // 
-            this.colPriceVTQ.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPriceVTQ.DataPropertyName = "PriceVTQ";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "#,###";
-            this.colPriceVTQ.DefaultCellStyle = dataGridViewCellStyle5;
-            this.colPriceVTQ.HeaderText = "Giá vé tham quan";
-            this.colPriceVTQ.Name = "colPriceVTQ";
-            this.colPriceVTQ.ReadOnly = true;
-            this.colPriceVTQ.Width = 130;
+            this.colLastUpdate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colLastUpdate.DataPropertyName = "LastUpdate";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Format = "dd-MM-yyyy";
+            this.colLastUpdate.DefaultCellStyle = dataGridViewCellStyle6;
+            this.colLastUpdate.HeaderText = "Ngày cập nhật";
+            this.colLastUpdate.Name = "colLastUpdate";
+            this.colLastUpdate.ReadOnly = true;
+            this.colLastUpdate.Width = 120;
+            // 
+            // colUpdateBy
+            // 
+            this.colUpdateBy.DataPropertyName = "UpdateBy";
+            this.colUpdateBy.HeaderText = "Người cập nhật";
+            this.colUpdateBy.Name = "colUpdateBy";
+            this.colUpdateBy.ReadOnly = true;
+            this.colUpdateBy.Width = 105;
             // 
             // ActionUpdate
             // 
             this.ActionUpdate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.ActionUpdate.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.ActionUpdate.DefaultCellStyle = dataGridViewCellStyle7;
             this.ActionUpdate.HeaderText = "Cập nhật";
             this.ActionUpdate.Name = "ActionUpdate";
             this.ActionUpdate.ReadOnly = true;
@@ -237,7 +263,7 @@
             this.ActionUpdate.UseColumnTextForButtonValue = true;
             this.ActionUpdate.Width = 80;
             // 
-            // UCTour
+            // UCUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -246,7 +272,7 @@
             this.Controls.Add(this.btnThemMoi);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.materialSingleLineTextField1);
-            this.Name = "UCTour";
+            this.Name = "UCUser";
             this.Size = new System.Drawing.Size(1059, 513);
             this.Load += new System.EventHandler(this.UCGroupTour_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).EndInit();
@@ -260,14 +286,16 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
         private System.Windows.Forms.Button btnThemMoi;
         private System.Windows.Forms.Button btnLoad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTourID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUsername;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPhone;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDateCreate;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colEnable;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPriceReceive;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPriceSale;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPriceVTQ;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn colLocked;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLockDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLastUpdate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUpdateBy;
         private System.Windows.Forms.DataGridViewButtonColumn ActionUpdate;
     }
 }

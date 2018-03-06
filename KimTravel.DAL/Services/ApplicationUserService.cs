@@ -11,20 +11,41 @@ namespace KimTravel.DAL.Services
     {
         private readonly KimTravelDataDataContext db = new KimTravelDataDataContext();
 
-        public IEnumerable<ApplicationUser> GetList()
+        public IQueryable GetList()
         {
-            IEnumerable<ApplicationUser> data = db.ApplicationUsers.ToList();
+            var statusUser = Constant.getListStatusUser();
+            IQueryable data = from u in db.ApplicationUsers
+                              select new
+                              {
+                                  u.ID,
+                                  u.Email,
+                                  u.Phone,
+                                  u.DateCreate,
+                                  u.LockDate,
+                                  Status = u.Status == 1 ? statusUser[0].Name : statusUser[1].Name,
+                                  u.LastUpdate,
+                                  u.Locked,
+                                  u.UpdateBy,
+                                  u.Username
+                              };
 
             return data;
         }
+        public ApplicationUser GetByID(int id)
+        {
+            ApplicationUser data = db.ApplicationUsers.FirstOrDefault(x => x.ID == id);
 
+            return data;
+        }
         public int CheckLogin(string username, string password)
         {
             string hashPass = HashText.GetSHA1HashData(password);
             ApplicationUser currUser = db.ApplicationUsers.FirstOrDefault(x => x.Username == username && x.Password == hashPass);
             if (currUser != null)
             {
-                if (currUser.Status == 0)
+                if (currUser.Locked == true)
+                    return 2;
+                if (currUser.Status == 1)
                     return 1;
                 else
                     return 0;
@@ -38,6 +59,7 @@ namespace KimTravel.DAL.Services
             if (!checkUName)
             {
                 user.Password = HashText.GetSHA1HashData(user.Password);
+                user.DateCreate = DateTime.Now;
                 user.Status = 0;
                 //Status:
                 //    0: Bình thường
@@ -54,14 +76,27 @@ namespace KimTravel.DAL.Services
         {
             bool checkUName = db.ApplicationUsers.Count(x => x.Username == user.Username && x.ID != user.ID) > 0 ? true : false;
             //bool check = db.ApplicationUsers.Count(x => x.Username == user.Username) > 0 ? true : false;
-            if (checkUName)
+            if (!checkUName)
             {
                 ApplicationUser currUser = db.ApplicationUsers.FirstOrDefault(x => x.ID == user.ID);
                 if (currUser != null)
                 {
+                    currUser.Email = user.Email;
+                    currUser.Phone = user.Phone;
+                    currUser.Status = user.Status;
                     currUser.Username = user.Username;
                     currUser.LastUpdate = DateTime.Now;
                     currUser.UpdateBy = Constant.CurrentSessionUser;
+                    if (user.Locked == true)
+                    {
+                        currUser.Locked = true;
+                        currUser.LockDate = DateTime.Now;
+                    }
+                    else
+                    {
+                        currUser.Locked = false;
+                        currUser.LockDate = null;
+                    }
                     db.SubmitChanges();
                 }
                 return true;

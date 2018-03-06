@@ -34,6 +34,13 @@ namespace KimTravel.DAL
             data.Add(new StatusStaff { ID = 3, Name = "Nghỉ tạm thời" });
             return data;
         }
+        public static List<StatusUser> getListStatusUser()
+        {
+            List<StatusUser> data = new List<StatusUser>();
+            data.Add(new StatusUser { ID = 1, Name = "Bình thường" });
+            data.Add(new StatusUser { ID = 2, Name = "Ngưng hoạt động" });
+            return data;
+        }
         public static List<KindStaff> getListKindStaff()
         {
             List<KindStaff> data = new List<KindStaff>();
@@ -45,7 +52,11 @@ namespace KimTravel.DAL
             return data;
         }
     }
-
+    public class StatusUser
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+    }
     public class StatusPartner
     {
         public int ID { get; set; }
