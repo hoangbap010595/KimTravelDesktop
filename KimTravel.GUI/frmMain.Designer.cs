@@ -70,13 +70,13 @@
             this.txt_bar_CurrentUser.AutoSize = true;
             this.txt_bar_CurrentUser.BackColor = System.Drawing.Color.Transparent;
             this.txt_bar_CurrentUser.Depth = 0;
-            this.txt_bar_CurrentUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txt_bar_CurrentUser.Font = new System.Drawing.Font("Roboto", 11F);
             this.txt_bar_CurrentUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.txt_bar_CurrentUser.Location = new System.Drawing.Point(9, 4);
             this.txt_bar_CurrentUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txt_bar_CurrentUser.MouseState = MaterialSkin.MouseState.HOVER;
             this.txt_bar_CurrentUser.Name = "txt_bar_CurrentUser";
-            this.txt_bar_CurrentUser.Size = new System.Drawing.Size(118, 18);
+            this.txt_bar_CurrentUser.Size = new System.Drawing.Size(117, 19);
             this.txt_bar_CurrentUser.TabIndex = 0;
             this.txt_bar_CurrentUser.Text = "bar_CurrentUser";
             // 
@@ -362,7 +362,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MaximumSize = new System.Drawing.Size(1100, 600);
             this.MinimumSize = new System.Drawing.Size(1100, 600);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

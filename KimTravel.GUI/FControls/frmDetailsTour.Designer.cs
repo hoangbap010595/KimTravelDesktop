@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblMsgPax = new System.Windows.Forms.Label();
@@ -50,28 +50,28 @@
             this.cbbTourID = new System.Windows.Forms.ComboBox();
             this.cbbGroupTourID = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.materialSingleLineTextField3 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtPickup = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtRoom = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtCustomer = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
             this.colPartnerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colServiceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRemove = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label19 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.materialSingleLineTextField6 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.numPromotionPer = new System.Windows.Forms.NumericUpDown();
+            this.txtPromotionPrice = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label18 = new System.Windows.Forms.Label();
             this.materialSingleLineTextField5 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialSingleLineTextField4 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtPartnerPrice = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label20 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -90,7 +90,7 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPromotionPer)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -282,6 +282,7 @@
             this.btnFindParnet.TabIndex = 4;
             this.btnFindParnet.Text = "Tìm";
             this.btnFindParnet.UseVisualStyleBackColor = true;
+            this.btnFindParnet.Click += new System.EventHandler(this.btnFindParnet_Click);
             // 
             // cbbPartnerID
             // 
@@ -304,6 +305,7 @@
             this.cbbTourID.Name = "cbbTourID";
             this.cbbTourID.Size = new System.Drawing.Size(300, 24);
             this.cbbTourID.TabIndex = 2;
+            this.cbbTourID.SelectedIndexChanged += new System.EventHandler(this.cbbTourID_SelectedIndexChanged);
             // 
             // cbbGroupTourID
             // 
@@ -315,15 +317,16 @@
             this.cbbGroupTourID.Name = "cbbGroupTourID";
             this.cbbGroupTourID.Size = new System.Drawing.Size(300, 24);
             this.cbbGroupTourID.TabIndex = 1;
+            this.cbbGroupTourID.SelectedIndexChanged += new System.EventHandler(this.cbbGroupTourID_SelectedIndexChanged);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.materialSingleLineTextField3);
+            this.groupBox2.Controls.Add(this.txtPickup);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.materialSingleLineTextField2);
-            this.groupBox2.Controls.Add(this.materialSingleLineTextField1);
+            this.groupBox2.Controls.Add(this.txtRoom);
+            this.groupBox2.Controls.Add(this.txtCustomer);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(12, 383);
             this.groupBox2.Name = "groupBox2";
@@ -332,20 +335,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Khách hàng";
             // 
-            // materialSingleLineTextField3
+            // txtPickup
             // 
-            this.materialSingleLineTextField3.Depth = 0;
-            this.materialSingleLineTextField3.Hint = "Nhập nơi đón khách";
-            this.materialSingleLineTextField3.Location = new System.Drawing.Point(129, 111);
-            this.materialSingleLineTextField3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField3.Name = "materialSingleLineTextField3";
-            this.materialSingleLineTextField3.PasswordChar = '\0';
-            this.materialSingleLineTextField3.SelectedText = "";
-            this.materialSingleLineTextField3.SelectionLength = 0;
-            this.materialSingleLineTextField3.SelectionStart = 0;
-            this.materialSingleLineTextField3.Size = new System.Drawing.Size(300, 23);
-            this.materialSingleLineTextField3.TabIndex = 7;
-            this.materialSingleLineTextField3.UseSystemPasswordChar = false;
+            this.txtPickup.Depth = 0;
+            this.txtPickup.Hint = "Nhập nơi đón khách";
+            this.txtPickup.Location = new System.Drawing.Point(129, 111);
+            this.txtPickup.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtPickup.Name = "txtPickup";
+            this.txtPickup.PasswordChar = '\0';
+            this.txtPickup.SelectedText = "";
+            this.txtPickup.SelectionLength = 0;
+            this.txtPickup.SelectionStart = 0;
+            this.txtPickup.Size = new System.Drawing.Size(300, 23);
+            this.txtPickup.TabIndex = 7;
+            this.txtPickup.UseSystemPasswordChar = false;
             // 
             // label10
             // 
@@ -380,46 +383,46 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Tên KH";
             // 
-            // materialSingleLineTextField2
+            // txtRoom
             // 
-            this.materialSingleLineTextField2.Depth = 0;
-            this.materialSingleLineTextField2.Hint = "Nhập số phòng khách sạn";
-            this.materialSingleLineTextField2.Location = new System.Drawing.Point(129, 72);
-            this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
-            this.materialSingleLineTextField2.PasswordChar = '\0';
-            this.materialSingleLineTextField2.SelectedText = "";
-            this.materialSingleLineTextField2.SelectionLength = 0;
-            this.materialSingleLineTextField2.SelectionStart = 0;
-            this.materialSingleLineTextField2.Size = new System.Drawing.Size(300, 23);
-            this.materialSingleLineTextField2.TabIndex = 7;
-            this.materialSingleLineTextField2.UseSystemPasswordChar = false;
+            this.txtRoom.Depth = 0;
+            this.txtRoom.Hint = "Nhập số phòng khách sạn";
+            this.txtRoom.Location = new System.Drawing.Point(129, 72);
+            this.txtRoom.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtRoom.Name = "txtRoom";
+            this.txtRoom.PasswordChar = '\0';
+            this.txtRoom.SelectedText = "";
+            this.txtRoom.SelectionLength = 0;
+            this.txtRoom.SelectionStart = 0;
+            this.txtRoom.Size = new System.Drawing.Size(300, 23);
+            this.txtRoom.TabIndex = 7;
+            this.txtRoom.UseSystemPasswordChar = false;
             // 
-            // materialSingleLineTextField1
+            // txtCustomer
             // 
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Hint = "Nhập tên khách khàng";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(129, 28);
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(300, 23);
-            this.materialSingleLineTextField1.TabIndex = 7;
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            this.txtCustomer.Depth = 0;
+            this.txtCustomer.Hint = "Nhập tên khách khàng";
+            this.txtCustomer.Location = new System.Drawing.Point(129, 28);
+            this.txtCustomer.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtCustomer.Name = "txtCustomer";
+            this.txtCustomer.PasswordChar = '\0';
+            this.txtCustomer.SelectedText = "";
+            this.txtCustomer.SelectionLength = 0;
+            this.txtCustomer.SelectionStart = 0;
+            this.txtCustomer.Size = new System.Drawing.Size(300, 23);
+            this.txtCustomer.TabIndex = 7;
+            this.txtCustomer.UseSystemPasswordChar = false;
             // 
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.dataGridViewGroupTour);
-            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.txtTotal);
             this.groupBox3.Controls.Add(this.panel1);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.materialSingleLineTextField5);
-            this.groupBox3.Controls.Add(this.materialSingleLineTextField4);
+            this.groupBox3.Controls.Add(this.txtPartnerPrice);
             this.groupBox3.Controls.Add(this.label20);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.label14);
@@ -447,14 +450,14 @@
             this.dataGridViewGroupTour.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPartnerID,
             this.colServiceType,
@@ -489,9 +492,9 @@
             // 
             this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPrice.DataPropertyName = "Price";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "#,###";
-            this.colPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Format = "#,###";
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle14;
             this.colPrice.HeaderText = "Đơn giá";
             this.colPrice.Name = "colPrice";
             this.colPrice.ReadOnly = true;
@@ -500,9 +503,9 @@
             // colRemove
             // 
             this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.colRemove.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.colRemove.DefaultCellStyle = dataGridViewCellStyle15;
             this.colRemove.HeaderText = "";
             this.colRemove.Name = "colRemove";
             this.colRemove.ReadOnly = true;
@@ -510,18 +513,18 @@
             this.colRemove.UseColumnTextForButtonValue = true;
             this.colRemove.Width = 60;
             // 
-            // label19
+            // txtTotal
             // 
-            this.label19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.label19.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(292, 346);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(190, 47);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "1900000000";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.ForeColor = System.Drawing.Color.Red;
+            this.txtTotal.Location = new System.Drawing.Point(292, 346);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(190, 47);
+            this.txtTotal.TabIndex = 0;
+            this.txtTotal.Text = "1900000000";
+            this.txtTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -532,8 +535,8 @@
             this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.label21);
             this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.numericUpDown1);
-            this.panel1.Controls.Add(this.materialSingleLineTextField6);
+            this.panel1.Controls.Add(this.numPromotionPer);
+            this.panel1.Controls.Add(this.txtPromotionPrice);
             this.panel1.Location = new System.Drawing.Point(6, 319);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(266, 79);
@@ -572,38 +575,33 @@
             this.label16.TabIndex = 0;
             this.label16.Text = "Giảm";
             // 
-            // numericUpDown1
+            // numPromotionPer
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(86, 13);
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(60, 23);
-            this.numericUpDown1.TabIndex = 6;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.numPromotionPer.Location = new System.Drawing.Point(86, 13);
+            this.numPromotionPer.Name = "numPromotionPer";
+            this.numPromotionPer.Size = new System.Drawing.Size(60, 23);
+            this.numPromotionPer.TabIndex = 6;
+            this.numPromotionPer.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // materialSingleLineTextField6
+            // txtPromotionPrice
             // 
-            this.materialSingleLineTextField6.Depth = 0;
-            this.materialSingleLineTextField6.Hint = "(vnđ)";
-            this.materialSingleLineTextField6.Location = new System.Drawing.Point(86, 42);
-            this.materialSingleLineTextField6.MaximumSize = new System.Drawing.Size(188, 23);
-            this.materialSingleLineTextField6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField6.Name = "materialSingleLineTextField6";
-            this.materialSingleLineTextField6.PasswordChar = '\0';
-            this.materialSingleLineTextField6.SelectedText = "";
-            this.materialSingleLineTextField6.SelectionLength = 0;
-            this.materialSingleLineTextField6.SelectionStart = 0;
-            this.materialSingleLineTextField6.Size = new System.Drawing.Size(173, 23);
-            this.materialSingleLineTextField6.TabIndex = 7;
-            this.materialSingleLineTextField6.UseSystemPasswordChar = false;
+            this.txtPromotionPrice.Depth = 0;
+            this.txtPromotionPrice.Hint = "(vnđ)";
+            this.txtPromotionPrice.Location = new System.Drawing.Point(86, 42);
+            this.txtPromotionPrice.MaximumSize = new System.Drawing.Size(188, 23);
+            this.txtPromotionPrice.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtPromotionPrice.Name = "txtPromotionPrice";
+            this.txtPromotionPrice.PasswordChar = '\0';
+            this.txtPromotionPrice.SelectedText = "";
+            this.txtPromotionPrice.SelectionLength = 0;
+            this.txtPromotionPrice.SelectionStart = 0;
+            this.txtPromotionPrice.Size = new System.Drawing.Size(173, 23);
+            this.txtPromotionPrice.TabIndex = 7;
+            this.txtPromotionPrice.UseSystemPasswordChar = false;
             // 
             // label18
             // 
@@ -634,23 +632,23 @@
             this.materialSingleLineTextField5.TabIndex = 7;
             this.materialSingleLineTextField5.UseSystemPasswordChar = false;
             // 
-            // materialSingleLineTextField4
+            // txtPartnerPrice
             // 
-            this.materialSingleLineTextField4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtPartnerPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialSingleLineTextField4.Depth = 0;
-            this.materialSingleLineTextField4.Hint = "(vnđ)";
-            this.materialSingleLineTextField4.Location = new System.Drawing.Point(273, 94);
-            this.materialSingleLineTextField4.MaximumSize = new System.Drawing.Size(182, 23);
-            this.materialSingleLineTextField4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField4.Name = "materialSingleLineTextField4";
-            this.materialSingleLineTextField4.PasswordChar = '\0';
-            this.materialSingleLineTextField4.SelectedText = "";
-            this.materialSingleLineTextField4.SelectionLength = 0;
-            this.materialSingleLineTextField4.SelectionStart = 0;
-            this.materialSingleLineTextField4.Size = new System.Drawing.Size(182, 23);
-            this.materialSingleLineTextField4.TabIndex = 7;
-            this.materialSingleLineTextField4.UseSystemPasswordChar = false;
+            this.txtPartnerPrice.Depth = 0;
+            this.txtPartnerPrice.Hint = "(vnđ)";
+            this.txtPartnerPrice.Location = new System.Drawing.Point(273, 94);
+            this.txtPartnerPrice.MaximumSize = new System.Drawing.Size(182, 23);
+            this.txtPartnerPrice.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtPartnerPrice.Name = "txtPartnerPrice";
+            this.txtPartnerPrice.PasswordChar = '\0';
+            this.txtPartnerPrice.SelectedText = "";
+            this.txtPartnerPrice.SelectionLength = 0;
+            this.txtPartnerPrice.SelectionStart = 0;
+            this.txtPartnerPrice.Size = new System.Drawing.Size(182, 23);
+            this.txtPartnerPrice.TabIndex = 7;
+            this.txtPartnerPrice.UseSystemPasswordChar = false;
             // 
             // label20
             // 
@@ -745,6 +743,7 @@
             this.btnAddServiceType.TabIndex = 4;
             this.btnAddServiceType.Text = "Thêm";
             this.btnAddServiceType.UseVisualStyleBackColor = true;
+            this.btnAddServiceType.Click += new System.EventHandler(this.btnAddServiceType_Click);
             // 
             // txtPriceSa
             // 
@@ -841,7 +840,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPromotionPer)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -866,28 +865,28 @@
         private System.Windows.Forms.ComboBox cbbTourID;
         private System.Windows.Forms.ComboBox cbbGroupTourID;
         private System.Windows.Forms.GroupBox groupBox2;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField3;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtPickup;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label5;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField2;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtRoom;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtCustomer;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridViewGroupTour;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPartnerID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colServiceType;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
         private System.Windows.Forms.DataGridViewButtonColumn colRemove;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label txtTotal;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField6;
+        private System.Windows.Forms.NumericUpDown numPromotionPer;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtPromotionPrice;
         private System.Windows.Forms.Label label18;
         private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField5;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField4;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtPartnerPrice;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;

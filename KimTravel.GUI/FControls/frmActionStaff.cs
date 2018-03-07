@@ -128,7 +128,7 @@ namespace KimTravel.GUI.FControls
             try
             {
                 int id = int.Parse(cbbKindStaff.SelectedValue.ToString());
-                if (id == 1)
+                if (id == 5)
                     cbbPartnerID.Enabled = true;
                 else
                     cbbPartnerID.Enabled = false;

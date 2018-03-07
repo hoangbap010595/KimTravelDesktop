@@ -33,6 +33,8 @@ namespace KimTravel.GUI
             frm.ShowDialog();
 
             txt_bar_CurrentUser.Text = "Account: " + Constant.CurrentSessionUser;
+
+            this.DoubleBuffered = false;
         }
 
         private void timerUseSystem_Tick(object sender, EventArgs e)

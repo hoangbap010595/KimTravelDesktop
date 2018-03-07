@@ -29,7 +29,7 @@ namespace KimTravel.DAL.Services
                            s.PartnerID,
                            PName = p.Name,
                            Status = s.Status == 1 ? statusStaff[0].Name : s.Status == 2 ? statusStaff[0].Name : statusStaff[0].Name,
-                           Kind = s.Kind == 1 ? kindStaff[4].Name : s.Kind == 2 ? kindStaff[0].Name : s.Kind == 3 ? kindStaff[1].Name : s.Kind == 4 ? kindStaff[2].Name : kindStaff[3].Name,
+                           Kind = s.Kind == 1 ? kindStaff[0].Name : s.Kind == 2 ? kindStaff[1].Name : s.Kind == 3 ? kindStaff[2].Name : s.Kind == 4 ? kindStaff[3].Name : kindStaff[4].Name,
                            s.Note,
                            s.PSID
                        };

@@ -35,8 +35,8 @@ namespace KimTravel.GUI.UControls
         }
         private void btnThemMoi_Click(object sender, EventArgs e)
         {
-            frmActionUser frm = new frmActionUser();
-            frm.loadData = new frmActionUser.LoadData(loadDataGroup);
+            frmDetailsTour frm = new frmDetailsTour();
+            frm.loadData = new frmDetailsTour.LoadData(loadDataGroup);
             frm.ShowDialog();
         }
 
@@ -61,8 +61,8 @@ namespace KimTravel.GUI.UControls
                 if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                     e.RowIndex >= 0)
                 {
-                    frmActionUser frm = new frmActionUser(1, id);
-                    frm.loadData = new frmActionUser.LoadData(loadDataGroup);
+                    frmDetailsTour frm = new frmDetailsTour(id);
+                    frm.loadData = new frmDetailsTour.LoadData(loadDataGroup);
                     frm.ShowDialog();
                 }
             }

@@ -22,6 +22,8 @@ namespace KimTravel.GUI.UControls
         public UCBook()
         {
             InitializeComponent();
+            dtpEndDate.MinDate = dtpStartDate.MinDate = DateTime.Now.AddDays(-1);
+            dtpStartDate.Value = dtpEndDate.Value = DateTime.Now.AddDays(1);
         }
 
         private void choosePartner(int pid)
@@ -44,8 +46,7 @@ namespace KimTravel.GUI.UControls
             cbbPartnerID.ValueMember = "PartnerID";
             cbbPartnerID.DisplayMember = "Address";
 
-            dtpEndDate.MinDate = dtpStartDate.MinDate = DateTime.Now;
-            dtpStartDate.Value = dtpEndDate.Value = DateTime.Now.AddDays(1);
+           
         }
 
         private void btnFindParnet_Click(object sender, EventArgs e)
@@ -101,6 +102,11 @@ namespace KimTravel.GUI.UControls
                 numPax.Maximum = C3;
             }
             catch { }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

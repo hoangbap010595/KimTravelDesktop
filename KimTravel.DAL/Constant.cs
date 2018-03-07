@@ -36,11 +36,11 @@ namespace KimTravel.DAL
         public static List<KindStaff> getListKindStaff()
         {
             List<KindStaff> data = new List<KindStaff>();
-            data.Add(new KindStaff { ID = 2, Name = "Hướng dẫn viên" });
+            data.Add(new KindStaff { ID = 1, Name = "Hướng dẫn viên" });
+            data.Add(new KindStaff { ID = 2, Name = "Tài xế" });
             data.Add(new KindStaff { ID = 3, Name = "Hướng dẫn viên (Ngoài)" });
-            data.Add(new KindStaff { ID = 4, Name = "Tài xế" });
-            data.Add(new KindStaff { ID = 5, Name = "Tài xế (Ngoài)" });
-            data.Add(new KindStaff { ID = 1, Name = "Nhân viên đối tác" });
+            data.Add(new KindStaff { ID = 4, Name = "Tài xế (Ngoài)" });
+            data.Add(new KindStaff { ID = 5, Name = "Nhân viên đối tác" });
             return data;
         }
     }

@@ -56,31 +56,31 @@
             this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
+            this.colPartnerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colServiceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRemove = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.materialSingleLineTextField6 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialSingleLineTextField5 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialSingleLineTextField4 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtPriceVTQ = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.btnAddServiceType = new System.Windows.Forms.Button();
             this.txtPriceSa = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtPriceRe = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.label15 = new System.Windows.Forms.Label();
-            this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label16 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label17 = new System.Windows.Forms.Label();
-            this.materialSingleLineTextField6 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.btnUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.colPartnerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colServiceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRemove = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label20 = new System.Windows.Forms.Label();
-            this.btnAddServiceType = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPax)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -423,6 +423,188 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dịch vụ";
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUpdate.Depth = 0;
+            this.btnUpdate.Location = new System.Drawing.Point(340, 319);
+            this.btnUpdate.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Primary = true;
+            this.btnUpdate.Size = new System.Drawing.Size(129, 75);
+            this.btnUpdate.TabIndex = 8;
+            this.btnUpdate.Text = "Cập nhật";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // dataGridViewGroupTour
+            // 
+            this.dataGridViewGroupTour.AllowUserToAddRows = false;
+            this.dataGridViewGroupTour.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewGroupTour.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewGroupTour.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colPartnerID,
+            this.colServiceType,
+            this.colPrice,
+            this.colRemove});
+            this.dataGridViewGroupTour.Location = new System.Drawing.Point(6, 191);
+            this.dataGridViewGroupTour.MultiSelect = false;
+            this.dataGridViewGroupTour.Name = "dataGridViewGroupTour";
+            this.dataGridViewGroupTour.ReadOnly = true;
+            this.dataGridViewGroupTour.RowHeadersWidth = 35;
+            this.dataGridViewGroupTour.RowTemplate.Height = 23;
+            this.dataGridViewGroupTour.RowTemplate.ReadOnly = true;
+            this.dataGridViewGroupTour.Size = new System.Drawing.Size(463, 120);
+            this.dataGridViewGroupTour.TabIndex = 8;
+            // 
+            // colPartnerID
+            // 
+            this.colPartnerID.DataPropertyName = "PartnerID";
+            this.colPartnerID.HeaderText = "ID";
+            this.colPartnerID.Name = "colPartnerID";
+            this.colPartnerID.ReadOnly = true;
+            this.colPartnerID.Visible = false;
+            // 
+            // colServiceType
+            // 
+            this.colServiceType.DataPropertyName = "ServiceType";
+            this.colServiceType.HeaderText = "Loại dịch vụ";
+            this.colServiceType.Name = "colServiceType";
+            this.colServiceType.ReadOnly = true;
+            // 
+            // colPrice
+            // 
+            this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colPrice.DataPropertyName = "Price";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "#,###";
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colPrice.HeaderText = "Đơn giá";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
+            this.colPrice.Width = 120;
+            // 
+            // colRemove
+            // 
+            this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.colRemove.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colRemove.HeaderText = "";
+            this.colRemove.Name = "colRemove";
+            this.colRemove.ReadOnly = true;
+            this.colRemove.Text = "Xóa";
+            this.colRemove.UseColumnTextForButtonValue = true;
+            this.colRemove.Width = 60;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label17);
+            this.panel1.Controls.Add(this.label19);
+            this.panel1.Controls.Add(this.label18);
+            this.panel1.Controls.Add(this.label16);
+            this.panel1.Controls.Add(this.numericUpDown1);
+            this.panel1.Controls.Add(this.materialSingleLineTextField6);
+            this.panel1.Location = new System.Drawing.Point(6, 319);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(328, 79);
+            this.panel1.TabIndex = 3;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.Maroon;
+            this.label17.Location = new System.Drawing.Point(80, 24);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(30, 17);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "(%)";
+            // 
+            // label19
+            // 
+            this.label19.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Red;
+            this.label19.Location = new System.Drawing.Point(172, 24);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(135, 47);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "1900000000";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label18.Location = new System.Drawing.Point(172, 2);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(76, 17);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Tổng cộng";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label16.Location = new System.Drawing.Point(9, 3);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(41, 17);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Giảm";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(14, 23);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(60, 23);
+            this.numericUpDown1.TabIndex = 6;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // materialSingleLineTextField6
+            // 
+            this.materialSingleLineTextField6.Depth = 0;
+            this.materialSingleLineTextField6.Hint = "(vnđ)";
+            this.materialSingleLineTextField6.Location = new System.Drawing.Point(14, 48);
+            this.materialSingleLineTextField6.MaximumSize = new System.Drawing.Size(188, 23);
+            this.materialSingleLineTextField6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSingleLineTextField6.Name = "materialSingleLineTextField6";
+            this.materialSingleLineTextField6.PasswordChar = '\0';
+            this.materialSingleLineTextField6.SelectedText = "";
+            this.materialSingleLineTextField6.SelectionLength = 0;
+            this.materialSingleLineTextField6.SelectionStart = 0;
+            this.materialSingleLineTextField6.Size = new System.Drawing.Size(118, 23);
+            this.materialSingleLineTextField6.TabIndex = 7;
+            this.materialSingleLineTextField6.UseSystemPasswordChar = false;
+            this.materialSingleLineTextField6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+            // 
             // materialSingleLineTextField5
             // 
             this.materialSingleLineTextField5.Depth = 0;
@@ -457,6 +639,28 @@
             this.materialSingleLineTextField4.TabIndex = 7;
             this.materialSingleLineTextField4.UseSystemPasswordChar = false;
             this.materialSingleLineTextField4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label20.Location = new System.Drawing.Point(6, 171);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(67, 17);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "Đính kèm";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label15.Location = new System.Drawing.Point(24, 131);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(57, 17);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Ghi chú";
             // 
             // label14
             // 
@@ -521,6 +725,17 @@
             this.txtPriceVTQ.UseSystemPasswordChar = false;
             this.txtPriceVTQ.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
+            // btnAddServiceType
+            // 
+            this.btnAddServiceType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddServiceType.Location = new System.Drawing.Point(79, 169);
+            this.btnAddServiceType.Name = "btnAddServiceType";
+            this.btnAddServiceType.Size = new System.Drawing.Size(56, 20);
+            this.btnAddServiceType.TabIndex = 4;
+            this.btnAddServiceType.Text = "Thêm";
+            this.btnAddServiceType.UseVisualStyleBackColor = true;
+            this.btnAddServiceType.Click += new System.EventHandler(this.btnFindParnet_Click);
+            // 
             // txtPriceSa
             // 
             this.txtPriceSa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -558,220 +773,6 @@
             this.txtPriceRe.TabIndex = 7;
             this.txtPriceRe.UseSystemPasswordChar = false;
             this.txtPriceRe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label15.Location = new System.Drawing.Point(24, 131);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(57, 17);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Ghi chú";
-            // 
-            // dataGridViewGroupTour
-            // 
-            this.dataGridViewGroupTour.AllowUserToAddRows = false;
-            this.dataGridViewGroupTour.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewGroupTour.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewGroupTour.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colPartnerID,
-            this.colServiceType,
-            this.colPrice,
-            this.colRemove});
-            this.dataGridViewGroupTour.Location = new System.Drawing.Point(6, 191);
-            this.dataGridViewGroupTour.MultiSelect = false;
-            this.dataGridViewGroupTour.Name = "dataGridViewGroupTour";
-            this.dataGridViewGroupTour.ReadOnly = true;
-            this.dataGridViewGroupTour.RowHeadersWidth = 35;
-            this.dataGridViewGroupTour.RowTemplate.Height = 23;
-            this.dataGridViewGroupTour.RowTemplate.ReadOnly = true;
-            this.dataGridViewGroupTour.Size = new System.Drawing.Size(463, 120);
-            this.dataGridViewGroupTour.TabIndex = 8;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.label17);
-            this.panel1.Controls.Add(this.label19);
-            this.panel1.Controls.Add(this.label18);
-            this.panel1.Controls.Add(this.label16);
-            this.panel1.Controls.Add(this.numericUpDown1);
-            this.panel1.Controls.Add(this.materialSingleLineTextField6);
-            this.panel1.Location = new System.Drawing.Point(6, 319);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(328, 79);
-            this.panel1.TabIndex = 3;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label16.Location = new System.Drawing.Point(9, 3);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(41, 17);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "Giảm";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(14, 23);
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(60, 23);
-            this.numericUpDown1.TabIndex = 6;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.Maroon;
-            this.label17.Location = new System.Drawing.Point(80, 24);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(30, 17);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "(%)";
-            // 
-            // materialSingleLineTextField6
-            // 
-            this.materialSingleLineTextField6.Depth = 0;
-            this.materialSingleLineTextField6.Hint = "(vnđ)";
-            this.materialSingleLineTextField6.Location = new System.Drawing.Point(14, 48);
-            this.materialSingleLineTextField6.MaximumSize = new System.Drawing.Size(188, 23);
-            this.materialSingleLineTextField6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField6.Name = "materialSingleLineTextField6";
-            this.materialSingleLineTextField6.PasswordChar = '\0';
-            this.materialSingleLineTextField6.SelectedText = "";
-            this.materialSingleLineTextField6.SelectionLength = 0;
-            this.materialSingleLineTextField6.SelectionStart = 0;
-            this.materialSingleLineTextField6.Size = new System.Drawing.Size(118, 23);
-            this.materialSingleLineTextField6.TabIndex = 7;
-            this.materialSingleLineTextField6.UseSystemPasswordChar = false;
-            this.materialSingleLineTextField6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label18.Location = new System.Drawing.Point(172, 2);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(76, 17);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "Tổng cộng";
-            // 
-            // label19
-            // 
-            this.label19.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(172, 24);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(135, 47);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "1900000000";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUpdate.Depth = 0;
-            this.btnUpdate.Location = new System.Drawing.Point(340, 319);
-            this.btnUpdate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Primary = true;
-            this.btnUpdate.Size = new System.Drawing.Size(129, 75);
-            this.btnUpdate.TabIndex = 8;
-            this.btnUpdate.Text = "Cập nhật";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
-            // colPartnerID
-            // 
-            this.colPartnerID.DataPropertyName = "PartnerID";
-            this.colPartnerID.HeaderText = "ID";
-            this.colPartnerID.Name = "colPartnerID";
-            this.colPartnerID.ReadOnly = true;
-            this.colPartnerID.Visible = false;
-            // 
-            // colServiceType
-            // 
-            this.colServiceType.DataPropertyName = "ServiceType";
-            this.colServiceType.HeaderText = "Loại dịch vụ";
-            this.colServiceType.Name = "colServiceType";
-            this.colServiceType.ReadOnly = true;
-            // 
-            // colPrice
-            // 
-            this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPrice.DataPropertyName = "Price";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "#,###";
-            this.colPrice.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colPrice.HeaderText = "Đơn giá";
-            this.colPrice.Name = "colPrice";
-            this.colPrice.ReadOnly = true;
-            this.colPrice.Width = 120;
-            // 
-            // colRemove
-            // 
-            this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.colRemove.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colRemove.HeaderText = "";
-            this.colRemove.Name = "colRemove";
-            this.colRemove.ReadOnly = true;
-            this.colRemove.Text = "Xóa";
-            this.colRemove.UseColumnTextForButtonValue = true;
-            this.colRemove.Width = 60;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label20.Location = new System.Drawing.Point(6, 171);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(67, 17);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "Đính kèm";
-            // 
-            // btnAddServiceType
-            // 
-            this.btnAddServiceType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddServiceType.Location = new System.Drawing.Point(79, 169);
-            this.btnAddServiceType.Name = "btnAddServiceType";
-            this.btnAddServiceType.Size = new System.Drawing.Size(56, 20);
-            this.btnAddServiceType.TabIndex = 4;
-            this.btnAddServiceType.Text = "Thêm";
-            this.btnAddServiceType.UseVisualStyleBackColor = true;
-            this.btnAddServiceType.Click += new System.EventHandler(this.btnFindParnet_Click);
             // 
             // UCBook
             // 

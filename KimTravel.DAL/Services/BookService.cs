@@ -17,9 +17,10 @@ namespace KimTravel.DAL.Services
                               join t in db.Tours on b.TourID equals t.TourID
                               join g in db.GroupTours on t.GroupID equals g.GroupID
                               from p in db.Partners.Where(x=>x.PartnerID == b.PartnerID)
-                              where b.IsCancel = isCancel
+                              where b.IsCancel == isCancel
                               select new
                               {
+                                  b.ID,
                                   t.TourID,
                                   TourName = t.Name,
                                   g.GroupID,
@@ -52,9 +53,10 @@ namespace KimTravel.DAL.Services
                               where t.GroupID == gID && b.TourID == tID 
                                     && b.StartDate.Value.ToString("MM-dd-yyyy") == dateS
                                     && b.EndDate.Value.ToString("MM-dd-yyyy") == dateE
-                                    && b.IsCancel = isCancel
+                                    && b.IsCancel == isCancel
                               select new
                               {
+                                  b.ID,
                                   t.TourID,
                                   TourName = t.Name,
                                   g.GroupID,
@@ -91,7 +93,7 @@ namespace KimTravel.DAL.Services
             var data = (from b in db.Books
                         join t in db.Tours on b.TourID equals t.TourID
                         join g in db.GroupTours on t.GroupID equals g.GroupID
-                        where b.TourID == tourID && b.StartDate.Value == date2 && b.EndDate.Value == date2 && b.IsCancel = false
+                        where b.TourID == tourID && b.StartDate.Value == date2 && b.EndDate.Value == date2 && b.IsCancel == false
                         select new
                         {
                             b
