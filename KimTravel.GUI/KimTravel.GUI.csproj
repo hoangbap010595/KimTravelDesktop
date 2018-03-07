@@ -63,11 +63,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigApp.cs" />
     <Compile Include="FControls\frmActionCar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FControls\frmActionCar.Designer.cs">
       <DependentUpon>frmActionCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FControls\frmDetailsTour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FControls\frmDetailsTour.Designer.cs">
+      <DependentUpon>frmDetailsTour.cs</DependentUpon>
     </Compile>
     <Compile Include="FControls\frmFindPartner.cs">
       <SubType>Form</SubType>
@@ -169,6 +176,9 @@
     </Compile>
     <EmbeddedResource Include="FControls\frmActionCar.resx">
       <DependentUpon>frmActionCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FControls\frmDetailsTour.resx">
+      <DependentUpon>frmDetailsTour.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FControls\frmFindPartner.resx">
       <DependentUpon>frmFindPartner.cs</DependentUpon>

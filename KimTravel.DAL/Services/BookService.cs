@@ -11,12 +11,13 @@ namespace KimTravel.DAL.Services
     {
         private readonly KimTravelDataContext db = new KimTravelDataContext();
 
-        public IQueryable GetList()
+        public IQueryable GetList(bool isCancel = false)
         {
             IQueryable data = from b in db.Books
                               join t in db.Tours on b.TourID equals t.TourID
                               join g in db.GroupTours on t.GroupID equals g.GroupID
                               from p in db.Partners.Where(x=>x.PartnerID == b.PartnerID)
+                              where b.IsCancel = isCancel
                               select new
                               {
                                   t.TourID,
@@ -42,7 +43,7 @@ namespace KimTravel.DAL.Services
 
             return data;
         }
-        public IQueryable GetList(int gID, int tID, string dateS, string dateE)
+        public IQueryable GetList(int gID, int tID, string dateS, string dateE,bool isCancel = false)
         {
             IQueryable data = from b in db.Books 
                               join t in db.Tours on b.TourID equals t.TourID
@@ -51,6 +52,7 @@ namespace KimTravel.DAL.Services
                               where t.GroupID == gID && b.TourID == tID 
                                     && b.StartDate.Value.ToString("MM-dd-yyyy") == dateS
                                     && b.EndDate.Value.ToString("MM-dd-yyyy") == dateE
+                                    && b.IsCancel = isCancel
                               select new
                               {
                                   t.TourID,
@@ -89,12 +91,10 @@ namespace KimTravel.DAL.Services
             var data = (from b in db.Books
                         join t in db.Tours on b.TourID equals t.TourID
                         join g in db.GroupTours on t.GroupID equals g.GroupID
-                        where b.TourID == tourID && b.StartDate.Value == date2 && b.EndDate.Value == date2
+                        where b.TourID == tourID && b.StartDate.Value == date2 && b.EndDate.Value == date2 && b.IsCancel = false
                         select new
                         {
-                            b,
-                            t,
-                            g
+                            b
                         }).Sum(x => x.b.Pax);
 
             var maxG = db.GroupTours.FirstOrDefault(x => x.GroupID == groupID).MaxPax;
@@ -126,7 +126,17 @@ namespace KimTravel.DAL.Services
                 return false;
             }
         }
-
+        public bool UpdateBookCancel(int id, bool isCancel)
+        {
+            Book currObject = db.Books.FirstOrDefault(x => x.ID == id);
+            if (currObject != null)
+            {
+                currObject.IsCancel = isCancel;
+                db.SubmitChanges();
+                return true;
+            }
+            return false;
+        }
         public bool Update(Book obj)
         {
             Book currObject = db.Books.FirstOrDefault(x => x.ID == obj.ID);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -61,7 +62,6 @@
             this.colStaff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ActionUpdate = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnLoad = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
@@ -70,15 +70,23 @@
             this.cbbGroupTourID = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnExportExcel = new System.Windows.Forms.Button();
+            this.rdBinhThuong = new System.Windows.Forms.RadioButton();
+            this.rdDaHuy = new System.Windows.Forms.RadioButton();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tảiLạiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xuấtExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTimKiem
             // 
-            this.btnTimKiem.Location = new System.Drawing.Point(619, 25);
+            this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKiem.Location = new System.Drawing.Point(908, 12);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(100, 25);
+            this.btnTimKiem.Size = new System.Drawing.Size(100, 38);
             this.btnTimKiem.TabIndex = 5;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
@@ -123,14 +131,14 @@
             this.colStaff,
             this.colNote,
             this.ActionUpdate});
-            this.dataGridViewGroupTour.Location = new System.Drawing.Point(3, 57);
+            this.dataGridViewGroupTour.Location = new System.Drawing.Point(3, 58);
             this.dataGridViewGroupTour.MultiSelect = false;
             this.dataGridViewGroupTour.Name = "dataGridViewGroupTour";
             this.dataGridViewGroupTour.ReadOnly = true;
             this.dataGridViewGroupTour.RowHeadersWidth = 35;
             this.dataGridViewGroupTour.RowTemplate.Height = 25;
             this.dataGridViewGroupTour.RowTemplate.ReadOnly = true;
-            this.dataGridViewGroupTour.Size = new System.Drawing.Size(1053, 453);
+            this.dataGridViewGroupTour.Size = new System.Drawing.Size(1053, 452);
             this.dataGridViewGroupTour.TabIndex = 0;
             this.dataGridViewGroupTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridViewGroupTour.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewGroupTour_RowPostPaint);
@@ -338,22 +346,12 @@
             this.ActionUpdate.UseColumnTextForButtonValue = true;
             this.ActionUpdate.Width = 80;
             // 
-            // btnLoad
-            // 
-            this.btnLoad.Location = new System.Drawing.Point(721, 25);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(100, 25);
-            this.btnLoad.TabIndex = 3;
-            this.btnLoad.Text = "Làm mới";
-            this.btnLoad.UseVisualStyleBackColor = true;
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(479, 7);
+            this.label7.Location = new System.Drawing.Point(533, 5);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(95, 17);
             this.label7.TabIndex = 0;
@@ -364,7 +362,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label6.Location = new System.Drawing.Point(338, 7);
+            this.label6.Location = new System.Drawing.Point(378, 5);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 17);
             this.label6.TabIndex = 0;
@@ -376,9 +374,9 @@
             this.dtpEndDate.CustomFormat = "dd-MM-yyyy";
             this.dtpEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEndDate.Location = new System.Drawing.Point(482, 27);
+            this.dtpEndDate.Location = new System.Drawing.Point(536, 25);
             this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(115, 23);
+            this.dtpEndDate.Size = new System.Drawing.Size(131, 23);
             this.dtpEndDate.TabIndex = 4;
             // 
             // dtpStartDate
@@ -387,9 +385,9 @@
             this.dtpStartDate.CustomFormat = "dd-MM-yyyy";
             this.dtpStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStartDate.Location = new System.Drawing.Point(341, 27);
+            this.dtpStartDate.Location = new System.Drawing.Point(381, 25);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(117, 23);
+            this.dtpStartDate.Size = new System.Drawing.Size(133, 23);
             this.dtpStartDate.TabIndex = 3;
             // 
             // cbbTourID
@@ -398,9 +396,9 @@
             this.cbbTourID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTourID.FormattingEnabled = true;
             this.cbbTourID.ItemHeight = 16;
-            this.cbbTourID.Location = new System.Drawing.Point(179, 27);
+            this.cbbTourID.Location = new System.Drawing.Point(193, 25);
             this.cbbTourID.Name = "cbbTourID";
-            this.cbbTourID.Size = new System.Drawing.Size(142, 24);
+            this.cbbTourID.Size = new System.Drawing.Size(164, 24);
             this.cbbTourID.TabIndex = 2;
             // 
             // cbbGroupTourID
@@ -409,9 +407,9 @@
             this.cbbGroupTourID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbGroupTourID.FormattingEnabled = true;
             this.cbbGroupTourID.ItemHeight = 16;
-            this.cbbGroupTourID.Location = new System.Drawing.Point(18, 27);
+            this.cbbGroupTourID.Location = new System.Drawing.Point(13, 25);
             this.cbbGroupTourID.Name = "cbbGroupTourID";
-            this.cbbGroupTourID.Size = new System.Drawing.Size(142, 24);
+            this.cbbGroupTourID.Size = new System.Drawing.Size(164, 24);
             this.cbbGroupTourID.TabIndex = 1;
             this.cbbGroupTourID.SelectedIndexChanged += new System.EventHandler(this.cbbGroupTourID_SelectedIndexChanged);
             // 
@@ -420,7 +418,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(15, 7);
+            this.label1.Location = new System.Drawing.Point(10, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 17);
             this.label1.TabIndex = 0;
@@ -431,26 +429,73 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(176, 7);
+            this.label2.Location = new System.Drawing.Point(190, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 17);
             this.label2.TabIndex = 0;
             this.label2.Text = "Chọn tour";
             // 
-            // btnExportExcel
+            // rdBinhThuong
             // 
-            this.btnExportExcel.Location = new System.Drawing.Point(827, 25);
-            this.btnExportExcel.Name = "btnExportExcel";
-            this.btnExportExcel.Size = new System.Drawing.Size(100, 25);
-            this.btnExportExcel.TabIndex = 3;
-            this.btnExportExcel.Text = "Xuất Excel";
-            this.btnExportExcel.UseVisualStyleBackColor = true;
-            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
+            this.rdBinhThuong.AutoSize = true;
+            this.rdBinhThuong.Checked = true;
+            this.rdBinhThuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdBinhThuong.Location = new System.Drawing.Point(8, 18);
+            this.rdBinhThuong.Name = "rdBinhThuong";
+            this.rdBinhThuong.Size = new System.Drawing.Size(102, 21);
+            this.rdBinhThuong.TabIndex = 6;
+            this.rdBinhThuong.Text = "Binh thường";
+            this.rdBinhThuong.UseVisualStyleBackColor = true;
+            // 
+            // rdDaHuy
+            // 
+            this.rdDaHuy.AutoSize = true;
+            this.rdDaHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdDaHuy.Location = new System.Drawing.Point(130, 17);
+            this.rdDaHuy.Name = "rdDaHuy";
+            this.rdDaHuy.Size = new System.Drawing.Size(71, 21);
+            this.rdDaHuy.TabIndex = 6;
+            this.rdDaHuy.Text = "Đã hủy";
+            this.rdDaHuy.UseVisualStyleBackColor = true;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tảiLạiToolStripMenuItem,
+            this.xuấtExcelToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(128, 48);
+            // 
+            // tảiLạiToolStripMenuItem
+            // 
+            this.tảiLạiToolStripMenuItem.Name = "tảiLạiToolStripMenuItem";
+            this.tảiLạiToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.tảiLạiToolStripMenuItem.Text = "Tải lại";
+            this.tảiLạiToolStripMenuItem.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
+            // xuấtExcelToolStripMenuItem
+            // 
+            this.xuấtExcelToolStripMenuItem.Name = "xuấtExcelToolStripMenuItem";
+            this.xuấtExcelToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.xuấtExcelToolStripMenuItem.Text = "Xuất Excel";
+            this.xuấtExcelToolStripMenuItem.Click += new System.EventHandler(this.btnExportExcel_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rdBinhThuong);
+            this.groupBox1.Controls.Add(this.rdDaHuy);
+            this.groupBox1.Location = new System.Drawing.Point(682, 7);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(218, 45);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Tình trạng";
             // 
             // UCListBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cbbTourID);
             this.Controls.Add(this.cbbGroupTourID);
             this.Controls.Add(this.label2);
@@ -460,13 +505,14 @@
             this.Controls.Add(this.dtpEndDate);
             this.Controls.Add(this.dtpStartDate);
             this.Controls.Add(this.dataGridViewGroupTour);
-            this.Controls.Add(this.btnExportExcel);
-            this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnTimKiem);
             this.Name = "UCListBook";
             this.Size = new System.Drawing.Size(1059, 513);
             this.Load += new System.EventHandler(this.UCGroupTour_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -475,7 +521,6 @@
         #endregion
         private System.Windows.Forms.DataGridView dataGridViewGroupTour;
         private System.Windows.Forms.Button btnTimKiem;
-        private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtpEndDate;
@@ -504,6 +549,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colStaff;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNote;
         private System.Windows.Forms.DataGridViewButtonColumn ActionUpdate;
-        private System.Windows.Forms.Button btnExportExcel;
+        private System.Windows.Forms.RadioButton rdBinhThuong;
+        private System.Windows.Forms.RadioButton rdDaHuy;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tảiLạiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xuấtExcelToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

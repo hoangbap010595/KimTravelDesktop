@@ -37,8 +37,8 @@ namespace KimTravel.GUI.FControls
         {
             mSkin = MaterialSkinManager.Instance;
             mSkin.AddFormToManage(this);
-            mSkin.Theme = MaterialSkinManager.Themes.LIGHT;
-            mSkin.ColorScheme = new ColorScheme(Primary.Blue600, Primary.BlueGrey900, Primary.DeepPurple100, Accent.Cyan700, TextShade.WHITE);
+            mSkin.Theme = ConfigApp.Themes;
+            mSkin.ColorScheme = new ColorScheme(ConfigApp.Primary, ConfigApp.DarkPrimary, ConfigApp.LightPrimary, ConfigApp.Accent, ConfigApp.TextShade);
             txtName.Focus();
 
             cbbGroupTour.DataSource = grTourService.GetListCombobox();

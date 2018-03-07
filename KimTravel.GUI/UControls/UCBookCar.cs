@@ -9,25 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using KimTravel.GUI.FControls;
 using KimTravel.DAL.Services;
-using KimTravel.DAL.Models;
 using KimTravel.DAL;
 
 namespace KimTravel.GUI.UControls
 {
-    public partial class UCListBook : UserControl
+    public partial class UCBookCar : UserControl
     {
-        private GroupTourService grTourService = new GroupTourService();
-        private TourService tService = new TourService();
-        private BookService bService = new BookService();
-        private BookService objService;
-        public UCListBook()
+        private StaffService objService;
+        public UCBookCar()
         {
             InitializeComponent();
         }
 
         private void loadDataGroup()
         {
-            objService = new BookService();
+            objService = new StaffService();
             var data = objService.GetList();
             dataGridViewGroupTour.DataSource = data;
             dataGridViewGroupTour.Update();
@@ -35,8 +31,8 @@ namespace KimTravel.GUI.UControls
         }
         private void btnThemMoi_Click(object sender, EventArgs e)
         {
-            frmActionUser frm = new frmActionUser();
-            frm.loadData = new frmActionUser.LoadData(loadDataGroup);
+            frmActionStaff frm = new frmActionStaff();
+            frm.loadData = new frmActionStaff.LoadData(loadDataGroup);
             frm.ShowDialog();
         }
 
@@ -44,12 +40,6 @@ namespace KimTravel.GUI.UControls
         {
             dataGridViewGroupTour.AutoGenerateColumns = false;
             loadDataGroup();
-
-            cbbGroupTourID.DataSource = grTourService.GetListCombobox();
-            cbbGroupTourID.ValueMember = "GroupID";
-            cbbGroupTourID.DisplayMember = "Name";
-
-            dtpStartDate.Value = dtpEndDate.Value = DateTime.Now.AddDays(1);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -58,46 +48,48 @@ namespace KimTravel.GUI.UControls
             {
                 var senderGrid = (DataGridView)sender;
                 var id = int.Parse(senderGrid.Rows[e.RowIndex].Cells[0].Value.ToString());
-                if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                if (senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn &&
                     e.RowIndex >= 0)
                 {
-                    frmActionUser frm = new frmActionUser(1, id);
-                    frm.loadData = new frmActionUser.LoadData(loadDataGroup);
-                    frm.ShowDialog();
+                    var name = senderGrid.Columns[e.ColumnIndex].Name;
+                    switch (name)
+                    {
+                        case "colCar1":
+                            break;
+                        case "colCar2":
+                            break;
+                        case "colCar3":
+                            break;
+                        case "colCar4":
+                            break;
+                        case "colCar5":
+                            break;
+                        case "colCar6":
+                            break;
+                        case "colCar7":
+                            break;
+                        case "colCar8":
+                            break;
+                        case "colCar9":
+                            break;
+                        case "colCar10":
+                            break;
+                    }
                 }
             }
             catch { }
         }
-        private void cbbGroupTourID_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var x = cbbGroupTourID.SelectedValue.ToString();
-                int gID = int.Parse(x);
-                cbbTourID.DataSource = tService.GetListForGroup(gID);
-                cbbTourID.ValueMember = "TourID";
-                cbbTourID.DisplayMember = "Name";
-            }
-            catch { }
-        }
+
         private void btnLoad_Click(object sender, EventArgs e)
         {
             loadDataGroup();
-        }
-
-        private void btnTimKiem_Click(object sender, EventArgs e)
-        {
-            var gID = int.Parse(cbbGroupTourID.SelectedValue.ToString());
-            var tID = int.Parse(cbbTourID.SelectedValue.ToString());
-            var dateStart = dtpStartDate.Value.ToString("MM-dd-yyyy");
-            var dateEnd = dtpEndDate.Value.ToString("MM-dd-yyyy");
-            var isCancel = rdBinhThuong.Checked == true ? true : false;
         }
 
         private void btnExportExcel_Click(object sender, EventArgs e)
         {
             ExcelLibrary.ExportToExcel(dataGridViewGroupTour);
         }
+
         private void dataGridViewGroupTour_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             using (SolidBrush b = new SolidBrush(dataGridViewGroupTour.RowHeadersDefaultCellStyle.ForeColor))
