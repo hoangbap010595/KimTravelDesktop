@@ -18,7 +18,6 @@ namespace KimTravel.GUI.UControls
     {
         private GroupTourService grTourService = new GroupTourService();
         private TourService tService = new TourService();
-        private BookService bService = new BookService();
         private BookService objService;
         public UCListBook()
         {
@@ -49,7 +48,7 @@ namespace KimTravel.GUI.UControls
             cbbGroupTourID.ValueMember = "GroupID";
             cbbGroupTourID.DisplayMember = "Name";
 
-            dtpStartDate.Value = dtpEndDate.Value = DateTime.Now.AddDays(1);
+            dtpStartDate.Value = DateTime.Now.AddDays(1);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -89,9 +88,10 @@ namespace KimTravel.GUI.UControls
         {
             var gID = int.Parse(cbbGroupTourID.SelectedValue.ToString());
             var tID = int.Parse(cbbTourID.SelectedValue.ToString());
-            var dateStart = dtpStartDate.Value.ToString("MM-dd-yyyy");
-            var dateEnd = dtpEndDate.Value.ToString("MM-dd-yyyy");
-            var isCancel = rdBinhThuong.Checked == true ? true : false;
+            var dateStart = dtpStartDate.Value.ToString("yyyy-MM-dd");
+            var isCancel = rdBinhThuong.Checked == true ? false : true;
+
+            dataGridViewGroupTour.DataSource = objService.GetListBooked(gID,tID,dateStart,isCancel);
         }
 
         private void btnExportExcel_Click(object sender, EventArgs e)

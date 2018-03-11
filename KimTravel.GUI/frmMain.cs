@@ -59,6 +59,7 @@ namespace KimTravel.GUI
 
         private void addControlToPanel(UserControl uControl)
         {
+            lblTitle.Text = uControl.Name;
             panelControlMain.Controls.Clear();
             uControl.Dock = DockStyle.Fill;
             panelControlMain.Controls.Add(uControl);
@@ -96,8 +97,7 @@ namespace KimTravel.GUI
 
         private void bookTourToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            UCBook uc = new UCBook();
-            addControlToPanel(uc);
+       
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -111,9 +111,33 @@ namespace KimTravel.GUI
                 e.Cancel = true;
         }
 
-        private void danhSáchĐãBookToolStripMenuItem_Click(object sender, EventArgs e)
+        private void bookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UCBook uc = new UCBook();
+            addControlToPanel(uc);
+        }
+
+        private void danhSachĐaBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UCListBook uc = new UCListBook();
+            addControlToPanel(uc);
+        }
+
+        private void săpXêpTourToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UCBookCar uc = new UCBookCar();
+            addControlToPanel(uc);
+        }
+
+        private void bookTourToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UCTour uc = new UCTour();
+            addControlToPanel(uc);
+        }
+
+        private void quanLyNhomĐôiTacToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UCGroupPartner uc = new UCGroupPartner();
             addControlToPanel(uc);
         }
     }

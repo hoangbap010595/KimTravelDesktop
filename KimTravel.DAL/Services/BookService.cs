@@ -16,7 +16,7 @@ namespace KimTravel.DAL.Services
             IQueryable data = from b in db.Books
                               join t in db.Tours on b.TourID equals t.TourID
                               join g in db.GroupTours on t.GroupID equals g.GroupID
-                              from p in db.Partners.Where(x=>x.PartnerID == b.PartnerID)
+                              from p in db.Partners.Where(x => x.PartnerID == b.PartnerID)
                               where b.IsCancel == isCancel
                               select new
                               {
@@ -32,27 +32,53 @@ namespace KimTravel.DAL.Services
                                   b.EndDate,
                                   b.Pax,
                                   b.PickUp,
-                                  b.Room,b.CustomName,
+                                  b.Room,
+                                  b.CustomName,
                                   b.PartnerPrice,
-                                  b.PriceReceive,b.PriceSale,b.PriceVTQ,
-                                  b.PromotionMoney,b.PromotionPercent,
+                                  b.PriceReceive,
+                                  b.PriceSale,
+                                  b.PriceVTQ,
+                                  b.PromotionMoney,
+                                  b.PromotionPercent,
                                   b.StaffID,
                                   b.DateCreate,
                                   b.Note,
-                                  b.ServiceType,b.Total
+                                  b.ServiceType,
+                                  b.Total
                               };
 
             return data;
         }
-        public IQueryable GetList(int gID, int tID, string dateS, string dateE,bool isCancel = false)
+        public IQueryable GetList(int partnerID, string dateS, bool isCancel = false)
         {
-            IQueryable data = from b in db.Books 
+            DateTime date = DateTime.Parse(dateS);
+            IQueryable data = from b in db.Books
                               join t in db.Tours on b.TourID equals t.TourID
                               join g in db.GroupTours on t.GroupID equals g.GroupID
                               from p in db.Partners.Where(x => x.PartnerID == b.PartnerID)
-                              where t.GroupID == gID && b.TourID == tID 
-                                    && b.StartDate.Value.ToString("MM-dd-yyyy") == dateS
-                                    && b.EndDate.Value.ToString("MM-dd-yyyy") == dateE
+                              where b.PartnerID == partnerID && b.StartDate.Value == date
+                                    && b.IsCancel == isCancel
+                              select new
+                              {
+                                  b.ID,
+                                  TourName = t.Name,
+                                  b.CustomName,
+                                  b.PickUp,
+                                  b.Room,
+                                  b.Pax
+                              };
+
+            return data;
+        }
+        public IQueryable GetListBooked(int gID, int tourID, string dateS, bool isCancel = false)
+        {
+            DateTime date = DateTime.Parse(dateS);
+            IQueryable data = from b in db.Books
+                              join t in db.Tours on b.TourID equals t.TourID
+                              join g in db.GroupTours on t.GroupID equals g.GroupID
+                              from p in db.Partners.Where(x => x.PartnerID == b.PartnerID)
+                              where t.GroupID == gID && b.TourID == tourID
+                                    && b.StartDate.Value == date
                                     && b.IsCancel == isCancel
                               select new
                               {
@@ -85,15 +111,14 @@ namespace KimTravel.DAL.Services
 
             return data;
         }
-        public Dictionary<string, object> getInfoBooked(int groupID, int tourID, string SDate, string EDate)
+        public Dictionary<string, object> getInfoBooked(int groupID, int tourID, string SDate)
         {
             var date1 = DateTime.Parse(SDate);
-            var date2 = DateTime.Parse(EDate);
             Dictionary<string, object> dataResult = new Dictionary<string, object>();
             var data = (from b in db.Books
                         join t in db.Tours on b.TourID equals t.TourID
                         join g in db.GroupTours on t.GroupID equals g.GroupID
-                        where b.TourID == tourID && b.StartDate.Value == date2 && b.EndDate.Value == date2 && b.IsCancel == false
+                        where b.TourID == tourID && b.StartDate.Value == date1 && b.IsCancel == false
                         select new
                         {
                             b
@@ -144,6 +169,30 @@ namespace KimTravel.DAL.Services
             Book currObject = db.Books.FirstOrDefault(x => x.ID == obj.ID);
             if (currObject != null)
             {
+                currObject.TourID = obj.TourID;
+                currObject.PartnerID = obj.PartnerID;
+                currObject.StartDate = obj.StartDate;
+                currObject.Pax = obj.Pax;
+                currObject.StaffID = obj.StaffID;
+
+                //Cus
+                currObject.CustomName = obj.CustomName;
+                currObject.Room = obj.Room;
+                currObject.PickUp = obj.PickUp;
+
+                //Service
+                currObject.PartnerPrice = obj.PartnerPrice;
+                currObject.PriceReceive = obj.PriceReceive;
+                currObject.PriceSale = obj.PriceSale;
+                currObject.PriceVTQ = obj.PriceVTQ;
+                currObject.Note = obj.Note;
+
+                currObject.ServiceType = obj.ServiceType;
+                currObject.PromotionMoney = obj.PromotionMoney;
+                currObject.PromotionPercent = obj.PromotionPercent;
+                currObject.Total = obj.Total;
+                currObject.LastUpdate = obj.LastUpdate;
+                currObject.UpdateBy = obj.UpdateBy;
 
                 db.SubmitChanges();
                 return true;

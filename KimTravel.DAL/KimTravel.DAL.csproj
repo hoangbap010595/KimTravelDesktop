@@ -79,6 +79,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Services\CarTypeService.cs" />
+    <Compile Include="Services\PriceService.cs" />
+    <Compile Include="Services\GroupPartnerService.cs" />
     <Compile Include="Services\ServiceTypeService.cs" />
     <Compile Include="Services\CarService.cs" />
     <Compile Include="Services\PartnerService.cs" />

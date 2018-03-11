@@ -32,8 +32,6 @@
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.txtGiaBan = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.txtGiaNhan = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.btnUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.txtPriceVTQ = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
@@ -103,41 +101,10 @@
             this.materialLabel2.TabIndex = 0;
             this.materialLabel2.Text = "Giá bán";
             // 
-            // txtGiaNhan
-            // 
-            this.txtGiaNhan.Depth = 0;
-            this.txtGiaNhan.Hint = "";
-            this.txtGiaNhan.Location = new System.Drawing.Point(120, 225);
-            this.txtGiaNhan.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtGiaNhan.Name = "txtGiaNhan";
-            this.txtGiaNhan.PasswordChar = '\0';
-            this.txtGiaNhan.SelectedText = "";
-            this.txtGiaNhan.SelectionLength = 0;
-            this.txtGiaNhan.SelectionStart = 0;
-            this.txtGiaNhan.Size = new System.Drawing.Size(223, 23);
-            this.txtGiaNhan.TabIndex = 3;
-            this.txtGiaNhan.Text = "0";
-            this.txtGiaNhan.UseSystemPasswordChar = false;
-            this.txtGiaNhan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
-            // 
-            // materialLabel3
-            // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(9, 228);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(67, 19);
-            this.materialLabel3.TabIndex = 0;
-            this.materialLabel3.Text = "Giá nhận";
-            // 
             // btnUpdate
             // 
             this.btnUpdate.Depth = 0;
-            this.btnUpdate.Location = new System.Drawing.Point(85, 379);
+            this.btnUpdate.Location = new System.Drawing.Point(88, 355);
             this.btnUpdate.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Primary = true;
@@ -151,7 +118,7 @@
             // 
             this.txtPriceVTQ.Depth = 0;
             this.txtPriceVTQ.Hint = "";
-            this.txtPriceVTQ.Location = new System.Drawing.Point(120, 266);
+            this.txtPriceVTQ.Location = new System.Drawing.Point(120, 226);
             this.txtPriceVTQ.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtPriceVTQ.Name = "txtPriceVTQ";
             this.txtPriceVTQ.PasswordChar = '\0';
@@ -171,7 +138,7 @@
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(9, 269);
+            this.materialLabel4.Location = new System.Drawing.Point(9, 229);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(64, 19);
@@ -211,7 +178,7 @@
             this.ckEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckEnabled.Depth = 0;
             this.ckEnabled.Font = new System.Drawing.Font("Roboto", 10F);
-            this.ckEnabled.Location = new System.Drawing.Point(120, 304);
+            this.ckEnabled.Location = new System.Drawing.Point(120, 267);
             this.ckEnabled.Margin = new System.Windows.Forms.Padding(0);
             this.ckEnabled.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ckEnabled.MouseState = MaterialSkin.MouseState.HOVER;
@@ -228,7 +195,7 @@
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel7.Location = new System.Drawing.Point(9, 309);
+            this.materialLabel7.Location = new System.Drawing.Point(9, 272);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
             this.materialLabel7.Size = new System.Drawing.Size(72, 19);
@@ -246,11 +213,9 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.materialLabel6);
             this.Controls.Add(this.materialLabel4);
-            this.Controls.Add(this.materialLabel3);
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.txtPriceVTQ);
-            this.Controls.Add(this.txtGiaNhan);
             this.Controls.Add(this.txtGiaBan);
             this.Controls.Add(this.txtName);
             this.MaximizeBox = false;
@@ -274,8 +239,6 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtGiaBan;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtGiaNhan;
-        private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialRaisedButton btnUpdate;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtPriceVTQ;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;

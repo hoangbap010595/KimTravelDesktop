@@ -37,6 +37,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
+            this.btnThemMoi = new System.Windows.Forms.Button();
+            this.btnLoad = new System.Windows.Forms.Button();
             this.colTourID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,8 +48,6 @@
             this.colPriceSale = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPriceVTQ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ActionUpdate = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnThemMoi = new System.Windows.Forms.Button();
-            this.btnLoad = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,6 +115,28 @@
             this.dataGridViewGroupTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridViewGroupTour.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewGroupTour_RowPostPaint);
             // 
+            // btnThemMoi
+            // 
+            this.btnThemMoi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThemMoi.Location = new System.Drawing.Point(956, 11);
+            this.btnThemMoi.Name = "btnThemMoi";
+            this.btnThemMoi.Size = new System.Drawing.Size(100, 25);
+            this.btnThemMoi.TabIndex = 3;
+            this.btnThemMoi.Text = "Thêm";
+            this.btnThemMoi.UseVisualStyleBackColor = true;
+            this.btnThemMoi.Click += new System.EventHandler(this.btnThemMoi_Click);
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoad.Location = new System.Drawing.Point(850, 11);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(100, 25);
+            this.btnLoad.TabIndex = 3;
+            this.btnLoad.Text = "Làm mới";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
             // colTourID
             // 
             this.colTourID.DataPropertyName = "TourID";
@@ -174,6 +196,7 @@
             this.colPriceReceive.HeaderText = "Giá nhận";
             this.colPriceReceive.Name = "colPriceReceive";
             this.colPriceReceive.ReadOnly = true;
+            this.colPriceReceive.Visible = false;
             this.colPriceReceive.Width = 130;
             // 
             // colPriceSale
@@ -215,28 +238,6 @@
             this.ActionUpdate.Text = "Sửa";
             this.ActionUpdate.UseColumnTextForButtonValue = true;
             this.ActionUpdate.Width = 80;
-            // 
-            // btnThemMoi
-            // 
-            this.btnThemMoi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThemMoi.Location = new System.Drawing.Point(956, 11);
-            this.btnThemMoi.Name = "btnThemMoi";
-            this.btnThemMoi.Size = new System.Drawing.Size(100, 25);
-            this.btnThemMoi.TabIndex = 3;
-            this.btnThemMoi.Text = "Thêm";
-            this.btnThemMoi.UseVisualStyleBackColor = true;
-            this.btnThemMoi.Click += new System.EventHandler(this.btnThemMoi_Click);
-            // 
-            // btnLoad
-            // 
-            this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoad.Location = new System.Drawing.Point(850, 11);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(100, 25);
-            this.btnLoad.TabIndex = 3;
-            this.btnLoad.Text = "Làm mới";
-            this.btnLoad.UseVisualStyleBackColor = true;
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // UCTour
             // 

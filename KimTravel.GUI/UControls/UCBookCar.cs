@@ -47,39 +47,96 @@ namespace KimTravel.GUI.UControls
             try
             {
                 var senderGrid = (DataGridView)sender;
-                var id = int.Parse(senderGrid.Rows[e.RowIndex].Cells[0].Value.ToString());
-                if (senderGrid.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn &&
-                    e.RowIndex >= 0)
+
+                if (senderGrid.CurrentCell.GetType() == typeof(DataGridViewCheckBoxCell))
                 {
-                    var name = senderGrid.Columns[e.ColumnIndex].Name;
-                    switch (name)
+                    if (senderGrid.CurrentCell.IsInEditMode)
                     {
-                        case "colCar1":
-                            break;
-                        case "colCar2":
-                            break;
-                        case "colCar3":
-                            break;
-                        case "colCar4":
-                            break;
-                        case "colCar5":
-                            break;
-                        case "colCar6":
-                            break;
-                        case "colCar7":
-                            break;
-                        case "colCar8":
-                            break;
-                        case "colCar9":
-                            break;
-                        case "colCar10":
-                            break;
+                        if (senderGrid.IsCurrentCellDirty)
+                        {
+                            senderGrid.EndEdit();
+                        }
                     }
                 }
+
             }
             catch { }
         }
 
+        private void dataGridViewGroupTour_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+            if (senderGrid.DataSource != null)
+            {
+                if (senderGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "True")
+                {
+                    senderGrid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightGray;
+                    for (int i = 5; i < senderGrid.Columns.Count; i++)
+                    {
+                        if (i != e.ColumnIndex)
+                            senderGrid[i, e.RowIndex].ReadOnly = true;
+                    }
+                    getTotalInCar(e.ColumnIndex, 1);
+                }
+                else
+                {
+                    senderGrid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                    for (int i = 5; i < senderGrid.Columns.Count; i++)
+                    {
+                        senderGrid[i, e.RowIndex].ReadOnly = false;
+                    }
+                    getTotalInCar(e.ColumnIndex, -1);
+                }
+
+            }
+        }
+        private void getTotalInCar(int colIndex, int add)
+        {
+            int count = 0;
+            switch (colIndex)
+            {
+                case 5:
+                    count = int.Parse(lblTotalXe1.Text) + add;
+                    lblTotalXe1.Text = count.ToString();
+                    break;
+                case 6:
+                    count = int.Parse(lblTotalXe2.Text) + add;
+                    lblTotalXe2.Text = count.ToString();
+                    break;
+                case 7:
+                    count = int.Parse(lblTotalXe3.Text) + add;
+                    lblTotalXe3.Text = count.ToString();
+                    break;
+                case 8:
+                    count = int.Parse(lblTotalXe4.Text) + add;
+                    lblTotalXe4.Text = count.ToString();
+                    break;
+                case 9:
+                    count = int.Parse(lblTotalXe5.Text) + add;
+                    lblTotalXe5.Text = count.ToString();
+                    break;
+                case 10:
+                    count = int.Parse(lblTotalXe6.Text) + add;
+                    lblTotalXe6.Text = count.ToString();
+                    break;
+                case 11:
+                    count = int.Parse(lblTotalXe7.Text) + add;
+                    lblTotalXe7.Text = count.ToString();
+                    break;
+                case 12:
+                    count = int.Parse(lblTotalXe8.Text) + add;
+                    lblTotalXe8.Text = count.ToString();
+                    break;
+                case 13:
+                    count = int.Parse(lblTotalXe9.Text) + add;
+                    lblTotalXe9.Text = count.ToString();
+                    break;
+                case 14:
+                    count = int.Parse(lblTotalXe10.Text) + add;
+                    lblTotalXe10.Text = count.ToString();
+                    break;
+            }
+        }
         private void btnLoad_Click(object sender, EventArgs e)
         {
             loadDataGroup();
@@ -96,6 +153,11 @@ namespace KimTravel.GUI.UControls
             {
                 e.Graphics.DrawString((e.RowIndex + 1).ToString(), e.InheritedRowStyle.Font, b, e.RowBounds.Location.X + 10, e.RowBounds.Location.Y + 4);
             }
+        }
+
+        private void btnCar1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

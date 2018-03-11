@@ -49,6 +49,10 @@
       <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
@@ -64,6 +68,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigApp.cs" />
+    <Compile Include="FControls\frmActionGroupPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FControls\frmActionGroupPrice.Designer.cs">
+      <DependentUpon>frmActionGroupPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FControls\frmActionGroupPartner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FControls\frmActionGroupPartner.Designer.cs">
+      <DependentUpon>frmActionGroupPartner.cs</DependentUpon>
+    </Compile>
     <Compile Include="FControls\frmActionCar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +91,12 @@
     </Compile>
     <Compile Include="FControls\frmDetailsTour.Designer.cs">
       <DependentUpon>frmDetailsTour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FControls\frmFindServiceType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FControls\frmFindServiceType.Designer.cs">
+      <DependentUpon>frmFindServiceType.cs</DependentUpon>
     </Compile>
     <Compile Include="FControls\frmFindPartner.cs">
       <SubType>Form</SubType>
@@ -132,6 +154,18 @@
     <Compile Include="UControls\UCBook.Designer.cs">
       <DependentUpon>UCBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="UControls\UCBookCar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControls\UCBookCar.Designer.cs">
+      <DependentUpon>UCBookCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UControls\UCGroupPartner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControls\UCGroupPartner.Designer.cs">
+      <DependentUpon>UCGroupPartner.cs</DependentUpon>
+    </Compile>
     <Compile Include="UControls\UCListBook.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -174,11 +208,20 @@
     <Compile Include="UControls\UCGroupTour.Designer.cs">
       <DependentUpon>UCGroupTour.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FControls\frmActionGroupPrice.resx">
+      <DependentUpon>frmActionGroupPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FControls\frmActionGroupPartner.resx">
+      <DependentUpon>frmActionGroupPartner.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FControls\frmActionCar.resx">
       <DependentUpon>frmActionCar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FControls\frmDetailsTour.resx">
       <DependentUpon>frmDetailsTour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FControls\frmFindServiceType.resx">
+      <DependentUpon>frmFindServiceType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FControls\frmFindPartner.resx">
       <DependentUpon>frmFindPartner.cs</DependentUpon>
@@ -216,6 +259,12 @@
     </Compile>
     <EmbeddedResource Include="UControls\UCBook.resx">
       <DependentUpon>UCBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControls\UCBookCar.resx">
+      <DependentUpon>UCBookCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControls\UCGroupPartner.resx">
+      <DependentUpon>UCGroupPartner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UControls\UCListBook.resx">
       <DependentUpon>UCListBook.cs</DependentUpon>

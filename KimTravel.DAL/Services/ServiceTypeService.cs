@@ -17,7 +17,16 @@ namespace KimTravel.DAL.Services
 
             return data;
         }
-
+        public IQueryable GetListFind(string content)
+        {
+            IQueryable data = from p in db.ServiceTypes
+                              where p.Name.Contains(content)
+                              select new
+                              {
+                                 p.ID,p.Name,p.Price,p.HotelID
+                              };
+            return data;
+        }
         public bool Insert(ServiceType obj)
         {
             bool checkName = db.ServiceTypes.Count(x => x.Name == obj.Name) > 0 ? true : false;

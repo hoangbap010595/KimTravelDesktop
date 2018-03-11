@@ -20,6 +20,7 @@ namespace KimTravel.GUI.FControls
         private MaterialSkinManager mSkin;
         private Partner _objectData;
         private PartnerService gtService = new PartnerService();
+        private GroupPartnerService gpService = new GroupPartnerService();
         private int _action = -1;
         private int _objID = -1;
         public delegate void LoadData();
@@ -44,6 +45,10 @@ namespace KimTravel.GUI.FControls
             cbbStatus.ValueMember = "ID";
             cbbStatus.DisplayMember = "Name";
 
+            cbbGroupPartnerID.DataSource = gpService.GetList();
+            cbbGroupPartnerID.ValueMember = "GroupPartnerID";
+            cbbGroupPartnerID.DisplayMember = "GroupName";
+
             if (_action == -1)
                 this.Text = "Thêm mới đối tác";
             else
@@ -57,7 +62,9 @@ namespace KimTravel.GUI.FControls
                 txtPhone.Text = _objectData.Phone;
                 txtNote.Text = _objectData.Note;
                 cbbStatus.SelectedValue = _objectData.Status;
-            }else
+                cbbGroupPartnerID.SelectedValue = _objectData.GroupID;
+            }
+            else
             {
                 txtPartnerCode.Text = gtService.GetPartnerCode();
             }
@@ -83,6 +90,7 @@ namespace KimTravel.GUI.FControls
             groupTourNew.Phone = txtPhone.Text;
             groupTourNew.Status = int.Parse(cbbStatus.SelectedValue.ToString());
             groupTourNew.Note = txtNote.Text;
+            groupTourNew.GroupID = int.Parse(cbbGroupPartnerID.SelectedValue.ToString()); 
             var rs = false;
             var msg = "";
             if (_action == -1)

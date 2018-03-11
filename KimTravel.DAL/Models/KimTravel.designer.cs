@@ -63,6 +63,12 @@ namespace KimTravel.DAL.Models
     partial void InsertCarType(CarType instance);
     partial void UpdateCarType(CarType instance);
     partial void DeleteCarType(CarType instance);
+    partial void InsertGroupPartner(GroupPartner instance);
+    partial void UpdateGroupPartner(GroupPartner instance);
+    partial void DeleteGroupPartner(GroupPartner instance);
+    partial void InsertPrice(Price instance);
+    partial void UpdatePrice(Price instance);
+    partial void DeletePrice(Price instance);
     #endregion
 		
 		public KimTravelDataContext() : 
@@ -182,6 +188,22 @@ namespace KimTravel.DAL.Models
 				return this.GetTable<CarType>();
 			}
 		}
+		
+		public System.Data.Linq.Table<GroupPartner> GroupPartners
+		{
+			get
+			{
+				return this.GetTable<GroupPartner>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Price> Prices
+		{
+			get
+			{
+				return this.GetTable<Price>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ApplicationRole")]
@@ -290,8 +312,6 @@ namespace KimTravel.DAL.Models
 		
 		private System.Nullable<int> _Priority;
 		
-		private System.Nullable<int> _PriceReceive;
-		
 		private System.Nullable<int> _PriceSale;
 		
 		private System.Nullable<int> _PriceVTQ;
@@ -316,8 +336,6 @@ namespace KimTravel.DAL.Models
     partial void OnTypeChanged();
     partial void OnPriorityChanging(System.Nullable<int> value);
     partial void OnPriorityChanged();
-    partial void OnPriceReceiveChanging(System.Nullable<int> value);
-    partial void OnPriceReceiveChanged();
     partial void OnPriceSaleChanging(System.Nullable<int> value);
     partial void OnPriceSaleChanged();
     partial void OnPriceVTQChanging(System.Nullable<int> value);
@@ -470,26 +488,6 @@ namespace KimTravel.DAL.Models
 					this._Priority = value;
 					this.SendPropertyChanged("Priority");
 					this.OnPriorityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriceReceive", DbType="Int")]
-		public System.Nullable<int> PriceReceive
-		{
-			get
-			{
-				return this._PriceReceive;
-			}
-			set
-			{
-				if ((this._PriceReceive != value))
-				{
-					this.OnPriceReceiveChanging(value);
-					this.SendPropertyChanging();
-					this._PriceReceive = value;
-					this.SendPropertyChanged("PriceReceive");
-					this.OnPriceReceiveChanged();
 				}
 			}
 		}
@@ -1061,7 +1059,7 @@ namespace KimTravel.DAL.Models
 		
 		private System.Nullable<int> _PromotionPercent;
 		
-		private System.Nullable<int> _StaffID;
+		private string _StaffID;
 		
 		private System.Nullable<System.DateTime> _DateCreate;
 		
@@ -1072,6 +1070,12 @@ namespace KimTravel.DAL.Models
 		private System.Nullable<int> _Total;
 		
 		private System.Nullable<bool> _IsCancel;
+		
+		private string _CreateBy;
+		
+		private string _UpdateBy;
+		
+		private System.Nullable<System.DateTime> _LastUpdate;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1107,7 +1111,7 @@ namespace KimTravel.DAL.Models
     partial void OnPromotionMoneyChanged();
     partial void OnPromotionPercentChanging(System.Nullable<int> value);
     partial void OnPromotionPercentChanged();
-    partial void OnStaffIDChanging(System.Nullable<int> value);
+    partial void OnStaffIDChanging(string value);
     partial void OnStaffIDChanged();
     partial void OnDateCreateChanging(System.Nullable<System.DateTime> value);
     partial void OnDateCreateChanged();
@@ -1119,6 +1123,12 @@ namespace KimTravel.DAL.Models
     partial void OnTotalChanged();
     partial void OnIsCancelChanging(System.Nullable<bool> value);
     partial void OnIsCancelChanged();
+    partial void OnCreateByChanging(string value);
+    partial void OnCreateByChanged();
+    partial void OnUpdateByChanging(string value);
+    partial void OnUpdateByChanged();
+    partial void OnLastUpdateChanging(System.Nullable<System.DateTime> value);
+    partial void OnLastUpdateChanged();
     #endregion
 		
 		public Book()
@@ -1186,7 +1196,7 @@ namespace KimTravel.DAL.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="Date")]
 		public System.Nullable<System.DateTime> StartDate
 		{
 			get
@@ -1206,7 +1216,7 @@ namespace KimTravel.DAL.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDate", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDate", DbType="Date")]
 		public System.Nullable<System.DateTime> EndDate
 		{
 			get
@@ -1426,8 +1436,8 @@ namespace KimTravel.DAL.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffID", DbType="Int")]
-		public System.Nullable<int> StaffID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffID", DbType="NVarChar(50)")]
+		public string StaffID
 		{
 			get
 			{
@@ -1542,6 +1552,66 @@ namespace KimTravel.DAL.Models
 					this._IsCancel = value;
 					this.SendPropertyChanged("IsCancel");
 					this.OnIsCancelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreateBy", DbType="NVarChar(50)")]
+		public string CreateBy
+		{
+			get
+			{
+				return this._CreateBy;
+			}
+			set
+			{
+				if ((this._CreateBy != value))
+				{
+					this.OnCreateByChanging(value);
+					this.SendPropertyChanging();
+					this._CreateBy = value;
+					this.SendPropertyChanged("CreateBy");
+					this.OnCreateByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateBy", DbType="NVarChar(50)")]
+		public string UpdateBy
+		{
+			get
+			{
+				return this._UpdateBy;
+			}
+			set
+			{
+				if ((this._UpdateBy != value))
+				{
+					this.OnUpdateByChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateBy = value;
+					this.SendPropertyChanged("UpdateBy");
+					this.OnUpdateByChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastUpdate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> LastUpdate
+		{
+			get
+			{
+				return this._LastUpdate;
+			}
+			set
+			{
+				if ((this._LastUpdate != value))
+				{
+					this.OnLastUpdateChanging(value);
+					this.SendPropertyChanging();
+					this._LastUpdate = value;
+					this.SendPropertyChanged("LastUpdate");
+					this.OnLastUpdateChanged();
 				}
 			}
 		}
@@ -2092,6 +2162,8 @@ namespace KimTravel.DAL.Models
 		
 		private string _Note;
 		
+		private System.Nullable<int> _GroupID;
+		
 		private EntitySet<Staff> _Staffs;
 		
     #region Extensibility Method Definitions
@@ -2112,6 +2184,8 @@ namespace KimTravel.DAL.Models
     partial void OnStatusChanged();
     partial void OnNoteChanging(string value);
     partial void OnNoteChanged();
+    partial void OnGroupIDChanging(System.Nullable<int> value);
+    partial void OnGroupIDChanged();
     #endregion
 		
 		public Partner()
@@ -2256,6 +2330,26 @@ namespace KimTravel.DAL.Models
 					this._Note = value;
 					this.SendPropertyChanged("Note");
 					this.OnNoteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroupID", DbType="Int")]
+		public System.Nullable<int> GroupID
+		{
+			get
+			{
+				return this._GroupID;
+			}
+			set
+			{
+				if ((this._GroupID != value))
+				{
+					this.OnGroupIDChanging(value);
+					this.SendPropertyChanging();
+					this._GroupID = value;
+					this.SendPropertyChanged("GroupID");
+					this.OnGroupIDChanged();
 				}
 			}
 		}
@@ -2848,6 +2942,250 @@ namespace KimTravel.DAL.Models
 					this._Enable = value;
 					this.SendPropertyChanged("Enable");
 					this.OnEnableChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="hoang1995.GroupPartner")]
+	public partial class GroupPartner : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _GroupPartnerID;
+		
+		private string _GroupName;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnGroupPartnerIDChanging(int value);
+    partial void OnGroupPartnerIDChanged();
+    partial void OnGroupNameChanging(string value);
+    partial void OnGroupNameChanged();
+    #endregion
+		
+		public GroupPartner()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroupPartnerID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int GroupPartnerID
+		{
+			get
+			{
+				return this._GroupPartnerID;
+			}
+			set
+			{
+				if ((this._GroupPartnerID != value))
+				{
+					this.OnGroupPartnerIDChanging(value);
+					this.SendPropertyChanging();
+					this._GroupPartnerID = value;
+					this.SendPropertyChanged("GroupPartnerID");
+					this.OnGroupPartnerIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroupName", DbType="NVarChar(50)")]
+		public string GroupName
+		{
+			get
+			{
+				return this._GroupName;
+			}
+			set
+			{
+				if ((this._GroupName != value))
+				{
+					this.OnGroupNameChanging(value);
+					this.SendPropertyChanging();
+					this._GroupName = value;
+					this.SendPropertyChanged("GroupName");
+					this.OnGroupNameChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="hoang1995.Price")]
+	public partial class Price : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Key;
+		
+		private System.Nullable<int> _GroupID;
+		
+		private System.Nullable<int> _TourID;
+		
+		private System.Nullable<int> _PriceRe;
+		
+		private System.Nullable<int> _PriceVTQ;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnKeyChanging(int value);
+    partial void OnKeyChanged();
+    partial void OnGroupIDChanging(System.Nullable<int> value);
+    partial void OnGroupIDChanged();
+    partial void OnTourIDChanging(System.Nullable<int> value);
+    partial void OnTourIDChanged();
+    partial void OnPriceReChanging(System.Nullable<int> value);
+    partial void OnPriceReChanged();
+    partial void OnPriceVTQChanging(System.Nullable<int> value);
+    partial void OnPriceVTQChanged();
+    #endregion
+		
+		public Price()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Key]", Storage="_Key", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Key
+		{
+			get
+			{
+				return this._Key;
+			}
+			set
+			{
+				if ((this._Key != value))
+				{
+					this.OnKeyChanging(value);
+					this.SendPropertyChanging();
+					this._Key = value;
+					this.SendPropertyChanged("Key");
+					this.OnKeyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GroupID", DbType="Int")]
+		public System.Nullable<int> GroupID
+		{
+			get
+			{
+				return this._GroupID;
+			}
+			set
+			{
+				if ((this._GroupID != value))
+				{
+					this.OnGroupIDChanging(value);
+					this.SendPropertyChanging();
+					this._GroupID = value;
+					this.SendPropertyChanged("GroupID");
+					this.OnGroupIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TourID", DbType="Int")]
+		public System.Nullable<int> TourID
+		{
+			get
+			{
+				return this._TourID;
+			}
+			set
+			{
+				if ((this._TourID != value))
+				{
+					this.OnTourIDChanging(value);
+					this.SendPropertyChanging();
+					this._TourID = value;
+					this.SendPropertyChanged("TourID");
+					this.OnTourIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriceRe", DbType="Int")]
+		public System.Nullable<int> PriceRe
+		{
+			get
+			{
+				return this._PriceRe;
+			}
+			set
+			{
+				if ((this._PriceRe != value))
+				{
+					this.OnPriceReChanging(value);
+					this.SendPropertyChanging();
+					this._PriceRe = value;
+					this.SendPropertyChanged("PriceRe");
+					this.OnPriceReChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriceVTQ", DbType="Int")]
+		public System.Nullable<int> PriceVTQ
+		{
+			get
+			{
+				return this._PriceVTQ;
+			}
+			set
+			{
+				if ((this._PriceVTQ != value))
+				{
+					this.OnPriceVTQChanging(value);
+					this.SendPropertyChanging();
+					this._PriceVTQ = value;
+					this.SendPropertyChanged("PriceVTQ");
+					this.OnPriceVTQChanged();
 				}
 			}
 		}

@@ -15,11 +15,12 @@ namespace KimTravel.DAL.Services
         {
             IQueryable data = from t in db.Tours
                               join g in db.GroupTours on t.GroupID equals g.GroupID
+                              orderby t.Name
                               select new
                               {
                                   t.TourID,
                                   t.Name,
-                                  t.PriceReceive,
+                                  //t.PriceReceive,
                                   t.PriceSale,
                                   t.PriceVTQ,
                                   t.Enable,
@@ -29,10 +30,10 @@ namespace KimTravel.DAL.Services
 
             return data;
         }
-    
+
         public IEnumerable<Tour> GetListCobobox()
         {
-            IEnumerable<Tour> data = db.Tours.Where(x => x.Enable == true);
+            IEnumerable<Tour> data = db.Tours.Where(x => x.Enable == true).OrderBy(x => x.Name).OrderBy(x => x.GroupID);
             return data;
         }
 
@@ -41,6 +42,7 @@ namespace KimTravel.DAL.Services
             IQueryable data = from t in db.Tours
                               join g in db.GroupTours on t.GroupID equals g.GroupID
                               where t.GroupID == GroupID && t.Enable == true
+                              orderby t.Name
                               select new
                               {
                                   t.TourID,
@@ -83,7 +85,6 @@ namespace KimTravel.DAL.Services
                     currObject.Name = gTour.Name;
                     currObject.GroupID = gTour.GroupID;
                     currObject.Enable = gTour.Enable;
-                    currObject.PriceReceive = gTour.PriceReceive;
                     currObject.PriceSale = gTour.PriceSale;
                     currObject.PriceVTQ = gTour.PriceVTQ;
                     //currObject.Type = gTour.Type;

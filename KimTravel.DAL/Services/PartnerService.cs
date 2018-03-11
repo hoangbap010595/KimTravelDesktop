@@ -16,6 +16,29 @@ namespace KimTravel.DAL.Services
         public IQueryable GetList()
         {
             IQueryable data = from p in db.Partners
+                              from g in db.GroupPartners.Where(x => x.GroupPartnerID == p.GroupID).DefaultIfEmpty()
+                              orderby g.GroupName
+                              orderby p.Address
+                              select new
+                              {
+                                  p.PartnerID,
+                                  p.PartnerCode,
+                                  p.Name,
+                                  p.Address,
+                                  p.Phone,
+                                  p.Note,
+                                  p.GroupID,
+                                  g.GroupName,
+                                  Status = p.Status == 1 ? "Bình thường" : "Ngưng hợp tác"
+                              };
+            return data;
+        }
+
+        public IQueryable GetListFind(string content)
+        {
+            IQueryable data = from p in db.Partners
+                              where p.Address.Contains(content) && p.Status == 1
+                              orderby p.Address
                               select new
                               {
                                   p.PartnerID,
@@ -28,21 +51,9 @@ namespace KimTravel.DAL.Services
                               };
             return data;
         }
-
-        public IQueryable GetListFind(string content)
+        public IEnumerable<Partner> GetListCobobox()
         {
-            IQueryable data = from p in db.Partners
-                              where (p.Name.Contains(content) || p.Address.Contains(content) || p.PartnerCode.Contains(content)) && p.Status == 1
-                              select new
-                              {
-                                  p.PartnerID,
-                                  p.PartnerCode,
-                                  p.Name,
-                                  p.Address,
-                                  p.Phone,
-                                  p.Note,
-                                  Status = p.Status == 1 ? "Bình thường" : "Ngưng hợp tác"
-                              };
+            IEnumerable<Partner> data = db.Partners.Where(x => x.Status == 1).OrderBy(x => x.Address).ToList();
             return data;
         }
         public string GetPartnerCode()

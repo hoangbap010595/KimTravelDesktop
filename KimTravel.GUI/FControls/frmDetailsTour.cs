@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace KimTravel.GUI.FControls
 {
@@ -23,6 +24,8 @@ namespace KimTravel.GUI.FControls
         private PartnerService pnService = new PartnerService();
         private BookService bookService = new BookService();
         private Book _objectBook;
+        private DataTable tableService = new DataTable();
+
         public delegate void LoadData();
         public LoadData loadData;
         private int _WorkID = -1;
@@ -31,8 +34,8 @@ namespace KimTravel.GUI.FControls
             InitializeComponent();
             _WorkID = wID;
 
-            dtpEndDate.MinDate = dtpStartDate.MinDate = DateTime.Now.AddDays(-1);
-            dtpStartDate.Value = dtpEndDate.Value = DateTime.Now.AddDays(1);
+            tableService.Columns.Add("ServiceType");
+            tableService.Columns.Add("Price", typeof(int));
         }
 
         private void frmActionGroupTour_Load(object sender, EventArgs e)
@@ -48,6 +51,7 @@ namespace KimTravel.GUI.FControls
                 btnCancel.Text = "Hoàn tác";
 
             _objectBook = bookService.GetByID(_WorkID);
+            dtpStartDate.Value = _objectBook.StartDate.Value;
 
             cbbGroupTourID.DataSource = grTourService.GetListCombobox();
             cbbGroupTourID.ValueMember = "GroupID";
@@ -59,13 +63,12 @@ namespace KimTravel.GUI.FControls
             cbbPartnerID.SelectedValue = _objectBook.PartnerID;
             cbbTourID.SelectedValue = _objectBook.TourID;
             cbbPartnerID.SelectedValue = _objectBook.PartnerID;
-            dtpStartDate.Value = _objectBook.StartDate.Value;
-            dtpStartDate.Value = _objectBook.EndDate.Value;
+        
             numPax.Value = _objectBook.Pax.Value;
-            txtSaleBook.Text = _objectBook.StaffID.ToString();
+            txtSaleBook.Text = _objectBook.StaffID;
 
             txtCustomer.Text = _objectBook.CustomName;
-            txtPickup.Text = _objectBook.PickUp;
+            txtPickup.Text = _objectBook.PickUp == "" ? cbbPartnerID.SelectedText : _objectBook.PickUp;
             txtRoom.Text = _objectBook.Room;
 
             txtPriceRe.Text = _objectBook.PriceReceive.ToString();
@@ -75,7 +78,9 @@ namespace KimTravel.GUI.FControls
 
             txtPromotionPrice.Text = _objectBook.PromotionMoney.ToString();
             numPromotionPer.Value = _objectBook.PromotionPercent.Value;
-            txtTotal.Text = _objectBook.Total.ToString();
+            lblTotalBook.Text = _objectBook.Total.ToString();
+
+            parseJsonServiceType(_objectBook.ServiceType);
 
         }
         private void cbbTourID_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,14 +89,12 @@ namespace KimTravel.GUI.FControls
             {
                 int gID = int.Parse(cbbGroupTourID.SelectedValue.ToString());
                 int id = int.Parse(cbbTourID.SelectedValue.ToString());
-                string date1 = dtpStartDate.Value.ToString("MM-dd-yyyy");
-                string date2 = dtpEndDate.Value.ToString("MM-dd-yyyy");
+                string date1 = dtpStartDate.Value.ToString("yyyy-MM-dd");
                 Tour tour = tService.GetByID(id);
-                txtPriceRe.Text = tour.PriceReceive.ToString();
                 txtPriceSa.Text = tour.PriceSale.ToString();
                 txtPriceVTQ.Text = tour.PriceVTQ.ToString();
 
-                Dictionary<string, object> dataObject = bookService.getInfoBooked(gID, id, date1, date2);
+                Dictionary<string, object> dataObject = bookService.getInfoBooked(gID, id, date1);
                 int C1 = int.Parse(dataObject["CurrentTotal"].ToString());
                 int C2 = int.Parse(dataObject["MaxPax"].ToString());
                 int C3 = C2 - C1;
@@ -116,6 +119,36 @@ namespace KimTravel.GUI.FControls
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            Book book = new Book();
+            book.ID = _objectBook.ID;
+            book.TourID = int.Parse(cbbTourID.SelectedValue.ToString());
+            book.PartnerID = int.Parse(cbbPartnerID.SelectedValue.ToString());
+            book.StartDate = dtpStartDate.Value;
+            book.Pax = int.Parse(numPax.Value.ToString());
+            book.StaffID = txtSaleBook.Text;
+
+            //Cus
+            book.CustomName = txtCustomer.Text;
+            book.Room = txtRoom.Text;
+            book.PickUp = txtPickup.Text;
+
+            //Service
+            book.PartnerPrice = int.Parse(txtPartnerPrice.Text == "" ? "0" : txtPartnerPrice.Text);
+            book.PriceReceive = int.Parse(txtPriceRe.Text == "" ? "0" : txtPriceRe.Text);
+            book.PriceSale = int.Parse(txtPriceSa.Text == "" ? "0" : txtPriceSa.Text);
+            book.PriceVTQ = int.Parse(txtPriceVTQ.Text == "" ? "0" : txtPriceVTQ.Text);
+            book.Note = txtNote.Text;
+
+            book.ServiceType = getJsonServiceType();
+            book.PromotionMoney = int.Parse(txtPromotionPrice.Text == "" ? "0" : txtPromotionPrice.Text);
+            book.PromotionPercent = int.Parse(numPromotionPer.Value.ToString());
+            book.Total = int.Parse(lblTotalBook.Text);
+            book.LastUpdate = DateTime.Now;
+            book.UpdateBy = Constant.CurrentSessionUser;
+            //book.IsCancel = false;
+
+            var rs = bookService.Update(book);
+            MessageBox.Show("Cập nhật thành công");
             if (loadData != null)
                 loadData();
             this.Close();
@@ -158,10 +191,107 @@ namespace KimTravel.GUI.FControls
             }
             catch { }
         }
+        private string getJsonServiceType()
+        {
+            string data = "[";
+            foreach (DataRow item in tableService.Rows)
+            {
+                string d = "{\"ServiceType\":\"" + item["ServiceType"].ToString() + "\",\"Price\":" + int.Parse(item["Price"].ToString()) + "},";
+                data += d;
+            }
+            data = data.TrimEnd(',') + "]";
+            return data;
+        }
 
+        private void parseJsonServiceType(string data)
+        {
+            data = data.Trim('"');
+            data = data.Replace("\\", "");
+           var obj =  Newtonsoft.Json.Linq.JArray.Parse(data);
+            foreach (var item in obj)
+            {
+                DataRow dr = tableService.NewRow();
+                dr["ServiceType"] = item["ServiceType"];
+                dr["Price"] = item["Price"];
+                tableService.Rows.Add(dr);
+            }
+            tableService.AcceptChanges();
+            dataGridViewGroupTour.DataSource = tableService;
+            lblMoney.Text = "Total:" + String.Format("{0:#,###}", getTotalPriceService());
+        }
+
+        private int getTotalPriceService()
+        {
+            int price = 0;
+            foreach (DataRow item in tableService.Rows)
+            {
+                price += int.Parse(item["Price"].ToString());
+            }
+            return price;
+        }
+        private void getService(string name, int price)
+        {
+            DataRow dr = tableService.NewRow();
+            dr["ServiceType"] = name;
+            dr["Price"] = price;
+
+            tableService.Rows.Add(dr);
+            tableService.AcceptChanges();
+            dataGridViewGroupTour.DataSource = tableService;
+            lblMoney.Text = "Total:" + String.Format("{0:#,###}", getTotalPriceService());
+            payment();
+        }
         private void btnAddServiceType_Click(object sender, EventArgs e)
         {
+            frmFindServiceType frm = new frmFindServiceType();
+            frm.sendData = new frmFindServiceType.LoadData(getService);
+            frm.Show();
+        }
+        private void TextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
 
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void PriceChanged_TextChanged(object sender, EventArgs e)
+        {
+            payment();
+        }
+        private void payment()
+        {
+            int priceRe = int.Parse(txtPriceRe.Text == "" ? "0" : txtPriceRe.Text);
+            int priceVTQ = int.Parse(txtPriceVTQ.Text == "" ? "0" : txtPriceVTQ.Text);
+            int priceService = getTotalPriceService();
+            int moneySale = 0;
+            if (txtPromotionPrice.Text != "")
+            {
+                moneySale = int.Parse(txtPromotionPrice.Text);
+            }
+
+            int pax = int.Parse(numPax.Value.ToString());
+
+            var total = ((priceRe + priceVTQ + priceService) * pax) - moneySale;
+
+            lblTotalBook.Text = total.ToString();
+        }
+
+        private void dataGridViewGroupTour_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                var senderGrid = (DataGridView)sender;
+                if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                    e.RowIndex >= 0)
+                {
+                    tableService.Rows.RemoveAt(e.RowIndex);
+                    tableService.AcceptChanges();
+                    dataGridViewGroupTour.DataSource = tableService;
+                    payment();
+                }
+            }
+            catch { }
         }
     }
 }

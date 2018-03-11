@@ -37,6 +37,7 @@
             this.btnThemMoi = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.colPartnerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPartnerCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,6 +92,7 @@
             this.dataGridViewGroupTour.ColumnHeadersHeight = 30;
             this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPartnerID,
+            this.colGroupName,
             this.colPartnerCode,
             this.colName,
             this.colAddress,
@@ -139,6 +141,13 @@
             this.colPartnerID.Name = "colPartnerID";
             this.colPartnerID.ReadOnly = true;
             this.colPartnerID.Visible = false;
+            // 
+            // colGroupName
+            // 
+            this.colGroupName.DataPropertyName = "GroupName";
+            this.colGroupName.HeaderText = "Nhóm";
+            this.colGroupName.Name = "colGroupName";
+            this.colGroupName.ReadOnly = true;
             // 
             // colPartnerCode
             // 
@@ -230,6 +239,7 @@
         private System.Windows.Forms.Button btnThemMoi;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPartnerID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGroupName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPartnerCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAddress;
