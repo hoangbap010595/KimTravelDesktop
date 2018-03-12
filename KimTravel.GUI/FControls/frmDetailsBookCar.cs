@@ -76,8 +76,8 @@ namespace KimTravel.GUI.FControls
             Staff tx = staffService.GetByID(int.Parse(cbbTaiXe.SelectedValue.ToString()));
             xtraRPPrintBookTour xtra = new xtraRPPrintBookTour(_dataTemp, _tourName, _startDate, hdv.Name, tx.Name);
             //xtra.Print();
-            //xtra.PrintDialog();
-            xtra.ShowPreview();
+            xtra.PrintDialog();
+            //xtra.ShowPreview();
         }
 
         private void TextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
@@ -87,6 +87,11 @@ namespace KimTravel.GUI.FControls
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
