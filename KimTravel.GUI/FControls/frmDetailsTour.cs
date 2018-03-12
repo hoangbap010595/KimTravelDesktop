@@ -29,11 +29,12 @@ namespace KimTravel.GUI.FControls
         public delegate void LoadData();
         public LoadData loadData;
         private int _WorkID = -1;
-        public frmDetailsTour(int wID = 1)
+        private int _ObjID = -1;
+        public frmDetailsTour(int wID = 1, int objID = -1)
         {
             InitializeComponent();
             _WorkID = wID;
-
+            _ObjID = objID;
             tableService.Columns.Add("ServiceType");
             tableService.Columns.Add("Price", typeof(int));
         }
@@ -50,7 +51,7 @@ namespace KimTravel.GUI.FControls
             else
                 btnCancel.Text = "Hoàn tác";
 
-            _objectBook = bookService.GetByID(_WorkID);
+            _objectBook = bookService.GetByID(_ObjID);
             dtpStartDate.Value = _objectBook.StartDate.Value;
 
             cbbGroupTourID.DataSource = grTourService.GetListCombobox();
@@ -63,7 +64,7 @@ namespace KimTravel.GUI.FControls
             cbbPartnerID.SelectedValue = _objectBook.PartnerID;
             cbbTourID.SelectedValue = _objectBook.TourID;
             cbbPartnerID.SelectedValue = _objectBook.PartnerID;
-        
+
             numPax.Value = _objectBook.Pax.Value;
             txtSaleBook.Text = _objectBook.StaffID;
 
@@ -156,6 +157,8 @@ namespace KimTravel.GUI.FControls
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            if (loadData != null)
+                loadData();
             this.Close();
         }
 
@@ -166,7 +169,9 @@ namespace KimTravel.GUI.FControls
                 //Cancel = true
                 if (DialogResult.OK == MessageBox.Show("Xác nhận muốn hủy bỏ tour đã book này ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
                 {
-
+                    bookService.UpdateBookCancel(_ObjID, true);
+                    MessageBox.Show("Tour đã hủy thành công!");
+                    _WorkID = 2;
                 }
             }
             else
@@ -174,9 +179,16 @@ namespace KimTravel.GUI.FControls
                 //Cancel = false
                 if (DialogResult.OK == MessageBox.Show("Xác nhận muốn hoàn tác tour đã hủy này ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
                 {
-
+                    bookService.UpdateBookCancel(_ObjID, false);
+                    MessageBox.Show("Hoàn tác thành công!");
+                    _WorkID = 1;
                 }
             }
+
+            if (_WorkID == 1)
+                btnCancel.Text = "Hủy bỏ";
+            else
+                btnCancel.Text = "Hoàn tác";
         }
 
         private void cbbGroupTourID_SelectedIndexChanged(object sender, EventArgs e)
@@ -207,7 +219,7 @@ namespace KimTravel.GUI.FControls
         {
             data = data.Trim('"');
             data = data.Replace("\\", "");
-           var obj =  Newtonsoft.Json.Linq.JArray.Parse(data);
+            var obj = Newtonsoft.Json.Linq.JArray.Parse(data);
             foreach (var item in obj)
             {
                 DataRow dr = tableService.NewRow();
@@ -292,6 +304,11 @@ namespace KimTravel.GUI.FControls
                 }
             }
             catch { }
+        }
+
+        private void numPax_ValueChanged(object sender, EventArgs e)
+        {
+            payment();
         }
     }
 }

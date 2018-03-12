@@ -40,10 +40,15 @@
             this.quanLyPhânQuyênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuâtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kêtThucToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.danhSachĐaBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.săpXêpTourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nghiêpVuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookTourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quanLyĐôiTacToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quanLyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quanLyNhomĐôiTacToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dưLiêuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quanLyNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,20 +60,15 @@
             this.hươngDânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panelControlMain = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.quanLyNhomĐôiTacToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.danhSachĐaBookToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.săpXêpTourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
             this.panelStatusBar.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.tableLayoutPanelMain.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tableLayoutPanelMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_bar_CurrentUser
@@ -183,6 +183,41 @@
             this.kêtThucToolStripMenuItem.Text = "Kết thúc";
             this.kêtThucToolStripMenuItem.Click += new System.EventHandler(this.kêtThucToolStripMenuItem_Click);
             // 
+            // tourToolStripMenuItem
+            // 
+            this.tourToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bookToolStripMenuItem,
+            this.danhSachĐaBookToolStripMenuItem,
+            this.săpXêpTourToolStripMenuItem});
+            this.tourToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("tourToolStripMenuItem.Image")));
+            this.tourToolStripMenuItem.Name = "tourToolStripMenuItem";
+            this.tourToolStripMenuItem.Size = new System.Drawing.Size(64, 25);
+            this.tourToolStripMenuItem.Text = "Tour";
+            // 
+            // bookToolStripMenuItem
+            // 
+            this.bookToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("bookToolStripMenuItem.Image")));
+            this.bookToolStripMenuItem.Name = "bookToolStripMenuItem";
+            this.bookToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
+            this.bookToolStripMenuItem.Text = "Book";
+            this.bookToolStripMenuItem.Click += new System.EventHandler(this.bookToolStripMenuItem_Click);
+            // 
+            // danhSachĐaBookToolStripMenuItem
+            // 
+            this.danhSachĐaBookToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("danhSachĐaBookToolStripMenuItem.Image")));
+            this.danhSachĐaBookToolStripMenuItem.Name = "danhSachĐaBookToolStripMenuItem";
+            this.danhSachĐaBookToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
+            this.danhSachĐaBookToolStripMenuItem.Text = "Danh sách đã book";
+            this.danhSachĐaBookToolStripMenuItem.Click += new System.EventHandler(this.danhSachĐaBookToolStripMenuItem_Click);
+            // 
+            // săpXêpTourToolStripMenuItem
+            // 
+            this.săpXêpTourToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("săpXêpTourToolStripMenuItem.Image")));
+            this.săpXêpTourToolStripMenuItem.Name = "săpXêpTourToolStripMenuItem";
+            this.săpXêpTourToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
+            this.săpXêpTourToolStripMenuItem.Text = "Phân bổ xe theo tour";
+            this.săpXêpTourToolStripMenuItem.Click += new System.EventHandler(this.săpXêpTourToolStripMenuItem_Click);
+            // 
             // nghiêpVuToolStripMenuItem
             // 
             this.nghiêpVuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -219,6 +254,14 @@
             this.quanLyToolStripMenuItem.Text = "Quản lý nhóm tour";
             this.quanLyToolStripMenuItem.Click += new System.EventHandler(this.quanLyToolStripMenuItem_Click);
             // 
+            // quanLyNhomĐôiTacToolStripMenuItem
+            // 
+            this.quanLyNhomĐôiTacToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("quanLyNhomĐôiTacToolStripMenuItem.Image")));
+            this.quanLyNhomĐôiTacToolStripMenuItem.Name = "quanLyNhomĐôiTacToolStripMenuItem";
+            this.quanLyNhomĐôiTacToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
+            this.quanLyNhomĐôiTacToolStripMenuItem.Text = "Quản lý nhóm đối tác";
+            this.quanLyNhomĐôiTacToolStripMenuItem.Click += new System.EventHandler(this.quanLyNhomĐôiTacToolStripMenuItem_Click);
+            // 
             // dưLiêuToolStripMenuItem
             // 
             this.dưLiêuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -235,7 +278,7 @@
             // 
             this.xeToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("xeToolStripMenuItem.Image")));
             this.xeToolStripMenuItem.Name = "xeToolStripMenuItem";
-            this.xeToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.xeToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
             this.xeToolStripMenuItem.Text = "Xe";
             this.xeToolStripMenuItem.Click += new System.EventHandler(this.xeToolStripMenuItem_Click);
             // 
@@ -243,7 +286,7 @@
             // 
             this.quanLyNhânViênToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("quanLyNhânViênToolStripMenuItem.Image")));
             this.quanLyNhânViênToolStripMenuItem.Name = "quanLyNhânViênToolStripMenuItem";
-            this.quanLyNhânViênToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.quanLyNhânViênToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
             this.quanLyNhânViênToolStripMenuItem.Text = "Nhân viên";
             this.quanLyNhânViênToolStripMenuItem.Click += new System.EventHandler(this.quanLyNhânViênToolStripMenuItem_Click);
             // 
@@ -251,14 +294,14 @@
             // 
             this.loaiDichVuToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("loaiDichVuToolStripMenuItem.Image")));
             this.loaiDichVuToolStripMenuItem.Name = "loaiDichVuToolStripMenuItem";
-            this.loaiDichVuToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.loaiDichVuToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
             this.loaiDichVuToolStripMenuItem.Text = "Loại dịch vụ";
             // 
             // khachSanToolStripMenuItem
             // 
             this.khachSanToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("khachSanToolStripMenuItem.Image")));
             this.khachSanToolStripMenuItem.Name = "khachSanToolStripMenuItem";
-            this.khachSanToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.khachSanToolStripMenuItem.Size = new System.Drawing.Size(151, 24);
             this.khachSanToolStripMenuItem.Text = "Khách sạn";
             // 
             // baoCaoToolStripMenuItem
@@ -311,6 +354,36 @@
             this.panel2.Size = new System.Drawing.Size(1293, 624);
             this.panel2.TabIndex = 8;
             // 
+            // panelControlMain
+            // 
+            this.panelControlMain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControlMain.Location = new System.Drawing.Point(0, 36);
+            this.panelControlMain.Name = "panelControlMain";
+            this.panelControlMain.Size = new System.Drawing.Size(1293, 588);
+            this.panelControlMain.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.lblTitle);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1293, 36);
+            this.panel1.TabIndex = 0;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.lblTitle.Location = new System.Drawing.Point(10, 8);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(0, 20);
+            this.lblTitle.TabIndex = 0;
+            // 
             // tableLayoutPanelMain
             // 
             this.tableLayoutPanelMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -331,80 +404,6 @@
             this.tableLayoutPanelMain.Size = new System.Drawing.Size(1297, 683);
             this.tableLayoutPanelMain.TabIndex = 9;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Silver;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.lblTitle);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1293, 36);
-            this.panel1.TabIndex = 0;
-            // 
-            // panelControlMain
-            // 
-            this.panelControlMain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelControlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControlMain.Location = new System.Drawing.Point(0, 36);
-            this.panelControlMain.Name = "panelControlMain";
-            this.panelControlMain.Size = new System.Drawing.Size(1293, 588);
-            this.panelControlMain.TabIndex = 1;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lblTitle.Location = new System.Drawing.Point(10, 8);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(57, 20);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "label1";
-            // 
-            // quanLyNhomĐôiTacToolStripMenuItem
-            // 
-            this.quanLyNhomĐôiTacToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("quanLyNhomĐôiTacToolStripMenuItem.Image")));
-            this.quanLyNhomĐôiTacToolStripMenuItem.Name = "quanLyNhomĐôiTacToolStripMenuItem";
-            this.quanLyNhomĐôiTacToolStripMenuItem.Size = new System.Drawing.Size(211, 24);
-            this.quanLyNhomĐôiTacToolStripMenuItem.Text = "Quản lý nhóm đối tác";
-            this.quanLyNhomĐôiTacToolStripMenuItem.Click += new System.EventHandler(this.quanLyNhomĐôiTacToolStripMenuItem_Click);
-            // 
-            // tourToolStripMenuItem
-            // 
-            this.tourToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bookToolStripMenuItem,
-            this.danhSachĐaBookToolStripMenuItem,
-            this.săpXêpTourToolStripMenuItem});
-            this.tourToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("tourToolStripMenuItem.Image")));
-            this.tourToolStripMenuItem.Name = "tourToolStripMenuItem";
-            this.tourToolStripMenuItem.Size = new System.Drawing.Size(64, 25);
-            this.tourToolStripMenuItem.Text = "Tour";
-            // 
-            // bookToolStripMenuItem
-            // 
-            this.bookToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("bookToolStripMenuItem.Image")));
-            this.bookToolStripMenuItem.Name = "bookToolStripMenuItem";
-            this.bookToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
-            this.bookToolStripMenuItem.Text = "Book";
-            this.bookToolStripMenuItem.Click += new System.EventHandler(this.bookToolStripMenuItem_Click);
-            // 
-            // danhSachĐaBookToolStripMenuItem
-            // 
-            this.danhSachĐaBookToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("danhSachĐaBookToolStripMenuItem.Image")));
-            this.danhSachĐaBookToolStripMenuItem.Name = "danhSachĐaBookToolStripMenuItem";
-            this.danhSachĐaBookToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
-            this.danhSachĐaBookToolStripMenuItem.Text = "Danh sách đã book";
-            this.danhSachĐaBookToolStripMenuItem.Click += new System.EventHandler(this.danhSachĐaBookToolStripMenuItem_Click);
-            // 
-            // săpXêpTourToolStripMenuItem
-            // 
-            this.săpXêpTourToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("săpXêpTourToolStripMenuItem.Image")));
-            this.săpXêpTourToolStripMenuItem.Name = "săpXêpTourToolStripMenuItem";
-            this.săpXêpTourToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
-            this.săpXêpTourToolStripMenuItem.Text = "Phân bổ xe theo tour";
-            this.săpXêpTourToolStripMenuItem.Click += new System.EventHandler(this.săpXêpTourToolStripMenuItem_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -415,7 +414,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimumSize = new System.Drawing.Size(1300, 750);
+            this.MinimumSize = new System.Drawing.Size(1300, 736);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kim Travel Version 1.0.0";
@@ -426,9 +425,9 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.tableLayoutPanelMain.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tableLayoutPanelMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -29,11 +29,16 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
+            this.colKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGroupNamePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTourPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPriceRe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ActionUpdate = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnThemMoi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtgGroupPartner = new System.Windows.Forms.DataGridView();
@@ -42,11 +47,6 @@
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnAddGroupPartner = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.colKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGroupNamePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTourPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPriceRe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ActionUpdate = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgGroupPartner)).BeginInit();
@@ -60,6 +60,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewGroupTour.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewGroupTour.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -88,6 +89,56 @@
             this.dataGridViewGroupTour.TabIndex = 0;
             this.dataGridViewGroupTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridViewGroupTour.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewGroupTour_RowPostPaint);
+            // 
+            // colKey
+            // 
+            this.colKey.DataPropertyName = "Key";
+            this.colKey.HeaderText = "ID";
+            this.colKey.Name = "colKey";
+            this.colKey.ReadOnly = true;
+            this.colKey.Visible = false;
+            // 
+            // colGroupNamePrice
+            // 
+            this.colGroupNamePrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colGroupNamePrice.DataPropertyName = "GroupName";
+            this.colGroupNamePrice.HeaderText = "Nhóm";
+            this.colGroupNamePrice.Name = "colGroupNamePrice";
+            this.colGroupNamePrice.ReadOnly = true;
+            this.colGroupNamePrice.Width = 140;
+            // 
+            // colTourPrice
+            // 
+            this.colTourPrice.DataPropertyName = "Name";
+            this.colTourPrice.HeaderText = "Tour";
+            this.colTourPrice.Name = "colTourPrice";
+            this.colTourPrice.ReadOnly = true;
+            // 
+            // colPriceRe
+            // 
+            this.colPriceRe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colPriceRe.DataPropertyName = "PriceRe";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "#,###";
+            this.colPriceRe.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colPriceRe.HeaderText = "Giá nhận";
+            this.colPriceRe.Name = "colPriceRe";
+            this.colPriceRe.ReadOnly = true;
+            this.colPriceRe.Width = 120;
+            // 
+            // ActionUpdate
+            // 
+            this.ActionUpdate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.ActionUpdate.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ActionUpdate.HeaderText = "Cập nhật";
+            this.ActionUpdate.Name = "ActionUpdate";
+            this.ActionUpdate.ReadOnly = true;
+            this.ActionUpdate.Text = "Sửa";
+            this.ActionUpdate.UseColumnTextForButtonValue = true;
+            this.ActionUpdate.Width = 80;
             // 
             // btnThemMoi
             // 
@@ -120,6 +171,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgGroupPartner.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgGroupPartner.BackgroundColor = System.Drawing.Color.White;
             this.dtgGroupPartner.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgGroupPartner.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -201,56 +253,6 @@
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thiết lập bảng giá theo nhóm";
-            // 
-            // colKey
-            // 
-            this.colKey.DataPropertyName = "Key";
-            this.colKey.HeaderText = "ID";
-            this.colKey.Name = "colKey";
-            this.colKey.ReadOnly = true;
-            this.colKey.Visible = false;
-            // 
-            // colGroupNamePrice
-            // 
-            this.colGroupNamePrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colGroupNamePrice.DataPropertyName = "GroupName";
-            this.colGroupNamePrice.HeaderText = "Nhóm";
-            this.colGroupNamePrice.Name = "colGroupNamePrice";
-            this.colGroupNamePrice.ReadOnly = true;
-            this.colGroupNamePrice.Width = 140;
-            // 
-            // colTourPrice
-            // 
-            this.colTourPrice.DataPropertyName = "Name";
-            this.colTourPrice.HeaderText = "Tour";
-            this.colTourPrice.Name = "colTourPrice";
-            this.colTourPrice.ReadOnly = true;
-            // 
-            // colPriceRe
-            // 
-            this.colPriceRe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPriceRe.DataPropertyName = "PriceRe";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "#,###";
-            this.colPriceRe.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colPriceRe.HeaderText = "Giá nhận";
-            this.colPriceRe.Name = "colPriceRe";
-            this.colPriceRe.ReadOnly = true;
-            this.colPriceRe.Width = 120;
-            // 
-            // ActionUpdate
-            // 
-            this.ActionUpdate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.ActionUpdate.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ActionUpdate.HeaderText = "Cập nhật";
-            this.ActionUpdate.Name = "ActionUpdate";
-            this.ActionUpdate.ReadOnly = true;
-            this.ActionUpdate.Text = "Sửa";
-            this.ActionUpdate.UseColumnTextForButtonValue = true;
-            this.ActionUpdate.Width = 80;
             // 
             // UCGroupPartner
             // 

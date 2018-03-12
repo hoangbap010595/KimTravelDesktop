@@ -55,5 +55,16 @@ namespace KimTravel.DAL.Properties {
                 return ((string)(this["KimTravelDesktopConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;Initial Catalog=KimTravelDesktop;User ID=sa;Password=Hoa" +
+            "ng911")]
+        public string LocalConnectionString {
+            get {
+                return ((string)(this["LocalConnectionString"]));
+            }
+        }
     }
 }

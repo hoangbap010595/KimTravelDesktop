@@ -62,10 +62,22 @@ namespace KimTravel.DAL.Services
 
             return data;
         }
+        public IQueryable GetStaffHDV()
+        {
+            IQueryable data = from s in db.Staffs
+                              where s.Status == 1 && (s.Kind == 1 || s.Kind == 3)
+                              select new
+                              {
+                                  s.ID,
+                                  s.Name,
+                              };
+
+            return data;
+        }
         public IQueryable GetStaffTaiXe()
         {
             IQueryable data = from s in db.Staffs
-                              where s.Status == 1 && (s.Kind == 4 || s.Kind == 5)
+                              where s.Status == 1 && (s.Kind == 2 || s.Kind == 4)
                               select new
                               {
                                   s.ID,

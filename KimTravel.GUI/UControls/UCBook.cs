@@ -41,16 +41,13 @@ namespace KimTravel.GUI.UControls
         private void UCGroupTour_Load(object sender, EventArgs e)
         {
             txtCustomName.Text = txtNote.Text = txtRoom.Text = txtSaleBook.Text = txtPickUp.Text = txtPartnerPrice.Text = "";
+            numPax.Value = 1;
             tableService.Rows.Clear();
             dataGridViewGroupTour.DataSource = tableService;
 
             cbbGroupTourID.DataSource = grTourService.GetListCombobox();
             cbbGroupTourID.ValueMember = "GroupID";
             cbbGroupTourID.DisplayMember = "Name";
-
-            cbbTourID.DataSource = tService.GetListCobobox();
-            cbbTourID.ValueMember = "TourID";
-            cbbTourID.DisplayMember = "Name";
 
             cbbPartnerID.DataSource = pnService.GetListCobobox();
             cbbPartnerID.ValueMember = "PartnerID";
@@ -127,7 +124,8 @@ namespace KimTravel.GUI.UControls
             //Cus
             book.CustomName = txtCustomName.Text;
             book.Room = txtRoom.Text;
-            book.PickUp = txtPickUp.Text == "" ? cbbPartnerID.SelectedText : txtPickUp.Text;
+            Partner p = pnService.GetByID(int.Parse(cbbPartnerID.SelectedValue.ToString()));
+            book.PickUp = txtPickUp.Text.Trim() == "" ? p.Address : txtPickUp.Text;
 
             //Service
             book.PartnerPrice = int.Parse(txtPartnerPrice.Text == "" ? "0" : txtPartnerPrice.Text);
@@ -259,6 +257,11 @@ namespace KimTravel.GUI.UControls
             var total = ((priceRe + priceVTQ + priceService) * pax) - moneySale;
 
             lblTotalBook.Text = total.ToString();
+        }
+
+        private void numPax_ValueChanged(object sender, EventArgs e)
+        {
+            payment();
         }
     }
 }

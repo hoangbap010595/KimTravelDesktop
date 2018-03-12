@@ -15,43 +15,65 @@ namespace KimTravel.DAL
         /// <summary> 
         /// Exports the datagridview values to Excel. 
         /// </summary> 
-        public static void ExportToExcel(DataGridView dtg)
+        public static void ExportToExcel(DataGridView gridviewID)
         {
-            // Creating a Excel object. 
-            Microsoft.Office.Interop.Excel._Application excel = new Microsoft.Office.Interop.Excel.Application();
-            Microsoft.Office.Interop.Excel._Workbook workbook = excel.Workbooks.Add(Type.Missing);
-            Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+            Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
 
+            Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
+            Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+
+            xlApp = new Microsoft.Office.Interop.Excel.Application();
+            xlWorkBook = xlApp.Workbooks.Add(misValue);
+            xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
             try
             {
+                //add data 
+                int StartCol = 1;
+                int StartRow = 1;
+                int j = 0, i = 0;
 
-                worksheet = workbook.ActiveSheet;
-                worksheet.Name = "DataReport";
-                int cellRowIndex = 1;
-                int cellColumnIndex = 1;
-
-                //Loop through each row and read value from each column. 
-                for (int i = 0; i < dtg.Rows.Count - 1; i++)
+                //Write Headers
+                for (j = 0; j < gridviewID.Columns.Count-1; j++)
                 {
-                    for (int j = 0; j < dtg.Columns.Count; j++)
+                    if (gridviewID.Columns[i].Visible == true)
                     {
-                        // Excel index starts from 1,1. As first Row would have the Column headers, adding a condition check. 
-                        if (cellRowIndex == 1)
-                        {
-                            worksheet.Cells[cellRowIndex, cellColumnIndex] = dtg.Columns[j].HeaderText;
-                        }
-                        else
-                        {
-                            worksheet.Cells[cellRowIndex, cellColumnIndex] = dtg.Rows[i].Cells[j].Value.ToString();
-                        }
-                        cellColumnIndex++;
+                        Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[StartRow, StartCol + j];
+                        myRange.Value2 = gridviewID.Columns[j].HeaderText;
                     }
-                    cellColumnIndex = 1;
-                    cellRowIndex++;
                 }
-                worksheet.Columns.AutoFit();
 
-                worksheet.Visible = Microsoft.Office.Interop.Excel.XlSheetVisibility.xlSheetVisible;
+                StartRow++;
+
+                //Write datagridview content
+                for (i = 0; i < gridviewID.Rows.Count; i++)
+                {
+                    for (j = 0; j < gridviewID.Columns.Count-1; j++)
+                    {
+                        try
+                        {
+                            if (gridviewID.Columns[i].Visible == true)
+                            {
+                                Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[StartRow + i, StartCol + j];
+                                myRange.Value2 = gridviewID[j, i].Value == null ? "" : gridviewID[j, i].Value;
+                            }
+                        }
+                        catch
+                        {
+                            ;
+                        }
+                    }
+                }
+
+                //Microsoft.Office.Interop.Excel.Range chartRange;
+                //Microsoft.Office.Interop.Excel.ChartObjects xlCharts = (Microsoft.Office.Interop.Excel.ChartObjects)xlWorkSheet.ChartObjects(Type.Missing);
+                //Microsoft.Office.Interop.Excel.ChartObject myChart = (Microsoft.Office.Interop.Excel.ChartObject)xlCharts.Add(10, 80, 300, 250);
+                //Microsoft.Office.Interop.Excel.Chart chartPage = myChart.Chart;
+
+                //chartRange = xlWorkSheet.get_Range("A1", "B" + gridviewID.Rows.Count);
+                //chartPage.SetSourceData(chartRange, misValue);
+                //chartPage.ChartType = Microsoft.Office.Interop.Excel.XlChartType.xlColumnClustered;
+                //xlApp.Visible = true;
 
                 //Getting the location and file name of the excel to save from user. 
                 SaveFileDialog saveDialog = new SaveFileDialog();
@@ -60,7 +82,7 @@ namespace KimTravel.DAL
 
                 if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    workbook.SaveAs(saveDialog.FileName);
+                    xlWorkBook.SaveAs(saveDialog.FileName);
                     MessageBox.Show("Export Successful");
                 }
             }
@@ -70,9 +92,9 @@ namespace KimTravel.DAL
             }
             finally
             {
-                excel.Quit();
-                workbook = null;
-                excel = null;
+                xlApp.Quit();
+                xlWorkBook = null;
+                xlApp = null;
             }
 
         }

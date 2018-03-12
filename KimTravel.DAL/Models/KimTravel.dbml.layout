@@ -62,7 +62,7 @@
         <elementListCompartment Id="465d5f0d-85ee-433e-9004-b8a8585510b3" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 6.27005126953125); (3.5 : 6.27005126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 6.27005126953125); (3.5 : 6.27005126953125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/KimTravelDataContext/GroupTour/GroupTour_Tour" />
       <nodes>
         <classShapeMoniker Id="54ec622d-29bd-416d-ba8d-603f921f7916" />
@@ -76,7 +76,7 @@
         <classShapeMoniker Id="009fc288-071b-42ff-b85b-4d6f1ca170c9" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 2.29890055338542); (3.5 : 2.29890055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 2.29890055338542); (3.5 : 2.29890055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/KimTravelDataContext/Partner/Partner_Staff" />
       <nodes>
         <classShapeMoniker Id="3c5610e5-1ed0-432f-a1c7-d1dc051e72b0" />

@@ -72,7 +72,7 @@ namespace KimTravel.DAL.Models
     #endregion
 		
 		public KimTravelDataContext() : 
-				base(global::KimTravel.DAL.Properties.Settings.Default.KimTravelDesktopConnectionString, mappingSource)
+				base(global::KimTravel.DAL.Properties.Settings.Default.LocalConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -2857,7 +2857,7 @@ namespace KimTravel.DAL.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="hoang1995.CarType")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class CarType : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -2967,7 +2967,7 @@ namespace KimTravel.DAL.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="hoang1995.GroupPartner")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class GroupPartner : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
@@ -3053,7 +3053,7 @@ namespace KimTravel.DAL.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="hoang1995.Price")]
+	[global::System.Data.Linq.Mapping.TableAttribute()]
 	public partial class Price : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		

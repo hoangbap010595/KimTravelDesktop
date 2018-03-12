@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="KimTravelDesktop" Class="KimTravelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=125.212.221.110;Initial Catalog=KimTravelDesktop;User ID=hoang1995" SettingsObjectName="KimTravel.DAL.Properties.Settings" SettingsPropertyName="KimTravelDesktopConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=KimTravelDesktop;User ID=sa" SettingsObjectName="KimTravel.DAL.Properties.Settings" SettingsPropertyName="LocalConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ApplicationRole" Member="ApplicationRoles">
     <Type Name="ApplicationRole">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -132,20 +132,20 @@
       <Association Name="Partner_Staff" Member="Partner" ThisKey="PartnerID" OtherKey="PartnerID" Type="Partner" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="hoang1995.CarType" Member="CarTypes">
+  <Table Name="CarType" Member="CarTypes">
     <Type Name="CarType">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TypeName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Enable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="hoang1995.GroupPartner" Member="GroupPartners">
+  <Table Name="GroupPartner" Member="GroupPartners">
     <Type Name="GroupPartner">
       <Column Name="GroupPartnerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="GroupName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="hoang1995.Price" Member="Prices">
+  <Table Name="Price" Member="Prices">
     <Type Name="Price">
       <Column Name="[Key]" Member="Key" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="GroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />

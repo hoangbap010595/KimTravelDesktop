@@ -31,15 +31,24 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPartnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPickUp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPartnerPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCar1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colCar2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colCar3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colCar4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colCar5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colCar6 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colCar7 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colCar8 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colCar9 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colCar10 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnCar1 = new System.Windows.Forms.Button();
             this.btnCar2 = new System.Windows.Forms.Button();
             this.btnCar3 = new System.Windows.Forms.Button();
@@ -60,21 +69,15 @@
             this.lblTotalXe8 = new System.Windows.Forms.Label();
             this.lblTotalXe9 = new System.Windows.Forms.Label();
             this.lblTotalXe10 = new System.Windows.Forms.Label();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPartnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPickUp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCar1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colCar2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colCar3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colCar4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colCar5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colCar6 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colCar7 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colCar8 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colCar9 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colCar10 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cbbTourID = new System.Windows.Forms.ComboBox();
+            this.cbbGroupTourID = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
+            this.btnTimKiem = new System.Windows.Forms.Button();
+            this.rdCar05 = new System.Windows.Forms.RadioButton();
+            this.rdCar510 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,7 +88,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewGroupTour.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewGroupTour.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -100,7 +104,9 @@
             this.colID,
             this.colPartnerName,
             this.colPickUp,
+            this.colPax,
             this.colRoom,
+            this.colPartnerPrice,
             this.colNote,
             this.colCar1,
             this.colCar2,
@@ -112,16 +118,156 @@
             this.colCar8,
             this.colCar9,
             this.colCar10});
-            this.dataGridViewGroupTour.Location = new System.Drawing.Point(3, 42);
+            this.dataGridViewGroupTour.Location = new System.Drawing.Point(3, 51);
             this.dataGridViewGroupTour.MultiSelect = false;
             this.dataGridViewGroupTour.Name = "dataGridViewGroupTour";
             this.dataGridViewGroupTour.RowHeadersWidth = 35;
+            this.dataGridViewGroupTour.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.dataGridViewGroupTour.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dataGridViewGroupTour.RowTemplate.Height = 25;
-            this.dataGridViewGroupTour.Size = new System.Drawing.Size(1053, 392);
+            this.dataGridViewGroupTour.Size = new System.Drawing.Size(1053, 383);
             this.dataGridViewGroupTour.TabIndex = 0;
             this.dataGridViewGroupTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridViewGroupTour.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroupTour_CellValueChanged);
             this.dataGridViewGroupTour.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewGroupTour_RowPostPaint);
+            // 
+            // colID
+            // 
+            this.colID.DataPropertyName = "ID";
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
+            this.colID.Visible = false;
+            // 
+            // colPartnerName
+            // 
+            this.colPartnerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPartnerName.DataPropertyName = "PartnerName";
+            this.colPartnerName.HeaderText = "Địa chỉ";
+            this.colPartnerName.Name = "colPartnerName";
+            this.colPartnerName.ReadOnly = true;
+            this.colPartnerName.Visible = false;
+            // 
+            // colPickUp
+            // 
+            this.colPickUp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPickUp.DataPropertyName = "PickUp";
+            this.colPickUp.HeaderText = "Pick Up";
+            this.colPickUp.Name = "colPickUp";
+            this.colPickUp.ReadOnly = true;
+            // 
+            // colPax
+            // 
+            this.colPax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colPax.DataPropertyName = "Pax";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colPax.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colPax.HeaderText = "Pax";
+            this.colPax.Name = "colPax";
+            this.colPax.Width = 50;
+            // 
+            // colRoom
+            // 
+            this.colRoom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colRoom.DataPropertyName = "Room";
+            this.colRoom.HeaderText = "Room";
+            this.colRoom.Name = "colRoom";
+            this.colRoom.ReadOnly = true;
+            this.colRoom.Width = 50;
+            // 
+            // colPartnerPrice
+            // 
+            this.colPartnerPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colPartnerPrice.DataPropertyName = "PartnerPrice";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "#,###";
+            this.colPartnerPrice.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colPartnerPrice.HeaderText = "Thu hộ";
+            this.colPartnerPrice.Name = "colPartnerPrice";
+            this.colPartnerPrice.Width = 80;
+            // 
+            // colNote
+            // 
+            this.colNote.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colNote.DataPropertyName = "Note";
+            this.colNote.HeaderText = "Ghi chú";
+            this.colNote.Name = "colNote";
+            this.colNote.ReadOnly = true;
+            this.colNote.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colNote.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colNote.Width = 120;
+            // 
+            // colCar1
+            // 
+            this.colCar1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar1.HeaderText = "HDV_1 Xe_1";
+            this.colCar1.Name = "colCar1";
+            this.colCar1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colCar1.Width = 55;
+            // 
+            // colCar2
+            // 
+            this.colCar2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar2.HeaderText = "HDV_2 Xe_2";
+            this.colCar2.Name = "colCar2";
+            this.colCar2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colCar2.Width = 55;
+            // 
+            // colCar3
+            // 
+            this.colCar3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar3.HeaderText = "HDV_3 Xe_3";
+            this.colCar3.Name = "colCar3";
+            this.colCar3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colCar3.Width = 55;
+            // 
+            // colCar4
+            // 
+            this.colCar4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar4.HeaderText = "HDV_4 Xe_4";
+            this.colCar4.Name = "colCar4";
+            this.colCar4.Width = 55;
+            // 
+            // colCar5
+            // 
+            this.colCar5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar5.HeaderText = "HDV_5 Xe_5";
+            this.colCar5.Name = "colCar5";
+            this.colCar5.Width = 55;
+            // 
+            // colCar6
+            // 
+            this.colCar6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar6.HeaderText = "HDV_6 Xe_6";
+            this.colCar6.Name = "colCar6";
+            this.colCar6.Width = 55;
+            // 
+            // colCar7
+            // 
+            this.colCar7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar7.HeaderText = "HDV_7 Xe_7";
+            this.colCar7.Name = "colCar7";
+            this.colCar7.Width = 55;
+            // 
+            // colCar8
+            // 
+            this.colCar8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar8.HeaderText = "HDV_8 Xe_8";
+            this.colCar8.Name = "colCar8";
+            this.colCar8.Width = 55;
+            // 
+            // colCar9
+            // 
+            this.colCar9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar9.HeaderText = "HDV_9 Xe_9";
+            this.colCar9.Name = "colCar9";
+            this.colCar9.Width = 55;
+            // 
+            // colCar10
+            // 
+            this.colCar10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar10.HeaderText = "HDV_10 Xe_10";
+            this.colCar10.Name = "colCar10";
+            this.colCar10.Width = 55;
             // 
             // btnCar1
             // 
@@ -151,6 +297,7 @@
             this.btnCar2.TabIndex = 2;
             this.btnCar2.Text = "Xe 2";
             this.btnCar2.UseVisualStyleBackColor = true;
+            this.btnCar2.Click += new System.EventHandler(this.btnCar2_Click);
             // 
             // btnCar3
             // 
@@ -165,6 +312,7 @@
             this.btnCar3.TabIndex = 3;
             this.btnCar3.Text = "Xe 3";
             this.btnCar3.UseVisualStyleBackColor = true;
+            this.btnCar3.Click += new System.EventHandler(this.btnCar3_Click);
             // 
             // btnCar4
             // 
@@ -179,6 +327,7 @@
             this.btnCar4.TabIndex = 4;
             this.btnCar4.Text = "Xe 4";
             this.btnCar4.UseVisualStyleBackColor = true;
+            this.btnCar4.Click += new System.EventHandler(this.btnCar4_Click);
             // 
             // btnCar5
             // 
@@ -193,6 +342,7 @@
             this.btnCar5.TabIndex = 5;
             this.btnCar5.Text = "Xe 5";
             this.btnCar5.UseVisualStyleBackColor = true;
+            this.btnCar5.Click += new System.EventHandler(this.btnCar5_Click);
             // 
             // btnCar6
             // 
@@ -207,6 +357,7 @@
             this.btnCar6.TabIndex = 6;
             this.btnCar6.Text = "Xe 6";
             this.btnCar6.UseVisualStyleBackColor = true;
+            this.btnCar6.Click += new System.EventHandler(this.btnCar6_Click);
             // 
             // btnCar7
             // 
@@ -221,6 +372,7 @@
             this.btnCar7.TabIndex = 7;
             this.btnCar7.Text = "Xe 7";
             this.btnCar7.UseVisualStyleBackColor = true;
+            this.btnCar7.Click += new System.EventHandler(this.btnCar7_Click);
             // 
             // btnCar8
             // 
@@ -235,6 +387,7 @@
             this.btnCar8.TabIndex = 8;
             this.btnCar8.Text = "Xe 8";
             this.btnCar8.UseVisualStyleBackColor = true;
+            this.btnCar8.Click += new System.EventHandler(this.btnCar8_Click);
             // 
             // btnCar9
             // 
@@ -249,6 +402,7 @@
             this.btnCar9.TabIndex = 9;
             this.btnCar9.Text = "Xe 9";
             this.btnCar9.UseVisualStyleBackColor = true;
+            this.btnCar9.Click += new System.EventHandler(this.btnCar9_Click);
             // 
             // btnCar10
             // 
@@ -264,6 +418,7 @@
             this.btnCar10.TabIndex = 10;
             this.btnCar10.Text = "Xe 10";
             this.btnCar10.UseVisualStyleBackColor = false;
+            this.btnCar10.Click += new System.EventHandler(this.btnCar10_Click);
             // 
             // lblTotalXe1
             // 
@@ -395,168 +550,120 @@
             this.lblTotalXe10.Text = "0";
             this.lblTotalXe10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // colID
+            // cbbTourID
             // 
-            this.colID.DataPropertyName = "ID";
-            this.colID.HeaderText = "ID";
-            this.colID.Name = "colID";
-            this.colID.Visible = false;
+            this.cbbTourID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbTourID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbTourID.FormattingEnabled = true;
+            this.cbbTourID.ItemHeight = 16;
+            this.cbbTourID.Location = new System.Drawing.Point(185, 21);
+            this.cbbTourID.Name = "cbbTourID";
+            this.cbbTourID.Size = new System.Drawing.Size(164, 24);
+            this.cbbTourID.TabIndex = 2;
             // 
-            // colPartnerName
+            // cbbGroupTourID
             // 
-            this.colPartnerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPartnerName.DataPropertyName = "PartnerName";
-            this.colPartnerName.HeaderText = "Đối tác";
-            this.colPartnerName.Name = "colPartnerName";
-            this.colPartnerName.ReadOnly = true;
+            this.cbbGroupTourID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbGroupTourID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbGroupTourID.FormattingEnabled = true;
+            this.cbbGroupTourID.ItemHeight = 16;
+            this.cbbGroupTourID.Location = new System.Drawing.Point(5, 21);
+            this.cbbGroupTourID.Name = "cbbGroupTourID";
+            this.cbbGroupTourID.Size = new System.Drawing.Size(164, 24);
+            this.cbbGroupTourID.TabIndex = 1;
+            this.cbbGroupTourID.SelectedIndexChanged += new System.EventHandler(this.cbbGroupTourID_SelectedIndexChanged);
             // 
-            // colPickUp
+            // label2
             // 
-            this.colPickUp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPickUp.DataPropertyName = "PickUp";
-            this.colPickUp.HeaderText = "Pick Up";
-            this.colPickUp.Name = "colPickUp";
-            this.colPickUp.ReadOnly = true;
-            this.colPickUp.Width = 150;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.Location = new System.Drawing.Point(182, 1);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 17);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Chọn tour";
             // 
-            // colRoom
+            // label1
             // 
-            this.colRoom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colRoom.DataPropertyName = "Room";
-            this.colRoom.HeaderText = "Room";
-            this.colRoom.Name = "colRoom";
-            this.colRoom.ReadOnly = true;
-            this.colRoom.Width = 60;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(2, 1);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Chọn nhóm";
             // 
-            // colNote
+            // label6
             // 
-            this.colNote.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colNote.DataPropertyName = "Note";
-            this.colNote.HeaderText = "Ghi chú";
-            this.colNote.Name = "colNote";
-            this.colNote.ReadOnly = true;
-            this.colNote.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colNote.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colNote.Width = 120;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label6.Location = new System.Drawing.Point(370, 1);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 17);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Ngày đi";
             // 
-            // colCar1
+            // dtpStartDate
             // 
-            this.colCar1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.NullValue = false;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Red;
-            this.colCar1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colCar1.HeaderText = "HDV_1 Xe_1";
-            this.colCar1.Name = "colCar1";
-            this.colCar1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colCar1.Width = 55;
+            this.dtpStartDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpStartDate.CustomFormat = "dd-MM-yyyy";
+            this.dtpStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStartDate.Location = new System.Drawing.Point(373, 21);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(133, 23);
+            this.dtpStartDate.TabIndex = 3;
             // 
-            // colCar2
+            // btnTimKiem
             // 
-            this.colCar2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.NullValue = false;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.colCar2.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colCar2.HeaderText = "HDV_2 Xe_2";
-            this.colCar2.Name = "colCar2";
-            this.colCar2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colCar2.Width = 55;
+            this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTimKiem.Location = new System.Drawing.Point(534, 6);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(100, 38);
+            this.btnTimKiem.TabIndex = 4;
+            this.btnTimKiem.Text = "Lọc dữ liệu";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
-            // colCar3
+            // rdCar05
             // 
-            this.colCar3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.NullValue = false;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
-            this.colCar3.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colCar3.HeaderText = "HDV_3 Xe_3";
-            this.colCar3.Name = "colCar3";
-            this.colCar3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colCar3.Width = 55;
+            this.rdCar05.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdCar05.AutoSize = true;
+            this.rdCar05.Location = new System.Drawing.Point(901, 24);
+            this.rdCar05.Name = "rdCar05";
+            this.rdCar05.Size = new System.Drawing.Size(69, 17);
+            this.rdCar05.TabIndex = 12;
+            this.rdCar05.Text = "Pick 5 xe";
+            this.rdCar05.UseVisualStyleBackColor = true;
+            this.rdCar05.CheckedChanged += new System.EventHandler(this.rdCar05_CheckedChanged);
             // 
-            // colCar4
+            // rdCar510
             // 
-            this.colCar4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.NullValue = false;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            this.colCar4.DefaultCellStyle = dataGridViewCellStyle5;
-            this.colCar4.HeaderText = "HDV_4 Xe_4";
-            this.colCar4.Name = "colCar4";
-            this.colCar4.Width = 55;
-            // 
-            // colCar5
-            // 
-            this.colCar5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.NullValue = false;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Green;
-            this.colCar5.DefaultCellStyle = dataGridViewCellStyle6;
-            this.colCar5.HeaderText = "HDV_5 Xe_5";
-            this.colCar5.Name = "colCar5";
-            this.colCar5.Width = 55;
-            // 
-            // colCar6
-            // 
-            this.colCar6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.NullValue = false;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.colCar6.DefaultCellStyle = dataGridViewCellStyle7;
-            this.colCar6.HeaderText = "HDV_6 Xe_6";
-            this.colCar6.Name = "colCar6";
-            this.colCar6.Width = 55;
-            // 
-            // colCar7
-            // 
-            this.colCar7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.NullValue = false;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Fuchsia;
-            this.colCar7.DefaultCellStyle = dataGridViewCellStyle8;
-            this.colCar7.HeaderText = "HDV_7 Xe_7";
-            this.colCar7.Name = "colCar7";
-            this.colCar7.Width = 55;
-            // 
-            // colCar8
-            // 
-            this.colCar8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.NullValue = false;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.MediumBlue;
-            this.colCar8.DefaultCellStyle = dataGridViewCellStyle9;
-            this.colCar8.HeaderText = "HDV_8 Xe_8";
-            this.colCar8.Name = "colCar8";
-            this.colCar8.Width = 55;
-            // 
-            // colCar9
-            // 
-            this.colCar9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.NullValue = false;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.colCar9.DefaultCellStyle = dataGridViewCellStyle10;
-            this.colCar9.HeaderText = "HDV_9 Xe_9";
-            this.colCar9.Name = "colCar9";
-            this.colCar9.Width = 55;
-            // 
-            // colCar10
-            // 
-            this.colCar10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.NullValue = false;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.colCar10.DefaultCellStyle = dataGridViewCellStyle11;
-            this.colCar10.HeaderText = "HDV_10 Xe_10";
-            this.colCar10.Name = "colCar10";
-            this.colCar10.Width = 55;
+            this.rdCar510.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdCar510.AutoSize = true;
+            this.rdCar510.Location = new System.Drawing.Point(976, 24);
+            this.rdCar510.Name = "rdCar510";
+            this.rdCar510.Size = new System.Drawing.Size(75, 17);
+            this.rdCar510.TabIndex = 12;
+            this.rdCar510.Text = "Pick 10 xe";
+            this.rdCar510.UseVisualStyleBackColor = true;
             // 
             // UCBookCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.rdCar510);
+            this.Controls.Add(this.rdCar05);
+            this.Controls.Add(this.btnTimKiem);
+            this.Controls.Add(this.cbbTourID);
+            this.Controls.Add(this.cbbGroupTourID);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.dtpStartDate);
             this.Controls.Add(this.lblTotalXe10);
             this.Controls.Add(this.lblTotalXe9);
             this.Controls.Add(this.lblTotalXe8);
@@ -583,6 +690,7 @@
             this.Load += new System.EventHandler(this.UCGroupTour_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -608,10 +716,19 @@
         private System.Windows.Forms.Label lblTotalXe8;
         private System.Windows.Forms.Label lblTotalXe9;
         private System.Windows.Forms.Label lblTotalXe10;
+        private System.Windows.Forms.ComboBox cbbTourID;
+        private System.Windows.Forms.ComboBox cbbGroupTourID;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dtpStartDate;
+        private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPartnerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPickUp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPax;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRoom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPartnerPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNote;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colCar1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colCar2;
@@ -623,5 +740,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn colCar8;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colCar9;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colCar10;
+        private System.Windows.Forms.RadioButton rdCar05;
+        private System.Windows.Forms.RadioButton rdCar510;
     }
 }

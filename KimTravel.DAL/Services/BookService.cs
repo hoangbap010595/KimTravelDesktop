@@ -70,14 +70,13 @@ namespace KimTravel.DAL.Services
 
             return data;
         }
-        public IQueryable GetListBooked(int gID, int tourID, string dateS, bool isCancel = false)
+        public IQueryable GetListBooked(int tourID, string dateS, bool isCancel = false)
         {
             DateTime date = DateTime.Parse(dateS);
             IQueryable data = from b in db.Books
                               join t in db.Tours on b.TourID equals t.TourID
-                              join g in db.GroupTours on t.GroupID equals g.GroupID
                               from p in db.Partners.Where(x => x.PartnerID == b.PartnerID)
-                              where t.GroupID == gID && b.TourID == tourID
+                              where b.TourID == tourID
                                     && b.StartDate.Value == date
                                     && b.IsCancel == isCancel
                               select new
@@ -85,8 +84,6 @@ namespace KimTravel.DAL.Services
                                   b.ID,
                                   t.TourID,
                                   TourName = t.Name,
-                                  g.GroupID,
-                                  GroupName = g.Name,
                                   ParnerID = p.PartnerID,
                                   PartName = p.Name,
                                   BookID = b.ID,

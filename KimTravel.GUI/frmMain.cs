@@ -33,7 +33,6 @@ namespace KimTravel.GUI
             frm.ShowDialog();
 
             txt_bar_CurrentUser.Text = "Account: " + Constant.CurrentSessionUser;
-
             this.DoubleBuffered = false;
         }
 
@@ -48,18 +47,15 @@ namespace KimTravel.GUI
                 Application.Exit();
         }
 
-
         private void quanLyToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lblTitle.Text = "Quản lý nhóm tour";
             UCGroupTour uc = new UCGroupTour();
             addControlToPanel(uc);
         }
 
-
-
         private void addControlToPanel(UserControl uControl)
         {
-            lblTitle.Text = uControl.Name;
             panelControlMain.Controls.Clear();
             uControl.Dock = DockStyle.Fill;
             panelControlMain.Controls.Add(uControl);
@@ -67,37 +63,30 @@ namespace KimTravel.GUI
 
         private void quanLyĐôiTacToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lblTitle.Text = "Quản lý đối tác";
             UCPartner uc = new UCPartner();
             addControlToPanel(uc);
         }
 
         private void quanLyNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lblTitle.Text = "Quản lý nhân viên";
             UCStaff uc = new UCStaff();
             addControlToPanel(uc);
         }
 
         private void xeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lblTitle.Text = "Quản lý xe vận chuyển";
             UCCar uc = new UCCar();
-            addControlToPanel(uc);
-        }
-
-        private void danhSachTourToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            UCTour uc = new UCTour();
             addControlToPanel(uc);
         }
 
         private void quanLyTaiKhoanToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lblTitle.Text = "Quản lý tài khoản";
             UCUser uc = new UCUser();
             addControlToPanel(uc);
-        }
-
-        private void bookTourToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-       
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -113,30 +102,35 @@ namespace KimTravel.GUI
 
         private void bookToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lblTitle.Text = "Book tour";
             UCBook uc = new UCBook();
             addControlToPanel(uc);
         }
 
         private void danhSachĐaBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lblTitle.Text = "Danh sách tour đã book";
             UCListBook uc = new UCListBook();
             addControlToPanel(uc);
         }
 
         private void săpXêpTourToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lblTitle.Text = "Phân bổ xe theo tour";
             UCBookCar uc = new UCBookCar();
             addControlToPanel(uc);
         }
 
         private void bookTourToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lblTitle.Text = "Quản lý tour";
             UCTour uc = new UCTour();
             addControlToPanel(uc);
         }
 
         private void quanLyNhomĐôiTacToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            lblTitle.Text = "Quản lý nhóm đối tác";
             UCGroupPartner uc = new UCGroupPartner();
             addControlToPanel(uc);
         }

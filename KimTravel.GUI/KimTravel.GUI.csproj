@@ -38,6 +38,28 @@
       <HintPath>..\packages\Dapper.1.50.4\lib\net451\Dapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.DataAccess.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Office.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v17.1.Export, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v17.1.Extensions, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -85,6 +107,18 @@
     </Compile>
     <Compile Include="FControls\frmActionCar.Designer.cs">
       <DependentUpon>frmActionCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FControls\frmDetailsBookCar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FControls\frmDetailsBookCar.Designer.cs">
+      <DependentUpon>frmDetailsBookCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FControls\frmImportPartner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FControls\frmImportPartner.Designer.cs">
+      <DependentUpon>frmImportPartner.cs</DependentUpon>
     </Compile>
     <Compile Include="FControls\frmDetailsTour.cs">
       <SubType>Form</SubType>
@@ -208,6 +242,24 @@
     <Compile Include="UControls\UCGroupTour.Designer.cs">
       <DependentUpon>UCGroupTour.cs</DependentUpon>
     </Compile>
+    <Compile Include="xtraRPBaoCaoCongNo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="xtraRPBaoCaoCongNo.Designer.cs">
+      <DependentUpon>xtraRPBaoCaoCongNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xtraRPBaoCaoTourDL.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="xtraRPBaoCaoTourDL.Designer.cs">
+      <DependentUpon>xtraRPBaoCaoTourDL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xtraRPPrintBookTour.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="xtraRPPrintBookTour.designer.cs">
+      <DependentUpon>xtraRPPrintBookTour.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FControls\frmActionGroupPrice.resx">
       <DependentUpon>frmActionGroupPrice.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,6 +268,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FControls\frmActionCar.resx">
       <DependentUpon>frmActionCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FControls\frmDetailsBookCar.resx">
+      <DependentUpon>frmDetailsBookCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FControls\frmImportPartner.resx">
+      <DependentUpon>frmImportPartner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FControls\frmDetailsTour.resx">
       <DependentUpon>frmDetailsTour.cs</DependentUpon>
@@ -247,6 +305,7 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -286,6 +345,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UControls\UCGroupTour.resx">
       <DependentUpon>UCGroupTour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xtraRPBaoCaoTourDL.resx">
+      <DependentUpon>xtraRPBaoCaoTourDL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xtraRPPrintBookTour.resx">
+      <DependentUpon>xtraRPPrintBookTour.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

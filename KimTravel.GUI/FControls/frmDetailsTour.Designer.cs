@@ -298,6 +298,7 @@
             0,
             0,
             0});
+            this.numPax.ValueChanged += new System.EventHandler(this.numPax_ValueChanged);
             // 
             // dtpStartDate
             // 
