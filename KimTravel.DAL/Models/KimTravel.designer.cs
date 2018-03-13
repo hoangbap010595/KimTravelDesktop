@@ -72,7 +72,7 @@ namespace KimTravel.DAL.Models
     #endregion
 		
 		public KimTravelDataContext() : 
-				base(global::KimTravel.DAL.Properties.Settings.Default.LocalConnectionString, mappingSource)
+				base(global::KimTravel.DAL.Properties.Settings.Default.KimTravelDesktopConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -1077,6 +1077,8 @@ namespace KimTravel.DAL.Models
 		
 		private System.Nullable<System.DateTime> _LastUpdate;
 		
+		private System.Nullable<bool> _IsBooked;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1129,6 +1131,8 @@ namespace KimTravel.DAL.Models
     partial void OnUpdateByChanged();
     partial void OnLastUpdateChanging(System.Nullable<System.DateTime> value);
     partial void OnLastUpdateChanged();
+    partial void OnIsBookedChanging(System.Nullable<bool> value);
+    partial void OnIsBookedChanged();
     #endregion
 		
 		public Book()
@@ -1612,6 +1616,26 @@ namespace KimTravel.DAL.Models
 					this._LastUpdate = value;
 					this.SendPropertyChanged("LastUpdate");
 					this.OnLastUpdateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsBooked", DbType="Bit")]
+		public System.Nullable<bool> IsBooked
+		{
+			get
+			{
+				return this._IsBooked;
+			}
+			set
+			{
+				if ((this._IsBooked != value))
+				{
+					this.OnIsBookedChanging(value);
+					this.SendPropertyChanging();
+					this._IsBooked = value;
+					this.SendPropertyChanged("IsBooked");
+					this.OnIsBookedChanged();
 				}
 			}
 		}

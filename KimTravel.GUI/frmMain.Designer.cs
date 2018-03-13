@@ -64,6 +64,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.tableLayoutPanelMain = new System.Windows.Forms.TableLayoutPanel();
+            this.đaTourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelStatusBar.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -188,7 +189,8 @@
             this.tourToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bookToolStripMenuItem,
             this.danhSachĐaBookToolStripMenuItem,
-            this.săpXêpTourToolStripMenuItem});
+            this.săpXêpTourToolStripMenuItem,
+            this.đaTourToolStripMenuItem});
             this.tourToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("tourToolStripMenuItem.Image")));
             this.tourToolStripMenuItem.Name = "tourToolStripMenuItem";
             this.tourToolStripMenuItem.Size = new System.Drawing.Size(64, 25);
@@ -404,6 +406,12 @@
             this.tableLayoutPanelMain.Size = new System.Drawing.Size(1297, 683);
             this.tableLayoutPanelMain.TabIndex = 9;
             // 
+            // đaTourToolStripMenuItem
+            // 
+            this.đaTourToolStripMenuItem.Name = "đaTourToolStripMenuItem";
+            this.đaTourToolStripMenuItem.Size = new System.Drawing.Size(208, 24);
+            this.đaTourToolStripMenuItem.Text = "Đã tour";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -467,6 +475,7 @@
         private System.Windows.Forms.ToolStripMenuItem bookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem danhSachĐaBookToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem săpXêpTourToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem đaTourToolStripMenuItem;
     }
 }
 

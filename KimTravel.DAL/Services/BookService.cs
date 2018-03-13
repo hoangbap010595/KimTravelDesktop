@@ -11,13 +11,51 @@ namespace KimTravel.DAL.Services
     {
         private readonly KimTravelDataContext db = new KimTravelDataContext();
 
+        public IQueryable GetListBookedDone(bool isBooked = true)
+        {
+            IQueryable data = from b in db.Books
+                              join t in db.Tours on b.TourID equals t.TourID
+                              join g in db.GroupTours on t.GroupID equals g.GroupID
+                              from p in db.Partners.Where(x => x.PartnerID == b.PartnerID)
+                              where b.IsBooked == isBooked
+                              select new
+                              {
+                                  b.ID,
+                                  t.TourID,
+                                  TourName = t.Name,
+                                  g.GroupID,
+                                  GroupName = g.Name,
+                                  ParnerID = p.PartnerID,
+                                  PartName = p.Name,
+                                  BookID = b.ID,
+                                  b.StartDate,
+                                  b.EndDate,
+                                  b.Pax,
+                                  b.PickUp,
+                                  b.Room,
+                                  b.CustomName,
+                                  b.PartnerPrice,
+                                  b.PriceReceive,
+                                  b.PriceSale,
+                                  b.PriceVTQ,
+                                  b.PromotionMoney,
+                                  b.PromotionPercent,
+                                  b.StaffID,
+                                  b.DateCreate,
+                                  b.Note,
+                                  b.ServiceType,
+                                  b.Total
+                              };
+
+            return data;
+        }
         public IQueryable GetList(bool isCancel = false)
         {
             IQueryable data = from b in db.Books
                               join t in db.Tours on b.TourID equals t.TourID
                               join g in db.GroupTours on t.GroupID equals g.GroupID
                               from p in db.Partners.Where(x => x.PartnerID == b.PartnerID)
-                              where b.IsCancel == isCancel
+                              where b.IsCancel == isCancel && b.IsBooked == false
                               select new
                               {
                                   b.ID,
@@ -58,6 +96,7 @@ namespace KimTravel.DAL.Services
                               from p in db.Partners.Where(x => x.PartnerID == b.PartnerID)
                               where b.PartnerID == partnerID && b.StartDate.Value == date
                                     && b.IsCancel == isCancel
+                                     && b.IsBooked == false
                               select new
                               {
                                   b.ID,
@@ -79,6 +118,7 @@ namespace KimTravel.DAL.Services
                               where b.TourID == tourID
                                     && b.StartDate.Value == date
                                     && b.IsCancel == isCancel
+                                    && b.IsBooked == false
                               select new
                               {
                                   b.ID,
@@ -115,7 +155,7 @@ namespace KimTravel.DAL.Services
             var data = (from b in db.Books
                         join t in db.Tours on b.TourID equals t.TourID
                         join g in db.GroupTours on t.GroupID equals g.GroupID
-                        where b.TourID == tourID && b.StartDate.Value == date1 && b.IsCancel == false
+                        where b.TourID == tourID && b.StartDate.Value == date1 && b.IsCancel == false && b.IsBooked == false
                         select new
                         {
                             b
@@ -135,7 +175,6 @@ namespace KimTravel.DAL.Services
 
             return data;
         }
-
         public bool Insert(Book obj)
         {
             try
@@ -196,7 +235,6 @@ namespace KimTravel.DAL.Services
             }
             return false;
         }
-
         public bool Delete(int id)
         {
             Book currObject = db.Books.FirstOrDefault(x => x.ID == id);
