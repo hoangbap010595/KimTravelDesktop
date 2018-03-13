@@ -32,7 +32,7 @@ namespace KimTravel.GUI.FControls
         }
         private void loadRole()
         {
-            var data = userRoleService.GetListRoles(Constant.CurrentSessionUser);
+            var data = userRoleService.GetListRoles(_objectData.Username);
             string[] roles = data.Split(',');
             foreach (string item in roles)
             {
