@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12, 14.75" name="KimTravel">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12, 15.375" name="KimTravel">
   <DataContextMoniker Name="/KimTravelDataContext" />
   <nestedChildShapes>
     <classShape Id="fc907b59-5793-4e12-9ba7-c9b2663bd630" absoluteBounds="6.75, 4.75, 2, 1.1939925130208344">
@@ -26,10 +26,10 @@
         <elementListCompartment Id="6b4c799f-da58-4bcb-85ee-a6287a845251" absoluteBounds="8.765, 1.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="4156a34d-b216-4b2e-a3f5-c64f4f9ec894" absoluteBounds="0.75, 8.75, 2, 5.8092268880208326">
+    <classShape Id="4156a34d-b216-4b2e-a3f5-c64f4f9ec894" absoluteBounds="0.75, 8.75, 2, 6.3861311848958326">
       <DataClassMoniker Name="/KimTravelDataContext/Book" />
       <nestedChildShapes>
-        <elementListCompartment Id="af2dbf38-b7e5-4f61-a873-7208e0f28bfe" absoluteBounds="0.765, 9.21, 1.9700000000000002, 5.249226888020833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="af2dbf38-b7e5-4f61-a873-7208e0f28bfe" absoluteBounds="0.765, 9.21, 1.9700000000000002, 5.826131184895833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="009fc288-071b-42ff-b85b-4d6f1ca170c9" absoluteBounds="6.125, 0.5, 2, 1.9631982421875">
@@ -76,7 +76,7 @@
         <classShapeMoniker Id="009fc288-071b-42ff-b85b-4d6f1ca170c9" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 2.29890055338542); (3.5 : 2.29890055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 2.29890055338542); (3.5 : 2.29890055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/KimTravelDataContext/Partner/Partner_Staff" />
       <nodes>
         <classShapeMoniker Id="3c5610e5-1ed0-432f-a1c7-d1dc051e72b0" />

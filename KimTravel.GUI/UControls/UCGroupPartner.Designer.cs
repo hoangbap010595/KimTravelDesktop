@@ -29,24 +29,28 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
+            this.btnThemMoi = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtgGroupPartner = new System.Windows.Forms.DataGridView();
+            this.btnAddGroupPartner = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.colKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGroupNamePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTourPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPriceRe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ActionUpdate = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnThemMoi = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dtgGroupPartner = new System.Windows.Forms.DataGridView();
+            this.colDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnAddGroupPartner = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.colDeleteGroup = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgGroupPartner)).BeginInit();
@@ -77,7 +81,8 @@
             this.colGroupNamePrice,
             this.colTourPrice,
             this.colPriceRe,
-            this.ActionUpdate});
+            this.ActionUpdate,
+            this.colDelete});
             this.dataGridViewGroupTour.Location = new System.Drawing.Point(6, 77);
             this.dataGridViewGroupTour.MultiSelect = false;
             this.dataGridViewGroupTour.Name = "dataGridViewGroupTour";
@@ -89,6 +94,91 @@
             this.dataGridViewGroupTour.TabIndex = 0;
             this.dataGridViewGroupTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridViewGroupTour.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewGroupTour_RowPostPaint);
+            // 
+            // btnThemMoi
+            // 
+            this.btnThemMoi.Location = new System.Drawing.Point(6, 46);
+            this.btnThemMoi.Name = "btnThemMoi";
+            this.btnThemMoi.Size = new System.Drawing.Size(100, 25);
+            this.btnThemMoi.TabIndex = 4;
+            this.btnThemMoi.Text = "Thêm";
+            this.btnThemMoi.UseVisualStyleBackColor = true;
+            this.btnThemMoi.Click += new System.EventHandler(this.btnThemMoi_Click_1);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.dtgGroupPartner);
+            this.groupBox1.Controls.Add(this.btnAddGroupPartner);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(3, 4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(421, 507);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Nhóm đối tác";
+            // 
+            // dtgGroupPartner
+            // 
+            this.dtgGroupPartner.AllowUserToAddRows = false;
+            this.dtgGroupPartner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtgGroupPartner.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgGroupPartner.BackgroundColor = System.Drawing.Color.White;
+            this.dtgGroupPartner.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgGroupPartner.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgGroupPartner.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dtgGroupPartner.ColumnHeadersHeight = 30;
+            this.dtgGroupPartner.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.colGroupName,
+            this.dataGridViewButtonColumn1,
+            this.colDeleteGroup});
+            this.dtgGroupPartner.Location = new System.Drawing.Point(6, 77);
+            this.dtgGroupPartner.MultiSelect = false;
+            this.dtgGroupPartner.Name = "dtgGroupPartner";
+            this.dtgGroupPartner.ReadOnly = true;
+            this.dtgGroupPartner.RowHeadersWidth = 35;
+            this.dtgGroupPartner.RowTemplate.Height = 25;
+            this.dtgGroupPartner.RowTemplate.ReadOnly = true;
+            this.dtgGroupPartner.Size = new System.Drawing.Size(409, 424);
+            this.dtgGroupPartner.TabIndex = 1;
+            this.dtgGroupPartner.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgGroupPartner_CellContentClick);
+            // 
+            // btnAddGroupPartner
+            // 
+            this.btnAddGroupPartner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddGroupPartner.Location = new System.Drawing.Point(6, 44);
+            this.btnAddGroupPartner.Name = "btnAddGroupPartner";
+            this.btnAddGroupPartner.Size = new System.Drawing.Size(100, 25);
+            this.btnAddGroupPartner.TabIndex = 4;
+            this.btnAddGroupPartner.Text = "Thêm mới";
+            this.btnAddGroupPartner.UseVisualStyleBackColor = true;
+            this.btnAddGroupPartner.Click += new System.EventHandler(this.btnThemMoi_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.btnThemMoi);
+            this.groupBox2.Controls.Add(this.dataGridViewGroupTour);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(430, 4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(626, 506);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Thiết lập bảng giá theo nhóm";
             // 
             // colKey
             // 
@@ -133,70 +223,25 @@
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.ActionUpdate.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ActionUpdate.HeaderText = "Cập nhật";
+            this.ActionUpdate.HeaderText = "";
             this.ActionUpdate.Name = "ActionUpdate";
             this.ActionUpdate.ReadOnly = true;
             this.ActionUpdate.Text = "Sửa";
             this.ActionUpdate.UseColumnTextForButtonValue = true;
             this.ActionUpdate.Width = 80;
             // 
-            // btnThemMoi
+            // colDelete
             // 
-            this.btnThemMoi.Location = new System.Drawing.Point(6, 46);
-            this.btnThemMoi.Name = "btnThemMoi";
-            this.btnThemMoi.Size = new System.Drawing.Size(100, 25);
-            this.btnThemMoi.TabIndex = 4;
-            this.btnThemMoi.Text = "Thêm";
-            this.btnThemMoi.UseVisualStyleBackColor = true;
-            this.btnThemMoi.Click += new System.EventHandler(this.btnThemMoi_Click_1);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.Controls.Add(this.dtgGroupPartner);
-            this.groupBox1.Controls.Add(this.btnAddGroupPartner);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(421, 507);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Nhóm đối tác";
-            // 
-            // dtgGroupPartner
-            // 
-            this.dtgGroupPartner.AllowUserToAddRows = false;
-            this.dtgGroupPartner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtgGroupPartner.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgGroupPartner.BackgroundColor = System.Drawing.Color.White;
-            this.dtgGroupPartner.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtgGroupPartner.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.colDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgGroupPartner.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dtgGroupPartner.ColumnHeadersHeight = 30;
-            this.dtgGroupPartner.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.colGroupName,
-            this.dataGridViewButtonColumn1});
-            this.dtgGroupPartner.Location = new System.Drawing.Point(6, 77);
-            this.dtgGroupPartner.MultiSelect = false;
-            this.dtgGroupPartner.Name = "dtgGroupPartner";
-            this.dtgGroupPartner.ReadOnly = true;
-            this.dtgGroupPartner.RowHeadersWidth = 35;
-            this.dtgGroupPartner.RowTemplate.Height = 25;
-            this.dtgGroupPartner.RowTemplate.ReadOnly = true;
-            this.dtgGroupPartner.Size = new System.Drawing.Size(409, 424);
-            this.dtgGroupPartner.TabIndex = 1;
-            this.dtgGroupPartner.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgGroupPartner_CellContentClick);
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.colDelete.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colDelete.HeaderText = "";
+            this.colDelete.Name = "colDelete";
+            this.colDelete.ReadOnly = true;
+            this.colDelete.Text = "Xóa";
+            this.colDelete.UseColumnTextForButtonValue = true;
+            this.colDelete.Width = 80;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -217,42 +262,31 @@
             // dataGridViewButtonColumn1
             // 
             this.dataGridViewButtonColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.dataGridViewButtonColumn1.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridViewButtonColumn1.HeaderText = "Cập nhật";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.dataGridViewButtonColumn1.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewButtonColumn1.HeaderText = "";
             this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
             this.dataGridViewButtonColumn1.ReadOnly = true;
             this.dataGridViewButtonColumn1.Text = "Sửa";
             this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
             this.dataGridViewButtonColumn1.Width = 80;
             // 
-            // btnAddGroupPartner
+            // colDeleteGroup
             // 
-            this.btnAddGroupPartner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddGroupPartner.Location = new System.Drawing.Point(6, 44);
-            this.btnAddGroupPartner.Name = "btnAddGroupPartner";
-            this.btnAddGroupPartner.Size = new System.Drawing.Size(100, 25);
-            this.btnAddGroupPartner.TabIndex = 4;
-            this.btnAddGroupPartner.Text = "Thêm mới";
-            this.btnAddGroupPartner.UseVisualStyleBackColor = true;
-            this.btnAddGroupPartner.Click += new System.EventHandler(this.btnThemMoi_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.btnThemMoi);
-            this.groupBox2.Controls.Add(this.dataGridViewGroupTour);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(430, 4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(626, 506);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Thiết lập bảng giá theo nhóm";
+            this.colDeleteGroup.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.colDeleteGroup.DefaultCellStyle = dataGridViewCellStyle7;
+            this.colDeleteGroup.HeaderText = "";
+            this.colDeleteGroup.Name = "colDeleteGroup";
+            this.colDeleteGroup.ReadOnly = true;
+            this.colDeleteGroup.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colDeleteGroup.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colDeleteGroup.Text = "Xóa";
+            this.colDeleteGroup.UseColumnTextForButtonValue = true;
+            this.colDeleteGroup.Width = 80;
             // 
             // UCGroupPartner
             // 
@@ -276,9 +310,6 @@
         private System.Windows.Forms.Button btnThemMoi;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dtgGroupPartner;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGroupName;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnAddGroupPartner;
         private System.Windows.Forms.DataGridViewTextBoxColumn colKey;
@@ -286,5 +317,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colTourPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPriceRe;
         private System.Windows.Forms.DataGridViewButtonColumn ActionUpdate;
+        private System.Windows.Forms.DataGridViewButtonColumn colDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGroupName;
+        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
+        private System.Windows.Forms.DataGridViewButtonColumn colDeleteGroup;
     }
 }

@@ -34,13 +34,10 @@ namespace KimTravel.DAL
                 int j = 0, i = 0;
 
                 //Write Headers
-                for (j = 0; j < gridviewID.Columns.Count-1; j++)
+                for (j = 0; j < gridviewID.Columns.Count - 1; j++)
                 {
-                    if (gridviewID.Columns[i].Visible == true)
-                    {
-                        Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[StartRow, StartCol + j];
-                        myRange.Value2 = gridviewID.Columns[j].HeaderText;
-                    }
+                    Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[StartRow, StartCol + j];
+                    myRange.Value2 = gridviewID.Columns[j].HeaderText;
                 }
 
                 StartRow++;
@@ -48,15 +45,12 @@ namespace KimTravel.DAL
                 //Write datagridview content
                 for (i = 0; i < gridviewID.Rows.Count; i++)
                 {
-                    for (j = 0; j < gridviewID.Columns.Count-1; j++)
+                    for (j = 0; j < gridviewID.Columns.Count - 1; j++)
                     {
                         try
                         {
-                            if (gridviewID.Columns[i].Visible == true)
-                            {
-                                Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[StartRow + i, StartCol + j];
-                                myRange.Value2 = gridviewID[j, i].Value == null ? "" : gridviewID[j, i].Value;
-                            }
+                            Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[StartRow + i, StartCol + j];
+                            myRange.Value2 = gridviewID[j, i].Value == null ? "" : gridviewID[j, i].Value;
                         }
                         catch
                         {

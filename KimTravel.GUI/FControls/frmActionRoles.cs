@@ -86,6 +86,9 @@ namespace KimTravel.GUI.FControls
                     case 70:
                         ck5_CongNo.Checked = true;
                         break;
+                    case 75:
+                        ck5_CongNo.Checked = true;
+                        break;
                 }
             }
         }
@@ -130,13 +133,15 @@ namespace KimTravel.GUI.FControls
                 role += ",65";
             if (ck5_CongNo.Checked)
                 role += ",70";
+            if (ck5_DoiTac.Checked)
+                role += ",75";
             return role;
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (DialogResult.OK == MessageBox.Show("Xác nhận cập nhật phân quyền cho tài khoản ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question))
             {
-                var rs = userRoleService.Update(Constant.CurrentSessionUser, getStringRole());
+                var rs = userRoleService.Update(_objectData.Username, getStringRole());
                 if (rs)
                 {
                     MessageBox.Show("Cập nhật thành công");

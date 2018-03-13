@@ -57,9 +57,20 @@ namespace KimTravel.GUI.UControls
                 if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                     e.RowIndex >= 0)
                 {
-                    frmActionGroupPrice frm = new frmActionGroupPrice(1, id);
-                    frm.loadData = new frmActionGroupPrice.LoadData(loadDataGroup);
-                    frm.ShowDialog();
+                    if (senderGrid.Columns[e.ColumnIndex].Name != "colDelete")
+                    {
+                        frmActionGroupPrice frm = new frmActionGroupPrice(1, id);
+                        frm.loadData = new frmActionGroupPrice.LoadData(loadDataGroup);
+                        frm.ShowDialog();
+                    }
+                    else
+                    {
+                        if (DialogResult.OK == MessageBox.Show("Xác nhận xóa dữ liệu ?", "Thông báo", MessageBoxButtons.OKCancel))
+                        {
+                            objService.Delete(id);
+                            loadDataGroup();
+                        }
+                    }
                 }
             }
             catch { }
@@ -86,9 +97,20 @@ namespace KimTravel.GUI.UControls
                 if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                     e.RowIndex >= 0)
                 {
-                    frmActionGroupPartner frm = new frmActionGroupPartner(1, id);
-                    frm.loadData = new frmActionGroupPartner.LoadData(loadDataGroup);
-                    frm.ShowDialog();
+                    if (senderGrid.Columns[e.ColumnIndex].Name != "colDeleteGroup")
+                    {
+                        frmActionGroupPartner frm = new frmActionGroupPartner(1, id);
+                        frm.loadData = new frmActionGroupPartner.LoadData(loadDataGroup);
+                        frm.ShowDialog();
+                    }
+                    else
+                    {
+                        if (DialogResult.OK == MessageBox.Show("Xác nhận xóa dữ liệu ?", "Thông báo", MessageBoxButtons.OKCancel))
+                        {
+                            gpService.Delete(id);
+                            loadDataGroup();
+                        }
+                    }
                 }
             }
             catch { }

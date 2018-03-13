@@ -16,8 +16,8 @@ namespace KimTravel.DAL.Services
             var data = from p in db.Prices
                        from g in db.GroupPartners.Where(x => x.GroupPartnerID == p.GroupID).DefaultIfEmpty()
                        from t in db.Tours.Where(x => x.TourID == p.TourID).DefaultIfEmpty()
-                       orderby t.Name
                        orderby p.GroupID
+                       //orderby t.Name
                        select new
                        {
                            p.Key,

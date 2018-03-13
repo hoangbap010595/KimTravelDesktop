@@ -58,7 +58,7 @@ namespace KimTravel.GUI.FControls
             cbbTourID.SelectedValue = _objectBook.TourID;
             cbbPartnerID.SelectedValue = _objectBook.PartnerID;
 
-            numPax.Value = _objectBook.Pax.Value;
+            numPax.Value = (decimal)_objectBook.Pax.Value;
             txtSaleBook.Text = _objectBook.StaffID;
 
             txtCustomer.Text = _objectBook.CustomName;

@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BindModels\PartnerBookTourModel.cs" />
     <Compile Include="BindModels\BookTourModel.cs" />
     <Compile Include="Constant.cs" />
     <Compile Include="ExcelLibrary.cs" />

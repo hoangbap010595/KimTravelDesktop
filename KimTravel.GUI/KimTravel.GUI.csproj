@@ -212,6 +212,12 @@
     <Compile Include="UControls\UCGroupPartner.Designer.cs">
       <DependentUpon>UCGroupPartner.cs</DependentUpon>
     </Compile>
+    <Compile Include="UControls\UCReportCongNoDoiTac.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControls\UCReportCongNoDoiTac.Designer.cs">
+      <DependentUpon>UCReportCongNoDoiTac.cs</DependentUpon>
+    </Compile>
     <Compile Include="UControls\UCReportCongNo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -259,6 +265,12 @@
     </Compile>
     <Compile Include="UControls\UCGroupTour.Designer.cs">
       <DependentUpon>UCGroupTour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xtraRPBaoCaoCongNoDoiTac.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="xtraRPBaoCaoCongNoDoiTac.Designer.cs">
+      <DependentUpon>xtraRPBaoCaoCongNoDoiTac.cs</DependentUpon>
     </Compile>
     <Compile Include="xtraRPBaoCaoCongNo.cs">
       <SubType>Component</SubType>
@@ -343,6 +355,9 @@
     <EmbeddedResource Include="UControls\UCGroupPartner.resx">
       <DependentUpon>UCGroupPartner.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UControls\UCReportCongNoDoiTac.resx">
+      <DependentUpon>UCReportCongNoDoiTac.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UControls\UCReportCongNo.resx">
       <DependentUpon>UCReportCongNo.cs</DependentUpon>
     </EmbeddedResource>
@@ -366,6 +381,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UControls\UCGroupTour.resx">
       <DependentUpon>UCGroupTour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="xtraRPBaoCaoCongNoDoiTac.resx">
+      <DependentUpon>xtraRPBaoCaoCongNoDoiTac.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="xtraRPBaoCaoCongNo.resx">
       <DependentUpon>xtraRPBaoCaoCongNo.cs</DependentUpon>

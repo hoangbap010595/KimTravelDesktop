@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtRoom = new System.Windows.Forms.TextBox();
@@ -68,6 +68,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
+            this.txtPromotionPrice = new System.Windows.Forms.TextBox();
             this.txtPriceRe = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -75,7 +76,6 @@
             this.btnAddServiceType = new System.Windows.Forms.Button();
             this.btnUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnBack = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.txtPromotionPrice = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPax)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -178,9 +178,8 @@
             this.lblMsgPax.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.lblMsgPax.Location = new System.Drawing.Point(347, 74);
             this.lblMsgPax.Name = "lblMsgPax";
-            this.lblMsgPax.Size = new System.Drawing.Size(54, 15);
+            this.lblMsgPax.Size = new System.Drawing.Size(0, 15);
             this.lblMsgPax.TabIndex = 0;
-            this.lblMsgPax.Text = "NV Book";
             // 
             // label6
             // 
@@ -214,6 +213,7 @@
             this.label5.Size = new System.Drawing.Size(56, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "Tên KH";
+            this.label5.Visible = false;
             // 
             // label3
             // 
@@ -239,7 +239,9 @@
             this.txtCustomer.SelectionStart = 0;
             this.txtCustomer.Size = new System.Drawing.Size(300, 23);
             this.txtCustomer.TabIndex = 9;
+            this.txtCustomer.Text = "KXĐ";
             this.txtCustomer.UseSystemPasswordChar = false;
+            this.txtCustomer.Visible = false;
             // 
             // label2
             // 
@@ -280,6 +282,12 @@
             // 
             // numPax
             // 
+            this.numPax.DecimalPlaces = 2;
+            this.numPax.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
             this.numPax.Location = new System.Drawing.Point(347, 112);
             this.numPax.Minimum = new decimal(new int[] {
             1,
@@ -290,7 +298,7 @@
             this.numPax.Size = new System.Drawing.Size(82, 23);
             this.numPax.TabIndex = 4;
             this.numPax.Value = new decimal(new int[] {
-            1,
+            2,
             0,
             0,
             0});
@@ -434,14 +442,14 @@
             this.dataGridViewGroupTour.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPartnerID,
             this.colServiceType,
@@ -477,9 +485,9 @@
             // 
             this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPrice.DataPropertyName = "Price";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "#,###";
-            this.colPrice.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Format = "#,###";
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle11;
             this.colPrice.HeaderText = "Đơn giá";
             this.colPrice.Name = "colPrice";
             this.colPrice.ReadOnly = true;
@@ -488,9 +496,9 @@
             // colRemove
             // 
             this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.colRemove.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.colRemove.DefaultCellStyle = dataGridViewCellStyle12;
             this.colRemove.HeaderText = "";
             this.colRemove.Name = "colRemove";
             this.colRemove.ReadOnly = true;
@@ -545,6 +553,15 @@
             this.label21.Size = new System.Drawing.Size(90, 17);
             this.label21.TabIndex = 0;
             this.label21.Text = "Số tiền giảm:";
+            // 
+            // txtPromotionPrice
+            // 
+            this.txtPromotionPrice.Location = new System.Drawing.Point(40, 38);
+            this.txtPromotionPrice.Name = "txtPromotionPrice";
+            this.txtPromotionPrice.Size = new System.Drawing.Size(180, 23);
+            this.txtPromotionPrice.TabIndex = 12;
+            this.txtPromotionPrice.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
+            this.txtPromotionPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // txtPriceRe
             // 
@@ -628,15 +645,6 @@
             this.btnBack.Text = "Quay lại";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // txtPromotionPrice
-            // 
-            this.txtPromotionPrice.Location = new System.Drawing.Point(40, 38);
-            this.txtPromotionPrice.Name = "txtPromotionPrice";
-            this.txtPromotionPrice.Size = new System.Drawing.Size(180, 23);
-            this.txtPromotionPrice.TabIndex = 12;
-            this.txtPromotionPrice.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
-            this.txtPromotionPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // frmDetailsTour
             // 

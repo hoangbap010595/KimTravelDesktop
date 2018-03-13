@@ -28,17 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnPrint = new MaterialSkin.Controls.MaterialRaisedButton();
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPickup = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPartnerPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTour = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,6 +45,12 @@
             this.btnBack = new MaterialSkin.Controls.MaterialRaisedButton();
             this.label6 = new System.Windows.Forms.Label();
             this.lblMessageProgress = new System.Windows.Forms.Label();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPickup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPartnerPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,20 +78,20 @@
             this.dataGridViewGroupTour.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewGroupTour.ColumnHeadersHeight = 30;
             this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
+            this.colPax,
             this.colPickup,
             this.colRoom,
-            this.colPax,
             this.colPartnerPrice,
             this.colNote});
             this.dataGridViewGroupTour.Location = new System.Drawing.Point(12, 154);
@@ -103,62 +103,6 @@
             this.dataGridViewGroupTour.RowTemplate.ReadOnly = true;
             this.dataGridViewGroupTour.Size = new System.Drawing.Size(507, 434);
             this.dataGridViewGroupTour.TabIndex = 0;
-            // 
-            // colID
-            // 
-            this.colID.DataPropertyName = "ID";
-            this.colID.HeaderText = "ID";
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            this.colID.Visible = false;
-            // 
-            // colPickup
-            // 
-            this.colPickup.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPickup.DataPropertyName = "PickUp";
-            this.colPickup.HeaderText = "Pickup";
-            this.colPickup.Name = "colPickup";
-            this.colPickup.ReadOnly = true;
-            this.colPickup.Width = 120;
-            // 
-            // colRoom
-            // 
-            this.colRoom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colRoom.DataPropertyName = "Room";
-            this.colRoom.HeaderText = "Room";
-            this.colRoom.Name = "colRoom";
-            this.colRoom.ReadOnly = true;
-            this.colRoom.Width = 50;
-            // 
-            // colPax
-            // 
-            this.colPax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPax.DataPropertyName = "Pax";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colPax.DefaultCellStyle = dataGridViewCellStyle8;
-            this.colPax.HeaderText = "Pax";
-            this.colPax.Name = "colPax";
-            this.colPax.ReadOnly = true;
-            this.colPax.Width = 50;
-            // 
-            // colPartnerPrice
-            // 
-            this.colPartnerPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPartnerPrice.DataPropertyName = "PartnerPrice";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.Format = "#,###";
-            this.colPartnerPrice.DefaultCellStyle = dataGridViewCellStyle9;
-            this.colPartnerPrice.HeaderText = "Thu hộ";
-            this.colPartnerPrice.Name = "colPartnerPrice";
-            this.colPartnerPrice.ReadOnly = true;
-            this.colPartnerPrice.Width = 80;
-            // 
-            // colNote
-            // 
-            this.colNote.DataPropertyName = "Note";
-            this.colNote.HeaderText = "Ghi chú";
-            this.colNote.Name = "colNote";
-            this.colNote.ReadOnly = true;
             // 
             // lblTour
             // 
@@ -297,6 +241,64 @@
             this.lblMessageProgress.Text = "Đang xử lý. Vui lòng chờ...";
             this.lblMessageProgress.Visible = false;
             // 
+            // colID
+            // 
+            this.colID.DataPropertyName = "ID";
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            this.colID.Visible = false;
+            // 
+            // colPax
+            // 
+            this.colPax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colPax.DataPropertyName = "Pax";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colPax.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colPax.HeaderText = "Pax";
+            this.colPax.Name = "colPax";
+            this.colPax.ReadOnly = true;
+            this.colPax.Width = 50;
+            // 
+            // colPickup
+            // 
+            this.colPickup.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colPickup.DataPropertyName = "PickUp";
+            this.colPickup.HeaderText = "Pickup";
+            this.colPickup.Name = "colPickup";
+            this.colPickup.ReadOnly = true;
+            this.colPickup.Width = 150;
+            // 
+            // colRoom
+            // 
+            this.colRoom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colRoom.DataPropertyName = "Room";
+            this.colRoom.HeaderText = "Room";
+            this.colRoom.Name = "colRoom";
+            this.colRoom.ReadOnly = true;
+            this.colRoom.Width = 60;
+            // 
+            // colPartnerPrice
+            // 
+            this.colPartnerPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colPartnerPrice.DataPropertyName = "PartnerPrice";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "#,###";
+            this.colPartnerPrice.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colPartnerPrice.HeaderText = "Thu hộ";
+            this.colPartnerPrice.Name = "colPartnerPrice";
+            this.colPartnerPrice.ReadOnly = true;
+            this.colPartnerPrice.Width = 80;
+            // 
+            // colNote
+            // 
+            this.colNote.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colNote.DataPropertyName = "Note";
+            this.colNote.HeaderText = "Ghi chú";
+            this.colNote.Name = "colNote";
+            this.colNote.ReadOnly = true;
+            this.colNote.Width = 130;
+            // 
             // frmDetailsBookCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,12 +338,6 @@
         #endregion
         private MaterialSkin.Controls.MaterialRaisedButton btnPrint;
         private System.Windows.Forms.DataGridView dataGridViewGroupTour;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPickup;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRoom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPax;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPartnerPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNote;
         private System.Windows.Forms.Label lblTour;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label label1;
@@ -354,5 +350,11 @@
         private MaterialSkin.Controls.MaterialRaisedButton btnBack;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblMessageProgress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPickup;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRoom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPartnerPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNote;
     }
 }

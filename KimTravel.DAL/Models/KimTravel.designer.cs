@@ -72,7 +72,7 @@ namespace KimTravel.DAL.Models
     #endregion
 		
 		public KimTravelDataContext() : 
-				base(global::KimTravel.DAL.Properties.Settings.Default.LocalConnectionString, mappingSource)
+				base(global::KimTravel.DAL.Properties.Settings.Default.KimTravelDesktopConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -1039,7 +1039,7 @@ namespace KimTravel.DAL.Models
 		
 		private System.Nullable<System.DateTime> _EndDate;
 		
-		private System.Nullable<int> _Pax;
+		private System.Nullable<float> _Pax;
 		
 		private string _PickUp;
 		
@@ -1081,6 +1081,12 @@ namespace KimTravel.DAL.Models
 		
 		private System.Nullable<System.DateTime> _FinishDate;
 		
+		private System.Nullable<bool> _IsPayment;
+		
+		private System.Nullable<System.DateTime> _DatePayment;
+		
+		private string _ServiceName;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1095,7 +1101,7 @@ namespace KimTravel.DAL.Models
     partial void OnStartDateChanged();
     partial void OnEndDateChanging(System.Nullable<System.DateTime> value);
     partial void OnEndDateChanged();
-    partial void OnPaxChanging(System.Nullable<int> value);
+    partial void OnPaxChanging(System.Nullable<float> value);
     partial void OnPaxChanged();
     partial void OnPickUpChanging(string value);
     partial void OnPickUpChanged();
@@ -1137,6 +1143,12 @@ namespace KimTravel.DAL.Models
     partial void OnIsBookedChanged();
     partial void OnFinishDateChanging(System.Nullable<System.DateTime> value);
     partial void OnFinishDateChanged();
+    partial void OnIsPaymentChanging(System.Nullable<bool> value);
+    partial void OnIsPaymentChanged();
+    partial void OnDatePaymentChanging(System.Nullable<System.DateTime> value);
+    partial void OnDatePaymentChanged();
+    partial void OnServiceNameChanging(string value);
+    partial void OnServiceNameChanged();
     #endregion
 		
 		public Book()
@@ -1244,8 +1256,8 @@ namespace KimTravel.DAL.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pax", DbType="Int")]
-		public System.Nullable<int> Pax
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pax", DbType="Float")]
+		public System.Nullable<float> Pax
 		{
 			get
 			{
@@ -1660,6 +1672,66 @@ namespace KimTravel.DAL.Models
 					this._FinishDate = value;
 					this.SendPropertyChanged("FinishDate");
 					this.OnFinishDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsPayment", DbType="Bit")]
+		public System.Nullable<bool> IsPayment
+		{
+			get
+			{
+				return this._IsPayment;
+			}
+			set
+			{
+				if ((this._IsPayment != value))
+				{
+					this.OnIsPaymentChanging(value);
+					this.SendPropertyChanging();
+					this._IsPayment = value;
+					this.SendPropertyChanged("IsPayment");
+					this.OnIsPaymentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DatePayment", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DatePayment
+		{
+			get
+			{
+				return this._DatePayment;
+			}
+			set
+			{
+				if ((this._DatePayment != value))
+				{
+					this.OnDatePaymentChanging(value);
+					this.SendPropertyChanging();
+					this._DatePayment = value;
+					this.SendPropertyChanged("DatePayment");
+					this.OnDatePaymentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ServiceName", DbType="NVarChar(MAX)")]
+		public string ServiceName
+		{
+			get
+			{
+				return this._ServiceName;
+			}
+			set
+			{
+				if ((this._ServiceName != value))
+				{
+					this.OnServiceNameChanging(value);
+					this.SendPropertyChanging();
+					this._ServiceName = value;
+					this.SendPropertyChanged("ServiceName");
+					this.OnServiceNameChanged();
 				}
 			}
 		}

@@ -9,12 +9,12 @@ using KimTravel.DAL.Models;
 
 namespace KimTravel.GUI
 {
-    public partial class xtraRPBaoCaoCongNo : DevExpress.XtraReports.UI.XtraReport
+    public partial class xtraRPBaoCaoCongNoDoiTac : DevExpress.XtraReports.UI.XtraReport
     {
         private BookService objService;
         private PartnerService partnerService;
         private GroupTourService groupTourService;
-        public xtraRPBaoCaoCongNo(int partnerID, int groupID, int month, int year)
+        public xtraRPBaoCaoCongNoDoiTac(int partnerID, int groupID, int month, int year)
         {
             InitializeComponent();
             objService = new BookService();
@@ -29,8 +29,21 @@ namespace KimTravel.GUI
             lblPartnerAddress.Text = p.Address;
             lblPartnerPhone.Text = p.Phone;
         }
-
-        public xtraRPBaoCaoCongNo(DataTable dt)
+        public xtraRPBaoCaoCongNoDoiTac(int partnerID, int month, int year)
+        {
+            InitializeComponent();
+            objService = new BookService();
+            partnerService = new PartnerService();
+            groupTourService = new GroupTourService();
+            this.objectDataSource2.DataSource = objService.GetListBookedDoneReportPartner(partnerID, month, year, true);
+            string title = "CÔNG NỢ THÁNG " + month + "/" + year;
+            lblTitle.Text = title.ToUpper();
+            Partner p = partnerService.GetByID(partnerID);
+            lblPartnerName.Text = p.Name;
+            lblPartnerAddress.Text = p.Address;
+            lblPartnerPhone.Text = p.Phone;
+        }
+        public xtraRPBaoCaoCongNoDoiTac(DataTable dt)
         {
             InitializeComponent();
             this.objectDataSource1.DataSource = dt;

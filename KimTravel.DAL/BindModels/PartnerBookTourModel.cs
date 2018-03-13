@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace KimTravel.DAL.BindModels
 {
-    public class BookTourModel
+    public class PartnerBookTourModel
     {
         public int ID { get; set; }
+        public string GroupName { get; set; }
         public Nullable<DateTime> StartDate { get; set; }
         public string TourName { get; set; }
         public string Room { get; set; }

@@ -12,6 +12,48 @@ namespace KimTravel.DAL.Services
     {
         private readonly KimTravelDataContext db = new KimTravelDataContext();
 
+        public IEnumerable<PartnerBookTourModel> GetListBookedDoneReportPartner(int partnerID, int month, int year, bool isBooked = true)
+        {
+            IEnumerable<PartnerBookTourModel> data = from b in db.Books
+                                              join p in db.Partners on b.PartnerID equals p.PartnerID
+                                              join t in db.Tours on b.TourID equals t.TourID
+                                              join g in db.GroupTours on t.GroupID equals g.GroupID
+                                              where b.IsBooked == isBooked && b.PartnerID == partnerID
+                                                    && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
+                                              select new PartnerBookTourModel
+                                              {
+                                                  ID = b.ID,
+                                                  GroupName = g.Name,
+                                                  TourName = t.Name,
+                                                  StartDate = b.StartDate,
+                                                  Pax = b.Pax,
+                                                  Room = b.Room,
+                                                  Price = b.PriceReceive,
+                                                  SaleBook = b.StaffID,
+                                                  Note = b.Note,
+                                                  Total = b.Total
+                                              };
+
+            return data;
+        }
+        public IQueryable GetListBookedDoneReportPartner(int month, int year, bool isBooked = true)
+        {
+            IQueryable data = ((from b in db.Books
+                                join p in db.Partners on b.PartnerID equals p.PartnerID
+                                join t in db.Tours on b.TourID equals t.TourID
+                                join g in db.GroupTours on t.GroupID equals g.GroupID
+                                where b.IsBooked == isBooked && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
+                                select new
+                                {
+                                    b.ID,
+                                    b.PartnerID,
+                                    b.Total,
+                                    p.Name
+                                }).GroupBy(x => x.PartnerID).Select(o => new { ID = o.Key, Count = o.Count(), Total = o.Sum(x => x.Total) })).Join(db.Partners, O1 => O1.ID, O2 => O2.PartnerID, (O1, O2) => new { ID = O1.ID, PartnerName = O2.Name, Count = O1.Count, Total = O1.Total });
+
+            return data;
+        }
+
         public IEnumerable<BookTourModel> GetListBookedDoneReport(int partnerID, int groupID, int month, int year, bool isBooked = true)
         {
             IEnumerable<BookTourModel> data = from b in db.Books
@@ -32,6 +74,7 @@ namespace KimTravel.DAL.Services
                                                   Note = b.Note,
                                                   Total = b.Total
                                               };
+
             return data;
         }
         public IQueryable GetListBookedDone(int partnerID, int groupID, int month, int year, bool isBooked = true)
@@ -48,7 +91,7 @@ namespace KimTravel.DAL.Services
                                   t.TourID,
                                   TourName = t.Name,
                                   ParnerID = p.PartnerID,
-                                  PartName = p.Name,
+                                  PartnerName = p.Name,
                                   BookID = b.ID,
                                   b.StartDate,
                                   b.EndDate,
@@ -66,7 +109,8 @@ namespace KimTravel.DAL.Services
                                   b.DateCreate,
                                   b.Note,
                                   b.ServiceType,
-                                  b.Total
+                                  b.Total,
+                                  b.ServiceName
                               };
 
             return data;
@@ -104,7 +148,8 @@ namespace KimTravel.DAL.Services
                                   b.DateCreate,
                                   b.Note,
                                   b.ServiceType,
-                                  b.Total
+                                  b.Total,
+                                  b.ServiceName
                               };
 
             return data;
@@ -126,7 +171,9 @@ namespace KimTravel.DAL.Services
                                   b.CustomName,
                                   b.PickUp,
                                   b.Room,
-                                  b.Pax
+                                  b.Pax,
+                                  PartnerName = p.Name,
+                                  SaleBook = b.StaffID
                               };
 
             return data;
@@ -165,7 +212,8 @@ namespace KimTravel.DAL.Services
                                   b.DateCreate,
                                   b.Note,
                                   b.ServiceType,
-                                  b.Total
+                                  b.Total,
+                                  b.ServiceName
                               };
 
             return data;
@@ -209,6 +257,18 @@ namespace KimTravel.DAL.Services
             {
                 return false;
             }
+        }
+        public bool UpdateBookPayment(int id, bool isPayment)
+        {
+            Book currObject = db.Books.FirstOrDefault(x => x.ID == id);
+            if (currObject != null)
+            {
+                currObject.IsPayment = isPayment;
+                currObject.DatePayment = DateTime.Now;
+                db.SubmitChanges();
+                return true;
+            }
+            return false;
         }
         public bool UpdateBookCancel(int id, bool isCancel)
         {
@@ -257,6 +317,7 @@ namespace KimTravel.DAL.Services
                 currObject.Note = obj.Note;
 
                 currObject.ServiceType = obj.ServiceType;
+                currObject.ServiceName = obj.ServiceName;
                 currObject.PromotionMoney = obj.PromotionMoney;
                 currObject.PromotionPercent = obj.PromotionPercent;
                 currObject.Total = obj.Total;

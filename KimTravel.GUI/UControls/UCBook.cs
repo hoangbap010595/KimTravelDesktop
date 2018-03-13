@@ -40,11 +40,6 @@ namespace KimTravel.GUI.UControls
 
         private void UCGroupTour_Load(object sender, EventArgs e)
         {
-            txtCustomName.Text = txtNote.Text = txtRoom.Text = txtSaleBook.Text = txtPickUp.Text = txtPartnerPrice.Text = "";
-            numPax.Value = 1;
-            tableService.Rows.Clear();
-            dataGridViewGroupTour.DataSource = tableService;
-
             cbbGroupTourID.DataSource = grTourService.GetListCombobox();
             cbbGroupTourID.ValueMember = "GroupID";
             cbbGroupTourID.DisplayMember = "Name";
@@ -99,10 +94,8 @@ namespace KimTravel.GUI.UControls
 
                 Dictionary<string, object> dataObject = bService.getInfoBooked(gID, id, date1);
                 int C1 = int.Parse(dataObject["CurrentTotal"].ToString());
-                int C2 = int.Parse(dataObject["MaxPax"].ToString());
-                int C3 = C2 - C1;
 
-                string msg = "Đã book " + C1 + "/" + C2;
+                string msg = "Đã book: " + C1;
                 lblMsgPax.Text = msg;
 
                 //numPax.Maximum = C3;
@@ -113,42 +106,70 @@ namespace KimTravel.GUI.UControls
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            Book book = new Book();
-            book.TourID = int.Parse(cbbTourID.SelectedValue.ToString());
-            book.PartnerID = int.Parse(cbbPartnerID.SelectedValue.ToString());
-            book.StartDate = dtpStartDate.Value;
-            book.EndDate = dtpStartDate.Value;
-            book.Pax = int.Parse(numPax.Value.ToString());
-            book.StaffID = txtSaleBook.Text;
+            try
+            {
+                Book book = new Book();
+                book.TourID = int.Parse(cbbTourID.SelectedValue.ToString());
+                book.PartnerID = int.Parse(cbbPartnerID.SelectedValue.ToString());
+                book.StartDate = dtpStartDate.Value;
+                book.EndDate = dtpStartDate.Value;
+                book.Pax = float.Parse(numPax.Value.ToString());
+                book.StaffID = txtSaleBook.Text;
 
-            //Cus
-            book.CustomName = txtCustomName.Text;
-            book.Room = txtRoom.Text;
-            Partner p = pnService.GetByID(int.Parse(cbbPartnerID.SelectedValue.ToString()));
-            book.PickUp = txtPickUp.Text.Trim() == "" ? p.Address : txtPickUp.Text;
+                //Cus
+                book.CustomName = txtCustomName.Text;
+                book.Room = txtRoom.Text;
+                Partner p = pnService.GetByID(int.Parse(cbbPartnerID.SelectedValue.ToString()));
+                book.PickUp = txtPickUp.Text.Trim() == "" ? p.Address : txtPickUp.Text;
 
-            //Service
-            book.PartnerPrice = int.Parse(txtPartnerPrice.Text == "" ? "0" : txtPartnerPrice.Text);
-            book.PriceReceive = int.Parse(txtPriceRe.Text == "" ? "0" : txtPriceRe.Text);
-            book.PriceSale = int.Parse(txtPriceSa.Text == "" ? "0" : txtPriceSa.Text);
-            book.PriceVTQ = int.Parse(txtPriceVTQ.Text == "" ? "0" : txtPriceVTQ.Text);
-            book.Note = txtNote.Text;
+                //Service
+                book.PartnerPrice = int.Parse(txtPartnerPrice.Text == "" ? "0" : txtPartnerPrice.Text);
+                book.PriceReceive = int.Parse(txtPriceRe.Text == "" ? "0" : txtPriceRe.Text);
+                book.PriceSale = int.Parse(txtPriceSa.Text == "" ? "0" : txtPriceSa.Text);
+                book.PriceVTQ = int.Parse(txtPriceVTQ.Text == "" ? "0" : txtPriceVTQ.Text);
+                book.Note = txtNote.Text;
 
-            book.ServiceType = getJsonServiceType();
-            book.PromotionMoney = int.Parse(txtPromotionMoney.Text == "" ? "0" : txtPromotionMoney.Text);
-            book.PromotionPercent = 0;
-            book.Total = int.Parse(lblTotalBook.Text);
-            book.DateCreate = DateTime.Now;
-            book.CreateBy = Constant.CurrentSessionUser;
-            book.IsCancel = false;
-            book.IsBooked = false;
-            if (book.CustomName == "" || book.CustomName == null) { MessageBox.Show("Tên khách hàng không thể để trống!"); return; }
-            if (book.StaffID == "" || book.StaffID == null) { MessageBox.Show("Tên NV book không thể để trống!"); return; }
-            var rs = bService.Insert(book);
-            MessageBox.Show("Book tour thành công!");
-            UCGroupTour_Load(sender, e);
+                book.ServiceType = getJsonServiceType();
+                book.ServiceName = getJsonServiceName();
+                book.PromotionMoney = int.Parse(txtPromotionMoney.Text == "" ? "0" : txtPromotionMoney.Text);
+                book.PromotionPercent = 0;
+                book.Total = int.Parse(lblTotalBook.Text);
+                book.DateCreate = DateTime.Now;
+                book.CreateBy = Constant.CurrentSessionUser;
+                book.IsCancel = false;
+                book.IsBooked = false;
+                book.IsPayment = false;
+                if (book.StaffID == "" || book.StaffID == null) { MessageBox.Show("Tên NV book không thể để trống!"); return; }
+                var rs = bService.Insert(book);
+                if (rs)
+                {
+                    MessageBox.Show("Book tour thành công!");
+                    txtCustomName.Text = txtNote.Text = txtRoom.Text = txtSaleBook.Text = txtPickUp.Text = txtPartnerPrice.Text = "";
+                    numPax.Value = 2;
+                    cbbPartnerID_SelectedValueChanged(sender, e);
+                    tableService.Rows.Clear();
+                    dataGridViewGroupTour.DataSource = tableService;
+                }else
+                {
+                    MessageBox.Show("Các điều kiện không hợp lệ!. Book tour thất bại.");
+                }
+              
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Xảy ra lỗi: " + ex.Message);
+            }
         }
-
+        private string getJsonServiceName()
+        {
+            string data = "";
+            foreach (DataRow item in tableService.Rows)
+            {
+                data += item["ServiceType"].ToString() + ",";
+            }
+            data = data.TrimEnd(',');
+            return data;
+        }
         private string getJsonServiceType()
         {
             string data = "[";
@@ -238,7 +259,7 @@ namespace KimTravel.GUI.UControls
                 moneySale = int.Parse(txtPromotionMoney.Text);
             }
 
-            int pax = int.Parse(numPax.Value.ToString());
+            float pax = float.Parse(numPax.Value.ToString());
 
             var total = ((priceRe + priceVTQ + priceService) * pax) - moneySale;
 

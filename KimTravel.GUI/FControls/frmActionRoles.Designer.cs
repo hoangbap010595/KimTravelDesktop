@@ -33,24 +33,25 @@
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.btnUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.ck1_TaiKhoan = new System.Windows.Forms.CheckBox();
             this.ck1_PhanQuyen = new System.Windows.Forms.CheckBox();
-            this.ck2_Booktour = new System.Windows.Forms.CheckBox();
+            this.ck1_TaiKhoan = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ck2_ListBook = new System.Windows.Forms.CheckBox();
             this.ck2_SapXepXe = new System.Windows.Forms.CheckBox();
-            this.ck3_QLTour = new System.Windows.Forms.CheckBox();
-            this.ck3_QLNhomTour = new System.Windows.Forms.CheckBox();
+            this.ck2_Booktour = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.ck3_QLDoiTac = new System.Windows.Forms.CheckBox();
+            this.ck3_QLTour = new System.Windows.Forms.CheckBox();
             this.ck3_QLNhomDT = new System.Windows.Forms.CheckBox();
+            this.ck3_QLNhomTour = new System.Windows.Forms.CheckBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.ck4_DLNhanVien = new System.Windows.Forms.CheckBox();
+            this.ck4_DLXe = new System.Windows.Forms.CheckBox();
             this.ck4_DLDichVu = new System.Windows.Forms.CheckBox();
             this.ck4_DLKhachSan = new System.Windows.Forms.CheckBox();
-            this.ck4_DLXe = new System.Windows.Forms.CheckBox();
-            this.ck4_DLNhanVien = new System.Windows.Forms.CheckBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.ck5_CongNo = new System.Windows.Forms.CheckBox();
+            this.ck5_DoiTac = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -112,6 +113,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hệ thống";
             // 
+            // ck1_PhanQuyen
+            // 
+            this.ck1_PhanQuyen.AutoSize = true;
+            this.ck1_PhanQuyen.Location = new System.Drawing.Point(16, 59);
+            this.ck1_PhanQuyen.Name = "ck1_PhanQuyen";
+            this.ck1_PhanQuyen.Size = new System.Drawing.Size(103, 21);
+            this.ck1_PhanQuyen.TabIndex = 0;
+            this.ck1_PhanQuyen.Text = "Phân quyền";
+            this.ck1_PhanQuyen.UseVisualStyleBackColor = true;
+            // 
+            // ck1_TaiKhoan
+            // 
+            this.ck1_TaiKhoan.AutoSize = true;
+            this.ck1_TaiKhoan.Location = new System.Drawing.Point(16, 32);
+            this.ck1_TaiKhoan.Name = "ck1_TaiKhoan";
+            this.ck1_TaiKhoan.Size = new System.Drawing.Size(90, 21);
+            this.ck1_TaiKhoan.TabIndex = 0;
+            this.ck1_TaiKhoan.Text = "Tài khoản";
+            this.ck1_TaiKhoan.UseVisualStyleBackColor = true;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.ck2_ListBook);
@@ -124,75 +145,6 @@
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tour";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.ck3_QLDoiTac);
-            this.groupBox3.Controls.Add(this.ck3_QLTour);
-            this.groupBox3.Controls.Add(this.ck3_QLNhomDT);
-            this.groupBox3.Controls.Add(this.ck3_QLNhomTour);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(292, 120);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(139, 197);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Nghiệp vụ";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.ck4_DLNhanVien);
-            this.groupBox4.Controls.Add(this.ck4_DLXe);
-            this.groupBox4.Controls.Add(this.ck4_DLDichVu);
-            this.groupBox4.Controls.Add(this.ck4_DLKhachSan);
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(437, 120);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(132, 197);
-            this.groupBox4.TabIndex = 0;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Dữ liệu";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.ck5_CongNo);
-            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(16, 323);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(132, 151);
-            this.groupBox5.TabIndex = 0;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Báo cáo";
-            // 
-            // ck1_TaiKhoan
-            // 
-            this.ck1_TaiKhoan.AutoSize = true;
-            this.ck1_TaiKhoan.Location = new System.Drawing.Point(16, 32);
-            this.ck1_TaiKhoan.Name = "ck1_TaiKhoan";
-            this.ck1_TaiKhoan.Size = new System.Drawing.Size(90, 21);
-            this.ck1_TaiKhoan.TabIndex = 0;
-            this.ck1_TaiKhoan.Text = "Tài khoản";
-            this.ck1_TaiKhoan.UseVisualStyleBackColor = true;
-            // 
-            // ck1_PhanQuyen
-            // 
-            this.ck1_PhanQuyen.AutoSize = true;
-            this.ck1_PhanQuyen.Location = new System.Drawing.Point(16, 59);
-            this.ck1_PhanQuyen.Name = "ck1_PhanQuyen";
-            this.ck1_PhanQuyen.Size = new System.Drawing.Size(103, 21);
-            this.ck1_PhanQuyen.TabIndex = 0;
-            this.ck1_PhanQuyen.Text = "Phân quyền";
-            this.ck1_PhanQuyen.UseVisualStyleBackColor = true;
-            // 
-            // ck2_Booktour
-            // 
-            this.ck2_Booktour.AutoSize = true;
-            this.ck2_Booktour.Location = new System.Drawing.Point(5, 32);
-            this.ck2_Booktour.Name = "ck2_Booktour";
-            this.ck2_Booktour.Size = new System.Drawing.Size(88, 21);
-            this.ck2_Booktour.TabIndex = 0;
-            this.ck2_Booktour.Text = "Book tour";
-            this.ck2_Booktour.UseVisualStyleBackColor = true;
             // 
             // ck2_ListBook
             // 
@@ -214,25 +166,29 @@
             this.ck2_SapXepXe.Text = "Sắp xếp xe";
             this.ck2_SapXepXe.UseVisualStyleBackColor = true;
             // 
-            // ck3_QLTour
+            // ck2_Booktour
             // 
-            this.ck3_QLTour.AutoSize = true;
-            this.ck3_QLTour.Location = new System.Drawing.Point(6, 32);
-            this.ck3_QLTour.Name = "ck3_QLTour";
-            this.ck3_QLTour.Size = new System.Drawing.Size(80, 21);
-            this.ck3_QLTour.TabIndex = 0;
-            this.ck3_QLTour.Text = "QL Tour";
-            this.ck3_QLTour.UseVisualStyleBackColor = true;
+            this.ck2_Booktour.AutoSize = true;
+            this.ck2_Booktour.Location = new System.Drawing.Point(5, 32);
+            this.ck2_Booktour.Name = "ck2_Booktour";
+            this.ck2_Booktour.Size = new System.Drawing.Size(88, 21);
+            this.ck2_Booktour.TabIndex = 0;
+            this.ck2_Booktour.Text = "Book tour";
+            this.ck2_Booktour.UseVisualStyleBackColor = true;
             // 
-            // ck3_QLNhomTour
+            // groupBox3
             // 
-            this.ck3_QLNhomTour.AutoSize = true;
-            this.ck3_QLNhomTour.Location = new System.Drawing.Point(6, 86);
-            this.ck3_QLNhomTour.Name = "ck3_QLNhomTour";
-            this.ck3_QLNhomTour.Size = new System.Drawing.Size(116, 21);
-            this.ck3_QLNhomTour.TabIndex = 0;
-            this.ck3_QLNhomTour.Text = "QL Nhóm tour";
-            this.ck3_QLNhomTour.UseVisualStyleBackColor = true;
+            this.groupBox3.Controls.Add(this.ck3_QLDoiTac);
+            this.groupBox3.Controls.Add(this.ck3_QLTour);
+            this.groupBox3.Controls.Add(this.ck3_QLNhomDT);
+            this.groupBox3.Controls.Add(this.ck3_QLNhomTour);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(292, 120);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(139, 197);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Nghiệp vụ";
             // 
             // ck3_QLDoiTac
             // 
@@ -244,6 +200,16 @@
             this.ck3_QLDoiTac.Text = "QL Đối tác";
             this.ck3_QLDoiTac.UseVisualStyleBackColor = true;
             // 
+            // ck3_QLTour
+            // 
+            this.ck3_QLTour.AutoSize = true;
+            this.ck3_QLTour.Location = new System.Drawing.Point(6, 32);
+            this.ck3_QLTour.Name = "ck3_QLTour";
+            this.ck3_QLTour.Size = new System.Drawing.Size(80, 21);
+            this.ck3_QLTour.TabIndex = 0;
+            this.ck3_QLTour.Text = "QL Tour";
+            this.ck3_QLTour.UseVisualStyleBackColor = true;
+            // 
             // ck3_QLNhomDT
             // 
             this.ck3_QLNhomDT.AutoSize = true;
@@ -253,6 +219,50 @@
             this.ck3_QLNhomDT.TabIndex = 0;
             this.ck3_QLNhomDT.Text = "QL Nhóm đối tác";
             this.ck3_QLNhomDT.UseVisualStyleBackColor = true;
+            // 
+            // ck3_QLNhomTour
+            // 
+            this.ck3_QLNhomTour.AutoSize = true;
+            this.ck3_QLNhomTour.Location = new System.Drawing.Point(6, 86);
+            this.ck3_QLNhomTour.Name = "ck3_QLNhomTour";
+            this.ck3_QLNhomTour.Size = new System.Drawing.Size(116, 21);
+            this.ck3_QLNhomTour.TabIndex = 0;
+            this.ck3_QLNhomTour.Text = "QL Nhóm tour";
+            this.ck3_QLNhomTour.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.ck4_DLNhanVien);
+            this.groupBox4.Controls.Add(this.ck4_DLXe);
+            this.groupBox4.Controls.Add(this.ck4_DLDichVu);
+            this.groupBox4.Controls.Add(this.ck4_DLKhachSan);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(437, 120);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(132, 197);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Dữ liệu";
+            // 
+            // ck4_DLNhanVien
+            // 
+            this.ck4_DLNhanVien.AutoSize = true;
+            this.ck4_DLNhanVien.Location = new System.Drawing.Point(6, 59);
+            this.ck4_DLNhanVien.Name = "ck4_DLNhanVien";
+            this.ck4_DLNhanVien.Size = new System.Drawing.Size(115, 21);
+            this.ck4_DLNhanVien.TabIndex = 0;
+            this.ck4_DLNhanVien.Text = "DL Nhân Viên";
+            this.ck4_DLNhanVien.UseVisualStyleBackColor = true;
+            // 
+            // ck4_DLXe
+            // 
+            this.ck4_DLXe.AutoSize = true;
+            this.ck4_DLXe.Location = new System.Drawing.Point(6, 32);
+            this.ck4_DLXe.Name = "ck4_DLXe";
+            this.ck4_DLXe.Size = new System.Drawing.Size(66, 21);
+            this.ck4_DLXe.TabIndex = 0;
+            this.ck4_DLXe.Text = "DL Xe";
+            this.ck4_DLXe.UseVisualStyleBackColor = true;
             // 
             // ck4_DLDichVu
             // 
@@ -274,25 +284,17 @@
             this.ck4_DLKhachSan.Text = "DL Khách sạn";
             this.ck4_DLKhachSan.UseVisualStyleBackColor = true;
             // 
-            // ck4_DLXe
+            // groupBox5
             // 
-            this.ck4_DLXe.AutoSize = true;
-            this.ck4_DLXe.Location = new System.Drawing.Point(6, 32);
-            this.ck4_DLXe.Name = "ck4_DLXe";
-            this.ck4_DLXe.Size = new System.Drawing.Size(66, 21);
-            this.ck4_DLXe.TabIndex = 0;
-            this.ck4_DLXe.Text = "DL Xe";
-            this.ck4_DLXe.UseVisualStyleBackColor = true;
-            // 
-            // ck4_DLNhanVien
-            // 
-            this.ck4_DLNhanVien.AutoSize = true;
-            this.ck4_DLNhanVien.Location = new System.Drawing.Point(6, 59);
-            this.ck4_DLNhanVien.Name = "ck4_DLNhanVien";
-            this.ck4_DLNhanVien.Size = new System.Drawing.Size(115, 21);
-            this.ck4_DLNhanVien.TabIndex = 0;
-            this.ck4_DLNhanVien.Text = "DL Nhân Viên";
-            this.ck4_DLNhanVien.UseVisualStyleBackColor = true;
+            this.groupBox5.Controls.Add(this.ck5_DoiTac);
+            this.groupBox5.Controls.Add(this.ck5_CongNo);
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(16, 323);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(132, 151);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Báo cáo";
             // 
             // ck5_CongNo
             // 
@@ -303,6 +305,16 @@
             this.ck5_CongNo.TabIndex = 0;
             this.ck5_CongNo.Text = "Công nợ";
             this.ck5_CongNo.UseVisualStyleBackColor = true;
+            // 
+            // ck5_DoiTac
+            // 
+            this.ck5_DoiTac.AutoSize = true;
+            this.ck5_DoiTac.Location = new System.Drawing.Point(8, 59);
+            this.ck5_DoiTac.Name = "ck5_DoiTac";
+            this.ck5_DoiTac.Size = new System.Drawing.Size(93, 21);
+            this.ck5_DoiTac.TabIndex = 0;
+            this.ck5_DoiTac.Text = "BC Đối tác";
+            this.ck5_DoiTac.UseVisualStyleBackColor = true;
             // 
             // frmActionRoles
             // 
@@ -364,5 +376,6 @@
         private System.Windows.Forms.CheckBox ck4_DLDichVu;
         private System.Windows.Forms.CheckBox ck4_DLKhachSan;
         private System.Windows.Forms.CheckBox ck5_CongNo;
+        private System.Windows.Forms.CheckBox ck5_DoiTac;
     }
 }

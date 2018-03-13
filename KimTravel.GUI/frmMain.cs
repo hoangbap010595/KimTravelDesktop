@@ -144,9 +144,25 @@ namespace KimTravel.GUI
             UCReportCongNo uc = new UCReportCongNo();
             addControlToPanel(uc);
         }
-
+        private void bCĐôiTacToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lblTitle.Text = "Báo cáo đối tác";
+            UCReportCongNoDoiTac uc = new UCReportCongNoDoiTac();
+            addControlToPanel(uc);
+        }
         private void getMenuOfAccount()
         {
+            quanLyTaiKhoanToolStripMenuItem.Visible = quanLyPhânQuyênToolStripMenuItem.Visible = false;
+            bookToolStripMenuItem.Visible = danhSachĐaBookToolStripMenuItem.Visible = săpXêpTourToolStripMenuItem.Visible = false;
+            bookTourToolStripMenuItem.Visible = quanLyĐôiTacToolStripMenuItem.Visible = quanLyToolStripMenuItem.Visible = quanLyNhomĐôiTacToolStripMenuItem.Visible = false;
+            xeToolStripMenuItem.Visible = quanLyNhânViênToolStripMenuItem.Visible = loaiDichVuToolStripMenuItem.Visible = khachSanToolStripMenuItem.Visible = false;
+            côngNơToolStripMenuItem.Visible = bCĐôiTacToolStripMenuItem.Visible = false;
+
+            int menu1 = 0;
+            int menu2 = 0;
+            int menu3 = 0;
+            int menu4 = 0;
+            int menu5 = 0;
             string data = userRoleService.GetListRoles(Constant.CurrentSessionUser);
             string[] roles = data.Split(',');
             foreach (string item in roles)
@@ -154,54 +170,92 @@ namespace KimTravel.GUI
                 int menuID = int.Parse(item);
                 switch (menuID)
                 {
+                    #region ===Check Role
                     //Hệ thống
                     case 5:
                         quanLyTaiKhoanToolStripMenuItem.Visible = true;
+                        menu1++;
                         break;
                     case 10:
                         quanLyPhânQuyênToolStripMenuItem.Visible = true;
+                        menu1++;
                         break;
                     //Tour
                     case 15:
                         bookToolStripMenuItem.Visible = true;
+                        menu2++;
                         break;
                     case 20:
                         danhSachĐaBookToolStripMenuItem.Visible = true;
+                        menu2++;
                         break;
                     case 25:
                         săpXêpTourToolStripMenuItem.Visible = true;
+                        menu2++;
                         break;
                     //Nghiệp vụ
                     case 30:
                         bookTourToolStripMenuItem.Visible = true;
+                        menu3++;
                         break;
                     case 35:
                         quanLyĐôiTacToolStripMenuItem.Visible = true;
+                        menu3++;
                         break;
                     case 40:
                         quanLyToolStripMenuItem.Visible = true;
+                        menu3++;
                         break;
                     case 45:
                         quanLyNhomĐôiTacToolStripMenuItem.Visible = true;
+                        menu3++;
                         break;
                     //Dữ liệu
                     case 50:
                         xeToolStripMenuItem.Visible = true;
+                        menu4++;
                         break;
                     case 55:
                         quanLyNhânViênToolStripMenuItem.Visible = true;
+                        menu4++;
                         break;
                     case 60:
                         loaiDichVuToolStripMenuItem.Visible = true;
+                        menu4++;
                         break;
                     case 65:
                         khachSanToolStripMenuItem.Visible = true;
+                        menu4++;
                         break;
                     //Báo cáo
                     case 70:
                         côngNơToolStripMenuItem.Visible = true;
+                        menu5++;
                         break;
+                    case 75:
+                        bCĐôiTacToolStripMenuItem.Visible = true;
+                        menu5++;
+                        break;
+                        #endregion End check role
                 }
+            }
+            lblTitle.Text = "";
+            panelControlMain.Controls.Clear();
+            if (menu2 > 0)
+            {
+                tourToolStripMenuItem.Visible = true;
+            }
+            if (menu3 > 0)
+            {
+                nghiêpVuToolStripMenuItem.Visible = true;
+            }
+            if (menu4 > 0)
+            {
+                dưLiêuToolStripMenuItem.Visible = true;
+            }
+            if (menu5 > 0)
+            {
+                baoCaoToolStripMenuItem.Visible = true;
             }
         }
 
@@ -210,5 +264,7 @@ namespace KimTravel.GUI
             Constant.CurrentSessionUser = "";
             frmMain_Load(sender, e);
         }
+
+       
     }
 }
