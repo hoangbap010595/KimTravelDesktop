@@ -31,8 +31,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.button1 = new System.Windows.Forms.Button();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.btnTImKiem = new System.Windows.Forms.Button();
+            this.txtContent = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPSID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,29 +50,30 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btnTImKiem
             // 
-            this.button1.Location = new System.Drawing.Point(403, 11);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 25);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Tìm kiếm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnTImKiem.Location = new System.Drawing.Point(403, 11);
+            this.btnTImKiem.Name = "btnTImKiem";
+            this.btnTImKiem.Size = new System.Drawing.Size(100, 25);
+            this.btnTImKiem.TabIndex = 2;
+            this.btnTImKiem.Text = "Tìm kiếm";
+            this.btnTImKiem.UseVisualStyleBackColor = true;
+            this.btnTImKiem.Click += new System.EventHandler(this.btnTImKiem_Click);
             // 
-            // materialSingleLineTextField1
+            // txtContent
             // 
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Hint = "Nhập nội dung tìm kiếm";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(7, 13);
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(390, 23);
-            this.materialSingleLineTextField1.TabIndex = 1;
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            this.txtContent.Depth = 0;
+            this.txtContent.Hint = "Nhập nội dung tìm kiếm";
+            this.txtContent.Location = new System.Drawing.Point(7, 13);
+            this.txtContent.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtContent.Name = "txtContent";
+            this.txtContent.PasswordChar = '\0';
+            this.txtContent.SelectedText = "";
+            this.txtContent.SelectionLength = 0;
+            this.txtContent.SelectionStart = 0;
+            this.txtContent.Size = new System.Drawing.Size(390, 23);
+            this.txtContent.TabIndex = 1;
+            this.txtContent.UseSystemPasswordChar = false;
             // 
             // dataGridViewGroupTour
             // 
@@ -244,8 +245,8 @@
             this.Controls.Add(this.dataGridViewGroupTour);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnThemMoi);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.materialSingleLineTextField1);
+            this.Controls.Add(this.btnTImKiem);
+            this.Controls.Add(this.txtContent);
             this.Name = "UCStaff";
             this.Size = new System.Drawing.Size(1059, 513);
             this.Load += new System.EventHandler(this.UCGroupTour_Load);
@@ -256,8 +257,8 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridViewGroupTour;
-        private System.Windows.Forms.Button button1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
+        private System.Windows.Forms.Button btnTImKiem;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtContent;
         private System.Windows.Forms.Button btnThemMoi;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button btnExportExcel;

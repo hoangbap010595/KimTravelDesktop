@@ -35,9 +35,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
+            this.btnThemMoi = new System.Windows.Forms.Button();
+            this.btnLoad = new System.Windows.Forms.Button();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,8 +52,7 @@
             this.colLastUpdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUpdateBy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ActionUpdate = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnThemMoi = new System.Windows.Forms.Button();
-            this.btnLoad = new System.Windows.Forms.Button();
+            this.colRole = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,7 +110,8 @@
             this.colStatus,
             this.colLastUpdate,
             this.colUpdateBy,
-            this.ActionUpdate});
+            this.ActionUpdate,
+            this.colRole});
             this.dataGridViewGroupTour.Location = new System.Drawing.Point(3, 42);
             this.dataGridViewGroupTour.MultiSelect = false;
             this.dataGridViewGroupTour.Name = "dataGridViewGroupTour";
@@ -120,6 +123,28 @@
             this.dataGridViewGroupTour.TabIndex = 0;
             this.dataGridViewGroupTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridViewGroupTour.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewGroupTour_RowPostPaint);
+            // 
+            // btnThemMoi
+            // 
+            this.btnThemMoi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThemMoi.Location = new System.Drawing.Point(956, 11);
+            this.btnThemMoi.Name = "btnThemMoi";
+            this.btnThemMoi.Size = new System.Drawing.Size(100, 25);
+            this.btnThemMoi.TabIndex = 3;
+            this.btnThemMoi.Text = "Thêm";
+            this.btnThemMoi.UseVisualStyleBackColor = true;
+            this.btnThemMoi.Click += new System.EventHandler(this.btnThemMoi_Click);
+            // 
+            // btnLoad
+            // 
+            this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoad.Location = new System.Drawing.Point(850, 11);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(100, 25);
+            this.btnLoad.TabIndex = 3;
+            this.btnLoad.Text = "Làm mới";
+            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // colID
             // 
@@ -146,7 +171,7 @@
             this.colEmail.HeaderText = "Email";
             this.colEmail.Name = "colEmail";
             this.colEmail.ReadOnly = true;
-            this.colEmail.Width = 140;
+            this.colEmail.Width = 200;
             // 
             // colPhone
             // 
@@ -243,27 +268,19 @@
             this.ActionUpdate.UseColumnTextForButtonValue = true;
             this.ActionUpdate.Width = 80;
             // 
-            // btnThemMoi
+            // colRole
             // 
-            this.btnThemMoi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThemMoi.Location = new System.Drawing.Point(956, 11);
-            this.btnThemMoi.Name = "btnThemMoi";
-            this.btnThemMoi.Size = new System.Drawing.Size(100, 25);
-            this.btnThemMoi.TabIndex = 3;
-            this.btnThemMoi.Text = "Thêm";
-            this.btnThemMoi.UseVisualStyleBackColor = true;
-            this.btnThemMoi.Click += new System.EventHandler(this.btnThemMoi_Click);
-            // 
-            // btnLoad
-            // 
-            this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoad.Location = new System.Drawing.Point(850, 11);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(100, 25);
-            this.btnLoad.TabIndex = 3;
-            this.btnLoad.Text = "Làm mới";
-            this.btnLoad.UseVisualStyleBackColor = true;
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.colRole.DefaultCellStyle = dataGridViewCellStyle8;
+            this.colRole.HeaderText = "Phân quyền";
+            this.colRole.Name = "colRole";
+            this.colRole.ReadOnly = true;
+            this.colRole.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colRole.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colRole.Text = "Sửa";
+            this.colRole.UseColumnTextForButtonValue = true;
+            this.colRole.Width = 89;
             // 
             // UCUser
             // 
@@ -299,5 +316,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colLastUpdate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUpdateBy;
         private System.Windows.Forms.DataGridViewButtonColumn ActionUpdate;
+        private System.Windows.Forms.DataGridViewButtonColumn colRole;
     }
 }

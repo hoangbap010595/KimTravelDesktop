@@ -32,14 +32,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.txtPath = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.lblMessage = new System.Windows.Forms.Label();
+            this.prbUpload = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // btnUpdate
             // 
             this.btnUpdate.Depth = 0;
-            this.btnUpdate.Location = new System.Drawing.Point(85, 238);
+            this.btnUpdate.Location = new System.Drawing.Point(81, 218);
             this.btnUpdate.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Primary = true;
@@ -77,32 +77,31 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Đường dẫn:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 146);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Thông tin";
-            // 
             // lblMessage
             // 
             this.lblMessage.AutoSize = true;
             this.lblMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMessage.Location = new System.Drawing.Point(12, 169);
+            this.lblMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblMessage.Location = new System.Drawing.Point(12, 154);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(75, 20);
             this.lblMessage.TabIndex = 0;
             this.lblMessage.Text = "Thông tin";
+            // 
+            // prbUpload
+            // 
+            this.prbUpload.Location = new System.Drawing.Point(12, 291);
+            this.prbUpload.Name = "prbUpload";
+            this.prbUpload.Size = new System.Drawing.Size(325, 10);
+            this.prbUpload.TabIndex = 4;
             // 
             // frmImportPartner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(350, 313);
+            this.Controls.Add(this.prbUpload);
             this.Controls.Add(this.lblMessage);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPath);
             this.Controls.Add(this.button1);
@@ -127,7 +126,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtPath;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblMessage;
+        private System.Windows.Forms.ProgressBar prbUpload;
     }
 }

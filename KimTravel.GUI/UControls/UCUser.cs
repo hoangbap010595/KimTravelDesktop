@@ -50,9 +50,17 @@ namespace KimTravel.GUI.UControls
                 if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                     e.RowIndex >= 0)
                 {
-                    frmActionUser frm = new frmActionUser(1, id);
-                    frm.loadData = new frmActionUser.LoadData(loadDataGroup);
-                    frm.ShowDialog();
+                    if (senderGrid.Columns[e.ColumnIndex].Name != "colRole")
+                    {
+                        frmActionUser frm = new frmActionUser(1, id);
+                        frm.loadData = new frmActionUser.LoadData(loadDataGroup);
+                        frm.ShowDialog();
+                    }else
+                    {
+                        frmActionRoles frm = new frmActionRoles(id);
+                        frm.loadData = new frmActionRoles.LoadData(loadDataGroup);
+                        frm.ShowDialog();
+                    }
                 }
             }
             catch { }

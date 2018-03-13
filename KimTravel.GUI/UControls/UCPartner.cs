@@ -72,7 +72,16 @@ namespace KimTravel.GUI.UControls
 
         private void btnImport_Click(object sender, EventArgs e)
         {
+            frmImportPartner frm = new frmImportPartner();
+            frm.ShowDialog();
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var content = txtContent.Text;
+            dataGridViewGroupTour.DataSource = objService.GetListFind(content);
+            dataGridViewGroupTour.Update();
+            dataGridViewGroupTour.Refresh();
         }
     }
 }

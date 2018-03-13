@@ -1,4 +1,5 @@
-﻿using KimTravel.DAL.Models;
+﻿using KimTravel.DAL.BindModels;
+using KimTravel.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,20 +12,41 @@ namespace KimTravel.DAL.Services
     {
         private readonly KimTravelDataContext db = new KimTravelDataContext();
 
-        public IQueryable GetListBookedDone(bool isBooked = true)
+        public IEnumerable<BookTourModel> GetListBookedDoneReport(int partnerID, int groupID, int month, int year, bool isBooked = true)
+        {
+            IEnumerable<BookTourModel> data = from b in db.Books
+                                              join p in db.Partners on b.PartnerID equals p.PartnerID
+                                              join t in db.Tours on b.TourID equals t.TourID
+                                              join g in db.GroupTours on t.GroupID equals g.GroupID
+                                              where b.IsBooked == isBooked && b.PartnerID == partnerID && g.GroupID == groupID
+                                                    && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
+                                              select new BookTourModel
+                                              {
+                                                  ID = b.ID,
+                                                  TourName = t.Name,
+                                                  StartDate = b.StartDate,
+                                                  Pax = b.Pax,
+                                                  Room = b.Room,
+                                                  Price = b.PriceReceive,
+                                                  SaleBook = b.StaffID,
+                                                  Note = b.Note,
+                                                  Total = b.Total
+                                              };
+            return data;
+        }
+        public IQueryable GetListBookedDone(int partnerID, int groupID, int month, int year, bool isBooked = true)
         {
             IQueryable data = from b in db.Books
+                              join p in db.Partners on b.PartnerID equals p.PartnerID
                               join t in db.Tours on b.TourID equals t.TourID
                               join g in db.GroupTours on t.GroupID equals g.GroupID
-                              from p in db.Partners.Where(x => x.PartnerID == b.PartnerID)
-                              where b.IsBooked == isBooked
+                              where b.IsBooked == isBooked && b.PartnerID == partnerID && g.GroupID == groupID
+                                    && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
                               select new
                               {
                                   b.ID,
                                   t.TourID,
                                   TourName = t.Name,
-                                  g.GroupID,
-                                  GroupName = g.Name,
                                   ParnerID = p.PartnerID,
                                   PartName = p.Name,
                                   BookID = b.ID,
@@ -55,7 +77,7 @@ namespace KimTravel.DAL.Services
                               join t in db.Tours on b.TourID equals t.TourID
                               join g in db.GroupTours on t.GroupID equals g.GroupID
                               from p in db.Partners.Where(x => x.PartnerID == b.PartnerID)
-                              where b.IsCancel == isCancel && b.IsBooked == false
+                              where b.IsCancel == isCancel && b.IsBooked != true
                               select new
                               {
                                   b.ID,
@@ -96,7 +118,7 @@ namespace KimTravel.DAL.Services
                               from p in db.Partners.Where(x => x.PartnerID == b.PartnerID)
                               where b.PartnerID == partnerID && b.StartDate.Value == date
                                     && b.IsCancel == isCancel
-                                     && b.IsBooked == false
+                                    && b.IsBooked != true
                               select new
                               {
                                   b.ID,
@@ -118,7 +140,7 @@ namespace KimTravel.DAL.Services
                               where b.TourID == tourID
                                     && b.StartDate.Value == date
                                     && b.IsCancel == isCancel
-                                    && b.IsBooked == false
+                                    && b.IsBooked != true
                               select new
                               {
                                   b.ID,
@@ -155,7 +177,7 @@ namespace KimTravel.DAL.Services
             var data = (from b in db.Books
                         join t in db.Tours on b.TourID equals t.TourID
                         join g in db.GroupTours on t.GroupID equals g.GroupID
-                        where b.TourID == tourID && b.StartDate.Value == date1 && b.IsCancel == false && b.IsBooked == false
+                        where b.TourID == tourID && b.StartDate.Value == date1 && b.IsCancel == false && b.IsBooked != true
                         select new
                         {
                             b
@@ -168,7 +190,6 @@ namespace KimTravel.DAL.Services
 
             return dataResult;
         }
-
         public Book GetByID(int id)
         {
             Book data = db.Books.FirstOrDefault(x => x.ID == id);
@@ -195,6 +216,18 @@ namespace KimTravel.DAL.Services
             if (currObject != null)
             {
                 currObject.IsCancel = isCancel;
+                db.SubmitChanges();
+                return true;
+            }
+            return false;
+        }
+        public bool UpdateBooked(int id, bool isBooked)
+        {
+            Book currObject = db.Books.FirstOrDefault(x => x.ID == id);
+            if (currObject != null)
+            {
+                currObject.IsBooked = isBooked;
+                currObject.FinishDate = DateTime.Now;
                 db.SubmitChanges();
                 return true;
             }

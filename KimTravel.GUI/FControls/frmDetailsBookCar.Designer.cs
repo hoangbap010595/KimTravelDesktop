@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnPrint = new MaterialSkin.Controls.MaterialRaisedButton();
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,9 +47,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cbbHDV = new System.Windows.Forms.ComboBox();
             this.cbbTaiXe = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnBack = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblMessageProgress = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,14 +78,14 @@
             this.dataGridViewGroupTour.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewGroupTour.ColumnHeadersHeight = 30;
             this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
@@ -133,8 +134,8 @@
             // 
             this.colPax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPax.DataPropertyName = "Pax";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colPax.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colPax.DefaultCellStyle = dataGridViewCellStyle8;
             this.colPax.HeaderText = "Pax";
             this.colPax.Name = "colPax";
             this.colPax.ReadOnly = true;
@@ -144,9 +145,9 @@
             // 
             this.colPartnerPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPartnerPrice.DataPropertyName = "PartnerPrice";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "#,###";
-            this.colPartnerPrice.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "#,###";
+            this.colPartnerPrice.DefaultCellStyle = dataGridViewCellStyle9;
             this.colPartnerPrice.HeaderText = "Thu hộ";
             this.colPartnerPrice.Name = "colPartnerPrice";
             this.colPartnerPrice.ReadOnly = true;
@@ -247,27 +248,17 @@
             this.cbbTaiXe.Size = new System.Drawing.Size(164, 24);
             this.cbbTaiXe.TabIndex = 2;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(13, 602);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Tổng cộng:";
-            // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.BackColor = System.Drawing.Color.Transparent;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTotal.Location = new System.Drawing.Point(72, 600);
+            this.lblTotal.Location = new System.Drawing.Point(13, 591);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(71, 17);
+            this.lblTotal.Size = new System.Drawing.Size(56, 17);
             this.lblTotal.TabIndex = 0;
-            this.lblTotal.Text = "20 người";
+            this.lblTotal.Text = "20 pax";
             // 
             // btnBack
             // 
@@ -283,13 +274,37 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(9, 138);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(229, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "(Hãy kiểm tra kỹ thông tin bên dưới trước khi in)";
+            // 
+            // lblMessageProgress
+            // 
+            this.lblMessageProgress.AutoSize = true;
+            this.lblMessageProgress.BackColor = System.Drawing.Color.Transparent;
+            this.lblMessageProgress.ForeColor = System.Drawing.Color.Red;
+            this.lblMessageProgress.Location = new System.Drawing.Point(12, 626);
+            this.lblMessageProgress.Name = "lblMessageProgress";
+            this.lblMessageProgress.Size = new System.Drawing.Size(131, 13);
+            this.lblMessageProgress.TabIndex = 0;
+            this.lblMessageProgress.Text = "Đang xử lý. Vui lòng chờ...";
+            this.lblMessageProgress.Visible = false;
+            // 
             // frmDetailsBookCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(531, 648);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblMessageProgress);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.cbbTaiXe);
             this.Controls.Add(this.cbbHDV);
             this.Controls.Add(this.label4);
@@ -335,8 +350,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbbHDV;
         private System.Windows.Forms.ComboBox cbbTaiXe;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblTotal;
         private MaterialSkin.Controls.MaterialRaisedButton btnBack;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblMessageProgress;
     }
 }

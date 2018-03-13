@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BindModels\BookTourModel.cs" />
     <Compile Include="Constant.cs" />
     <Compile Include="ExcelLibrary.cs" />
     <Compile Include="Models\KimTravel.designer.cs">
@@ -78,6 +79,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Services\ApplicationUserRoleService.cs" />
     <Compile Include="Services\CarTypeService.cs" />
     <Compile Include="Services\PriceService.cs" />
     <Compile Include="Services\GroupPartnerService.cs" />

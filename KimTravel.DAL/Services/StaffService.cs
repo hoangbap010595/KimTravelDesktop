@@ -36,7 +36,31 @@ namespace KimTravel.DAL.Services
 
             return data;
         }
-
+        public IQueryable GetListFind(string content)
+        {
+            var kindStaff = Constant.getListKindStaff();
+            var statusStaff = Constant.getListStatusStaff();
+            IQueryable data = from s in db.Staffs
+                              from p in db.Partners.Where(x => x.PartnerID == s.PartnerID).DefaultIfEmpty()
+                              where s.Name.Contains(content)
+                              orderby s.PSID
+                              orderby s.Name
+                              orderby s.Kind
+                              select new
+                              {
+                                  s.ID,
+                                  s.Name,
+                                  s.Address,
+                                  s.Phone,
+                                  s.PartnerID,
+                                  PName = p.Name,
+                                  Status = s.Status == 1 ? statusStaff[0].Name : s.Status == 2 ? statusStaff[0].Name : statusStaff[0].Name,
+                                  Kind = s.Kind == 1 ? kindStaff[0].Name : s.Kind == 2 ? kindStaff[1].Name : s.Kind == 3 ? kindStaff[2].Name : s.Kind == 4 ? kindStaff[3].Name : kindStaff[4].Name,
+                                  s.Note,
+                                  s.PSID
+                              };
+            return data;
+        }
         public string GetPSID()
         {
             var data = db.Staffs.OrderByDescending(x => x.PSID).FirstOrDefault().PSID;

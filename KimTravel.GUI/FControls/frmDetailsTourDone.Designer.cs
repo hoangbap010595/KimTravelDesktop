@@ -1,6 +1,6 @@
 ﻿namespace KimTravel.GUI.FControls
 {
-    partial class frmDetailsTour
+    partial class frmDetailsTourDone
     {
         /// <summary>
         /// Required designer variable.
@@ -31,14 +31,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtRoom = new System.Windows.Forms.TextBox();
             this.txtPickup = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtNote = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.lblMsgPax = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -68,6 +66,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
+            this.txtPromotionPrice = new System.Windows.Forms.TextBox();
             this.txtPriceRe = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -75,27 +74,12 @@
             this.btnAddServiceType = new System.Windows.Forms.Button();
             this.btnUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnBack = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.txtPromotionPrice = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPax)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.Depth = 0;
-            this.btnCancel.Location = new System.Drawing.Point(630, 490);
-            this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Primary = true;
-            this.btnCancel.Size = new System.Drawing.Size(158, 40);
-            this.btnCancel.TabIndex = 18;
-            this.btnCancel.Text = "Hủy bỏ";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // groupBox1
             // 
@@ -104,7 +88,6 @@
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtNote);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.lblMsgPax);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
@@ -170,17 +153,6 @@
             this.label7.Size = new System.Drawing.Size(57, 17);
             this.label7.TabIndex = 0;
             this.label7.Text = "Ghi chú";
-            // 
-            // lblMsgPax
-            // 
-            this.lblMsgPax.AutoSize = true;
-            this.lblMsgPax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMsgPax.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblMsgPax.Location = new System.Drawing.Point(347, 74);
-            this.lblMsgPax.Name = "lblMsgPax";
-            this.lblMsgPax.Size = new System.Drawing.Size(54, 15);
-            this.lblMsgPax.TabIndex = 0;
-            this.lblMsgPax.Text = "NV Book";
             // 
             // label6
             // 
@@ -546,6 +518,15 @@
             this.label21.TabIndex = 0;
             this.label21.Text = "Số tiền giảm:";
             // 
+            // txtPromotionPrice
+            // 
+            this.txtPromotionPrice.Location = new System.Drawing.Point(40, 38);
+            this.txtPromotionPrice.Name = "txtPromotionPrice";
+            this.txtPromotionPrice.Size = new System.Drawing.Size(180, 23);
+            this.txtPromotionPrice.TabIndex = 12;
+            this.txtPromotionPrice.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
+            this.txtPromotionPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+            // 
             // txtPriceRe
             // 
             this.txtPriceRe.Location = new System.Drawing.Point(94, 22);
@@ -605,7 +586,7 @@
             // 
             this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.Depth = 0;
-            this.btnUpdate.Location = new System.Drawing.Point(470, 490);
+            this.btnUpdate.Location = new System.Drawing.Point(634, 490);
             this.btnUpdate.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Primary = true;
@@ -613,6 +594,7 @@
             this.btnUpdate.TabIndex = 17;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Visible = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnBack
@@ -629,16 +611,7 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // txtPromotionPrice
-            // 
-            this.txtPromotionPrice.Location = new System.Drawing.Point(40, 38);
-            this.txtPromotionPrice.Name = "txtPromotionPrice";
-            this.txtPromotionPrice.Size = new System.Drawing.Size(180, 23);
-            this.txtPromotionPrice.TabIndex = 12;
-            this.txtPromotionPrice.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
-            this.txtPromotionPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
-            // 
-            // frmDetailsTour
+            // frmDetailsTourDone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -647,12 +620,11 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnCancel);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(964, 542);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(964, 542);
-            this.Name = "frmDetailsTour";
+            this.Name = "frmDetailsTourDone";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -671,9 +643,7 @@
         }
 
         #endregion
-        private MaterialSkin.Controls.MaterialRaisedButton btnCancel;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblMsgPax;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

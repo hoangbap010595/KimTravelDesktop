@@ -16,7 +16,7 @@ using Newtonsoft.Json;
 
 namespace KimTravel.GUI.FControls
 {
-    public partial class frmDetailsTour : MaterialForm
+    public partial class frmDetailsTourDone : MaterialForm
     {
         private MaterialSkinManager mSkin;
         private GroupTourService grTourService = new GroupTourService();
@@ -28,12 +28,10 @@ namespace KimTravel.GUI.FControls
 
         public delegate void LoadData();
         public LoadData loadData;
-        private int _WorkID = -1;
         private int _ObjID = -1;
-        public frmDetailsTour(int wID = 1, int objID = -1)
+        public frmDetailsTourDone(int objID = -1)
         {
             InitializeComponent();
-            _WorkID = wID;
             _ObjID = objID;
             tableService.Columns.Add("ServiceType");
             tableService.Columns.Add("Price", typeof(int));
@@ -45,11 +43,6 @@ namespace KimTravel.GUI.FControls
             mSkin.AddFormToManage(this);
             mSkin.Theme = ConfigApp.Themes;
             mSkin.ColorScheme = new ColorScheme(ConfigApp.Primary, ConfigApp.DarkPrimary, ConfigApp.LightPrimary, ConfigApp.Accent, ConfigApp.TextShade);
-
-            if (_WorkID == 1)
-                btnCancel.Text = "Hủy bỏ";
-            else
-                btnCancel.Text = "Hoàn tác";
 
             _objectBook = bookService.GetByID(_ObjID);
             dtpStartDate.Value = _objectBook.StartDate.Value;
@@ -93,16 +86,6 @@ namespace KimTravel.GUI.FControls
                 Tour tour = tService.GetByID(id);
                 txtPriceSa.Text = tour.PriceSale.ToString();
                 txtPriceVTQ.Text = tour.PriceVTQ.ToString();
-
-                Dictionary<string, object> dataObject = bookService.getInfoBooked(gID, id, date1);
-                int C1 = int.Parse(dataObject["CurrentTotal"].ToString());
-                int C2 = int.Parse(dataObject["MaxPax"].ToString());
-                int C3 = C2 - C1;
-
-                string msg = "Đã book " + C1 + "/" + C2;
-                lblMsgPax.Text = msg;
-
-                numPax.Maximum = C3;
             }
             catch { }
         }
@@ -119,7 +102,6 @@ namespace KimTravel.GUI.FControls
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
             Book book = new Book();
             book.ID = _objectBook.ID;
             book.TourID = int.Parse(cbbTourID.SelectedValue.ToString());
@@ -172,35 +154,6 @@ namespace KimTravel.GUI.FControls
             if (loadData != null)
                 loadData();
             this.Close();
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            if (_WorkID == 1)
-            {
-                //Cancel = true
-                if (DialogResult.OK == MessageBox.Show("Xác nhận muốn hủy bỏ tour đã book này ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
-                {
-                    bookService.UpdateBookCancel(_ObjID, true);
-                    MessageBox.Show("Tour đã hủy thành công!");
-                    _WorkID = 2;
-                }
-            }
-            else
-            {
-                //Cancel = false
-                if (DialogResult.OK == MessageBox.Show("Xác nhận muốn hoàn tác tour đã hủy này ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
-                {
-                    bookService.UpdateBookCancel(_ObjID, false);
-                    MessageBox.Show("Hoàn tác thành công!");
-                    _WorkID = 1;
-                }
-            }
-
-            if (_WorkID == 1)
-                btnCancel.Text = "Hủy bỏ";
-            else
-                btnCancel.Text = "Hoàn tác";
         }
 
         private void cbbGroupTourID_SelectedIndexChanged(object sender, EventArgs e)

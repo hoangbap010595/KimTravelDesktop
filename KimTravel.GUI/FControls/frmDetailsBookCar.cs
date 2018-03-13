@@ -22,8 +22,11 @@ namespace KimTravel.GUI.FControls
         private StaffService staffService = new StaffService();
         private TourService tourService = new TourService();
         private DataTable _dataTemp;
+        private BookService bookService = new BookService();
         private string _tourName = "";
         private string _startDate = "";
+        public delegate void RefreshData();
+        public RefreshData refreshData;
         public frmDetailsBookCar(DataTable dt, int numCar, int tourID, string startDate)
         {
             InitializeComponent();
@@ -70,14 +73,34 @@ namespace KimTravel.GUI.FControls
             }
             lblTotal.Text = x + " pax";
         }
+
+        private void updateStatusBooked()
+        {
+            foreach (DataGridViewRow row in dataGridViewGroupTour.Rows)
+            {
+                int id = int.Parse(row.Cells["colID"].Value.ToString());
+                var rs = bookService.UpdateBooked(id, true);
+            }
+        }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            Staff hdv = staffService.GetByID(int.Parse(cbbHDV.SelectedValue.ToString()));
-            Staff tx = staffService.GetByID(int.Parse(cbbTaiXe.SelectedValue.ToString()));
-            xtraRPPrintBookTour xtra = new xtraRPPrintBookTour(_dataTemp, _tourName, _startDate, hdv.Name, tx.Name);
-            //xtra.Print();
-            //xtra.PrintDialog();
-            xtra.ShowPreview();
+            btnPrint.Enabled = btnBack.Enabled = false;
+            var msg = MessageBox.Show("Hệ thống sẽ cập nhật trạng thái tour đã được book.\nBạn muốn cập nhật dữ liệu vào hệ thống và in các bản ghi ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (DialogResult.Yes == msg)
+            {
+                lblMessageProgress.Visible = true;
+                updateStatusBooked();
+                Staff hdv = staffService.GetByID(int.Parse(cbbHDV.SelectedValue.ToString()));
+                Staff tx = staffService.GetByID(int.Parse(cbbTaiXe.SelectedValue.ToString()));
+                xtraRPPrintBookTour xtra = new xtraRPPrintBookTour(_dataTemp, _tourName, _startDate, hdv.Name, tx.Name);
+                //xtra.Print();
+                //xtra.PrintDialog();
+                xtra.ShowPreview();
+                if (refreshData != null)
+                    refreshData();
+            }
+            btnPrint.Enabled = btnBack.Enabled = true;
+            lblMessageProgress.Visible = false;
         }
 
         private void TextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)

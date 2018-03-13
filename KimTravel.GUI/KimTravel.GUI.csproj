@@ -108,11 +108,23 @@
     <Compile Include="FControls\frmActionCar.Designer.cs">
       <DependentUpon>frmActionCar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FControls\frmActionRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FControls\frmActionRoles.Designer.cs">
+      <DependentUpon>frmActionRoles.cs</DependentUpon>
+    </Compile>
     <Compile Include="FControls\frmDetailsBookCar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FControls\frmDetailsBookCar.Designer.cs">
       <DependentUpon>frmDetailsBookCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FControls\frmDetailsTourDone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FControls\frmDetailsTourDone.Designer.cs">
+      <DependentUpon>frmDetailsTourDone.cs</DependentUpon>
     </Compile>
     <Compile Include="FControls\frmImportPartner.cs">
       <SubType>Form</SubType>
@@ -200,6 +212,12 @@
     <Compile Include="UControls\UCGroupPartner.Designer.cs">
       <DependentUpon>UCGroupPartner.cs</DependentUpon>
     </Compile>
+    <Compile Include="UControls\UCReportCongNo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControls\UCReportCongNo.Designer.cs">
+      <DependentUpon>UCReportCongNo.cs</DependentUpon>
+    </Compile>
     <Compile Include="UControls\UCListBook.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -248,12 +266,6 @@
     <Compile Include="xtraRPBaoCaoCongNo.Designer.cs">
       <DependentUpon>xtraRPBaoCaoCongNo.cs</DependentUpon>
     </Compile>
-    <Compile Include="xtraRPBaoCaoTourDL.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="xtraRPBaoCaoTourDL.Designer.cs">
-      <DependentUpon>xtraRPBaoCaoTourDL.cs</DependentUpon>
-    </Compile>
     <Compile Include="xtraRPPrintBookTour.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -269,8 +281,14 @@
     <EmbeddedResource Include="FControls\frmActionCar.resx">
       <DependentUpon>frmActionCar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FControls\frmActionRoles.resx">
+      <DependentUpon>frmActionRoles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FControls\frmDetailsBookCar.resx">
       <DependentUpon>frmDetailsBookCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FControls\frmDetailsTourDone.resx">
+      <DependentUpon>frmDetailsTourDone.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FControls\frmImportPartner.resx">
       <DependentUpon>frmImportPartner.cs</DependentUpon>
@@ -325,6 +343,9 @@
     <EmbeddedResource Include="UControls\UCGroupPartner.resx">
       <DependentUpon>UCGroupPartner.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UControls\UCReportCongNo.resx">
+      <DependentUpon>UCReportCongNo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UControls\UCListBook.resx">
       <DependentUpon>UCListBook.cs</DependentUpon>
     </EmbeddedResource>
@@ -346,8 +367,8 @@
     <EmbeddedResource Include="UControls\UCGroupTour.resx">
       <DependentUpon>UCGroupTour.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="xtraRPBaoCaoTourDL.resx">
-      <DependentUpon>xtraRPBaoCaoTourDL.cs</DependentUpon>
+    <EmbeddedResource Include="xtraRPBaoCaoCongNo.resx">
+      <DependentUpon>xtraRPBaoCaoCongNo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="xtraRPPrintBookTour.resx">
       <DependentUpon>xtraRPPrintBookTour.cs</DependentUpon>

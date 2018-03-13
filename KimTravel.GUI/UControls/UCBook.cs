@@ -136,12 +136,14 @@ namespace KimTravel.GUI.UControls
 
             book.ServiceType = getJsonServiceType();
             book.PromotionMoney = int.Parse(txtPromotionMoney.Text == "" ? "0" : txtPromotionMoney.Text);
-            book.PromotionPercent = int.Parse(numPromotionPercent.Value.ToString());
+            book.PromotionPercent = 0;
             book.Total = int.Parse(lblTotalBook.Text);
             book.DateCreate = DateTime.Now;
             book.CreateBy = Constant.CurrentSessionUser;
             book.IsCancel = false;
-
+            book.IsBooked = false;
+            if (book.CustomName == "" || book.CustomName == null) { MessageBox.Show("Tên khách hàng không thể để trống!"); return; }
+            if (book.StaffID == "" || book.StaffID == null) { MessageBox.Show("Tên NV book không thể để trống!"); return; }
             var rs = bService.Insert(book);
             MessageBox.Show("Book tour thành công!");
             UCGroupTour_Load(sender, e);
@@ -223,22 +225,6 @@ namespace KimTravel.GUI.UControls
         private void PriceChanged_TextChanged(object sender, EventArgs e)
         {
             payment();
-        }
-
-        private void numPromotionPercent_ValueChanged(object sender, EventArgs e)
-        {
-            int per = int.Parse(numPromotionPercent.Value.ToString());
-            if (per == 0)
-            {
-                txtPromotionMoney.Text = "0";
-                return;
-            }
-            int total = int.Parse(lblTotalBook.Text);
-            int moneySale = (per * total) / 100;
-            int result = total - moneySale;
-
-            lblTotalBook.Text = result.ToString();
-            txtPromotionMoney.Text = moneySale.ToString();
         }
 
         private void payment()

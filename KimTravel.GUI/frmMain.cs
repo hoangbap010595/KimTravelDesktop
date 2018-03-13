@@ -1,4 +1,5 @@
 ﻿using KimTravel.DAL;
+using KimTravel.DAL.Services;
 using KimTravel.GUI.UControls;
 using MaterialSkin;
 using MaterialSkin.Controls;
@@ -17,6 +18,7 @@ namespace KimTravel.GUI
     public partial class frmMain : MaterialForm
     {
         private MaterialSkinManager mSkin;
+        private ApplicationUserRoleService userRoleService = new ApplicationUserRoleService();
         public frmMain()
         {
             InitializeComponent();
@@ -34,6 +36,7 @@ namespace KimTravel.GUI
 
             txt_bar_CurrentUser.Text = "Account: " + Constant.CurrentSessionUser;
             this.DoubleBuffered = false;
+            getMenuOfAccount();
         }
 
         private void timerUseSystem_Tick(object sender, EventArgs e)
@@ -133,6 +136,79 @@ namespace KimTravel.GUI
             lblTitle.Text = "Quản lý nhóm đối tác";
             UCGroupPartner uc = new UCGroupPartner();
             addControlToPanel(uc);
+        }
+
+        private void côngNơToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lblTitle.Text = "Báo cáo công nợ";
+            UCReportCongNo uc = new UCReportCongNo();
+            addControlToPanel(uc);
+        }
+
+        private void getMenuOfAccount()
+        {
+            string data = userRoleService.GetListRoles(Constant.CurrentSessionUser);
+            string[] roles = data.Split(',');
+            foreach (string item in roles)
+            {
+                int menuID = int.Parse(item);
+                switch (menuID)
+                {
+                    //Hệ thống
+                    case 5:
+                        quanLyTaiKhoanToolStripMenuItem.Visible = true;
+                        break;
+                    case 10:
+                        quanLyPhânQuyênToolStripMenuItem.Visible = true;
+                        break;
+                    //Tour
+                    case 15:
+                        bookToolStripMenuItem.Visible = true;
+                        break;
+                    case 20:
+                        danhSachĐaBookToolStripMenuItem.Visible = true;
+                        break;
+                    case 25:
+                        săpXêpTourToolStripMenuItem.Visible = true;
+                        break;
+                    //Nghiệp vụ
+                    case 30:
+                        bookTourToolStripMenuItem.Visible = true;
+                        break;
+                    case 35:
+                        quanLyĐôiTacToolStripMenuItem.Visible = true;
+                        break;
+                    case 40:
+                        quanLyToolStripMenuItem.Visible = true;
+                        break;
+                    case 45:
+                        quanLyNhomĐôiTacToolStripMenuItem.Visible = true;
+                        break;
+                    //Dữ liệu
+                    case 50:
+                        xeToolStripMenuItem.Visible = true;
+                        break;
+                    case 55:
+                        quanLyNhânViênToolStripMenuItem.Visible = true;
+                        break;
+                    case 60:
+                        loaiDichVuToolStripMenuItem.Visible = true;
+                        break;
+                    case 65:
+                        khachSanToolStripMenuItem.Visible = true;
+                        break;
+                    //Báo cáo
+                    case 70:
+                        côngNơToolStripMenuItem.Visible = true;
+                        break;
+                }
+            }
+        }
+
+        private void đăngXuâtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Constant.CurrentSessionUser = "";
+            frmMain_Load(sender, e);
         }
     }
 }

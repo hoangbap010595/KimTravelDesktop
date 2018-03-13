@@ -46,9 +46,9 @@ namespace KimTravel.GUI.FControls
             cbbStatus.DisplayMember = "Name";
 
             if (_action == -1)
-                this.Text = "Thêm mới đối tác";
+                this.Text = "Thêm mới tài khoản";
             else
-                this.Text = "Cập nhật đối tác";
+                this.Text = "Cập nhật tài khoản";
 
             if (_objectData != null)
             {

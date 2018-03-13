@@ -76,5 +76,13 @@ namespace KimTravel.GUI.UControls
                 e.Graphics.DrawString((e.RowIndex + 1).ToString(), e.InheritedRowStyle.Font, b, e.RowBounds.Location.X + 10, e.RowBounds.Location.Y + 4);
             }
         }
+
+        private void btnTImKiem_Click(object sender, EventArgs e)
+        {
+            var content = txtContent.Text;
+            dataGridViewGroupTour.DataSource = objService.GetListFind(content);
+            dataGridViewGroupTour.Update();
+            dataGridViewGroupTour.Refresh();
+        }
     }
 }

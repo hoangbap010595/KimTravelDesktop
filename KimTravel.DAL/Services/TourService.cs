@@ -60,7 +60,7 @@ namespace KimTravel.DAL.Services
 
         public bool Insert(Tour gTour)
         {
-            bool checkName = db.Tours.Count(x => x.Name == gTour.Name) > 0 ? true : false;
+            bool checkName = db.Tours.Count(x => x.Name == gTour.Name && x.GroupID != gTour.GroupID) > 0 ? true : false;
             //bool check = db.ApplicationUsers.Count(x => x.Username == user.Username) > 0 ? true : false;
             if (!checkName)
             {
@@ -75,11 +75,11 @@ namespace KimTravel.DAL.Services
 
         public bool Update(Tour gTour)
         {
-            bool checkUName = db.Tours.Count(x => x.Name == gTour.Name && x.GroupID != gTour.GroupID) > 0 ? true : false;
+            bool checkUName = db.Tours.Count(x => x.Name == gTour.Name && x.GroupID == gTour.GroupID && x.TourID != gTour.TourID) > 0 ? true : false;
             //bool check = db.ApplicationUsers.Count(x => x.Username == user.Username) > 0 ? true : false;
             if (!checkUName)
             {
-                Tour currObject = db.Tours.FirstOrDefault(x => x.GroupID == gTour.GroupID);
+                Tour currObject = db.Tours.FirstOrDefault(x => x.TourID == gTour.TourID);
                 if (currObject != null)
                 {
                     currObject.Name = gTour.Name;
@@ -97,7 +97,7 @@ namespace KimTravel.DAL.Services
 
         public bool Delete(int id)
         {
-            Tour currObject = db.Tours.FirstOrDefault(x => x.GroupID == id);
+            Tour currObject = db.Tours.FirstOrDefault(x => x.TourID == id);
             if (currObject != null)
             {
                 db.Tours.DeleteOnSubmit(currObject);

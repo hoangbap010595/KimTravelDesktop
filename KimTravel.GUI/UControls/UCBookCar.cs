@@ -230,12 +230,17 @@ namespace KimTravel.GUI.UControls
                 int tourID = int.Parse(cbbTourID.SelectedValue.ToString());
                 string startDate = dtpStartDate.Value.ToString("dd-MM-yyyy");
                 frmDetailsBookCar frm = new frmDetailsBookCar(data, numCar, tourID, startDate);
+                frm.refreshData = new frmDetailsBookCar.RefreshData(refreshData);
                 frm.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Không tìm thấy thông tin xe được book.");
             }
+        }
+        private void refreshData()
+        {
+            btnTimKiem.PerformClick();
         }
 
         private void btnCar1_Click(object sender, EventArgs e)
