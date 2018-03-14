@@ -46,9 +46,9 @@ namespace KimTravel.GUI.FControls
             cbbGroupTour.DisplayMember = "Name";
 
             if (_action == -1)
-                this.Text = "Thêm mới đối tác";
+                this.Text = "Thêm mới tour";
             else
-                this.Text = "Cập nhật đối tác";
+                this.Text = "Cập nhật tour";
             
             if (_objectData != null)
             {

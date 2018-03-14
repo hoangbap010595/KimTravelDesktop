@@ -15,24 +15,25 @@ namespace KimTravel.DAL.Services
         public IEnumerable<PartnerBookTourModel> GetListBookedDoneReportPartner(int partnerID, int month, int year, bool isBooked = true)
         {
             IEnumerable<PartnerBookTourModel> data = from b in db.Books
-                                              join p in db.Partners on b.PartnerID equals p.PartnerID
-                                              join t in db.Tours on b.TourID equals t.TourID
-                                              join g in db.GroupTours on t.GroupID equals g.GroupID
-                                              where b.IsBooked == isBooked && b.PartnerID == partnerID
-                                                    && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
-                                              select new PartnerBookTourModel
-                                              {
-                                                  ID = b.ID,
-                                                  GroupName = g.Name,
-                                                  TourName = t.Name,
-                                                  StartDate = b.StartDate,
-                                                  Pax = b.Pax,
-                                                  Room = b.Room,
-                                                  Price = b.PriceReceive,
-                                                  SaleBook = b.StaffID,
-                                                  Note = b.Note,
-                                                  Total = b.Total
-                                              };
+                                                     join p in db.Partners on b.PartnerID equals p.PartnerID
+                                                     join t in db.Tours on b.TourID equals t.TourID
+                                                     join g in db.GroupTours on t.GroupID equals g.GroupID
+                                                     where b.IsBooked == isBooked && b.PartnerID == partnerID
+                                                           && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
+                                                     orderby b.StartDate
+                                                     select new PartnerBookTourModel
+                                                     {
+                                                         ID = b.ID,
+                                                         GroupName = g.Name,
+                                                         TourName = t.Name,
+                                                         StartDate = b.StartDate,
+                                                         Pax = b.Pax,
+                                                         Room = b.Room,
+                                                         Price = b.PriceReceive,
+                                                         SaleBook = b.StaffID,
+                                                         Note = b.Note,
+                                                         Total = b.Total
+                                                     };
 
             return data;
         }
@@ -43,6 +44,7 @@ namespace KimTravel.DAL.Services
                                 join t in db.Tours on b.TourID equals t.TourID
                                 join g in db.GroupTours on t.GroupID equals g.GroupID
                                 where b.IsBooked == isBooked && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
+                                orderby b.StartDate
                                 select new
                                 {
                                     b.ID,
@@ -62,6 +64,7 @@ namespace KimTravel.DAL.Services
                                               join g in db.GroupTours on t.GroupID equals g.GroupID
                                               where b.IsBooked == isBooked && b.PartnerID == partnerID && g.GroupID == groupID
                                                     && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
+                                              orderby b.StartDate
                                               select new BookTourModel
                                               {
                                                   ID = b.ID,
@@ -85,6 +88,7 @@ namespace KimTravel.DAL.Services
                               join g in db.GroupTours on t.GroupID equals g.GroupID
                               where b.IsBooked == isBooked && b.PartnerID == partnerID && g.GroupID == groupID
                                     && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
+                              orderby b.StartDate
                               select new
                               {
                                   b.ID,
@@ -122,6 +126,7 @@ namespace KimTravel.DAL.Services
                               join g in db.GroupTours on t.GroupID equals g.GroupID
                               from p in db.Partners.Where(x => x.PartnerID == b.PartnerID)
                               where b.IsCancel == isCancel && b.IsBooked != true
+                              orderby b.StartDate
                               select new
                               {
                                   b.ID,
@@ -164,6 +169,7 @@ namespace KimTravel.DAL.Services
                               where b.PartnerID == partnerID && b.StartDate.Value == date
                                     && b.IsCancel == isCancel
                                     && b.IsBooked != true
+                              orderby b.StartDate
                               select new
                               {
                                   b.ID,
@@ -188,6 +194,7 @@ namespace KimTravel.DAL.Services
                                     && b.StartDate.Value == date
                                     && b.IsCancel == isCancel
                                     && b.IsBooked != true
+                              orderby b.StartDate
                               select new
                               {
                                   b.ID,
@@ -264,7 +271,10 @@ namespace KimTravel.DAL.Services
             if (currObject != null)
             {
                 currObject.IsPayment = isPayment;
-                currObject.DatePayment = DateTime.Now;
+                if (isPayment)
+                    currObject.DatePayment = DateTime.Now;
+                else
+                    currObject.DatePayment = null;
                 db.SubmitChanges();
                 return true;
             }
@@ -287,7 +297,10 @@ namespace KimTravel.DAL.Services
             if (currObject != null)
             {
                 currObject.IsBooked = isBooked;
-                currObject.FinishDate = DateTime.Now;
+                if (isBooked)
+                    currObject.FinishDate = DateTime.Now;
+                else
+                    currObject.FinishDate = null;
                 db.SubmitChanges();
                 return true;
             }

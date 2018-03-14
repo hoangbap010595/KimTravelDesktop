@@ -18,6 +18,7 @@ namespace KimTravel.GUI.UControls
         private GroupTourService grTourService = new GroupTourService();
         private TourService tService = new TourService();
         private BookService objService;
+        private List<Control> listControl;
         public UCBookCar()
         {
             InitializeComponent();
@@ -45,6 +46,8 @@ namespace KimTravel.GUI.UControls
 
             dtpStartDate.Value = DateTime.Now.AddDays(1);
             rdCar05.Checked = true;
+
+            listControl = new List<Control> { lblTotalXe1, lblTotalXe2, lblTotalXe3, lblTotalXe4, lblTotalXe5, lblTotalXe6, lblTotalXe7, lblTotalXe8, lblTotalXe9, lblTotalXe10 };
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -81,7 +84,7 @@ namespace KimTravel.GUI.UControls
                         if (i != e.ColumnIndex)
                             senderGrid[i, e.RowIndex].ReadOnly = true;
                     }
-                    int pax = int.Parse(senderGrid.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    float pax = float.Parse(senderGrid.Rows[e.RowIndex].Cells[3].Value.ToString());
                     getTotalInCar(e.ColumnIndex, pax);
                 }
                 else
@@ -91,55 +94,55 @@ namespace KimTravel.GUI.UControls
                     {
                         senderGrid[i, e.RowIndex].ReadOnly = false;
                     }
-                    int pax = int.Parse(senderGrid.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    float pax = float.Parse(senderGrid.Rows[e.RowIndex].Cells[3].Value.ToString());
                     getTotalInCar(e.ColumnIndex, -pax);
                 }
 
             }
         }
-        private void getTotalInCar(int colIndex, int add)
+        private void getTotalInCar(int colIndex, float add)
         {
-            int count = 0;
+            float count = 0;
             switch (colIndex)
             {
                 case 7:
-                    count = int.Parse(lblTotalXe1.Text) + add;
+                    count = float.Parse(lblTotalXe1.Text) + add;
                     lblTotalXe1.Text = count.ToString();
                     break;
                 case 8:
-                    count = int.Parse(lblTotalXe2.Text) + add;
+                    count = float.Parse(lblTotalXe2.Text) + add;
                     lblTotalXe2.Text = count.ToString();
                     break;
                 case 9:
-                    count = int.Parse(lblTotalXe3.Text) + add;
+                    count = float.Parse(lblTotalXe3.Text) + add;
                     lblTotalXe3.Text = count.ToString();
                     break;
                 case 10:
-                    count = int.Parse(lblTotalXe4.Text) + add;
+                    count = float.Parse(lblTotalXe4.Text) + add;
                     lblTotalXe4.Text = count.ToString();
                     break;
                 case 11:
-                    count = int.Parse(lblTotalXe5.Text) + add;
+                    count = float.Parse(lblTotalXe5.Text) + add;
                     lblTotalXe5.Text = count.ToString();
                     break;
                 case 12:
-                    count = int.Parse(lblTotalXe6.Text) + add;
+                    count = float.Parse(lblTotalXe6.Text) + add;
                     lblTotalXe6.Text = count.ToString();
                     break;
                 case 13:
-                    count = int.Parse(lblTotalXe7.Text) + add;
+                    count = float.Parse(lblTotalXe7.Text) + add;
                     lblTotalXe7.Text = count.ToString();
                     break;
                 case 14:
-                    count = int.Parse(lblTotalXe8.Text) + add;
+                    count = float.Parse(lblTotalXe8.Text) + add;
                     lblTotalXe8.Text = count.ToString();
                     break;
                 case 15:
-                    count = int.Parse(lblTotalXe9.Text) + add;
+                    count = float.Parse(lblTotalXe9.Text) + add;
                     lblTotalXe9.Text = count.ToString();
                     break;
                 case 16:
-                    count = int.Parse(lblTotalXe10.Text) + add;
+                    count = float.Parse(lblTotalXe10.Text) + add;
                     lblTotalXe10.Text = count.ToString();
                     break;
             }
@@ -207,7 +210,7 @@ namespace KimTravel.GUI.UControls
             data.Columns.Add("ID", typeof(int));
             data.Columns.Add("PickUp");
             data.Columns.Add("Room");
-            data.Columns.Add("Pax", typeof(int));
+            data.Columns.Add("Pax", typeof(float));
             data.Columns.Add("PartnerPrice", typeof(int));
             data.Columns.Add("Note");
             foreach (DataGridViewRow row in dataGridViewGroupTour.Rows)
@@ -218,7 +221,7 @@ namespace KimTravel.GUI.UControls
                     dr["ID"] = int.Parse(row.Cells["colID"].Value.ToString());
                     dr["PickUp"] = row.Cells["colPickUp"].Value.ToString();
                     dr["Room"] = row.Cells["colRoom"].Value.ToString();
-                    dr["Pax"] = int.Parse(row.Cells["colPax"].Value.ToString());
+                    dr["Pax"] = float.Parse(row.Cells["colPax"].Value.ToString());
                     dr["PartnerPrice"] = int.Parse(row.Cells["colPartnerPrice"].Value.ToString());
                     dr["Note"] = row.Cells["colNote"].Value.ToString();
 
@@ -238,9 +241,19 @@ namespace KimTravel.GUI.UControls
                 MessageBox.Show("Không tìm thấy thông tin xe được book.");
             }
         }
-        private void refreshData()
+        private void refreshData(int numCar)
         {
-            btnTimKiem.PerformClick();
+            var colName = "colCar" + numCar;
+            foreach (DataGridViewRow row in dataGridViewGroupTour.Rows)
+            {
+                if (row.Cells[colName].Value != null && (bool)row.Cells[colName].Value)
+                {
+                    dataGridViewGroupTour.Rows.Remove(row);
+                }
+            }
+            dataGridViewGroupTour.Update();
+            dataGridViewGroupTour.Refresh();
+            listControl[numCar - 1].Text = "0";
         }
 
         private void btnCar1_Click(object sender, EventArgs e)

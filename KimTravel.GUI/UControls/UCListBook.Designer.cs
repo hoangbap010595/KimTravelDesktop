@@ -455,6 +455,7 @@
             this.colPromotionPercent.HeaderText = "Giảm giá (%)";
             this.colPromotionPercent.Name = "colPromotionPercent";
             this.colPromotionPercent.ReadOnly = true;
+            this.colPromotionPercent.Visible = false;
             // 
             // colTotal
             // 

@@ -250,20 +250,33 @@ namespace KimTravel.GUI.UControls
 
         private void payment()
         {
-            int priceRe = int.Parse(txtPriceRe.Text == "" ? "0" : txtPriceRe.Text);
-            int priceVTQ = int.Parse(txtPriceVTQ.Text == "" ? "0" : txtPriceVTQ.Text);
-            int priceService = getTotalPriceService();
-            int moneySale = 0;
-            if (txtPromotionMoney.Text != "")
+            try
             {
-                moneySale = int.Parse(txtPromotionMoney.Text);
+                int priceSale = int.Parse(txtPriceSa.Text == "" ? "0" : txtPriceSa.Text);
+                int priceRe = int.Parse(txtPriceRe.Text == "" ? "0" : txtPriceRe.Text);
+                int priceVTQ = int.Parse(txtPriceVTQ.Text == "" ? "0" : txtPriceVTQ.Text);
+                int pricePartner = int.Parse(txtPartnerPrice.Text == "" ? "0" : txtPartnerPrice.Text);
+                int priceService = getTotalPriceService();
+                int moneySale = 0;
+                if (txtPromotionMoney.Text != "")
+                {
+                    moneySale = int.Parse(txtPromotionMoney.Text);
+                }
+
+                float pax = float.Parse(numPax.Value.ToString());
+
+                var total = ((priceRe + priceVTQ + priceService) * pax) - moneySale;
+
+                lblTotalBook.Text = total.ToString();
+                lblFGiaBan.Text = String.Format("{0:#,###}", priceSale);
+                lblFGiaNhan.Text = String.Format("{0:#,###}", priceRe);
+                lblFGiaVTQ.Text = String.Format("{0:#,###}", priceVTQ);
+                lblFThuHo.Text = String.Format("{0:#,###}", pricePartner);
             }
+            catch
+            {
 
-            float pax = float.Parse(numPax.Value.ToString());
-
-            var total = ((priceRe + priceVTQ + priceService) * pax) - moneySale;
-
-            lblTotalBook.Text = total.ToString();
+            }
         }
 
         private void numPax_ValueChanged(object sender, EventArgs e)

@@ -32,12 +32,16 @@ namespace KimTravel.DAL
                 int StartCol = 1;
                 int StartRow = 1;
                 int j = 0, i = 0;
-
+                int colh = 0;
                 //Write Headers
                 for (j = 0; j < gridviewID.Columns.Count - 1; j++)
                 {
-                    Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[StartRow, StartCol + j];
-                    myRange.Value2 = gridviewID.Columns[j].HeaderText;
+                    if (gridviewID.Columns[j].Visible)
+                    {
+                        Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[StartRow, StartCol + colh];
+                        myRange.Value2 = gridviewID.Columns[j].HeaderText;
+                        colh++;
+                    }
                 }
 
                 StartRow++;
@@ -45,16 +49,20 @@ namespace KimTravel.DAL
                 //Write datagridview content
                 for (i = 0; i < gridviewID.Rows.Count; i++)
                 {
+                    int col = 0;
                     for (j = 0; j < gridviewID.Columns.Count - 1; j++)
                     {
                         try
                         {
-                            Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[StartRow + i, StartCol + j];
-                            myRange.Value2 = gridviewID[j, i].Value == null ? "" : gridviewID[j, i].Value;
+                            if (gridviewID.Columns[j].Visible)
+                            {
+                                Microsoft.Office.Interop.Excel.Range myRange = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[StartRow + i, StartCol + col];
+                                myRange.Value2 = gridviewID[j, i].Value == null ? "" : gridviewID[j, i].Value;
+                                col++;
+                            }
                         }
                         catch
                         {
-                            ;
                         }
                     }
                 }

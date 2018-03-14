@@ -72,7 +72,7 @@ namespace KimTravel.DAL.Models
     #endregion
 		
 		public KimTravelDataContext() : 
-				base(global::KimTravel.DAL.Properties.Settings.Default.KimTravelDesktopConnectionString, mappingSource)
+				base(global::KimTravel.DAL.Properties.Settings.Default.LocalConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

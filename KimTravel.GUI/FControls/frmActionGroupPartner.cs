@@ -41,9 +41,9 @@ namespace KimTravel.GUI.FControls
             txtGroupPartner.Focus();
 
             if (_action == -1)
-                this.Text = "Thêm mới thông tin xe";
+                this.Text = "Thêm mới nhóm đối tác";
             else
-                this.Text = "Cập nhật thông tin xe";
+                this.Text = "Cập nhật nhóm đối tác";
 
             if (_objectData != null)
             {

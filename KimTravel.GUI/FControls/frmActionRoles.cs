@@ -87,7 +87,7 @@ namespace KimTravel.GUI.FControls
                         ck5_CongNo.Checked = true;
                         break;
                     case 75:
-                        ck5_CongNo.Checked = true;
+                        ck5_DoiTac.Checked = true;
                         break;
                 }
             }

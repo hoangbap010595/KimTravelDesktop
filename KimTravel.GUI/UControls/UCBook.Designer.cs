@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtRoom = new System.Windows.Forms.TextBox();
             this.txtPickUp = new System.Windows.Forms.TextBox();
@@ -51,6 +51,10 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.lblFThuHo = new System.Windows.Forms.Label();
+            this.lblFGiaVTQ = new System.Windows.Forms.Label();
+            this.lblFGiaBan = new System.Windows.Forms.Label();
+            this.lblFGiaNhan = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -115,6 +119,10 @@
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.lblFThuHo);
+            this.groupBox1.Controls.Add(this.lblFGiaVTQ);
+            this.groupBox1.Controls.Add(this.lblFGiaBan);
+            this.groupBox1.Controls.Add(this.lblFGiaNhan);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label3);
@@ -151,6 +159,7 @@
             // txtPriceVTQ
             // 
             this.txtPriceVTQ.Location = new System.Drawing.Point(131, 362);
+            this.txtPriceVTQ.MaxLength = 9;
             this.txtPriceVTQ.Name = "txtPriceVTQ";
             this.txtPriceVTQ.Size = new System.Drawing.Size(134, 23);
             this.txtPriceVTQ.TabIndex = 13;
@@ -160,6 +169,7 @@
             // txtPriceSa
             // 
             this.txtPriceSa.Location = new System.Drawing.Point(131, 331);
+            this.txtPriceSa.MaxLength = 9;
             this.txtPriceSa.Name = "txtPriceSa";
             this.txtPriceSa.Size = new System.Drawing.Size(134, 23);
             this.txtPriceSa.TabIndex = 12;
@@ -177,6 +187,7 @@
             // txtPartnerPrice
             // 
             this.txtPartnerPrice.Location = new System.Drawing.Point(131, 397);
+            this.txtPartnerPrice.MaxLength = 9;
             this.txtPartnerPrice.Name = "txtPartnerPrice";
             this.txtPartnerPrice.Size = new System.Drawing.Size(134, 23);
             this.txtPartnerPrice.TabIndex = 14;
@@ -185,6 +196,7 @@
             // txtPriceRe
             // 
             this.txtPriceRe.Location = new System.Drawing.Point(131, 296);
+            this.txtPriceRe.MaxLength = 9;
             this.txtPriceRe.Name = "txtPriceRe";
             this.txtPriceRe.Size = new System.Drawing.Size(134, 23);
             this.txtPriceRe.TabIndex = 11;
@@ -294,6 +306,50 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Tên KH";
             this.label5.Visible = false;
+            // 
+            // lblFThuHo
+            // 
+            this.lblFThuHo.AutoSize = true;
+            this.lblFThuHo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFThuHo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblFThuHo.Location = new System.Drawing.Point(271, 400);
+            this.lblFThuHo.Name = "lblFThuHo";
+            this.lblFThuHo.Size = new System.Drawing.Size(64, 17);
+            this.lblFThuHo.TabIndex = 0;
+            this.lblFThuHo.Text = "0000000";
+            // 
+            // lblFGiaVTQ
+            // 
+            this.lblFGiaVTQ.AutoSize = true;
+            this.lblFGiaVTQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFGiaVTQ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblFGiaVTQ.Location = new System.Drawing.Point(271, 366);
+            this.lblFGiaVTQ.Name = "lblFGiaVTQ";
+            this.lblFGiaVTQ.Size = new System.Drawing.Size(64, 17);
+            this.lblFGiaVTQ.TabIndex = 0;
+            this.lblFGiaVTQ.Text = "0000000";
+            // 
+            // lblFGiaBan
+            // 
+            this.lblFGiaBan.AutoSize = true;
+            this.lblFGiaBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFGiaBan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblFGiaBan.Location = new System.Drawing.Point(271, 334);
+            this.lblFGiaBan.Name = "lblFGiaBan";
+            this.lblFGiaBan.Size = new System.Drawing.Size(64, 17);
+            this.lblFGiaBan.TabIndex = 0;
+            this.lblFGiaBan.Text = "0000000";
+            // 
+            // lblFGiaNhan
+            // 
+            this.lblFGiaNhan.AutoSize = true;
+            this.lblFGiaNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFGiaNhan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblFGiaNhan.Location = new System.Drawing.Point(271, 299);
+            this.lblFGiaNhan.Name = "lblFGiaNhan";
+            this.lblFGiaNhan.Size = new System.Drawing.Size(64, 17);
+            this.lblFGiaNhan.TabIndex = 0;
+            this.lblFGiaNhan.Text = "0000000";
             // 
             // label4
             // 
@@ -479,14 +535,14 @@
             this.dataGridViewGroupTour.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPartnerID,
             this.colServiceType,
@@ -522,9 +578,9 @@
             // 
             this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPrice.DataPropertyName = "Price";
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle37.Format = "#,###";
-            this.colPrice.DefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "#,###";
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle2;
             this.colPrice.HeaderText = "Đơn giá";
             this.colPrice.Name = "colPrice";
             this.colPrice.ReadOnly = true;
@@ -533,9 +589,9 @@
             // colRemove
             // 
             this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle38.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.colRemove.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.colRemove.DefaultCellStyle = dataGridViewCellStyle3;
             this.colRemove.HeaderText = "";
             this.colRemove.Name = "colRemove";
             this.colRemove.ReadOnly = true;
@@ -632,14 +688,14 @@
             this.dtpTourBookedForPartner.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtpTourBookedForPartner.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dtpTourBookedForPartner.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtpTourBookedForPartner.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtpTourBookedForPartner.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtpTourBookedForPartner.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn3,
@@ -673,9 +729,9 @@
             // 
             this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dataGridViewTextBoxColumn3.DataPropertyName = "Pax";
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle40.Format = "#,###";
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn3.HeaderText = "Pax";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -801,6 +857,10 @@
         private System.Windows.Forms.TextBox txtPartnerPrice;
         private System.Windows.Forms.TextBox txtPriceRe;
         private System.Windows.Forms.TextBox txtPromotionMoney;
+        private System.Windows.Forms.Label lblFThuHo;
+        private System.Windows.Forms.Label lblFGiaVTQ;
+        private System.Windows.Forms.Label lblFGiaBan;
+        private System.Windows.Forms.Label lblFGiaNhan;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;

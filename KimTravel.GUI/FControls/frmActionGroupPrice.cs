@@ -54,7 +54,7 @@ namespace KimTravel.GUI.FControls
             if (_action == -1)
                 this.Text = "Thêm mới giá nhận theo tour";
             else
-                this.Text = "Cập nhật thông tin xe";
+                this.Text = "Cập nhật giá nhận theo tour";
 
             if (_objectData != null)
             {

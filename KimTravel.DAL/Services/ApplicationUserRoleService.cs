@@ -13,9 +13,11 @@ namespace KimTravel.DAL.Services
 
         public string GetListRoles(string username)
         {
+            string data = "0";
+            if (username == "")
+                return data;
             int userID = db.ApplicationUsers.FirstOrDefault(x => x.Username == username).ID;
             IEnumerable<ApplicationUserRole> listRoles = db.ApplicationUserRoles.Where(x => x.UserID == userID).ToList();
-            string data = "0";
             foreach (ApplicationUserRole item in listRoles)
             {
                 data += "," + item.RoleID;

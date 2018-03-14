@@ -114,6 +114,12 @@
     <Compile Include="FControls\frmActionRoles.Designer.cs">
       <DependentUpon>frmActionRoles.cs</DependentUpon>
     </Compile>
+    <Compile Include="FControls\frmConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FControls\frmConfirm.Designer.cs">
+      <DependentUpon>frmConfirm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FControls\frmDetailsBookCar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -295,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FControls\frmActionRoles.resx">
       <DependentUpon>frmActionRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FControls\frmConfirm.resx">
+      <DependentUpon>frmConfirm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FControls\frmDetailsBookCar.resx">
       <DependentUpon>frmDetailsBookCar.cs</DependentUpon>

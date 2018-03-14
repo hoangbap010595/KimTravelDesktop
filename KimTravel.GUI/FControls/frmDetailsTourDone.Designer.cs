@@ -58,10 +58,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtPriceSa = new System.Windows.Forms.TextBox();
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
-            this.colPartnerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colServiceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRemove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lblTotalBook = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -74,11 +70,19 @@
             this.btnAddServiceType = new System.Windows.Forms.Button();
             this.btnUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnBack = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ckIsPayment = new System.Windows.Forms.CheckBox();
+            this.colPartnerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colServiceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRemove = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.ckBookOK = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPax)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
             this.panel1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -114,6 +118,7 @@
             // 
             this.txtRoom.Location = new System.Drawing.Point(347, 198);
             this.txtRoom.Name = "txtRoom";
+            this.txtRoom.ReadOnly = true;
             this.txtRoom.Size = new System.Drawing.Size(82, 23);
             this.txtRoom.TabIndex = 8;
             // 
@@ -121,6 +126,7 @@
             // 
             this.txtPickup.Location = new System.Drawing.Point(129, 198);
             this.txtPickup.Name = "txtPickup";
+            this.txtPickup.ReadOnly = true;
             this.txtPickup.Size = new System.Drawing.Size(210, 23);
             this.txtPickup.TabIndex = 7;
             // 
@@ -140,6 +146,7 @@
             this.txtNote.Location = new System.Drawing.Point(125, 339);
             this.txtNote.Multiline = true;
             this.txtNote.Name = "txtNote";
+            this.txtNote.ReadOnly = true;
             this.txtNote.Size = new System.Drawing.Size(304, 88);
             this.txtNote.TabIndex = 11;
             // 
@@ -259,6 +266,7 @@
             0,
             0});
             this.numPax.Name = "numPax";
+            this.numPax.ReadOnly = true;
             this.numPax.Size = new System.Drawing.Size(82, 23);
             this.numPax.TabIndex = 4;
             this.numPax.Value = new decimal(new int[] {
@@ -271,6 +279,7 @@
             // dtpStartDate
             // 
             this.dtpStartDate.CustomFormat = "dd-MM-yyyy";
+            this.dtpStartDate.Enabled = false;
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpStartDate.Location = new System.Drawing.Point(129, 28);
             this.dtpStartDate.Name = "dtpStartDate";
@@ -291,6 +300,7 @@
             // cbbPartnerID
             // 
             this.cbbPartnerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbPartnerID.Enabled = false;
             this.cbbPartnerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbPartnerID.FormattingEnabled = true;
             this.cbbPartnerID.ItemHeight = 16;
@@ -302,6 +312,7 @@
             // cbbTourID
             // 
             this.cbbTourID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbTourID.Enabled = false;
             this.cbbTourID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTourID.FormattingEnabled = true;
             this.cbbTourID.ItemHeight = 16;
@@ -314,6 +325,7 @@
             // cbbGroupTourID
             // 
             this.cbbGroupTourID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbGroupTourID.Enabled = false;
             this.cbbGroupTourID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbGroupTourID.FormattingEnabled = true;
             this.cbbGroupTourID.ItemHeight = 16;
@@ -352,7 +364,9 @@
             // txtPriceVTQ
             // 
             this.txtPriceVTQ.Location = new System.Drawing.Point(94, 72);
+            this.txtPriceVTQ.MaxLength = 9;
             this.txtPriceVTQ.Name = "txtPriceVTQ";
+            this.txtPriceVTQ.ReadOnly = true;
             this.txtPriceVTQ.Size = new System.Drawing.Size(134, 23);
             this.txtPriceVTQ.TabIndex = 14;
             this.txtPriceVTQ.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
@@ -361,7 +375,9 @@
             // txtPartnerPrice
             // 
             this.txtPartnerPrice.Location = new System.Drawing.Point(327, 72);
+            this.txtPartnerPrice.MaxLength = 9;
             this.txtPartnerPrice.Name = "txtPartnerPrice";
+            this.txtPartnerPrice.ReadOnly = true;
             this.txtPartnerPrice.Size = new System.Drawing.Size(134, 23);
             this.txtPartnerPrice.TabIndex = 15;
             this.txtPartnerPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
@@ -392,7 +408,9 @@
             // txtPriceSa
             // 
             this.txtPriceSa.Location = new System.Drawing.Point(327, 22);
+            this.txtPriceSa.MaxLength = 9;
             this.txtPriceSa.Name = "txtPriceSa";
+            this.txtPriceSa.ReadOnly = true;
             this.txtPriceSa.Size = new System.Drawing.Size(134, 23);
             this.txtPriceSa.TabIndex = 13;
             this.txtPriceSa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
@@ -429,46 +447,6 @@
             this.dataGridViewGroupTour.Size = new System.Drawing.Size(476, 174);
             this.dataGridViewGroupTour.TabIndex = 0;
             this.dataGridViewGroupTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroupTour_CellContentClick);
-            // 
-            // colPartnerID
-            // 
-            this.colPartnerID.DataPropertyName = "PartnerID";
-            this.colPartnerID.HeaderText = "ID";
-            this.colPartnerID.Name = "colPartnerID";
-            this.colPartnerID.ReadOnly = true;
-            this.colPartnerID.Visible = false;
-            // 
-            // colServiceType
-            // 
-            this.colServiceType.DataPropertyName = "ServiceType";
-            this.colServiceType.HeaderText = "Loại dịch vụ";
-            this.colServiceType.Name = "colServiceType";
-            this.colServiceType.ReadOnly = true;
-            // 
-            // colPrice
-            // 
-            this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPrice.DataPropertyName = "Price";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "#,###";
-            this.colPrice.DefaultCellStyle = dataGridViewCellStyle8;
-            this.colPrice.HeaderText = "Đơn giá";
-            this.colPrice.Name = "colPrice";
-            this.colPrice.ReadOnly = true;
-            this.colPrice.Width = 120;
-            // 
-            // colRemove
-            // 
-            this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.colRemove.DefaultCellStyle = dataGridViewCellStyle9;
-            this.colRemove.HeaderText = "";
-            this.colRemove.Name = "colRemove";
-            this.colRemove.ReadOnly = true;
-            this.colRemove.Text = "Xóa";
-            this.colRemove.UseColumnTextForButtonValue = true;
-            this.colRemove.Width = 60;
             // 
             // lblTotalBook
             // 
@@ -522,6 +500,7 @@
             // 
             this.txtPromotionPrice.Location = new System.Drawing.Point(40, 38);
             this.txtPromotionPrice.Name = "txtPromotionPrice";
+            this.txtPromotionPrice.ReadOnly = true;
             this.txtPromotionPrice.Size = new System.Drawing.Size(180, 23);
             this.txtPromotionPrice.TabIndex = 12;
             this.txtPromotionPrice.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
@@ -530,7 +509,9 @@
             // txtPriceRe
             // 
             this.txtPriceRe.Location = new System.Drawing.Point(94, 22);
+            this.txtPriceRe.MaxLength = 9;
             this.txtPriceRe.Name = "txtPriceRe";
+            this.txtPriceRe.ReadOnly = true;
             this.txtPriceRe.Size = new System.Drawing.Size(134, 23);
             this.txtPriceRe.TabIndex = 12;
             this.txtPriceRe.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
@@ -580,42 +561,123 @@
             this.btnAddServiceType.TabIndex = 16;
             this.btnAddServiceType.Text = "Thêm";
             this.btnAddServiceType.UseVisualStyleBackColor = true;
+            this.btnAddServiceType.Visible = false;
             this.btnAddServiceType.Click += new System.EventHandler(this.btnAddServiceType_Click);
             // 
             // btnUpdate
             // 
             this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.Depth = 0;
-            this.btnUpdate.Location = new System.Drawing.Point(634, 490);
+            this.btnUpdate.Location = new System.Drawing.Point(724, 490);
             this.btnUpdate.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Primary = true;
-            this.btnUpdate.Size = new System.Drawing.Size(154, 40);
+            this.btnUpdate.Size = new System.Drawing.Size(107, 40);
             this.btnUpdate.TabIndex = 17;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Visible = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnBack
             // 
             this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBack.Depth = 0;
-            this.btnBack.Location = new System.Drawing.Point(794, 490);
+            this.btnBack.Location = new System.Drawing.Point(837, 490);
             this.btnBack.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnBack.Name = "btnBack";
             this.btnBack.Primary = true;
-            this.btnBack.Size = new System.Drawing.Size(158, 40);
+            this.btnBack.Size = new System.Drawing.Size(115, 40);
             this.btnBack.TabIndex = 19;
             this.btnBack.Text = "Quay lại";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.ckBookOK);
+            this.groupBox2.Controls.Add(this.ckIsPayment);
+            this.groupBox2.Location = new System.Drawing.Point(463, 481);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(255, 49);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Trạng thái";
+            // 
+            // ckIsPayment
+            // 
+            this.ckIsPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ckIsPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckIsPayment.ForeColor = System.Drawing.Color.Red;
+            this.ckIsPayment.Location = new System.Drawing.Point(6, 15);
+            this.ckIsPayment.Name = "ckIsPayment";
+            this.ckIsPayment.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ckIsPayment.Size = new System.Drawing.Size(127, 30);
+            this.ckIsPayment.TabIndex = 0;
+            this.ckIsPayment.Text = "Đã thu tiền";
+            this.ckIsPayment.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ckIsPayment.UseVisualStyleBackColor = false;
+            // 
+            // colPartnerID
+            // 
+            this.colPartnerID.DataPropertyName = "PartnerID";
+            this.colPartnerID.HeaderText = "ID";
+            this.colPartnerID.Name = "colPartnerID";
+            this.colPartnerID.ReadOnly = true;
+            this.colPartnerID.Visible = false;
+            // 
+            // colServiceType
+            // 
+            this.colServiceType.DataPropertyName = "ServiceType";
+            this.colServiceType.HeaderText = "Loại dịch vụ";
+            this.colServiceType.Name = "colServiceType";
+            this.colServiceType.ReadOnly = true;
+            // 
+            // colPrice
+            // 
+            this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colPrice.DataPropertyName = "Price";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "#,###";
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle8;
+            this.colPrice.HeaderText = "Đơn giá";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
+            this.colPrice.Width = 120;
+            // 
+            // colRemove
+            // 
+            this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.colRemove.DefaultCellStyle = dataGridViewCellStyle9;
+            this.colRemove.HeaderText = "";
+            this.colRemove.Name = "colRemove";
+            this.colRemove.ReadOnly = true;
+            this.colRemove.Text = "Xóa";
+            this.colRemove.UseColumnTextForButtonValue = true;
+            this.colRemove.Visible = false;
+            this.colRemove.Width = 60;
+            // 
+            // ckBookOK
+            // 
+            this.ckBookOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.ckBookOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckBookOK.ForeColor = System.Drawing.Color.Red;
+            this.ckBookOK.Location = new System.Drawing.Point(139, 15);
+            this.ckBookOK.Name = "ckBookOK";
+            this.ckBookOK.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ckBookOK.Size = new System.Drawing.Size(111, 30);
+            this.ckBookOK.TabIndex = 0;
+            this.ckBookOK.Text = "Book OK";
+            this.ckBookOK.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ckBookOK.UseVisualStyleBackColor = false;
             // 
             // frmDetailsTourDone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(964, 542);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -638,6 +700,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -660,10 +723,6 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField txtCustomer;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridViewGroupTour;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPartnerID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colServiceType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
-        private System.Windows.Forms.DataGridViewButtonColumn colRemove;
         private System.Windows.Forms.Label lblTotalBook;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label21;
@@ -686,5 +745,12 @@
         private System.Windows.Forms.TextBox txtPickup;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtPromotionPrice;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox ckIsPayment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPartnerID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colServiceType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
+        private System.Windows.Forms.DataGridViewButtonColumn colRemove;
+        private System.Windows.Forms.CheckBox ckBookOK;
     }
 }

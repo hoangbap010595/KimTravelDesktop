@@ -75,6 +75,8 @@ namespace KimTravel.GUI.FControls
 
             parseJsonServiceType(_objectBook.ServiceType);
 
+            ckIsPayment.Checked = _objectBook.IsPayment.Value;
+            ckBookOK.Checked = _objectBook.IsBooked.Value;
         }
         private void cbbTourID_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -102,50 +104,11 @@ namespace KimTravel.GUI.FControls
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            Book book = new Book();
-            book.ID = _objectBook.ID;
-            book.TourID = int.Parse(cbbTourID.SelectedValue.ToString());
-            book.PartnerID = int.Parse(cbbPartnerID.SelectedValue.ToString());
-            book.StartDate = dtpStartDate.Value;
-            book.Pax = int.Parse(numPax.Value.ToString());
-            book.StaffID = txtSaleBook.Text;
-
-            //Cus
-            book.CustomName = txtCustomer.Text;
-            book.Room = txtRoom.Text;
-            Partner p = pnService.GetByID(int.Parse(cbbPartnerID.SelectedValue.ToString()));
-            book.PickUp = txtPickup.Text.Trim() == "" ? p.Address : txtPickup.Text;
-
-            //Service
-            book.PartnerPrice = int.Parse(txtPartnerPrice.Text == "" ? "0" : txtPartnerPrice.Text);
-            book.PriceReceive = int.Parse(txtPriceRe.Text == "" ? "0" : txtPriceRe.Text);
-            book.PriceSale = int.Parse(txtPriceSa.Text == "" ? "0" : txtPriceSa.Text);
-            book.PriceVTQ = int.Parse(txtPriceVTQ.Text == "" ? "0" : txtPriceVTQ.Text);
-            book.Note = txtNote.Text;
-
-            book.ServiceType = getJsonServiceType();
-            book.PromotionMoney = int.Parse(txtPromotionPrice.Text == "" ? "0" : txtPromotionPrice.Text);
-            book.PromotionPercent = 0;
-            book.Total = int.Parse(lblTotalBook.Text);
-            book.LastUpdate = DateTime.Now;
-            book.UpdateBy = Constant.CurrentSessionUser;
-            //book.IsCancel = false;
-            book.IsBooked = false;
-
-            if(book.CustomName == "" || book.CustomName == null) { MessageBox.Show("Tên khách hàng không thể để trống!"); return; }
-            if (book.StaffID == "" || book.StaffID == null) { MessageBox.Show("Tên NV book không thể để trống!"); return; }
-
-            var rs = bookService.Update(book);
-            if (rs)
+            if (DialogResult.OK == MessageBox.Show("Xác nhận cập nhật thông tin.", "Thông báo", MessageBoxButtons.OKCancel))
             {
-                MessageBox.Show("Cập nhật thành công");
-                if (loadData != null)
-                    loadData();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Xảy ra lỗi vui lòng kiểm tra lại.");
+                frmConfirm frm = new frmConfirm();
+                frm.confirm = new frmConfirm.ConfirmPassword(confirmOK);
+                frm.ShowDialog();
             }
         }
 
@@ -274,6 +237,23 @@ namespace KimTravel.GUI.FControls
         private void numPax_ValueChanged(object sender, EventArgs e)
         {
             payment();
+        }
+
+        private void confirmOK()
+        {
+            var isPayMent = ckIsPayment.Checked;
+            var isBooked = ckBookOK.Checked;
+            var rs = bookService.UpdateBookPayment(_ObjID, isPayMent);
+            var rs2 = bookService.UpdateBooked(_ObjID, isBooked);
+            if (rs && rs2)
+            {
+                MessageBox.Show("Cập nhật trạng thái thành công.", "Thông báo");
+                if (loadData != null)
+                    loadData();
+                this.Close();
+            }
+            else
+                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại", "Thông báo");
         }
     }
 }

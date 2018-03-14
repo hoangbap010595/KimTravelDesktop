@@ -25,7 +25,8 @@ namespace KimTravel.GUI.FControls
         private BookService bookService = new BookService();
         private string _tourName = "";
         private string _startDate = "";
-        public delegate void RefreshData();
+        private int _numCar = 0;
+        public delegate void RefreshData(int numCar);
         public RefreshData refreshData;
         public frmDetailsBookCar(DataTable dt, int numCar, int tourID, string startDate)
         {
@@ -36,6 +37,7 @@ namespace KimTravel.GUI.FControls
             lblDate.Text = startDate;
             _tourName = t.Name;
             _startDate = startDate;
+            _numCar = numCar;
             this.Text = "Chi tiết xe " + numCar;
             btnPrint.UseVisualStyleBackColor = true;
             dataGridViewGroupTour.AutoGenerateColumns = false;
@@ -62,12 +64,12 @@ namespace KimTravel.GUI.FControls
 
         private void countPax()
         {
-            int x = 0;
+            float x = 0;
             foreach (DataGridViewRow row in dataGridViewGroupTour.Rows)
             {
                 if (row.Cells["colPax"].Value != null)
                 {
-                    int z = int.Parse(row.Cells["colPax"].Value.ToString());
+                    float z = float.Parse(row.Cells["colPax"].Value.ToString());
                     x += z;
                 }
             }
@@ -85,10 +87,10 @@ namespace KimTravel.GUI.FControls
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             btnPrint.Enabled = btnBack.Enabled = false;
+            lblMessageProgress.Visible = true;
             var msg = MessageBox.Show("Hệ thống sẽ cập nhật trạng thái tour đã được book.\nBạn muốn cập nhật dữ liệu vào hệ thống và in các bản ghi ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (DialogResult.Yes == msg)
             {
-                lblMessageProgress.Visible = true;
                 updateStatusBooked();
                 Staff hdv = staffService.GetByID(int.Parse(cbbHDV.SelectedValue.ToString()));
                 Staff tx = staffService.GetByID(int.Parse(cbbTaiXe.SelectedValue.ToString()));
@@ -97,9 +99,9 @@ namespace KimTravel.GUI.FControls
                 //xtra.PrintDialog();
                 xtra.ShowPreview();
                 if (refreshData != null)
-                    refreshData();
+                    refreshData(_numCar);
             }
-            btnPrint.Enabled = btnBack.Enabled = true;
+            btnBack.Enabled = true;
             lblMessageProgress.Visible = false;
         }
 
