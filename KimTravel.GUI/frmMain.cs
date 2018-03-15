@@ -158,6 +158,8 @@ namespace KimTravel.GUI
             xeToolStripMenuItem.Visible = quanLyNhânViênToolStripMenuItem.Visible = loaiDichVuToolStripMenuItem.Visible = khachSanToolStripMenuItem.Visible = false;
             côngNơToolStripMenuItem.Visible = bCĐôiTacToolStripMenuItem.Visible = false;
 
+            tourToolStripMenuItem.Visible = nghiêpVuToolStripMenuItem.Visible = dưLiêuToolStripMenuItem.Visible = baoCaoToolStripMenuItem.Visible = false;
+
             int menu1 = 0;
             int menu2 = 0;
             int menu3 = 0;

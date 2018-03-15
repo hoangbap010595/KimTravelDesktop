@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtRoom = new System.Windows.Forms.TextBox();
             this.txtPickup = new System.Windows.Forms.TextBox();
@@ -58,6 +58,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtPriceSa = new System.Windows.Forms.TextBox();
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
+            this.colPartnerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colServiceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRemove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lblTotalBook = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -71,12 +75,8 @@
             this.btnUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnBack = new MaterialSkin.Controls.MaterialRaisedButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.ckIsPayment = new System.Windows.Forms.CheckBox();
-            this.colPartnerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colServiceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRemove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.ckBookOK = new System.Windows.Forms.CheckBox();
+            this.ckIsPayment = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPax)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -193,6 +193,7 @@
             this.label5.Size = new System.Drawing.Size(56, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "Tên KH";
+            this.label5.Visible = false;
             // 
             // label3
             // 
@@ -219,6 +220,7 @@
             this.txtCustomer.Size = new System.Drawing.Size(300, 23);
             this.txtCustomer.TabIndex = 9;
             this.txtCustomer.UseSystemPasswordChar = false;
+            this.txtCustomer.Visible = false;
             // 
             // label2
             // 
@@ -424,14 +426,14 @@
             this.dataGridViewGroupTour.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPartnerID,
             this.colServiceType,
@@ -447,6 +449,47 @@
             this.dataGridViewGroupTour.Size = new System.Drawing.Size(476, 174);
             this.dataGridViewGroupTour.TabIndex = 0;
             this.dataGridViewGroupTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroupTour_CellContentClick);
+            // 
+            // colPartnerID
+            // 
+            this.colPartnerID.DataPropertyName = "PartnerID";
+            this.colPartnerID.HeaderText = "ID";
+            this.colPartnerID.Name = "colPartnerID";
+            this.colPartnerID.ReadOnly = true;
+            this.colPartnerID.Visible = false;
+            // 
+            // colServiceType
+            // 
+            this.colServiceType.DataPropertyName = "ServiceType";
+            this.colServiceType.HeaderText = "Loại dịch vụ";
+            this.colServiceType.Name = "colServiceType";
+            this.colServiceType.ReadOnly = true;
+            // 
+            // colPrice
+            // 
+            this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colPrice.DataPropertyName = "Price";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "#,###";
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colPrice.HeaderText = "Đơn giá";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
+            this.colPrice.Width = 120;
+            // 
+            // colRemove
+            // 
+            this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.colRemove.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colRemove.HeaderText = "";
+            this.colRemove.Name = "colRemove";
+            this.colRemove.ReadOnly = true;
+            this.colRemove.Text = "Xóa";
+            this.colRemove.UseColumnTextForButtonValue = true;
+            this.colRemove.Visible = false;
+            this.colRemove.Width = 60;
             // 
             // lblTotalBook
             // 
@@ -603,61 +646,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Trạng thái";
             // 
-            // ckIsPayment
-            // 
-            this.ckIsPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.ckIsPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckIsPayment.ForeColor = System.Drawing.Color.Red;
-            this.ckIsPayment.Location = new System.Drawing.Point(6, 15);
-            this.ckIsPayment.Name = "ckIsPayment";
-            this.ckIsPayment.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.ckIsPayment.Size = new System.Drawing.Size(127, 30);
-            this.ckIsPayment.TabIndex = 0;
-            this.ckIsPayment.Text = "Đã thu tiền";
-            this.ckIsPayment.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ckIsPayment.UseVisualStyleBackColor = false;
-            // 
-            // colPartnerID
-            // 
-            this.colPartnerID.DataPropertyName = "PartnerID";
-            this.colPartnerID.HeaderText = "ID";
-            this.colPartnerID.Name = "colPartnerID";
-            this.colPartnerID.ReadOnly = true;
-            this.colPartnerID.Visible = false;
-            // 
-            // colServiceType
-            // 
-            this.colServiceType.DataPropertyName = "ServiceType";
-            this.colServiceType.HeaderText = "Loại dịch vụ";
-            this.colServiceType.Name = "colServiceType";
-            this.colServiceType.ReadOnly = true;
-            // 
-            // colPrice
-            // 
-            this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPrice.DataPropertyName = "Price";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "#,###";
-            this.colPrice.DefaultCellStyle = dataGridViewCellStyle8;
-            this.colPrice.HeaderText = "Đơn giá";
-            this.colPrice.Name = "colPrice";
-            this.colPrice.ReadOnly = true;
-            this.colPrice.Width = 120;
-            // 
-            // colRemove
-            // 
-            this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.colRemove.DefaultCellStyle = dataGridViewCellStyle9;
-            this.colRemove.HeaderText = "";
-            this.colRemove.Name = "colRemove";
-            this.colRemove.ReadOnly = true;
-            this.colRemove.Text = "Xóa";
-            this.colRemove.UseColumnTextForButtonValue = true;
-            this.colRemove.Visible = false;
-            this.colRemove.Width = 60;
-            // 
             // ckBookOK
             // 
             this.ckBookOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -671,6 +659,20 @@
             this.ckBookOK.Text = "Book OK";
             this.ckBookOK.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.ckBookOK.UseVisualStyleBackColor = false;
+            // 
+            // ckIsPayment
+            // 
+            this.ckIsPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ckIsPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckIsPayment.ForeColor = System.Drawing.Color.Red;
+            this.ckIsPayment.Location = new System.Drawing.Point(6, 15);
+            this.ckIsPayment.Name = "ckIsPayment";
+            this.ckIsPayment.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ckIsPayment.Size = new System.Drawing.Size(127, 30);
+            this.ckIsPayment.TabIndex = 0;
+            this.ckIsPayment.Text = "Đã thu tiền";
+            this.ckIsPayment.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ckIsPayment.UseVisualStyleBackColor = false;
             // 
             // frmDetailsTourDone
             // 
