@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
             this.colTourID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +46,8 @@
             this.ActionUpdate = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnThemMoi = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
+            this.cbbGroupTour = new System.Windows.Forms.ComboBox();
+            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,14 +61,14 @@
             this.dataGridViewGroupTour.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridViewGroupTour.ColumnHeadersHeight = 30;
             this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colTourID,
@@ -118,10 +120,10 @@
             // 
             this.colDateCreate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colDateCreate.DataPropertyName = "DateCreate";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Format = "dd-MM-yyyy";
-            dataGridViewCellStyle2.NullValue = null;
-            this.colDateCreate.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.Format = "dd-MM-yyyy";
+            dataGridViewCellStyle20.NullValue = null;
+            this.colDateCreate.DefaultCellStyle = dataGridViewCellStyle20;
             this.colDateCreate.HeaderText = "Ngày tạo";
             this.colDateCreate.Name = "colDateCreate";
             this.colDateCreate.ReadOnly = true;
@@ -142,10 +144,10 @@
             // 
             this.colPriceReceive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPriceReceive.DataPropertyName = "PriceReceive";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "#,###";
-            dataGridViewCellStyle3.NullValue = null;
-            this.colPriceReceive.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle21.Format = "#,###";
+            dataGridViewCellStyle21.NullValue = null;
+            this.colPriceReceive.DefaultCellStyle = dataGridViewCellStyle21;
             this.colPriceReceive.HeaderText = "Giá nhận";
             this.colPriceReceive.Name = "colPriceReceive";
             this.colPriceReceive.ReadOnly = true;
@@ -156,9 +158,9 @@
             // 
             this.colPriceSale.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPriceSale.DataPropertyName = "PriceSale";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "#,###";
-            this.colPriceSale.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle22.Format = "#,###";
+            this.colPriceSale.DefaultCellStyle = dataGridViewCellStyle22;
             this.colPriceSale.HeaderText = "Giá bán";
             this.colPriceSale.Name = "colPriceSale";
             this.colPriceSale.ReadOnly = true;
@@ -170,9 +172,9 @@
             // 
             this.colPriceVTQ.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPriceVTQ.DataPropertyName = "PriceVTQ";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "#,###";
-            this.colPriceVTQ.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle23.Format = "#,###";
+            this.colPriceVTQ.DefaultCellStyle = dataGridViewCellStyle23;
             this.colPriceVTQ.HeaderText = "Giá vé tham quan";
             this.colPriceVTQ.Name = "colPriceVTQ";
             this.colPriceVTQ.ReadOnly = true;
@@ -181,10 +183,10 @@
             // ActionUpdate
             // 
             this.ActionUpdate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.ActionUpdate.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.ActionUpdate.DefaultCellStyle = dataGridViewCellStyle24;
             this.ActionUpdate.HeaderText = "Cập nhật";
             this.ActionUpdate.Name = "ActionUpdate";
             this.ActionUpdate.ReadOnly = true;
@@ -214,10 +216,38 @@
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
+            // cbbGroupTour
+            // 
+            this.cbbGroupTour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbGroupTour.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbGroupTour.FormattingEnabled = true;
+            this.cbbGroupTour.ItemHeight = 16;
+            this.cbbGroupTour.Location = new System.Drawing.Point(97, 12);
+            this.cbbGroupTour.Name = "cbbGroupTour";
+            this.cbbGroupTour.Size = new System.Drawing.Size(223, 24);
+            this.cbbGroupTour.TabIndex = 8;
+            this.cbbGroupTour.SelectedIndexChanged += new System.EventHandler(this.cbbGroupTour_SelectedIndexChanged);
+            // 
+            // materialLabel6
+            // 
+            this.materialLabel6.AutoSize = true;
+            this.materialLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.materialLabel6.Depth = 0;
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel6.Location = new System.Drawing.Point(10, 15);
+            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel6.Name = "materialLabel6";
+            this.materialLabel6.Size = new System.Drawing.Size(81, 19);
+            this.materialLabel6.TabIndex = 0;
+            this.materialLabel6.Text = "Nhóm tour";
+            // 
             // UCTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbbGroupTour);
+            this.Controls.Add(this.materialLabel6);
             this.Controls.Add(this.dataGridViewGroupTour);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnThemMoi);
@@ -226,6 +256,7 @@
             this.Load += new System.EventHandler(this.UCGroupTour_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -242,5 +273,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPriceSale;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPriceVTQ;
         private System.Windows.Forms.DataGridViewButtonColumn ActionUpdate;
+        private System.Windows.Forms.ComboBox cbbGroupTour;
+        private MaterialSkin.Controls.MaterialLabel materialLabel6;
     }
 }

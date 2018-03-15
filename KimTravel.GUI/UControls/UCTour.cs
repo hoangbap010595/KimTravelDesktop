@@ -14,6 +14,7 @@ namespace KimTravel.GUI.UControls
 {
     public partial class UCTour : UserControl
     {
+        private GroupTourService grTourService = new GroupTourService();
         private TourService objService;
         public UCTour()
         {
@@ -22,8 +23,9 @@ namespace KimTravel.GUI.UControls
 
         private void loadDataGroup()
         {
+            var gID = int.Parse(cbbGroupTour.SelectedValue.ToString());
             objService = new TourService();
-            var data = objService.GetList();
+            var data = objService.GetList(gID);
             dataGridViewGroupTour.DataSource = data;
             dataGridViewGroupTour.Update();
             dataGridViewGroupTour.Refresh();
@@ -37,6 +39,10 @@ namespace KimTravel.GUI.UControls
 
         private void UCGroupTour_Load(object sender, EventArgs e)
         {
+            cbbGroupTour.DataSource = grTourService.GetListCombobox();
+            cbbGroupTour.ValueMember = "GroupID";
+            cbbGroupTour.DisplayMember = "Name";
+
             dataGridViewGroupTour.AutoGenerateColumns = false;
             loadDataGroup();
         }
@@ -68,6 +74,17 @@ namespace KimTravel.GUI.UControls
             {
                 e.Graphics.DrawString((e.RowIndex + 1).ToString(), e.InheritedRowStyle.Font, b, e.RowBounds.Location.X + 10, e.RowBounds.Location.Y + 4);
             }
+        }
+
+        private void cbbGroupTour_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var x = cbbGroupTour.SelectedValue.ToString();
+                int gID = int.Parse(x);
+                dataGridViewGroupTour.DataSource = objService.GetList(gID);
+            }
+            catch { }
         }
     }
 }

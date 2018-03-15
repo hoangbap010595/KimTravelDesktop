@@ -74,7 +74,7 @@ namespace KimTravel.GUI.FControls
             ApplicationUser user = new ApplicationUser();
             user.ID = _objID;
             user.Username = txtUsername.Text;
-            user.Email = txtEmail.Text;
+            user.Email = "";
             user.Locked = ckLock.Checked;
             user.Status = int.Parse(cbbStatus.SelectedValue.ToString());
 
@@ -122,6 +122,12 @@ namespace KimTravel.GUI.FControls
         {
             string pass1 = txtPassword.Text;
             string pass2 = txtConfirmPass.Text;
+
+            if (pass1 == "" || pass2 == "")
+            {
+                MessageBox.Show("Hãy nhập đầy đủ thông tin");
+                return;
+            } 
             if(pass1 != pass2)
             {
                 MessageBox.Show("Mật khẩu không trùng khớp. Vui lòng nhập lại");

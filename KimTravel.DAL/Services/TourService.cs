@@ -30,7 +30,26 @@ namespace KimTravel.DAL.Services
 
             return data;
         }
+        public IQueryable GetList(int gID)
+        {
+            IQueryable data = from t in db.Tours
+                              join g in db.GroupTours on t.GroupID equals g.GroupID
+                              where g.GroupID == gID
+                              orderby t.Name
+                              select new
+                              {
+                                  t.TourID,
+                                  t.Name,
+                                  //t.PriceReceive,
+                                  t.PriceSale,
+                                  t.PriceVTQ,
+                                  t.Enable,
+                                  t.DateCreate,
+                                  GName = g.Name
+                              };
 
+            return data;
+        }
         public IEnumerable<Tour> GetListCobobox()
         {
             IEnumerable<Tour> data = db.Tours.Where(x => x.Enable == true).OrderBy(x => x.Name).OrderBy(x => x.GroupID);

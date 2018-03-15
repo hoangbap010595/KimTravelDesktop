@@ -265,6 +265,11 @@ namespace KimTravel.GUI
             frmMain_Load(sender, e);
         }
 
-       
+        private void quanLyPhânQuyênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            lblTitle.Text = "Thiết lập quyền xem báo cáo";
+            UCRoleViewReport uc = new UCRoleViewReport();
+            addControlToPanel(uc);
+        }
     }
 }

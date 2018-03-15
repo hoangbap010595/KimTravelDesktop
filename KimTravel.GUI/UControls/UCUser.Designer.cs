@@ -171,6 +171,7 @@
             this.colEmail.HeaderText = "Email";
             this.colEmail.Name = "colEmail";
             this.colEmail.ReadOnly = true;
+            this.colEmail.Visible = false;
             this.colEmail.Width = 200;
             // 
             // colPhone

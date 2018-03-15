@@ -37,6 +37,12 @@ namespace KimTravel.DAL.Services
 
             return data;
         }
+        public string GetPartnerViewReport(string username)
+        {
+            ApplicationUser data = db.ApplicationUsers.FirstOrDefault(x => x.Username == username);
+
+            return data.Email;
+        }
         public int CheckLogin(string username, string password)
         {
             string hashPass = HashText.GetSHA1HashData(password);
@@ -72,6 +78,17 @@ namespace KimTravel.DAL.Services
                 return false;
         }
 
+        public bool UpdateRoleViewReport(int id, string partnerID)
+        {
+            ApplicationUser currUser = db.ApplicationUsers.FirstOrDefault(x => x.ID == id);
+            if (currUser != null)
+            {
+                currUser.Email = partnerID;
+                db.SubmitChanges();
+                return true;
+            }
+            return false;
+        }
         public bool Update(ApplicationUser user)
         {
             bool checkUName = db.ApplicationUsers.Count(x => x.Username == user.Username && x.ID != user.ID) > 0 ? true : false;
@@ -81,7 +98,6 @@ namespace KimTravel.DAL.Services
                 ApplicationUser currUser = db.ApplicationUsers.FirstOrDefault(x => x.ID == user.ID);
                 if (currUser != null)
                 {
-                    currUser.Email = user.Email;
                     currUser.Phone = user.Phone;
                     currUser.Status = user.Status;
                     currUser.Username = user.Username;
@@ -108,7 +124,7 @@ namespace KimTravel.DAL.Services
         {
             bool checkUName = db.ApplicationUsers.Count(x => x.Username == user.Username && x.ID != user.ID) > 0 ? true : false;
             //bool check = db.ApplicationUsers.Count(x => x.Username == user.Username) > 0 ? true : false;
-            if (checkUName)
+            if (!checkUName)
             {
                 ApplicationUser currUser = db.ApplicationUsers.FirstOrDefault(x => x.ID == user.ID);
                 if (currUser != null)

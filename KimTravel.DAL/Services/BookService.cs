@@ -11,14 +11,22 @@ namespace KimTravel.DAL.Services
     public class BookService
     {
         private readonly KimTravelDataContext db = new KimTravelDataContext();
-
+        private readonly ApplicationUserService uService = new ApplicationUserService();
         public IEnumerable<PartnerBookTourModel> GetListBookedDoneReportPartner(int partnerID, int month, int year, bool isBooked = true)
         {
+            var test = uService.GetPartnerViewReport(Constant.CurrentSessionUser);
+            var temp = test.Split(',');
+            List<int> lsPartner = new List<int>();
+            foreach (var item in temp)
+            {
+                if (item != "")
+                    lsPartner.Add(int.Parse(item));
+            }
             IEnumerable<PartnerBookTourModel> data = from b in db.Books
                                                      join p in db.Partners on b.PartnerID equals p.PartnerID
                                                      join t in db.Tours on b.TourID equals t.TourID
                                                      join g in db.GroupTours on t.GroupID equals g.GroupID
-                                                     where b.IsBooked == isBooked && b.PartnerID == partnerID
+                                                     where lsPartner.Contains((int)b.PartnerID) && b.IsBooked == isBooked && b.PartnerID == partnerID
                                                            && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
                                                      orderby b.StartDate
                                                      select new PartnerBookTourModel
@@ -39,11 +47,19 @@ namespace KimTravel.DAL.Services
         }
         public IQueryable GetListBookedDoneReportPartner(int month, int year, bool isBooked = true)
         {
+            var test = uService.GetPartnerViewReport(Constant.CurrentSessionUser);
+            var temp = test.Split(',');
+            List<int> lsPartner = new List<int>();
+            foreach (var item in temp)
+            {
+                if (item != "")
+                    lsPartner.Add(int.Parse(item));
+            }
             IQueryable data = ((from b in db.Books
                                 join p in db.Partners on b.PartnerID equals p.PartnerID
                                 join t in db.Tours on b.TourID equals t.TourID
                                 join g in db.GroupTours on t.GroupID equals g.GroupID
-                                where b.IsBooked == isBooked && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
+                                where lsPartner.Contains((int)b.PartnerID) && b.IsBooked == isBooked && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
                                 orderby b.StartDate
                                 select new
                                 {
@@ -56,67 +72,132 @@ namespace KimTravel.DAL.Services
             return data;
         }
 
-        public IEnumerable<BookTourModel> GetListBookedDoneReport(int partnerID, int groupID, int month, int year, bool isBooked = true)
+        public IEnumerable<BookTourModel> GetListBookedDoneReport(int partnerID, int groupID, int month, int year, bool? isPayment = true, bool isBooked = true)
         {
-            IEnumerable<BookTourModel> data = from b in db.Books
-                                              join p in db.Partners on b.PartnerID equals p.PartnerID
-                                              join t in db.Tours on b.TourID equals t.TourID
-                                              join g in db.GroupTours on t.GroupID equals g.GroupID
-                                              where b.IsBooked == isBooked && b.PartnerID == partnerID && g.GroupID == groupID
-                                                    && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
-                                              orderby b.StartDate
-                                              select new BookTourModel
-                                              {
-                                                  ID = b.ID,
-                                                  TourName = t.Name,
-                                                  StartDate = b.StartDate,
-                                                  Pax = b.Pax,
-                                                  Room = b.Room,
-                                                  Price = b.PriceReceive,
-                                                  SaleBook = b.StaffID,
-                                                  Note = b.Note,
-                                                  Total = b.Total
-                                              };
-
+            IEnumerable<BookTourModel> data = null;
+            if (isPayment == null)
+            {
+                data = from b in db.Books
+                       join p in db.Partners on b.PartnerID equals p.PartnerID
+                       join t in db.Tours on b.TourID equals t.TourID
+                       join g in db.GroupTours on t.GroupID equals g.GroupID
+                       where b.IsBooked == isBooked && b.PartnerID == partnerID && g.GroupID == groupID
+                             && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
+                       orderby b.StartDate
+                       select new BookTourModel
+                       {
+                           ID = b.ID,
+                           TourName = t.Name,
+                           StartDate = b.StartDate,
+                           Pax = b.Pax,
+                           Room = b.Room,
+                           Price = b.PriceReceive,
+                           SaleBook = b.StaffID,
+                           Note = b.Note,
+                           Total = b.Total
+                       };
+            }
+            else
+            {
+                data = from b in db.Books
+                       join p in db.Partners on b.PartnerID equals p.PartnerID
+                       join t in db.Tours on b.TourID equals t.TourID
+                       join g in db.GroupTours on t.GroupID equals g.GroupID
+                       where b.IsPayment == isPayment && b.IsBooked == isBooked && b.PartnerID == partnerID && g.GroupID == groupID
+                             && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
+                       orderby b.StartDate
+                       select new BookTourModel
+                       {
+                           ID = b.ID,
+                           TourName = t.Name,
+                           StartDate = b.StartDate,
+                           Pax = b.Pax,
+                           Room = b.Room,
+                           Price = b.PriceReceive,
+                           SaleBook = b.StaffID,
+                           Note = b.Note,
+                           Total = b.Total
+                       };
+            }
             return data;
         }
-        public IQueryable GetListBookedDone(int partnerID, int groupID, int month, int year, bool isBooked = true)
+        public IQueryable GetListBookedDone(int partnerID, int groupID, int month, int year, bool? isPayment = true, bool isBooked = true)
         {
-            IQueryable data = from b in db.Books
-                              join p in db.Partners on b.PartnerID equals p.PartnerID
-                              join t in db.Tours on b.TourID equals t.TourID
-                              join g in db.GroupTours on t.GroupID equals g.GroupID
-                              where b.IsBooked == isBooked && b.PartnerID == partnerID && g.GroupID == groupID
-                                    && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
-                              orderby b.StartDate
-                              select new
-                              {
-                                  b.ID,
-                                  t.TourID,
-                                  TourName = t.Name,
-                                  ParnerID = p.PartnerID,
-                                  PartnerName = p.Name,
-                                  BookID = b.ID,
-                                  b.StartDate,
-                                  b.EndDate,
-                                  b.Pax,
-                                  b.PickUp,
-                                  b.Room,
-                                  b.CustomName,
-                                  b.PartnerPrice,
-                                  b.PriceReceive,
-                                  b.PriceSale,
-                                  b.PriceVTQ,
-                                  b.PromotionMoney,
-                                  b.PromotionPercent,
-                                  b.StaffID,
-                                  b.DateCreate,
-                                  b.Note,
-                                  b.ServiceType,
-                                  b.Total,
-                                  b.ServiceName
-                              };
-
+            IQueryable data = null;
+            if (isPayment == null)
+            {
+                data = from b in db.Books
+                       join p in db.Partners on b.PartnerID equals p.PartnerID
+                       join t in db.Tours on b.TourID equals t.TourID
+                       join g in db.GroupTours on t.GroupID equals g.GroupID
+                       where b.IsBooked == isBooked && b.PartnerID == partnerID && g.GroupID == groupID
+                             && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
+                       orderby b.StartDate
+                       select new
+                       {
+                           b.ID,
+                           t.TourID,
+                           TourName = t.Name,
+                           ParnerID = p.PartnerID,
+                           PartnerName = p.Name,
+                           BookID = b.ID,
+                           b.StartDate,
+                           b.EndDate,
+                           b.Pax,
+                           b.PickUp,
+                           b.Room,
+                           b.CustomName,
+                           b.PartnerPrice,
+                           b.PriceReceive,
+                           b.PriceSale,
+                           b.PriceVTQ,
+                           b.PromotionMoney,
+                           b.PromotionPercent,
+                           b.StaffID,
+                           b.DateCreate,
+                           b.Note,
+                           b.ServiceType,
+                           b.Total,
+                           b.ServiceName
+                       };
+            }
+            else
+            {
+                data = from b in db.Books
+                       join p in db.Partners on b.PartnerID equals p.PartnerID
+                       join t in db.Tours on b.TourID equals t.TourID
+                       join g in db.GroupTours on t.GroupID equals g.GroupID
+                       where b.IsPayment == isPayment && b.IsBooked == isBooked && b.PartnerID == partnerID && g.GroupID == groupID
+                             && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
+                       orderby b.StartDate
+                       select new
+                       {
+                           b.ID,
+                           t.TourID,
+                           TourName = t.Name,
+                           ParnerID = p.PartnerID,
+                           PartnerName = p.Name,
+                           BookID = b.ID,
+                           b.StartDate,
+                           b.EndDate,
+                           b.Pax,
+                           b.PickUp,
+                           b.Room,
+                           b.CustomName,
+                           b.PartnerPrice,
+                           b.PriceReceive,
+                           b.PriceSale,
+                           b.PriceVTQ,
+                           b.PromotionMoney,
+                           b.PromotionPercent,
+                           b.StaffID,
+                           b.DateCreate,
+                           b.Note,
+                           b.ServiceType,
+                           b.Total,
+                           b.ServiceName
+                       };
+            }
             return data;
         }
         public IQueryable GetList(bool isCancel = false)

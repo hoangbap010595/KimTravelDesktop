@@ -113,15 +113,29 @@ namespace KimTravel.GUI.UControls
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
+
+
             var tID = int.Parse(cbbPartnerID.SelectedValue.ToString());
             var groupID = int.Parse(cbbGroupTour.SelectedValue.ToString());
             var month = int.Parse(cbbMonth.SelectedValue.ToString());
             var year = int.Parse(cbbYear.SelectedValue.ToString());
-            dataGridViewGroupTour.DataSource = objService.GetListBookedDone(tID, groupID, month, year, true);
+            bool? isPayment = rdDaThanhToan.Checked == true ? true : false;
+
+            if (rdALL.Checked)
+            {
+                isPayment = null;
+            }
+
+            dataGridViewGroupTour.DataSource = objService.GetListBookedDone(tID, groupID, month, year, isPayment, true);
         }
 
         private void btnExportExcel_Click(object sender, EventArgs e)
         {
+            if (dataGridViewGroupTour.RowCount == 0)
+            {
+                MessageBox.Show("Không tìm thấy dữ liệu.");
+                return;
+            }
             ExcelLibrary.ExportToExcel(dataGridViewGroupTour);
         }
         private void dataGridViewGroupTour_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -138,7 +152,13 @@ namespace KimTravel.GUI.UControls
             var groupID = int.Parse(cbbGroupTour.SelectedValue.ToString());
             var month = int.Parse(cbbMonth.SelectedValue.ToString());
             var year = int.Parse(cbbYear.SelectedValue.ToString());
-            xtraRPBaoCaoCongNo rp = new xtraRPBaoCaoCongNo(tID, groupID, month,year);
+            bool? isPayment = rdDaThanhToan.Checked == true ? true : false;
+
+            if (rdALL.Checked)
+            {
+                isPayment = null;
+            }
+            xtraRPBaoCaoCongNo rp = new xtraRPBaoCaoCongNo(tID, groupID, month,year, isPayment);
             rp.ShowPreview();
         }
     }

@@ -43,19 +43,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
-            this.cbbMonth = new System.Windows.Forms.ComboBox();
-            this.cbbPartnerID = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tảiLạiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xuấtExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnExportExcel = new System.Windows.Forms.Button();
-            this.btnXuatBaoCao = new System.Windows.Forms.Button();
-            this.cbbYear = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbbGroupTour = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TourName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,18 +66,36 @@
             this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDateCreate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ActionUpdate = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.cbbMonth = new System.Windows.Forms.ComboBox();
+            this.cbbPartnerID = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tảiLạiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xuấtExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnExportExcel = new System.Windows.Forms.Button();
+            this.btnXuatBaoCao = new System.Windows.Forms.Button();
+            this.cbbYear = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbbGroupTour = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdDaThanhToan = new System.Windows.Forms.RadioButton();
+            this.rdChuaThanhToan = new System.Windows.Forms.RadioButton();
+            this.rdALL = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTimKiem
             // 
             this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.Location = new System.Drawing.Point(562, 25);
+            this.btnTimKiem.Location = new System.Drawing.Point(843, 4);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(100, 24);
+            this.btnTimKiem.Size = new System.Drawing.Size(110, 50);
             this.btnTimKiem.TabIndex = 5;
-            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.Text = "Lọc dữ liệu";
             this.btnTimKiem.UseVisualStyleBackColor = true;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
@@ -148,136 +153,6 @@
             this.dataGridViewGroupTour.TabIndex = 0;
             this.dataGridViewGroupTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridViewGroupTour.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewGroupTour_RowPostPaint);
-            // 
-            // cbbMonth
-            // 
-            this.cbbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbMonth.FormattingEnabled = true;
-            this.cbbMonth.ItemHeight = 16;
-            this.cbbMonth.Location = new System.Drawing.Point(417, 25);
-            this.cbbMonth.Name = "cbbMonth";
-            this.cbbMonth.Size = new System.Drawing.Size(68, 24);
-            this.cbbMonth.TabIndex = 2;
-            // 
-            // cbbPartnerID
-            // 
-            this.cbbPartnerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbPartnerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbPartnerID.FormattingEnabled = true;
-            this.cbbPartnerID.ItemHeight = 16;
-            this.cbbPartnerID.Location = new System.Drawing.Point(13, 25);
-            this.cbbPartnerID.Name = "cbbPartnerID";
-            this.cbbPartnerID.Size = new System.Drawing.Size(228, 24);
-            this.cbbPartnerID.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(10, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Đối tác:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(414, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Tháng:";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tảiLạiToolStripMenuItem,
-            this.xuấtExcelToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(128, 48);
-            // 
-            // tảiLạiToolStripMenuItem
-            // 
-            this.tảiLạiToolStripMenuItem.Name = "tảiLạiToolStripMenuItem";
-            this.tảiLạiToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
-            this.tảiLạiToolStripMenuItem.Text = "Tải lại";
-            this.tảiLạiToolStripMenuItem.Click += new System.EventHandler(this.btnLoad_Click);
-            // 
-            // xuấtExcelToolStripMenuItem
-            // 
-            this.xuấtExcelToolStripMenuItem.Name = "xuấtExcelToolStripMenuItem";
-            this.xuấtExcelToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
-            this.xuấtExcelToolStripMenuItem.Text = "Xuất Excel";
-            this.xuấtExcelToolStripMenuItem.Click += new System.EventHandler(this.btnExportExcel_Click);
-            // 
-            // btnExportExcel
-            // 
-            this.btnExportExcel.Location = new System.Drawing.Point(668, 24);
-            this.btnExportExcel.Name = "btnExportExcel";
-            this.btnExportExcel.Size = new System.Drawing.Size(100, 25);
-            this.btnExportExcel.TabIndex = 9;
-            this.btnExportExcel.Text = "Xuất Excel";
-            this.btnExportExcel.UseVisualStyleBackColor = true;
-            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
-            // 
-            // btnXuatBaoCao
-            // 
-            this.btnXuatBaoCao.Location = new System.Drawing.Point(774, 24);
-            this.btnXuatBaoCao.Name = "btnXuatBaoCao";
-            this.btnXuatBaoCao.Size = new System.Drawing.Size(100, 25);
-            this.btnXuatBaoCao.TabIndex = 9;
-            this.btnXuatBaoCao.Text = "In báo cáo";
-            this.btnXuatBaoCao.UseVisualStyleBackColor = true;
-            this.btnXuatBaoCao.Click += new System.EventHandler(this.btnXuatBaoCao_Click);
-            // 
-            // cbbYear
-            // 
-            this.cbbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbYear.FormattingEnabled = true;
-            this.cbbYear.ItemHeight = 16;
-            this.cbbYear.Location = new System.Drawing.Point(488, 25);
-            this.cbbYear.Name = "cbbYear";
-            this.cbbYear.Size = new System.Drawing.Size(68, 24);
-            this.cbbYear.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(490, 5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 17);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Năm:";
-            // 
-            // cbbGroupTour
-            // 
-            this.cbbGroupTour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbGroupTour.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbGroupTour.FormattingEnabled = true;
-            this.cbbGroupTour.ItemHeight = 16;
-            this.cbbGroupTour.Location = new System.Drawing.Point(247, 25);
-            this.cbbGroupTour.Name = "cbbGroupTour";
-            this.cbbGroupTour.Size = new System.Drawing.Size(160, 24);
-            this.cbbGroupTour.TabIndex = 11;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(244, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 17);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Nhóm:";
             // 
             // colID
             // 
@@ -513,10 +388,187 @@
             this.ActionUpdate.UseColumnTextForButtonValue = true;
             this.ActionUpdate.Width = 80;
             // 
+            // cbbMonth
+            // 
+            this.cbbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbMonth.FormattingEnabled = true;
+            this.cbbMonth.ItemHeight = 16;
+            this.cbbMonth.Location = new System.Drawing.Point(391, 25);
+            this.cbbMonth.Name = "cbbMonth";
+            this.cbbMonth.Size = new System.Drawing.Size(68, 24);
+            this.cbbMonth.TabIndex = 2;
+            // 
+            // cbbPartnerID
+            // 
+            this.cbbPartnerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbPartnerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbPartnerID.FormattingEnabled = true;
+            this.cbbPartnerID.ItemHeight = 16;
+            this.cbbPartnerID.Location = new System.Drawing.Point(8, 25);
+            this.cbbPartnerID.Name = "cbbPartnerID";
+            this.cbbPartnerID.Size = new System.Drawing.Size(213, 24);
+            this.cbbPartnerID.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(5, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Đối tác:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.Location = new System.Drawing.Point(388, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 17);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Tháng:";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tảiLạiToolStripMenuItem,
+            this.xuấtExcelToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(128, 48);
+            // 
+            // tảiLạiToolStripMenuItem
+            // 
+            this.tảiLạiToolStripMenuItem.Name = "tảiLạiToolStripMenuItem";
+            this.tảiLạiToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.tảiLạiToolStripMenuItem.Text = "Tải lại";
+            this.tảiLạiToolStripMenuItem.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
+            // xuấtExcelToolStripMenuItem
+            // 
+            this.xuấtExcelToolStripMenuItem.Name = "xuấtExcelToolStripMenuItem";
+            this.xuấtExcelToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.xuấtExcelToolStripMenuItem.Text = "Xuất Excel";
+            this.xuấtExcelToolStripMenuItem.Click += new System.EventHandler(this.btnExportExcel_Click);
+            // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.Location = new System.Drawing.Point(955, 3);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(100, 25);
+            this.btnExportExcel.TabIndex = 9;
+            this.btnExportExcel.Text = "Xuất Excel";
+            this.btnExportExcel.UseVisualStyleBackColor = true;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
+            // 
+            // btnXuatBaoCao
+            // 
+            this.btnXuatBaoCao.Location = new System.Drawing.Point(955, 30);
+            this.btnXuatBaoCao.Name = "btnXuatBaoCao";
+            this.btnXuatBaoCao.Size = new System.Drawing.Size(100, 25);
+            this.btnXuatBaoCao.TabIndex = 9;
+            this.btnXuatBaoCao.Text = "In báo cáo";
+            this.btnXuatBaoCao.UseVisualStyleBackColor = true;
+            this.btnXuatBaoCao.Click += new System.EventHandler(this.btnXuatBaoCao_Click);
+            // 
+            // cbbYear
+            // 
+            this.cbbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbYear.FormattingEnabled = true;
+            this.cbbYear.ItemHeight = 16;
+            this.cbbYear.Location = new System.Drawing.Point(462, 25);
+            this.cbbYear.Name = "cbbYear";
+            this.cbbYear.Size = new System.Drawing.Size(68, 24);
+            this.cbbYear.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label3.Location = new System.Drawing.Point(464, 5);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 17);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Năm:";
+            // 
+            // cbbGroupTour
+            // 
+            this.cbbGroupTour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbGroupTour.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbGroupTour.FormattingEnabled = true;
+            this.cbbGroupTour.ItemHeight = 16;
+            this.cbbGroupTour.Location = new System.Drawing.Point(226, 25);
+            this.cbbGroupTour.Name = "cbbGroupTour";
+            this.cbbGroupTour.Size = new System.Drawing.Size(160, 24);
+            this.cbbGroupTour.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label4.Location = new System.Drawing.Point(223, 5);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 17);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Nhóm:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rdALL);
+            this.groupBox1.Controls.Add(this.rdDaThanhToan);
+            this.groupBox1.Controls.Add(this.rdChuaThanhToan);
+            this.groupBox1.Location = new System.Drawing.Point(536, 7);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(302, 45);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Tình trạng";
+            // 
+            // rdDaThanhToan
+            // 
+            this.rdDaThanhToan.AutoSize = true;
+            this.rdDaThanhToan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdDaThanhToan.Location = new System.Drawing.Point(76, 17);
+            this.rdDaThanhToan.Name = "rdDaThanhToan";
+            this.rdDaThanhToan.Size = new System.Drawing.Size(102, 19);
+            this.rdDaThanhToan.TabIndex = 6;
+            this.rdDaThanhToan.Text = "Đã thanh toán";
+            this.rdDaThanhToan.UseVisualStyleBackColor = true;
+            // 
+            // rdChuaThanhToan
+            // 
+            this.rdChuaThanhToan.AutoSize = true;
+            this.rdChuaThanhToan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdChuaThanhToan.Location = new System.Drawing.Point(182, 17);
+            this.rdChuaThanhToan.Name = "rdChuaThanhToan";
+            this.rdChuaThanhToan.Size = new System.Drawing.Size(115, 19);
+            this.rdChuaThanhToan.TabIndex = 6;
+            this.rdChuaThanhToan.Text = "Chưa thanh toán";
+            this.rdChuaThanhToan.UseVisualStyleBackColor = true;
+            // 
+            // rdALL
+            // 
+            this.rdALL.AutoSize = true;
+            this.rdALL.Checked = true;
+            this.rdALL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdALL.Location = new System.Drawing.Point(6, 17);
+            this.rdALL.Name = "rdALL";
+            this.rdALL.Size = new System.Drawing.Size(58, 19);
+            this.rdALL.TabIndex = 6;
+            this.rdALL.Text = "Tất cả";
+            this.rdALL.UseVisualStyleBackColor = true;
+            // 
             // UCReportCongNo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cbbGroupTour);
             this.Controls.Add(this.btnXuatBaoCao);
             this.Controls.Add(this.btnExportExcel);
@@ -534,6 +586,8 @@
             this.Load += new System.EventHandler(this.UCGroupTour_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -578,5 +632,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDateCreate;
         private System.Windows.Forms.DataGridViewButtonColumn ActionUpdate;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rdDaThanhToan;
+        private System.Windows.Forms.RadioButton rdChuaThanhToan;
+        private System.Windows.Forms.RadioButton rdALL;
     }
 }

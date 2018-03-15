@@ -17,8 +17,7 @@ namespace KimTravel.DAL.Services
         {
             IQueryable data = from p in db.Partners
                               from g in db.GroupPartners.Where(x => x.GroupPartnerID == p.GroupID).DefaultIfEmpty()
-                              orderby g.GroupName
-                              orderby p.Address
+                              orderby p.Name
                               select new
                               {
                                   p.PartnerID,

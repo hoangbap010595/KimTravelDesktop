@@ -114,6 +114,11 @@ namespace KimTravel.GUI.UControls
 
         private void btnExportExcel_Click(object sender, EventArgs e)
         {
+            if (dataGridViewGroupTour.RowCount == 0)
+            {
+                MessageBox.Show("Không tìm thấy dữ liệu.");
+                return;
+            }
             ExcelLibrary.ExportToExcel(dataGridViewGroupTour);
         }
         private void dataGridViewGroupTour_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
