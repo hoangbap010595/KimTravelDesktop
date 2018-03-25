@@ -11,10 +11,13 @@ using KimTravel.GUI.FControls;
 using KimTravel.DAL.Services;
 using KimTravel.DAL.Models;
 using KimTravel.DAL;
+using DevExpress.XtraPrinting;
+using System.IO;
+using DevExpress.XtraEditors;
 
 namespace KimTravel.GUI.UControls
 {
-    public partial class UCListBook : UserControl
+    public partial class UCListBook : XtraUserControl
     {
         private GroupTourService grTourService = new GroupTourService();
         private TourService tService = new TourService();
@@ -27,10 +30,6 @@ namespace KimTravel.GUI.UControls
         private void loadDataGroup()
         {
             objService = new BookService();
-            //var data = objService.GetList();
-            //dataGridViewGroupTour.DataSource = data;
-            //dataGridViewGroupTour.Update();
-            //dataGridViewGroupTour.Refresh();
             btnTimKiem.PerformClick();
         }
         private void btnThemMoi_Click(object sender, EventArgs e)
@@ -43,7 +42,6 @@ namespace KimTravel.GUI.UControls
         private void UCGroupTour_Load(object sender, EventArgs e)
         {
             objService = new BookService();
-            dataGridViewGroupTour.AutoGenerateColumns = false;
             cbbGroupTourID.DataSource = grTourService.GetListCombobox();
             cbbGroupTourID.ValueMember = "GroupID";
             cbbGroupTourID.DisplayMember = "Name";
@@ -51,23 +49,6 @@ namespace KimTravel.GUI.UControls
             dtpStartDate.Value = DateTime.Now.AddDays(1);
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                var senderGrid = (DataGridView)sender;
-                var id = int.Parse(senderGrid.Rows[e.RowIndex].Cells[0].Value.ToString());
-                if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                    e.RowIndex >= 0)
-                {
-                    int work = rdBinhThuong.Checked == true ? 1 : 2;
-                    frmDetailsTour frm = new frmDetailsTour(work, id);
-                    frm.loadData = new frmDetailsTour.LoadData(loadDataGroup);
-                    frm.ShowDialog();
-                }
-            }
-            catch { }
-        }
         private void cbbGroupTourID_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -93,18 +74,46 @@ namespace KimTravel.GUI.UControls
             var dateStart = dtpStartDate.Value.ToString("yyyy-MM-dd");
             var isCancel = rdBinhThuong.Checked == true ? false : true;
 
-            dataGridViewGroupTour.DataSource = objService.GetListBooked(tID, dateStart, isCancel);
+            gridControlData.DataSource = objService.GetListBooked(tID, dateStart, isCancel);
         }
 
         private void btnExportExcel_Click(object sender, EventArgs e)
         {
-            if(dataGridViewGroupTour.RowCount == 0)
+            try
             {
-                MessageBox.Show("Không tìm thấy dữ liệu.");
-                return;
+                if (gridViewData.RowCount > 0)
+                {
+                    string path = "";
+                    SaveFileDialog saved = new SaveFileDialog();
+                    saved.Filter = "Excel (*.xlsx)|*.xlsx|Excel (*.xls)|*.xls";
+                    if (DialogResult.OK == saved.ShowDialog())
+                    {
+                        path = saved.FileName.ToString();
+                        ExportTarget excel = ExportTarget.Xlsx;
+                        gridViewData.BestFitColumns(true);
+                        gridViewData.OptionsPrint.AutoWidth = false;
+                        gridViewData.OptionsPrint.ExpandAllDetails = true;
+                        gridViewData.OptionsPrint.PrintVertLines = false;
+                        gridViewData.OptionsPrint.PrintHorzLines = false;
+                        gridViewData.Export(excel, path);
+                        if (DialogResult.OK == XtraMessageBox.Show("Mở file \"" + Path.GetFileName(path) + "\" ?", "", MessageBoxButtons.OKCancel))
+                        {
+                            System.Diagnostics.Process.Start(path);
+                        }
+                    }
+                }
+                else { XtraMessageBox.Show("Không tìm thấy dữ liệu!"); }
             }
-            ExcelLibrary.ExportToExcel(dataGridViewGroupTour);
+            catch { }
         }
 
+        private void btnClickViews_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var id = int.Parse(gridViewData.GetFocusedRowCellValue("ID").ToString());
+            int work = rdBinhThuong.Checked == true ? 1 : 2;
+            frmDetailsTour frm = new frmDetailsTour(work, id);
+            frm.loadData = new frmDetailsTour.LoadData(loadDataGroup);
+            frm.ShowDialog();
+        }
     }
 }

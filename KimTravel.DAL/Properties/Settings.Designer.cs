@@ -26,28 +26,6 @@ namespace KimTravel.DAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=125.212.221.110;Initial Catalog=KimTravelDesktop;User ID=hoang1995;Pa" +
-            "ssword=Hoang911")]
-        public string KimTravelDesktopConnectionString {
-            get {
-                return ((string)(this["KimTravelDesktopConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=125.212.221.110;Initial Catalog=KimTravelDesktop;Persist Security Inf" +
-            "o=True;User ID=hoang1995;Password=Hoang911")]
-        public string KimTravelDesktopConnectionString1 {
-            get {
-                return ((string)(this["KimTravelDesktopConnectionString1"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;Initial Catalog=KimTravelDesktop;User ID=sa;Password=Hoa" +
             "ng911")]
         public string LocalConnectionString {
@@ -59,11 +37,33 @@ namespace KimTravel.DAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=125.212.221.110;Initial Catalog=KimTravelDesktop;Persist Security Inf" +
-            "o=True;User ID=hoang1995;Password=Hoang911")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=103.53.231.198;Initial Catalog=KimTravelDesktop;Persist Security Info" +
+            "=True;User ID=hoang1995;Password=Hoang911")]
         public string KimTravelConnectionString {
             get {
                 return ((string)(this["KimTravelConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=103.53.231.198;Initial Catalog=KimTravelDesktop;User ID=hoang1995;Pas" +
+            "sword=Hoang911")]
+        public string KimTravelDesktopConnectionString {
+            get {
+                return ((string)(this["KimTravelDesktopConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=103.53.231.198;Initial Catalog=KimTravelDesktop;Persist Security Info" +
+            "=True;User ID=hoang1995;Password=Hoang911")]
+        public string KimTravelDesktopConnectionString1 {
+            get {
+                return ((string)(this["KimTravelDesktopConnectionString1"]));
             }
         }
     }

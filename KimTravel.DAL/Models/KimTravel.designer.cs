@@ -72,7 +72,7 @@ namespace KimTravel.DAL.Models
     #endregion
 		
 		public KimTravelDataContext() : 
-				base(global::KimTravel.DAL.Properties.Settings.Default.LocalConnectionString, mappingSource)
+				base(global::KimTravel.DAL.Properties.Settings.Default.KimTravelConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -716,7 +716,7 @@ namespace KimTravel.DAL.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(128)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(MAX)")]
 		public string Email
 		{
 			get
@@ -2284,6 +2284,8 @@ namespace KimTravel.DAL.Models
 		
 		private System.Nullable<int> _GroupID;
 		
+		private string _Line;
+		
 		private EntitySet<Staff> _Staffs;
 		
     #region Extensibility Method Definitions
@@ -2306,6 +2308,8 @@ namespace KimTravel.DAL.Models
     partial void OnNoteChanged();
     partial void OnGroupIDChanging(System.Nullable<int> value);
     partial void OnGroupIDChanged();
+    partial void OnLineChanging(string value);
+    partial void OnLineChanged();
     #endregion
 		
 		public Partner()
@@ -2334,7 +2338,7 @@ namespace KimTravel.DAL.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartnerCode", DbType="NVarChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartnerCode", DbType="NVarChar(50)")]
 		public string PartnerCode
 		{
 			get
@@ -2470,6 +2474,26 @@ namespace KimTravel.DAL.Models
 					this._GroupID = value;
 					this.SendPropertyChanged("GroupID");
 					this.OnGroupIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Line", DbType="NVarChar(32)")]
+		public string Line
+		{
+			get
+			{
+				return this._Line;
+			}
+			set
+			{
+				if ((this._Line != value))
+				{
+					this.OnLineChanging(value);
+					this.SendPropertyChanging();
+					this._Line = value;
+					this.SendPropertyChanged("Line");
+					this.OnLineChanged();
 				}
 			}
 		}

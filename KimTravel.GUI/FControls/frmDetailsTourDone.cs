@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using DevExpress.XtraEditors;
 
 namespace KimTravel.GUI.FControls
 {
@@ -104,7 +105,7 @@ namespace KimTravel.GUI.FControls
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (DialogResult.OK == MessageBox.Show("Xác nhận cập nhật thông tin.", "Thông báo", MessageBoxButtons.OKCancel))
+            if (DialogResult.OK == XtraMessageBox.Show("Xác nhận cập nhật thông tin.", "Thông báo", MessageBoxButtons.OKCancel))
             {
                 frmConfirm frm = new frmConfirm();
                 frm.confirm = new frmConfirm.ConfirmPassword(confirmOK);
@@ -169,13 +170,16 @@ namespace KimTravel.GUI.FControls
             }
             return price;
         }
-        private void getService(string name, int price)
+        private void getService(string name, int price, int add)
         {
-            DataRow dr = tableService.NewRow();
-            dr["ServiceType"] = name;
-            dr["Price"] = price;
+            if (add == 1)
+            {
+                DataRow dr = tableService.NewRow();
+                dr["ServiceType"] = name;
+                dr["Price"] = price;
 
-            tableService.Rows.Add(dr);
+                tableService.Rows.Add(dr);
+            }
             tableService.AcceptChanges();
             dataGridViewGroupTour.DataSource = tableService;
             lblMoney.Text = "Total:" + String.Format("{0:#,###}", getTotalPriceService());
@@ -247,13 +251,13 @@ namespace KimTravel.GUI.FControls
             var rs2 = bookService.UpdateBooked(_ObjID, isBooked);
             if (rs && rs2)
             {
-                MessageBox.Show("Cập nhật trạng thái thành công.", "Thông báo");
+                XtraMessageBox.Show("Cập nhật trạng thái thành công.", "Thông báo");
                 if (loadData != null)
                     loadData();
                 this.Close();
             }
             else
-                MessageBox.Show("Xảy ra lỗi. Vui lòng thử lại", "Thông báo");
+                XtraMessageBox.Show("Xảy ra lỗi. Vui lòng thử lại", "Thông báo");
         }
     }
 }

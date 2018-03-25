@@ -12,9 +12,13 @@ using KimTravel.DAL.Services;
 using KimTravel.DAL.Models;
 using KimTravel.DAL;
 using DevExpress.XtraReports.UI;
+using DevExpress.XtraPrinting;
+using System.IO;
+using DevExpress.XtraEditors;
+
 namespace KimTravel.GUI.UControls
 {
-    public partial class UCReportCongNo : UserControl
+    public partial class UCReportCongNo : XtraUserControl
     {
         private PartnerService partnerService = new PartnerService();
         private GroupTourService grTourService = new GroupTourService();
@@ -68,7 +72,6 @@ namespace KimTravel.GUI.UControls
         private void UCGroupTour_Load(object sender, EventArgs e)
         {
             objService = new BookService();
-            dataGridViewGroupTour.AutoGenerateColumns = false;
             cbbPartnerID.DataSource = partnerService.GetListCobobox();
             cbbPartnerID.ValueMember = "PartnerID";
             cbbPartnerID.DisplayMember = "Address";
@@ -89,23 +92,6 @@ namespace KimTravel.GUI.UControls
             cbbYear.SelectedValue = DateTime.Now.Year;
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                var senderGrid = (DataGridView)sender;
-                var id = int.Parse(senderGrid.Rows[e.RowIndex].Cells[0].Value.ToString());
-                if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                    e.RowIndex >= 0)
-                {
-                    frmDetailsTourDone frm = new frmDetailsTourDone(id);
-                    frm.loadData = new frmDetailsTourDone.LoadData(loadDataGroup);
-                    frm.ShowDialog();
-                }
-            }
-            catch { }
-        }
-
         private void btnLoad_Click(object sender, EventArgs e)
         {
             btnTimKiem.PerformClick();
@@ -113,9 +99,7 @@ namespace KimTravel.GUI.UControls
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-
-
-            var tID = int.Parse(cbbPartnerID.SelectedValue.ToString());
+            var partnerID = int.Parse(cbbPartnerID.SelectedValue.ToString());
             var groupID = int.Parse(cbbGroupTour.SelectedValue.ToString());
             var month = int.Parse(cbbMonth.SelectedValue.ToString());
             var year = int.Parse(cbbYear.SelectedValue.ToString());
@@ -126,24 +110,40 @@ namespace KimTravel.GUI.UControls
                 isPayment = null;
             }
 
-            dataGridViewGroupTour.DataSource = objService.GetListBookedDone(tID, groupID, month, year, isPayment, true);
+            if (ckViewAllPartner.Checked)
+                gridControlData.DataSource = objService.GetListBookedDoneAllParnert(groupID, month, year, isPayment, true);
+            else
+                gridControlData.DataSource = objService.GetListBookedDone(partnerID, groupID, month, year, isPayment, true);
         }
 
         private void btnExportExcel_Click(object sender, EventArgs e)
         {
-            if (dataGridViewGroupTour.RowCount == 0)
+            try
             {
-                MessageBox.Show("Không tìm thấy dữ liệu.");
-                return;
+                if (gridViewData.RowCount > 0)
+                {
+                    string path = "";
+                    SaveFileDialog saved = new SaveFileDialog();
+                    saved.Filter = "Excel (*.xlsx)|*.xlsx|Excel (*.xls)|*.xls";
+                    if (DialogResult.OK == saved.ShowDialog())
+                    {
+                        path = saved.FileName.ToString();
+                        ExportTarget excel = ExportTarget.Xlsx;
+                        gridViewData.BestFitColumns(true);
+                        gridViewData.OptionsPrint.AutoWidth = false;
+                        gridViewData.OptionsPrint.ExpandAllDetails = true;
+                        gridViewData.OptionsPrint.PrintVertLines = false;
+                        gridViewData.OptionsPrint.PrintHorzLines = false;
+                        gridViewData.Export(excel, path);
+                        if (DialogResult.OK == XtraMessageBox.Show("Mở file \"" + Path.GetFileName(path) + "\" ?", "", MessageBoxButtons.OKCancel))
+                        {
+                            System.Diagnostics.Process.Start(path);
+                        }
+                    }
+                }
+                else { XtraMessageBox.Show("Không tìm thấy dữ liệu!"); }
             }
-            ExcelLibrary.ExportToExcel(dataGridViewGroupTour);
-        }
-        private void dataGridViewGroupTour_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            using (SolidBrush b = new SolidBrush(dataGridViewGroupTour.RowHeadersDefaultCellStyle.ForeColor))
-            {
-                e.Graphics.DrawString((e.RowIndex + 1).ToString(), e.InheritedRowStyle.Font, b, e.RowBounds.Location.X + 10, e.RowBounds.Location.Y + 4);
-            }
+            catch { }
         }
 
         private void btnXuatBaoCao_Click(object sender, EventArgs e)
@@ -158,8 +158,25 @@ namespace KimTravel.GUI.UControls
             {
                 isPayment = null;
             }
-            xtraRPBaoCaoCongNo rp = new xtraRPBaoCaoCongNo(tID, groupID, month,year, isPayment);
+
+            xtraRPBaoCaoCongNo rp = new xtraRPBaoCaoCongNo(tID, groupID, month, year, isPayment);
             rp.ShowPreview();
+        }
+
+        private void txtFindPartner_TextChanged(object sender, EventArgs e)
+        {
+            string content = txtFindPartner.Text.Trim();
+            cbbPartnerID.DataSource = partnerService.GetListCobobox(content);
+            cbbPartnerID.ValueMember = "PartnerID";
+            cbbPartnerID.DisplayMember = "Address";
+        }
+
+        private void btnClickViews2_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var id = int.Parse(gridViewData.GetFocusedRowCellValue("ID").ToString());
+            frmDetailsTourDone frm = new frmDetailsTourDone(id);
+            frm.loadData = new frmDetailsTourDone.LoadData(loadDataGroup);
+            frm.ShowDialog();
         }
     }
 }

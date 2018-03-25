@@ -10,10 +10,11 @@ using System.Windows.Forms;
 using KimTravel.GUI.FControls;
 using KimTravel.DAL.Services;
 using KimTravel.DAL;
+using DevExpress.XtraEditors;
 
 namespace KimTravel.GUI.UControls
 {
-    public partial class UCBookCar : UserControl
+    public partial class UCBookCar : XtraUserControl
     {
         private GroupTourService grTourService = new GroupTourService();
         private TourService tService = new TourService();
@@ -151,12 +152,6 @@ namespace KimTravel.GUI.UControls
         {
             loadDataGroup();
         }
-
-        private void btnExportExcel_Click(object sender, EventArgs e)
-        {
-            ExcelLibrary.ExportToExcel(dataGridViewGroupTour);
-        }
-
         private void dataGridViewGroupTour_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             using (SolidBrush b = new SolidBrush(dataGridViewGroupTour.RowHeadersDefaultCellStyle.ForeColor))
@@ -185,6 +180,7 @@ namespace KimTravel.GUI.UControls
             var dateStart = dtpStartDate.Value.ToString("yyyy-MM-dd");
 
             dataGridViewGroupTour.DataSource = objService.GetListBooked(tID, dateStart, false);
+            gridControlData.DataSource = objService.GetListBooked(tID, dateStart, false);
         }
 
         private void rdCar05_CheckedChanged(object sender, EventArgs e)
@@ -238,22 +234,22 @@ namespace KimTravel.GUI.UControls
             }
             else
             {
-                MessageBox.Show("Không tìm thấy thông tin xe được book.");
+                XtraMessageBox.Show("Không tìm thấy thông tin xe được book.");
             }
         }
         private void refreshData(int numCar)
         {
-            var colName = "colCar" + numCar;
-            foreach (DataGridViewRow row in dataGridViewGroupTour.Rows)
-            {
-                if (row.Cells[colName].Value != null && (bool)row.Cells[colName].Value)
-                {
-                    dataGridViewGroupTour.Rows.Remove(row);
-                }
-            }
-            dataGridViewGroupTour.Update();
-            dataGridViewGroupTour.Refresh();
-            listControl[numCar - 1].Text = "0";
+            //var colName = "colCar" + numCar;
+            //foreach (DataGridViewRow row in dataGridViewGroupTour.Rows)
+            //{
+            //    if (row.Cells[colName].Value != null && (bool)row.Cells[colName].Value)
+            //    {
+            //        dataGridViewGroupTour.Rows.Remove(row);
+            //    }
+            //}
+            //dataGridViewGroupTour.Update();
+            //dataGridViewGroupTour.Refresh();
+            //listControl[numCar - 1].Text = "0";
         }
 
         private void btnCar1_Click(object sender, EventArgs e)
@@ -303,6 +299,12 @@ namespace KimTravel.GUI.UControls
         private void btnCar10_Click(object sender, EventArgs e)
         {
             getDataRowChecked("colCar10", 10);
+        }
+
+        private void ckCar1_EditValueChanged(object sender, EventArgs e)
+        {
+            int[] selectedRows = gridViewData.GetSelectedRows();
+            List<DataRowView> list = selectedRows.Select(i => gridViewData.GetRow(i) as DataRowView).ToList();
         }
     }
 }

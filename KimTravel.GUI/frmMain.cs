@@ -1,4 +1,5 @@
-﻿using KimTravel.DAL;
+﻿using DevExpress.XtraEditors;
+using KimTravel.DAL;
 using KimTravel.DAL.Services;
 using KimTravel.GUI.UControls;
 using MaterialSkin;
@@ -46,7 +47,7 @@ namespace KimTravel.GUI
 
         private void kêtThucToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (DialogResult.Yes == MessageBox.Show("Kết thúc phiên làm việc ?", "Xác thực", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            if (DialogResult.Yes == XtraMessageBox.Show("Kết thúc phiên làm việc ?", "Xác thực", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 Application.Exit();
         }
 
@@ -94,13 +95,13 @@ namespace KimTravel.GUI
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (DialogResult.Yes == MessageBox.Show("Kết thúc phiên làm việc ?", "Xác thực", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-            {
-                //Application.Exit();
-                e.Cancel = false;
-            }
-            else
-                e.Cancel = true;
+            //if (DialogResult.Yes == XtraMessageBox.Show("Kết thúc phiên làm việc ?", "Xác thực", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            //{
+            //    //Application.Exit();
+            //    e.Cancel = false;
+            //}
+            //else
+            //    e.Cancel = true;
         }
 
         private void bookToolStripMenuItem_Click(object sender, EventArgs e)
@@ -108,6 +109,8 @@ namespace KimTravel.GUI
             lblTitle.Text = "Book tour";
             UCBook uc = new UCBook();
             addControlToPanel(uc);
+            //frmBookTour frm = new frmBookTour();
+            //frm.ShowDialog();
         }
 
         private void danhSachĐaBookToolStripMenuItem_Click(object sender, EventArgs e)

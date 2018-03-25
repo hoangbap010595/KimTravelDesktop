@@ -1,4 +1,5 @@
-﻿using KimTravel.DAL;
+﻿using DevExpress.XtraEditors;
+using KimTravel.DAL;
 using KimTravel.DAL.Models;
 using KimTravel.DAL.Services;
 using MaterialSkin;
@@ -64,7 +65,7 @@ namespace KimTravel.GUI.FControls
         {
             if(txtName.Text == "")
             {
-                MessageBox.Show("Tên tour không thể để trống.");
+                XtraMessageBox.Show("Tên tour không thể để trống.");
                 return;
             }
 
@@ -89,14 +90,14 @@ namespace KimTravel.GUI.FControls
             }
             if (rs)
             {
-                MessageBox.Show(msg);
+                XtraMessageBox.Show(msg);
 
                 if (loadData != null)
                     loadData();
                 this.Close();
             }
             else
-                MessageBox.Show("Tên tour tồn tại trong hệ thống. Vui lòng kiểm tra lại.");
+                XtraMessageBox.Show("Tên tour tồn tại trong hệ thống. Vui lòng kiểm tra lại.");
 
         }
 

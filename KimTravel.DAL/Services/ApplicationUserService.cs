@@ -40,7 +40,8 @@ namespace KimTravel.DAL.Services
         public string GetPartnerViewReport(string username)
         {
             ApplicationUser data = db.ApplicationUsers.FirstOrDefault(x => x.Username == username);
-
+            if (data == null)
+                return "";
             return data.Email;
         }
         public int CheckLogin(string username, string password)
@@ -129,7 +130,7 @@ namespace KimTravel.DAL.Services
                 ApplicationUser currUser = db.ApplicationUsers.FirstOrDefault(x => x.ID == user.ID);
                 if (currUser != null)
                 {
-                    user.Password = HashText.GetSHA1HashData(user.Password);
+                    user.Password = HashText.GetSHA1HashData(newPass);
                     currUser.LastUpdate = DateTime.Now;
                     currUser.UpdateBy = Constant.CurrentSessionUser;
                     db.SubmitChanges();

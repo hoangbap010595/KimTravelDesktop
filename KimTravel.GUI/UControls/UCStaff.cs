@@ -10,10 +10,13 @@ using System.Windows.Forms;
 using KimTravel.GUI.FControls;
 using KimTravel.DAL.Services;
 using KimTravel.DAL;
+using DevExpress.XtraEditors;
+using DevExpress.XtraPrinting;
+using System.IO;
 
 namespace KimTravel.GUI.UControls
 {
-    public partial class UCStaff : UserControl
+    public partial class UCStaff : XtraUserControl
     {
         private StaffService objService;
         public UCStaff()
@@ -25,9 +28,9 @@ namespace KimTravel.GUI.UControls
         {
             objService = new StaffService();
             var data = objService.GetList();
-            dataGridViewGroupTour.DataSource = data;
-            dataGridViewGroupTour.Update();
-            dataGridViewGroupTour.Refresh();
+            gridControlData.DataSource = data;
+            gridControlData.Update();
+            gridControlData.Refresh();
         }
         private void btnThemMoi_Click(object sender, EventArgs e)
         {
@@ -38,26 +41,9 @@ namespace KimTravel.GUI.UControls
 
         private void UCGroupTour_Load(object sender, EventArgs e)
         {
-            dataGridViewGroupTour.AutoGenerateColumns = false;
             loadDataGroup();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                var senderGrid = (DataGridView)sender;
-                var id = int.Parse(senderGrid.Rows[e.RowIndex].Cells[0].Value.ToString());
-                if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                    e.RowIndex >= 0)
-                {
-                    frmActionStaff frm = new frmActionStaff(1, id);
-                    frm.loadData = new frmActionStaff.LoadData(loadDataGroup);
-                    frm.ShowDialog();
-                }
-            }
-            catch { }
-        }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
@@ -66,28 +52,51 @@ namespace KimTravel.GUI.UControls
 
         private void btnExportExcel_Click(object sender, EventArgs e)
         {
-            if (dataGridViewGroupTour.RowCount == 0)
+            try
             {
-                MessageBox.Show("Không tìm thấy dữ liệu.");
-                return;
+                if (gridViewData.RowCount > 0)
+                {
+                    string path = "";
+                    SaveFileDialog saved = new SaveFileDialog();
+                    saved.Filter = "Excel (*.xlsx)|*.xlsx|Excel (*.xls)|*.xls";
+                    if (DialogResult.OK == saved.ShowDialog())
+                    {
+                        path = saved.FileName.ToString();
+                        ExportTarget excel = ExportTarget.Xlsx;
+                        gridViewData.BestFitColumns(true);
+                        gridViewData.OptionsPrint.AutoWidth = false;
+                        gridViewData.OptionsPrint.ExpandAllDetails = true;
+                        gridViewData.OptionsPrint.PrintVertLines = false;
+                        gridViewData.OptionsPrint.PrintHorzLines = false;
+                        gridViewData.Export(excel, path);
+                        if (DialogResult.OK == MessageBox.Show("Mở file \"" + Path.GetFileName(path) + "\" ?", "", MessageBoxButtons.OKCancel))
+                        {
+                            System.Diagnostics.Process.Start(path);
+                        }
+                    }
+                }
+                else { MessageBox.Show("Không tìm thấy dữ liệu!"); }
             }
-            ExcelLibrary.ExportToExcel(dataGridViewGroupTour);
+            catch { }
         }
 
-        private void dataGridViewGroupTour_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+
+        private void btnClickDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            using (SolidBrush b = new SolidBrush(dataGridViewGroupTour.RowHeadersDefaultCellStyle.ForeColor))
+            if (DialogResult.OK == XtraMessageBox.Show("Xác nhận xóa dữ liệu ?", "Thông báo", MessageBoxButtons.OKCancel))
             {
-                e.Graphics.DrawString((e.RowIndex + 1).ToString(), e.InheritedRowStyle.Font, b, e.RowBounds.Location.X + 10, e.RowBounds.Location.Y + 4);
+                int id = int.Parse(gridViewData.GetFocusedRowCellValue("ID").ToString());
+                objService.Delete(id);
+                loadDataGroup();
             }
         }
 
-        private void btnTImKiem_Click(object sender, EventArgs e)
+        private void btnClickEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var content = txtContent.Text;
-            dataGridViewGroupTour.DataSource = objService.GetListFind(content);
-            dataGridViewGroupTour.Update();
-            dataGridViewGroupTour.Refresh();
+            int id = int.Parse(gridViewData.GetFocusedRowCellValue("ID").ToString());
+            frmActionStaff frm = new frmActionStaff(1, id);
+            frm.loadData = new frmActionStaff.LoadData(loadDataGroup);
+            frm.ShowDialog();
         }
     }
 }

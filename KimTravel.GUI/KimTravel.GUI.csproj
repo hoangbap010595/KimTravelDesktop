@@ -54,9 +54,12 @@
     <Reference Include="DevExpress.Utils.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpo.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraGauges.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraReports.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v17.1.Extensions, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -90,6 +93,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigApp.cs" />
+    <Compile Include="FControls\frmActionService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FControls\frmActionService.Designer.cs">
+      <DependentUpon>frmActionService.cs</DependentUpon>
+    </Compile>
     <Compile Include="FControls\frmActionGroupPrice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,6 +195,12 @@
     <Compile Include="FControls\frmActionGroupTour.Designer.cs">
       <DependentUpon>frmActionGroupTour.cs</DependentUpon>
     </Compile>
+    <Compile Include="FControls\frmBookTour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FControls\frmBookTour.Designer.cs">
+      <DependentUpon>frmBookTour.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +212,12 @@
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRibonMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRibonMain.Designer.cs">
+      <DependentUpon>frmRibonMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -296,6 +317,9 @@
     <Compile Include="xtraRPPrintBookTour.designer.cs">
       <DependentUpon>xtraRPPrintBookTour.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FControls\frmActionService.resx">
+      <DependentUpon>frmActionService.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FControls\frmActionGroupPrice.resx">
       <DependentUpon>frmActionGroupPrice.cs</DependentUpon>
     </EmbeddedResource>
@@ -344,11 +368,17 @@
     <EmbeddedResource Include="FControls\frmActionGroupTour.resx">
       <DependentUpon>frmActionGroupTour.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FControls\frmBookTour.resx">
+      <DependentUpon>frmBookTour.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRibonMain.resx">
+      <DependentUpon>frmRibonMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

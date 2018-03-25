@@ -1,4 +1,5 @@
-﻿using KimTravel.DAL;
+﻿using DevExpress.XtraEditors;
+using KimTravel.DAL;
 using KimTravel.DAL.Models;
 using KimTravel.DAL.Services;
 using MaterialSkin;
@@ -70,7 +71,7 @@ namespace KimTravel.GUI.FControls
         {
             if (txtCode.Text == "")
             {
-                MessageBox.Show("Số xe(BKS) không thể để trống.");
+                XtraMessageBox.Show("Số xe(BKS) không thể để trống.");
                 return;
             }
             Car car = new Car();
@@ -96,14 +97,14 @@ namespace KimTravel.GUI.FControls
             }
             if (rs)
             {
-                MessageBox.Show(msg);
+                XtraMessageBox.Show(msg);
 
                 if (loadData != null)
                     loadData();
                 this.Close();
             }
             else
-                MessageBox.Show("Biển số xe tồn tại trong hệ thống. Vui lòng kiểm tra lại.");
+                XtraMessageBox.Show("Biển số xe tồn tại trong hệ thống. Vui lòng kiểm tra lại.");
 
         }
 

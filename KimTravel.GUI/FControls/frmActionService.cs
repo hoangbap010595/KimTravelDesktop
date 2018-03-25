@@ -16,24 +16,22 @@ using System.Windows.Forms;
 
 namespace KimTravel.GUI.FControls
 {
-    public partial class frmActionGroupPrice : MaterialForm
+    public partial class frmActionService : MaterialForm
     {
         private MaterialSkinManager mSkin;
-        private Price _objectData;
-        private PriceService priceService = new PriceService();
-        private GroupPartnerService groupService = new GroupPartnerService();
-        private TourService tourService = new TourService();
-        
+
+        private ServiceTypeService gtService = new ServiceTypeService();
+        ServiceType _objectData;
         private int _action = -1;
         private int _objID = -1;
         public delegate void LoadData();
         public LoadData loadData;
-        public frmActionGroupPrice(int action = -1, int objID = -1)
+        public frmActionService(int action = -1, int objID = -1)
         {
             InitializeComponent();
             _action = action;
             _objID = objID;
-            _objectData = priceService.GetByID(objID);
+            _objectData = gtService.GetByID(objID);
         }
 
         private void frmActionGroupTour_Load(object sender, EventArgs e)
@@ -42,52 +40,42 @@ namespace KimTravel.GUI.FControls
             mSkin.AddFormToManage(this);
             mSkin.Theme = ConfigApp.Themes;
             mSkin.ColorScheme = new ColorScheme(ConfigApp.Primary, ConfigApp.DarkPrimary, ConfigApp.LightPrimary, ConfigApp.Accent, ConfigApp.TextShade);
-            txtPriceRe.Focus();
-
-            cbbGroupPartner.DataSource = groupService.GetList();
-            cbbGroupPartner.ValueMember = "GroupPartnerID";
-            cbbGroupPartner.DisplayMember = "GroupName";
-
-            cbbTour.DataSource = tourService.GetListCobobox();
-            cbbTour.ValueMember = "TourID";
-            cbbTour.DisplayMember = "Name";
+            txtServiceName.Focus();
 
             if (_action == -1)
-                this.Text = "Thêm mới giá nhận theo tour";
+                this.Text = "Thêm mới dịch vụ";
             else
-                this.Text = "Cập nhật giá nhận theo tour";
+                this.Text = "Cập nhật dịch vụ";
 
             if (_objectData != null)
             {
-                txtPriceRe.Text = _objectData.PriceRe.ToString();
-                cbbGroupPartner.SelectedValue = _objectData.GroupID;
-                cbbTour.SelectedValue = _objectData.TourID;
+                txtServiceName.Text = _objectData.Name;
+                txtPrice.Text = _objectData.Price.ToString();
             }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (txtPriceRe.Text == "")
+            if (txtServiceName.Text == "")
             {
-                XtraMessageBox.Show("Giá nhận không thể để trống.");
+                XtraMessageBox.Show("Số xe(BKS) không thể để trống.");
                 return;
             }
-            Price price = new Price();
-            price.Key = _objID;
-            price.GroupID = int.Parse(cbbGroupPartner.SelectedValue.ToString());
-            price.TourID = int.Parse(cbbTour.SelectedValue.ToString());
-            price.PriceRe = int.Parse(txtPriceRe.Text);
+            ServiceType service = new ServiceType();
+            service.ID = _objID;
+            service.Name = txtServiceName.Text;
+            service.Price = int.Parse(txtPrice.Text);
 
             var rs = false;
             var msg = "";
             if (_action == -1)
             {
-                rs = this.priceService.Insert(price);
+                rs = this.gtService.Insert(service);
                 msg = "Thêm mới thành công";
             }
             else
             {
-                rs = this.priceService.Update(price);
+                rs = this.gtService.Update(service);
                 msg = "Cập nhật thành công";
             }
             if (rs)
@@ -99,7 +87,7 @@ namespace KimTravel.GUI.FControls
                 this.Close();
             }
             else
-                XtraMessageBox.Show("Giá tour đã được thiết lập trong hệ thống. Vui lòng kiểm tra lại.");
+                XtraMessageBox.Show("Dịch vụ đã tồn tại trong hệ thống. Vui lòng kiểm tra lại.");
 
         }
         private void TextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)

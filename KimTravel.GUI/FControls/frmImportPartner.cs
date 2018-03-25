@@ -1,4 +1,5 @@
-﻿using KimTravel.DAL;
+﻿using DevExpress.XtraEditors;
+using KimTravel.DAL;
 using KimTravel.DAL.Models;
 using KimTravel.DAL.Services;
 using MaterialSkin;
@@ -58,7 +59,7 @@ namespace KimTravel.GUI.FControls
                         prbUpload.Value++;
                         if (prbUpload.Value == dtDataTemp.Rows.Count)
                         {
-                            MessageBox.Show("Import hoàn tất");
+                            XtraMessageBox.Show("Import hoàn tất");
                             btnUpdate.Enabled = true;
                             dtDataTemp.Rows.Clear();
                             lblMessage.Text = "Hoàn tất quá trình import.";
@@ -93,7 +94,7 @@ namespace KimTravel.GUI.FControls
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                XtraMessageBox.Show("Error: " + ex.Message);
             }
         }
     }

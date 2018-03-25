@@ -11,10 +11,11 @@ using KimTravel.GUI.FControls;
 using KimTravel.DAL.Services;
 using KimTravel.DAL.Models;
 using KimTravel.DAL;
+using DevExpress.XtraEditors;
 
 namespace KimTravel.GUI.UControls
 {
-    public partial class UCBook : UserControl
+    public partial class UCBook : XtraUserControl
     {
         private PartnerService pnService = new PartnerService();
         private GroupTourService grTourService = new GroupTourService();
@@ -49,13 +50,6 @@ namespace KimTravel.GUI.UControls
             cbbPartnerID.DisplayMember = "Address";
 
             dtpTourBookedForPartner.AutoGenerateColumns = false;
-        }
-
-        private void btnFindParnet_Click(object sender, EventArgs e)
-        {
-            frmFindPartner frm = new frmFindPartner();
-            frm.sendData = new frmFindPartner.LoadData(choosePartner);
-            frm.ShowDialog();
         }
 
         private void cbbGroupTourID_SelectedIndexChanged(object sender, EventArgs e)
@@ -117,7 +111,7 @@ namespace KimTravel.GUI.UControls
                 book.StaffID = txtSaleBook.Text;
 
                 //Cus
-                book.CustomName = txtCustomName.Text;
+                book.CustomName = "";
                 book.Room = txtRoom.Text;
                 Partner p = pnService.GetByID(int.Parse(cbbPartnerID.SelectedValue.ToString()));
                 book.PickUp = txtPickUp.Text.Trim() == "" ? p.Address : txtPickUp.Text;
@@ -139,25 +133,25 @@ namespace KimTravel.GUI.UControls
                 book.IsCancel = false;
                 book.IsBooked = false;
                 book.IsPayment = false;
-                if (book.StaffID == "" || book.StaffID == null) { MessageBox.Show("Tên NV book không thể để trống!"); return; }
+                if (book.StaffID == "" || book.StaffID == null) { XtraMessageBox.Show("Tên NV book không thể để trống!"); return; }
                 var rs = bService.Insert(book);
                 if (rs)
                 {
-                    MessageBox.Show("Book tour thành công!");
-                    txtCustomName.Text = txtNote.Text = txtRoom.Text = txtSaleBook.Text = txtPickUp.Text = txtPartnerPrice.Text = "";
+                    XtraMessageBox.Show("Book tour thành công!");
+                    txtNote.Text = txtRoom.Text = txtSaleBook.Text = txtPickUp.Text = txtPartnerPrice.Text = "";
                     numPax.Value = 2;
                     cbbPartnerID_SelectedValueChanged(sender, e);
                     tableService.Rows.Clear();
                     dataGridViewGroupTour.DataSource = tableService;
                 }else
                 {
-                    MessageBox.Show("Các điều kiện không hợp lệ!. Book tour thất bại.");
+                    XtraMessageBox.Show("Các điều kiện không hợp lệ!. Book tour thất bại.");
                 }
               
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Xảy ra lỗi: " + ex.Message);
+                XtraMessageBox.Show("Xảy ra lỗi: " + ex.Message);
             }
         }
         private string getJsonServiceName()
@@ -191,13 +185,17 @@ namespace KimTravel.GUI.UControls
             }
             return price;
         }
-        private void getService(string name, int price)
+        private void getService(string name, int price, int add)
         {
-            DataRow dr = tableService.NewRow();
-            dr["ServiceType"] = name;
-            dr["Price"] = price;
+            if (add == 1)
+            {
+                DataRow dr = tableService.NewRow();
+                dr["ServiceType"] = name;
+                dr["Price"] = price;
 
-            tableService.Rows.Add(dr);
+                tableService.Rows.Add(dr);
+            }
+           
             tableService.AcceptChanges();
             dataGridViewGroupTour.DataSource = tableService;
             lblMoney.Text = "Total:" + String.Format("{0:#,###}", getTotalPriceService());
@@ -272,6 +270,7 @@ namespace KimTravel.GUI.UControls
                 lblFGiaNhan.Text = String.Format("{0:#,###}", priceRe);
                 lblFGiaVTQ.Text = String.Format("{0:#,###}", priceVTQ);
                 lblFThuHo.Text = String.Format("{0:#,###}", pricePartner);
+                lblMoney.Text = String.Format("{0:#,###}", priceService);
             }
             catch
             {
@@ -282,6 +281,29 @@ namespace KimTravel.GUI.UControls
         private void numPax_ValueChanged(object sender, EventArgs e)
         {
             payment();
+        }
+
+        private void txtFindPartner_TextChanged(object sender, EventArgs e)
+        {
+            string content = txtFindPartner.Text.Trim();
+            cbbPartnerID.DataSource = pnService.GetListCobobox(content);
+            cbbPartnerID.ValueMember = "PartnerID";
+            cbbPartnerID.DisplayMember = "Address";
+        }
+
+        private void loadDataPartner()
+        {
+            pnService = new PartnerService();
+            string content = txtFindPartner.Text.Trim();
+            cbbPartnerID.DataSource = pnService.GetListCobobox(content);
+            cbbPartnerID.ValueMember = "PartnerID";
+            cbbPartnerID.DisplayMember = "Address";
+        }
+        private void btnAddPartner_Click(object sender, EventArgs e)
+        {
+            frmActionPartner frm = new frmActionPartner();
+            frm.loadData = new frmActionPartner.LoadData(loadDataPartner);
+            frm.ShowDialog();
         }
     }
 }

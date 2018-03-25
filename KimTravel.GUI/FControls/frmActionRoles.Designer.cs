@@ -50,8 +50,8 @@
             this.ck4_DLDichVu = new System.Windows.Forms.CheckBox();
             this.ck4_DLKhachSan = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.ck5_CongNo = new System.Windows.Forms.CheckBox();
             this.ck5_DoiTac = new System.Windows.Forms.CheckBox();
+            this.ck5_CongNo = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -62,6 +62,7 @@
             // txtUsername
             // 
             this.txtUsername.Depth = 0;
+            this.txtUsername.Enabled = false;
             this.txtUsername.Hint = "";
             this.txtUsername.Location = new System.Drawing.Point(97, 72);
             this.txtUsername.MouseState = MaterialSkin.MouseState.HOVER;
@@ -296,16 +297,6 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Báo cáo";
             // 
-            // ck5_CongNo
-            // 
-            this.ck5_CongNo.AutoSize = true;
-            this.ck5_CongNo.Location = new System.Drawing.Point(8, 32);
-            this.ck5_CongNo.Name = "ck5_CongNo";
-            this.ck5_CongNo.Size = new System.Drawing.Size(80, 21);
-            this.ck5_CongNo.TabIndex = 0;
-            this.ck5_CongNo.Text = "Công nợ";
-            this.ck5_CongNo.UseVisualStyleBackColor = true;
-            // 
             // ck5_DoiTac
             // 
             this.ck5_DoiTac.AutoSize = true;
@@ -315,6 +306,16 @@
             this.ck5_DoiTac.TabIndex = 0;
             this.ck5_DoiTac.Text = "BC Đối tác";
             this.ck5_DoiTac.UseVisualStyleBackColor = true;
+            // 
+            // ck5_CongNo
+            // 
+            this.ck5_CongNo.AutoSize = true;
+            this.ck5_CongNo.Location = new System.Drawing.Point(8, 32);
+            this.ck5_CongNo.Name = "ck5_CongNo";
+            this.ck5_CongNo.Size = new System.Drawing.Size(80, 21);
+            this.ck5_CongNo.TabIndex = 0;
+            this.ck5_CongNo.Text = "Công nợ";
+            this.ck5_CongNo.UseVisualStyleBackColor = true;
             // 
             // frmActionRoles
             // 

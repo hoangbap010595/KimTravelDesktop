@@ -29,76 +29,30 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnTimKiem = new System.Windows.Forms.Button();
-            this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCReportCongNoDoiTac));
             this.cbbMonth = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tảiLạiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xuấtExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnExportExcel = new System.Windows.Forms.Button();
             this.cbbYear = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPartnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSLTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ActionUpdate = new System.Windows.Forms.DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
+            this.gridControlData = new DevExpress.XtraGrid.GridControl();
+            this.gridViewData = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumnID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnPartner = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnSLTour = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnPriceVTQ = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnEdit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnClickIn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClickIn)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnTimKiem
-            // 
-            this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.Location = new System.Drawing.Point(12, 78);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(168, 29);
-            this.btnTimKiem.TabIndex = 5;
-            this.btnTimKiem.Text = "Lọc dữ liệu";
-            this.btnTimKiem.UseVisualStyleBackColor = true;
-            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
-            // 
-            // dataGridViewGroupTour
-            // 
-            this.dataGridViewGroupTour.AllowUserToAddRows = false;
-            this.dataGridViewGroupTour.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewGroupTour.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewGroupTour.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewGroupTour.ColumnHeadersHeight = 30;
-            this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colID,
-            this.colPartnerName,
-            this.colSLTour,
-            this.colTotal,
-            this.ActionUpdate});
-            this.dataGridViewGroupTour.Location = new System.Drawing.Point(215, 3);
-            this.dataGridViewGroupTour.MultiSelect = false;
-            this.dataGridViewGroupTour.Name = "dataGridViewGroupTour";
-            this.dataGridViewGroupTour.ReadOnly = true;
-            this.dataGridViewGroupTour.RowHeadersWidth = 35;
-            this.dataGridViewGroupTour.RowTemplate.Height = 30;
-            this.dataGridViewGroupTour.RowTemplate.ReadOnly = true;
-            this.dataGridViewGroupTour.Size = new System.Drawing.Size(659, 507);
-            this.dataGridViewGroupTour.TabIndex = 0;
-            this.dataGridViewGroupTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridViewGroupTour.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewGroupTour_RowPostPaint);
             // 
             // cbbMonth
             // 
@@ -109,7 +63,7 @@
             this.cbbMonth.Location = new System.Drawing.Point(12, 33);
             this.cbbMonth.Name = "cbbMonth";
             this.cbbMonth.Size = new System.Drawing.Size(81, 24);
-            this.cbbMonth.TabIndex = 2;
+            this.cbbMonth.TabIndex = 1;
             // 
             // label2
             // 
@@ -144,17 +98,6 @@
             this.xuấtExcelToolStripMenuItem.Text = "Xuất Excel";
             this.xuấtExcelToolStripMenuItem.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
-            // btnExportExcel
-            // 
-            this.btnExportExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportExcel.Location = new System.Drawing.Point(12, 113);
-            this.btnExportExcel.Name = "btnExportExcel";
-            this.btnExportExcel.Size = new System.Drawing.Size(168, 29);
-            this.btnExportExcel.TabIndex = 9;
-            this.btnExportExcel.Text = "Xuất Excel";
-            this.btnExportExcel.UseVisualStyleBackColor = true;
-            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
-            // 
             // cbbYear
             // 
             this.cbbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -177,95 +120,193 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Năm:";
             // 
-            // colID
+            // gridControlData
             // 
-            this.colID.DataPropertyName = "ID";
-            this.colID.HeaderText = "ID";
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            this.colID.Visible = false;
+            this.gridControlData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControlData.Location = new System.Drawing.Point(186, 3);
+            this.gridControlData.MainView = this.gridViewData;
+            this.gridControlData.Name = "gridControlData";
+            this.gridControlData.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.btnClickIn});
+            this.gridControlData.Size = new System.Drawing.Size(775, 507);
+            this.gridControlData.TabIndex = 11;
+            this.gridControlData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewData});
             // 
-            // colPartnerName
+            // gridViewData
             // 
-            this.colPartnerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPartnerName.DataPropertyName = "PartnerName";
-            this.colPartnerName.HeaderText = "Tên đối tác";
-            this.colPartnerName.Name = "colPartnerName";
-            this.colPartnerName.ReadOnly = true;
+            this.gridViewData.ColumnPanelRowHeight = 35;
+            this.gridViewData.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumnID,
+            this.gridColumnPartner,
+            this.gridColumnSLTour,
+            this.gridColumnPriceVTQ,
+            this.gridColumnEdit});
+            this.gridViewData.GridControl = this.gridControlData;
+            this.gridViewData.IndicatorWidth = 35;
+            this.gridViewData.Name = "gridViewData";
+            this.gridViewData.OptionsCustomization.AllowColumnMoving = false;
+            this.gridViewData.OptionsView.ShowAutoFilterRow = true;
+            this.gridViewData.OptionsView.ShowGroupPanel = false;
+            this.gridViewData.RowHeight = 25;
             // 
-            // colSLTour
+            // gridColumnID
             // 
-            this.colSLTour.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colSLTour.DataPropertyName = "Count";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Format = "#,###";
-            this.colSLTour.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colSLTour.HeaderText = "SL Tour";
-            this.colSLTour.Name = "colSLTour";
-            this.colSLTour.ReadOnly = true;
-            this.colSLTour.Width = 80;
+            this.gridColumnID.Caption = "ID";
+            this.gridColumnID.FieldName = "ID";
+            this.gridColumnID.Name = "gridColumnID";
             // 
-            // colTotal
+            // gridColumnPartner
             // 
-            this.colTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colTotal.DataPropertyName = "Total";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "#,###";
-            this.colTotal.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colTotal.HeaderText = "Tổng tiền";
-            this.colTotal.Name = "colTotal";
-            this.colTotal.ReadOnly = true;
-            this.colTotal.Width = 180;
+            this.gridColumnPartner.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnPartner.AppearanceCell.Options.UseFont = true;
+            this.gridColumnPartner.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnPartner.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnPartner.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnPartner.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPartner.Caption = "Đối tác";
+            this.gridColumnPartner.FieldName = "PartnerName";
+            this.gridColumnPartner.MinWidth = 180;
+            this.gridColumnPartner.Name = "gridColumnPartner";
+            this.gridColumnPartner.Visible = true;
+            this.gridColumnPartner.VisibleIndex = 0;
+            this.gridColumnPartner.Width = 180;
             // 
-            // ActionUpdate
+            // gridColumnSLTour
             // 
-            this.ActionUpdate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.ActionUpdate.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ActionUpdate.HeaderText = "IN";
-            this.ActionUpdate.Name = "ActionUpdate";
-            this.ActionUpdate.ReadOnly = true;
-            this.ActionUpdate.Text = "In báo cáo";
-            this.ActionUpdate.UseColumnTextForButtonValue = true;
+            this.gridColumnSLTour.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnSLTour.AppearanceCell.Options.UseFont = true;
+            this.gridColumnSLTour.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnSLTour.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumnSLTour.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnSLTour.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnSLTour.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnSLTour.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnSLTour.Caption = "Số lượng tour";
+            this.gridColumnSLTour.DisplayFormat.FormatString = "#,###";
+            this.gridColumnSLTour.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumnSLTour.FieldName = "Count";
+            this.gridColumnSLTour.MaxWidth = 160;
+            this.gridColumnSLTour.MinWidth = 160;
+            this.gridColumnSLTour.Name = "gridColumnSLTour";
+            this.gridColumnSLTour.Visible = true;
+            this.gridColumnSLTour.VisibleIndex = 1;
+            this.gridColumnSLTour.Width = 160;
+            // 
+            // gridColumnPriceVTQ
+            // 
+            this.gridColumnPriceVTQ.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnPriceVTQ.AppearanceCell.Options.UseFont = true;
+            this.gridColumnPriceVTQ.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnPriceVTQ.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumnPriceVTQ.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnPriceVTQ.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnPriceVTQ.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnPriceVTQ.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPriceVTQ.Caption = "Tổng tiền";
+            this.gridColumnPriceVTQ.DisplayFormat.FormatString = "#,###";
+            this.gridColumnPriceVTQ.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumnPriceVTQ.FieldName = "Total";
+            this.gridColumnPriceVTQ.MaxWidth = 200;
+            this.gridColumnPriceVTQ.MinWidth = 200;
+            this.gridColumnPriceVTQ.Name = "gridColumnPriceVTQ";
+            this.gridColumnPriceVTQ.Visible = true;
+            this.gridColumnPriceVTQ.VisibleIndex = 2;
+            this.gridColumnPriceVTQ.Width = 200;
+            // 
+            // gridColumnEdit
+            // 
+            this.gridColumnEdit.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnEdit.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnEdit.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnEdit.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnEdit.Caption = "In";
+            this.gridColumnEdit.ColumnEdit = this.btnClickIn;
+            this.gridColumnEdit.MaxWidth = 100;
+            this.gridColumnEdit.MinWidth = 100;
+            this.gridColumnEdit.Name = "gridColumnEdit";
+            this.gridColumnEdit.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumnEdit.OptionsFilter.AllowFilter = false;
+            this.gridColumnEdit.Visible = true;
+            this.gridColumnEdit.VisibleIndex = 3;
+            this.gridColumnEdit.Width = 100;
+            // 
+            // btnClickIn
+            // 
+            this.btnClickIn.AutoHeight = false;
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            this.btnClickIn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions2, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
+            this.btnClickIn.Name = "btnClickIn";
+            this.btnClickIn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnClickIn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnClickIn_ButtonClick);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(12, 115);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(168, 32);
+            this.simpleButton1.TabIndex = 4;
+            this.simpleButton1.Text = "Xuất Excel";
+            this.simpleButton1.Click += new System.EventHandler(this.btnExportExcel_Click);
+            // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.btnTimKiem.Appearance.Options.UseFont = true;
+            this.btnTimKiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.ImageOptions.Image")));
+            this.btnTimKiem.Location = new System.Drawing.Point(12, 77);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(168, 32);
+            this.btnTimKiem.TabIndex = 3;
+            this.btnTimKiem.Text = "Lọc dữ liệu";
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // UCReportCongNoDoiTac
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnExportExcel);
+            this.Controls.Add(this.simpleButton1);
+            this.Controls.Add(this.btnTimKiem);
+            this.Controls.Add(this.gridControlData);
             this.Controls.Add(this.cbbYear);
             this.Controls.Add(this.cbbMonth);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridViewGroupTour);
-            this.Controls.Add(this.btnTimKiem);
             this.Name = "UCReportCongNoDoiTac";
             this.Size = new System.Drawing.Size(1059, 513);
             this.Load += new System.EventHandler(this.UCGroupTour_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClickIn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridViewGroupTour;
-        private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.ComboBox cbbMonth;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tảiLạiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xuấtExcelToolStripMenuItem;
-        private System.Windows.Forms.Button btnExportExcel;
         private System.Windows.Forms.ComboBox cbbYear;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPartnerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSLTour;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
-        private System.Windows.Forms.DataGridViewButtonColumn ActionUpdate;
+        private DevExpress.XtraGrid.GridControl gridControlData;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewData;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnID;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPartner;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnSLTour;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPriceVTQ;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnClickIn;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnTimKiem;
     }
 }

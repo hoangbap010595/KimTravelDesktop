@@ -28,21 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCBook));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtRoom = new System.Windows.Forms.TextBox();
-            this.txtPickUp = new System.Windows.Forms.TextBox();
-            this.txtPriceVTQ = new System.Windows.Forms.TextBox();
-            this.txtPriceSa = new System.Windows.Forms.TextBox();
-            this.txtNote = new System.Windows.Forms.TextBox();
-            this.txtPartnerPrice = new System.Windows.Forms.TextBox();
-            this.txtPriceRe = new System.Windows.Forms.TextBox();
-            this.txtSaleBook = new System.Windows.Forms.TextBox();
-            this.txtCustomName = new System.Windows.Forms.TextBox();
+            this.txtNote = new DevExpress.XtraEditors.MemoEdit();
+            this.btnAddPartner = new DevExpress.XtraEditors.SimpleButton();
+            this.txtPartnerPrice = new DevExpress.XtraEditors.TextEdit();
+            this.txtPriceVTQ = new DevExpress.XtraEditors.TextEdit();
+            this.txtPriceSa = new DevExpress.XtraEditors.TextEdit();
+            this.txtPriceRe = new DevExpress.XtraEditors.TextEdit();
+            this.txtSaleBook = new DevExpress.XtraEditors.TextEdit();
+            this.txtPickUp = new DevExpress.XtraEditors.TextEdit();
+            this.txtRoom = new DevExpress.XtraEditors.TextEdit();
+            this.txtFindPartner = new DevExpress.XtraEditors.TextEdit();
             this.label10 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.lblMsgPax = new System.Windows.Forms.Label();
@@ -50,7 +52,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.lblFThuHo = new System.Windows.Forms.Label();
             this.lblFGiaVTQ = new System.Windows.Forms.Label();
             this.lblFGiaBan = new System.Windows.Forms.Label();
@@ -62,12 +63,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.numPax = new System.Windows.Forms.NumericUpDown();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
-            this.btnFindParnet = new System.Windows.Forms.Button();
             this.cbbPartnerID = new System.Windows.Forms.ComboBox();
             this.cbbTourID = new System.Windows.Forms.ComboBox();
             this.cbbGroupTourID = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblMoney = new System.Windows.Forms.Label();
+            this.btnAddServiceType = new DevExpress.XtraEditors.SimpleButton();
             this.btnUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
             this.colPartnerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,8 +79,7 @@
             this.lblTotalBook = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtPromotionMoney = new System.Windows.Forms.TextBox();
-            this.btnAddServiceType = new System.Windows.Forms.Button();
+            this.txtPromotionMoney = new DevExpress.XtraEditors.TextEdit();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtpTourBookedForPartner = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,26 +91,36 @@
             this.colRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNVBook = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPartnerPrice.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPriceVTQ.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPriceSa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPriceRe.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSaleBook.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPickUp.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRoom.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFindPartner.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPax)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPromotionMoney.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtpTourBookedForPartner)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox1.Controls.Add(this.txtRoom);
-            this.groupBox1.Controls.Add(this.txtPickUp);
+            this.groupBox1.Controls.Add(this.txtNote);
+            this.groupBox1.Controls.Add(this.btnAddPartner);
+            this.groupBox1.Controls.Add(this.txtPartnerPrice);
             this.groupBox1.Controls.Add(this.txtPriceVTQ);
             this.groupBox1.Controls.Add(this.txtPriceSa);
-            this.groupBox1.Controls.Add(this.txtNote);
-            this.groupBox1.Controls.Add(this.txtPartnerPrice);
             this.groupBox1.Controls.Add(this.txtPriceRe);
             this.groupBox1.Controls.Add(this.txtSaleBook);
-            this.groupBox1.Controls.Add(this.txtCustomName);
+            this.groupBox1.Controls.Add(this.txtPickUp);
+            this.groupBox1.Controls.Add(this.txtRoom);
+            this.groupBox1.Controls.Add(this.txtFindPartner);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.lblMsgPax);
@@ -118,7 +128,6 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.lblFThuHo);
             this.groupBox1.Controls.Add(this.lblFGiaVTQ);
             this.groupBox1.Controls.Add(this.lblFGiaBan);
@@ -130,7 +139,6 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.numPax);
             this.groupBox1.Controls.Add(this.dtpStartDate);
-            this.groupBox1.Controls.Add(this.btnFindParnet);
             this.groupBox1.Controls.Add(this.cbbPartnerID);
             this.groupBox1.Controls.Add(this.cbbTourID);
             this.groupBox1.Controls.Add(this.cbbGroupTourID);
@@ -142,82 +150,113 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
             // 
-            // txtRoom
+            // txtNote
             // 
-            this.txtRoom.Location = new System.Drawing.Point(348, 171);
-            this.txtRoom.Name = "txtRoom";
-            this.txtRoom.Size = new System.Drawing.Size(84, 23);
-            this.txtRoom.TabIndex = 8;
+            this.txtNote.Location = new System.Drawing.Point(131, 423);
+            this.txtNote.Name = "txtNote";
+            this.txtNote.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtNote.Properties.Appearance.Options.UseFont = true;
+            this.txtNote.Size = new System.Drawing.Size(301, 65);
+            this.txtNote.TabIndex = 14;
             // 
-            // txtPickUp
+            // btnAddPartner
             // 
-            this.txtPickUp.Location = new System.Drawing.Point(132, 171);
-            this.txtPickUp.Name = "txtPickUp";
-            this.txtPickUp.Size = new System.Drawing.Size(210, 23);
-            this.txtPickUp.TabIndex = 7;
+            this.btnAddPartner.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddPartner.ImageOptions.Image")));
+            this.btnAddPartner.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnAddPartner.Location = new System.Drawing.Point(96, 137);
+            this.btnAddPartner.Name = "btnAddPartner";
+            this.btnAddPartner.Size = new System.Drawing.Size(32, 27);
+            this.btnAddPartner.TabIndex = 17;
+            this.btnAddPartner.Click += new System.EventHandler(this.btnAddPartner_Click);
+            // 
+            // txtPartnerPrice
+            // 
+            this.txtPartnerPrice.Location = new System.Drawing.Point(131, 380);
+            this.txtPartnerPrice.Name = "txtPartnerPrice";
+            this.txtPartnerPrice.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtPartnerPrice.Properties.Appearance.Options.UseFont = true;
+            this.txtPartnerPrice.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtPartnerPrice.Size = new System.Drawing.Size(133, 28);
+            this.txtPartnerPrice.TabIndex = 13;
+            this.txtPartnerPrice.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
+            this.txtPartnerPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // txtPriceVTQ
             // 
-            this.txtPriceVTQ.Location = new System.Drawing.Point(131, 362);
-            this.txtPriceVTQ.MaxLength = 9;
+            this.txtPriceVTQ.Location = new System.Drawing.Point(131, 344);
             this.txtPriceVTQ.Name = "txtPriceVTQ";
-            this.txtPriceVTQ.Size = new System.Drawing.Size(134, 23);
-            this.txtPriceVTQ.TabIndex = 13;
+            this.txtPriceVTQ.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtPriceVTQ.Properties.Appearance.Options.UseFont = true;
+            this.txtPriceVTQ.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtPriceVTQ.Size = new System.Drawing.Size(133, 28);
+            this.txtPriceVTQ.TabIndex = 12;
             this.txtPriceVTQ.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
             this.txtPriceVTQ.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // txtPriceSa
             // 
-            this.txtPriceSa.Location = new System.Drawing.Point(131, 331);
-            this.txtPriceSa.MaxLength = 9;
+            this.txtPriceSa.Location = new System.Drawing.Point(131, 308);
             this.txtPriceSa.Name = "txtPriceSa";
-            this.txtPriceSa.Size = new System.Drawing.Size(134, 23);
-            this.txtPriceSa.TabIndex = 12;
+            this.txtPriceSa.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtPriceSa.Properties.Appearance.Options.UseFont = true;
+            this.txtPriceSa.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtPriceSa.Size = new System.Drawing.Size(133, 28);
+            this.txtPriceSa.TabIndex = 11;
             this.txtPriceSa.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
             this.txtPriceSa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
-            // txtNote
-            // 
-            this.txtNote.Location = new System.Drawing.Point(131, 429);
-            this.txtNote.Multiline = true;
-            this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(304, 59);
-            this.txtNote.TabIndex = 15;
-            // 
-            // txtPartnerPrice
-            // 
-            this.txtPartnerPrice.Location = new System.Drawing.Point(131, 397);
-            this.txtPartnerPrice.MaxLength = 9;
-            this.txtPartnerPrice.Name = "txtPartnerPrice";
-            this.txtPartnerPrice.Size = new System.Drawing.Size(134, 23);
-            this.txtPartnerPrice.TabIndex = 14;
-            this.txtPartnerPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
-            // 
             // txtPriceRe
             // 
-            this.txtPriceRe.Location = new System.Drawing.Point(131, 296);
-            this.txtPriceRe.MaxLength = 9;
+            this.txtPriceRe.Location = new System.Drawing.Point(131, 270);
             this.txtPriceRe.Name = "txtPriceRe";
-            this.txtPriceRe.Size = new System.Drawing.Size(134, 23);
-            this.txtPriceRe.TabIndex = 11;
+            this.txtPriceRe.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtPriceRe.Properties.Appearance.Options.UseFont = true;
+            this.txtPriceRe.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtPriceRe.Size = new System.Drawing.Size(133, 28);
+            this.txtPriceRe.TabIndex = 10;
             this.txtPriceRe.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
             this.txtPriceRe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // txtSaleBook
             // 
-            this.txtSaleBook.Location = new System.Drawing.Point(132, 209);
+            this.txtSaleBook.Location = new System.Drawing.Point(131, 205);
             this.txtSaleBook.Name = "txtSaleBook";
-            this.txtSaleBook.Size = new System.Drawing.Size(210, 23);
-            this.txtSaleBook.TabIndex = 10;
+            this.txtSaleBook.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtSaleBook.Properties.Appearance.Options.UseFont = true;
+            this.txtSaleBook.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtSaleBook.Size = new System.Drawing.Size(211, 28);
+            this.txtSaleBook.TabIndex = 9;
             // 
-            // txtCustomName
+            // txtPickUp
             // 
-            this.txtCustomName.Location = new System.Drawing.Point(131, 243);
-            this.txtCustomName.Name = "txtCustomName";
-            this.txtCustomName.Size = new System.Drawing.Size(210, 23);
-            this.txtCustomName.TabIndex = 9;
-            this.txtCustomName.Text = "KXĐ";
-            this.txtCustomName.Visible = false;
+            this.txtPickUp.Location = new System.Drawing.Point(132, 170);
+            this.txtPickUp.Name = "txtPickUp";
+            this.txtPickUp.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtPickUp.Properties.Appearance.Options.UseFont = true;
+            this.txtPickUp.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtPickUp.Size = new System.Drawing.Size(210, 28);
+            this.txtPickUp.TabIndex = 7;
+            // 
+            // txtRoom
+            // 
+            this.txtRoom.Location = new System.Drawing.Point(348, 170);
+            this.txtRoom.Name = "txtRoom";
+            this.txtRoom.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtRoom.Properties.Appearance.Options.UseFont = true;
+            this.txtRoom.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtRoom.Size = new System.Drawing.Size(84, 28);
+            this.txtRoom.TabIndex = 8;
+            // 
+            // txtFindPartner
+            // 
+            this.txtFindPartner.Location = new System.Drawing.Point(348, 136);
+            this.txtFindPartner.Name = "txtFindPartner";
+            this.txtFindPartner.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtFindPartner.Properties.Appearance.Options.UseFont = true;
+            this.txtFindPartner.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtFindPartner.Size = new System.Drawing.Size(84, 28);
+            this.txtFindPartner.TabIndex = 6;
+            this.txtFindPartner.TextChanged += new System.EventHandler(this.txtFindPartner_TextChanged);
             // 
             // label10
             // 
@@ -246,7 +285,7 @@
             this.lblMsgPax.AutoSize = true;
             this.lblMsgPax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMsgPax.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblMsgPax.Location = new System.Drawing.Point(348, 68);
+            this.lblMsgPax.Location = new System.Drawing.Point(348, 65);
             this.lblMsgPax.Name = "lblMsgPax";
             this.lblMsgPax.Size = new System.Drawing.Size(0, 15);
             this.lblMsgPax.TabIndex = 0;
@@ -256,7 +295,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label14.Location = new System.Drawing.Point(7, 398);
+            this.label14.Location = new System.Drawing.Point(7, 387);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(59, 17);
             this.label14.TabIndex = 0;
@@ -267,7 +306,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label6.Location = new System.Drawing.Point(7, 33);
+            this.label6.Location = new System.Drawing.Point(8, 29);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 17);
             this.label6.TabIndex = 0;
@@ -278,7 +317,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label12.Location = new System.Drawing.Point(7, 334);
+            this.label12.Location = new System.Drawing.Point(7, 315);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(65, 17);
             this.label12.TabIndex = 0;
@@ -289,30 +328,18 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(7, 366);
+            this.label13.Location = new System.Drawing.Point(7, 351);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(70, 17);
             this.label13.TabIndex = 0;
             this.label13.Text = "Giá VTQ";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label5.Location = new System.Drawing.Point(6, 246);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 17);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Tên KH";
-            this.label5.Visible = false;
             // 
             // lblFThuHo
             // 
             this.lblFThuHo.AutoSize = true;
             this.lblFThuHo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFThuHo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblFThuHo.Location = new System.Drawing.Point(271, 400);
+            this.lblFThuHo.Location = new System.Drawing.Point(271, 389);
             this.lblFThuHo.Name = "lblFThuHo";
             this.lblFThuHo.Size = new System.Drawing.Size(64, 17);
             this.lblFThuHo.TabIndex = 0;
@@ -323,7 +350,7 @@
             this.lblFGiaVTQ.AutoSize = true;
             this.lblFGiaVTQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFGiaVTQ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblFGiaVTQ.Location = new System.Drawing.Point(271, 366);
+            this.lblFGiaVTQ.Location = new System.Drawing.Point(271, 351);
             this.lblFGiaVTQ.Name = "lblFGiaVTQ";
             this.lblFGiaVTQ.Size = new System.Drawing.Size(64, 17);
             this.lblFGiaVTQ.TabIndex = 0;
@@ -334,7 +361,7 @@
             this.lblFGiaBan.AutoSize = true;
             this.lblFGiaBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFGiaBan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblFGiaBan.Location = new System.Drawing.Point(271, 334);
+            this.lblFGiaBan.Location = new System.Drawing.Point(271, 315);
             this.lblFGiaBan.Name = "lblFGiaBan";
             this.lblFGiaBan.Size = new System.Drawing.Size(64, 17);
             this.lblFGiaBan.TabIndex = 0;
@@ -345,7 +372,7 @@
             this.lblFGiaNhan.AutoSize = true;
             this.lblFGiaNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFGiaNhan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblFGiaNhan.Location = new System.Drawing.Point(271, 299);
+            this.lblFGiaNhan.Location = new System.Drawing.Point(271, 276);
             this.lblFGiaNhan.Name = "lblFGiaNhan";
             this.lblFGiaNhan.Size = new System.Drawing.Size(64, 17);
             this.lblFGiaNhan.TabIndex = 0;
@@ -367,7 +394,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label11.Location = new System.Drawing.Point(7, 300);
+            this.label11.Location = new System.Drawing.Point(7, 277);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(74, 17);
             this.label11.TabIndex = 0;
@@ -378,7 +405,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(7, 140);
+            this.label3.Location = new System.Drawing.Point(8, 142);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 17);
             this.label3.TabIndex = 0;
@@ -400,7 +427,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(7, 69);
+            this.label1.Location = new System.Drawing.Point(7, 66);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 17);
             this.label1.TabIndex = 0;
@@ -409,6 +436,7 @@
             // numPax
             // 
             this.numPax.DecimalPlaces = 2;
+            this.numPax.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numPax.Increment = new decimal(new int[] {
             5,
             0,
@@ -421,7 +449,7 @@
             0,
             0});
             this.numPax.Name = "numPax";
-            this.numPax.Size = new System.Drawing.Size(84, 23);
+            this.numPax.Size = new System.Drawing.Size(84, 26);
             this.numPax.TabIndex = 4;
             this.numPax.ThousandsSeparator = true;
             this.numPax.Value = new decimal(new int[] {
@@ -434,67 +462,58 @@
             // dtpStartDate
             // 
             this.dtpStartDate.CustomFormat = "dd-MM-yyyy";
+            this.dtpStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStartDate.Location = new System.Drawing.Point(132, 33);
+            this.dtpStartDate.Location = new System.Drawing.Point(132, 25);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(162, 23);
+            this.dtpStartDate.Size = new System.Drawing.Size(162, 26);
             this.dtpStartDate.TabIndex = 1;
-            // 
-            // btnFindParnet
-            // 
-            this.btnFindParnet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFindParnet.Location = new System.Drawing.Point(348, 135);
-            this.btnFindParnet.Name = "btnFindParnet";
-            this.btnFindParnet.Size = new System.Drawing.Size(84, 26);
-            this.btnFindParnet.TabIndex = 6;
-            this.btnFindParnet.Text = "Tìm";
-            this.btnFindParnet.UseVisualStyleBackColor = true;
-            this.btnFindParnet.Click += new System.EventHandler(this.btnFindParnet_Click);
             // 
             // cbbPartnerID
             // 
             this.cbbPartnerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbPartnerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbPartnerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbPartnerID.FormattingEnabled = true;
-            this.cbbPartnerID.ItemHeight = 16;
+            this.cbbPartnerID.ItemHeight = 20;
             this.cbbPartnerID.Location = new System.Drawing.Point(132, 136);
             this.cbbPartnerID.Name = "cbbPartnerID";
-            this.cbbPartnerID.Size = new System.Drawing.Size(210, 24);
+            this.cbbPartnerID.Size = new System.Drawing.Size(210, 28);
             this.cbbPartnerID.TabIndex = 5;
             this.cbbPartnerID.SelectedValueChanged += new System.EventHandler(this.cbbPartnerID_SelectedValueChanged);
             // 
             // cbbTourID
             // 
             this.cbbTourID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbTourID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbTourID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTourID.FormattingEnabled = true;
-            this.cbbTourID.ItemHeight = 16;
+            this.cbbTourID.ItemHeight = 20;
             this.cbbTourID.Location = new System.Drawing.Point(132, 99);
             this.cbbTourID.Name = "cbbTourID";
-            this.cbbTourID.Size = new System.Drawing.Size(210, 24);
+            this.cbbTourID.Size = new System.Drawing.Size(210, 28);
             this.cbbTourID.TabIndex = 3;
             this.cbbTourID.SelectedIndexChanged += new System.EventHandler(this.cbbTourID_SelectedIndexChanged);
             // 
             // cbbGroupTourID
             // 
             this.cbbGroupTourID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbGroupTourID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbGroupTourID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbGroupTourID.FormattingEnabled = true;
-            this.cbbGroupTourID.ItemHeight = 16;
-            this.cbbGroupTourID.Location = new System.Drawing.Point(132, 65);
+            this.cbbGroupTourID.ItemHeight = 20;
+            this.cbbGroupTourID.Location = new System.Drawing.Point(132, 62);
             this.cbbGroupTourID.Name = "cbbGroupTourID";
-            this.cbbGroupTourID.Size = new System.Drawing.Size(210, 24);
+            this.cbbGroupTourID.Size = new System.Drawing.Size(210, 28);
             this.cbbGroupTourID.TabIndex = 2;
             this.cbbGroupTourID.SelectedIndexChanged += new System.EventHandler(this.cbbGroupTourID_SelectedIndexChanged);
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.lblMoney);
+            this.groupBox3.Controls.Add(this.btnAddServiceType);
             this.groupBox3.Controls.Add(this.btnUpdate);
             this.groupBox3.Controls.Add(this.dataGridViewGroupTour);
             this.groupBox3.Controls.Add(this.panel1);
-            this.groupBox3.Controls.Add(this.btnAddServiceType);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(462, 10);
             this.groupBox3.Name = "groupBox3";
@@ -514,6 +533,19 @@
             this.lblMoney.Text = "Total";
             this.lblMoney.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // btnAddServiceType
+            // 
+            this.btnAddServiceType.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.btnAddServiceType.Appearance.Options.UseFont = true;
+            this.btnAddServiceType.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddServiceType.ImageOptions.Image")));
+            this.btnAddServiceType.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnAddServiceType.Location = new System.Drawing.Point(6, 22);
+            this.btnAddServiceType.Name = "btnAddServiceType";
+            this.btnAddServiceType.Size = new System.Drawing.Size(64, 27);
+            this.btnAddServiceType.TabIndex = 15;
+            this.btnAddServiceType.Text = "Thêm";
+            this.btnAddServiceType.Click += new System.EventHandler(this.btnAddServiceType_Click);
+            // 
             // btnUpdate
             // 
             this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -531,6 +563,8 @@
             // dataGridViewGroupTour
             // 
             this.dataGridViewGroupTour.AllowUserToAddRows = false;
+            this.dataGridViewGroupTour.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewGroupTour.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewGroupTour.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -651,27 +685,20 @@
             // 
             // txtPromotionMoney
             // 
-            this.txtPromotionMoney.Location = new System.Drawing.Point(53, 22);
+            this.txtPromotionMoney.Location = new System.Drawing.Point(56, 18);
             this.txtPromotionMoney.Name = "txtPromotionMoney";
-            this.txtPromotionMoney.Size = new System.Drawing.Size(134, 23);
-            this.txtPromotionMoney.TabIndex = 11;
+            this.txtPromotionMoney.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtPromotionMoney.Properties.Appearance.Options.UseFont = true;
+            this.txtPromotionMoney.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtPromotionMoney.Size = new System.Drawing.Size(146, 28);
+            this.txtPromotionMoney.TabIndex = 16;
             this.txtPromotionMoney.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
             this.txtPromotionMoney.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
-            // btnAddServiceType
-            // 
-            this.btnAddServiceType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddServiceType.Location = new System.Drawing.Point(5, 27);
-            this.btnAddServiceType.Name = "btnAddServiceType";
-            this.btnAddServiceType.Size = new System.Drawing.Size(56, 20);
-            this.btnAddServiceType.TabIndex = 18;
-            this.btnAddServiceType.Text = "Thêm";
-            this.btnAddServiceType.UseVisualStyleBackColor = true;
-            this.btnAddServiceType.Click += new System.EventHandler(this.btnAddServiceType_Click);
-            // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.dtpTourBookedForPartner);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(461, 274);
@@ -710,6 +737,7 @@
             this.dtpTourBookedForPartner.MultiSelect = false;
             this.dtpTourBookedForPartner.Name = "dtpTourBookedForPartner";
             this.dtpTourBookedForPartner.ReadOnly = true;
+            this.dtpTourBookedForPartner.RowHeadersVisible = false;
             this.dtpTourBookedForPartner.RowHeadersWidth = 35;
             this.dtpTourBookedForPartner.RowTemplate.Height = 23;
             this.dtpTourBookedForPartner.RowTemplate.ReadOnly = true;
@@ -739,17 +767,21 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dataGridViewTextBoxColumn2.DataPropertyName = "TourName";
             this.dataGridViewTextBoxColumn2.HeaderText = "Tour";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 130;
             // 
             // colPartName
             // 
+            this.colPartName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPartName.DataPropertyName = "PartnerName";
             this.colPartName.HeaderText = "Tên đối tác";
             this.colPartName.Name = "colPartName";
             this.colPartName.ReadOnly = true;
+            this.colPartName.Width = 150;
             // 
             // colCusName
             // 
@@ -761,10 +793,12 @@
             // 
             // colPickup
             // 
+            this.colPickup.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPickup.DataPropertyName = "PickUp";
             this.colPickup.HeaderText = "Pick up";
             this.colPickup.Name = "colPickup";
             this.colPickup.ReadOnly = true;
+            this.colPickup.Width = 160;
             // 
             // colRoom
             // 
@@ -799,11 +833,21 @@
             this.Load += new System.EventHandler(this.UCGroupTour_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPartnerPrice.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPriceVTQ.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPriceSa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPriceRe.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSaleBook.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPickUp.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtRoom.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFindPartner.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPax)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPromotionMoney.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtpTourBookedForPartner)).EndInit();
             this.ResumeLayout(false);
@@ -813,7 +857,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnFindParnet;
         private System.Windows.Forms.ComboBox cbbPartnerID;
         private System.Windows.Forms.ComboBox cbbTourID;
         private System.Windows.Forms.ComboBox cbbGroupTourID;
@@ -827,7 +870,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
@@ -843,24 +885,25 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colServiceType;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
         private System.Windows.Forms.DataGridViewButtonColumn colRemove;
-        private System.Windows.Forms.Button btnAddServiceType;
         private System.Windows.Forms.Label lblMoney;
-        private System.Windows.Forms.TextBox txtRoom;
-        private System.Windows.Forms.TextBox txtPickUp;
-        private System.Windows.Forms.TextBox txtSaleBook;
-        private System.Windows.Forms.TextBox txtCustomName;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dtpTourBookedForPartner;
-        private System.Windows.Forms.TextBox txtPriceVTQ;
-        private System.Windows.Forms.TextBox txtPriceSa;
-        private System.Windows.Forms.TextBox txtNote;
-        private System.Windows.Forms.TextBox txtPartnerPrice;
-        private System.Windows.Forms.TextBox txtPriceRe;
-        private System.Windows.Forms.TextBox txtPromotionMoney;
         private System.Windows.Forms.Label lblFThuHo;
         private System.Windows.Forms.Label lblFGiaVTQ;
         private System.Windows.Forms.Label lblFGiaBan;
         private System.Windows.Forms.Label lblFGiaNhan;
+        private DevExpress.XtraEditors.TextEdit txtFindPartner;
+        private DevExpress.XtraEditors.SimpleButton btnAddPartner;
+        private DevExpress.XtraEditors.TextEdit txtSaleBook;
+        private DevExpress.XtraEditors.TextEdit txtPickUp;
+        private DevExpress.XtraEditors.TextEdit txtRoom;
+        private DevExpress.XtraEditors.TextEdit txtPartnerPrice;
+        private DevExpress.XtraEditors.TextEdit txtPriceVTQ;
+        private DevExpress.XtraEditors.TextEdit txtPriceSa;
+        private DevExpress.XtraEditors.TextEdit txtPriceRe;
+        private DevExpress.XtraEditors.MemoEdit txtNote;
+        private DevExpress.XtraEditors.TextEdit txtPromotionMoney;
+        private DevExpress.XtraEditors.SimpleButton btnAddServiceType;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;

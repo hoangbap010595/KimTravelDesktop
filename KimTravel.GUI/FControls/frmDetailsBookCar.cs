@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraReports.UI;
+using DevExpress.XtraEditors;
 
 namespace KimTravel.GUI.FControls
 {
@@ -40,7 +41,6 @@ namespace KimTravel.GUI.FControls
             _numCar = numCar;
             this.Text = "Chi tiết xe " + numCar;
             btnPrint.UseVisualStyleBackColor = true;
-            dataGridViewGroupTour.AutoGenerateColumns = false;
         }
 
         private void frmActionGroupTour_Load(object sender, EventArgs e)
@@ -49,7 +49,7 @@ namespace KimTravel.GUI.FControls
             mSkin.AddFormToManage(this);
             mSkin.Theme = ConfigApp.Themes;
             mSkin.ColorScheme = new ColorScheme(ConfigApp.Primary, ConfigApp.DarkPrimary, ConfigApp.LightPrimary, ConfigApp.Accent, ConfigApp.TextShade);
-            dataGridViewGroupTour.DataSource = _dataTemp;
+            gridControlData.DataSource = _dataTemp;
 
             cbbHDV.DataSource = staffService.GetStaffHDV();
             cbbHDV.DisplayMember = "Name";
@@ -65,30 +65,34 @@ namespace KimTravel.GUI.FControls
         private void countPax()
         {
             float x = 0;
-            foreach (DataGridViewRow row in dataGridViewGroupTour.Rows)
+            for (int i = 0; i < gridViewData.RowCount; i++)
             {
-                if (row.Cells["colPax"].Value != null)
+                if (gridViewData.GetFocusedRowCellValue("Pax").ToString() != "")
                 {
-                    float z = float.Parse(row.Cells["colPax"].Value.ToString());
+                    float z = float.Parse(gridViewData.GetFocusedRowCellValue("Pax").ToString());
                     x += z;
                 }
             }
+
             lblTotal.Text = x + " pax";
         }
 
         private void updateStatusBooked()
         {
-            foreach (DataGridViewRow row in dataGridViewGroupTour.Rows)
+            for (int i = 0; i < gridViewData.RowCount; i++)
             {
-                int id = int.Parse(row.Cells["colID"].Value.ToString());
-                var rs = bookService.UpdateBooked(id, true);
+                if (gridViewData.GetFocusedRowCellValue("ID").ToString() != "")
+                {
+                    int id = int.Parse(gridViewData.GetFocusedRowCellValue("ID").ToString());
+                    var rs = bookService.UpdateBooked(id, true);
+                }
             }
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             btnPrint.Enabled = btnBack.Enabled = false;
             lblMessageProgress.Visible = true;
-            var msg = MessageBox.Show("Hệ thống sẽ cập nhật trạng thái tour đã được book.\nBạn muốn cập nhật dữ liệu vào hệ thống và in các bản ghi ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var msg = XtraMessageBox.Show("Hệ thống sẽ cập nhật trạng thái tour đã được book.\nBạn muốn cập nhật dữ liệu vào hệ thống và in các bản ghi ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (DialogResult.Yes == msg)
             {
                 updateStatusBooked();

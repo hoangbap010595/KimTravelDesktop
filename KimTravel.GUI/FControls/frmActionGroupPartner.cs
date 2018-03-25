@@ -1,4 +1,5 @@
-﻿using KimTravel.DAL;
+﻿using DevExpress.XtraEditors;
+using KimTravel.DAL;
 using KimTravel.DAL.Models;
 using KimTravel.DAL.Services;
 using MaterialSkin;
@@ -55,7 +56,7 @@ namespace KimTravel.GUI.FControls
         {
             if (txtGroupPartner.Text == "")
             {
-                MessageBox.Show("Tên nhóm không thể để trống.");
+                XtraMessageBox.Show("Tên nhóm không thể để trống.");
                 return;
             }
             GroupPartner g = new GroupPartner();
@@ -76,14 +77,14 @@ namespace KimTravel.GUI.FControls
             }
             if (rs)
             {
-                MessageBox.Show(msg);
+                XtraMessageBox.Show(msg);
 
                 if (loadData != null)
                     loadData();
                 this.Close();
             }
             else
-                MessageBox.Show("Tên nhóm đã tồn tại trong hệ thống. Vui lòng kiểm tra lại.");
+                XtraMessageBox.Show("Tên nhóm đã tồn tại trong hệ thống. Vui lòng kiểm tra lại.");
 
         }
 

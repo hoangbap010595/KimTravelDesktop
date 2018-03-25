@@ -1,4 +1,5 @@
-﻿using KimTravel.DAL;
+﻿using DevExpress.XtraEditors;
+using KimTravel.DAL;
 using KimTravel.DAL.Models;
 using KimTravel.DAL.Services;
 using MaterialSkin;
@@ -139,18 +140,18 @@ namespace KimTravel.GUI.FControls
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (DialogResult.OK == MessageBox.Show("Xác nhận cập nhật phân quyền cho tài khoản ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question))
+            if (DialogResult.OK == XtraMessageBox.Show("Xác nhận cập nhật phân quyền cho tài khoản ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question))
             {
                 var rs = userRoleService.Update(_objectData.Username, getStringRole());
                 if (rs)
                 {
-                    MessageBox.Show("Cập nhật thành công");
+                    XtraMessageBox.Show("Cập nhật thành công");
                     if (loadData != null)
                         loadData();
                     this.Close();
                 }
                 else
-                    MessageBox.Show("Cập nhật thất bại");
+                    XtraMessageBox.Show("Cập nhật thất bại");
             }
 
         }

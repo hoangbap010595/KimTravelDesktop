@@ -17,6 +17,12 @@ namespace KimTravel.DAL.Services
 
             return data;
         }
+        public ServiceType GetByID(int id)
+        {
+            ServiceType data = db.ServiceTypes.FirstOrDefault(x=>x.ID == id);
+
+            return data;
+        }
         public IQueryable GetListFind(string content)
         {
             IQueryable data = from p in db.ServiceTypes

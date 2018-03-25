@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using KimTravel.GUI.FControls;
 using KimTravel.DAL.Services;
+using DevExpress.XtraEditors;
 
 namespace KimTravel.GUI.UControls
 {
-    public partial class UCRoleViewReport : UserControl
+    public partial class UCRoleViewReport : XtraUserControl
     {
         private PartnerService partnerService;
         private ApplicationUserService userService = new ApplicationUserService();
@@ -26,14 +27,14 @@ namespace KimTravel.GUI.UControls
         {
             partnerService = new PartnerService();
             var data = partnerService.GetList();
-            dtgPartner.DataSource = data;
-            dtgPartner.Update();
-            dtgPartner.Refresh();
+            gridControlData.DataSource = data;
+            gridControlData.Update();
+            gridControlData.Refresh();
 
             userService = new ApplicationUserService();
-            dtgAccount.DataSource = userService.GetList();
-            dtgAccount.Update();
-            dtgAccount.Refresh();
+            gridControlAccount.DataSource = userService.GetList();
+            gridControlAccount.Update();
+            gridControlAccount.Refresh();
         }
         private void btnThemMoi_Click(object sender, EventArgs e)
         {
@@ -44,21 +45,12 @@ namespace KimTravel.GUI.UControls
 
         private void UCGroupTour_Load(object sender, EventArgs e)
         {
-            dtgPartner.AutoGenerateColumns = false;
-            dtgAccount.AutoGenerateColumns = false;
             loadDataGroup();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
             loadDataGroup();
-        }
-        private void dataGridViewGroupTour_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            using (SolidBrush b = new SolidBrush(dtgPartner.RowHeadersDefaultCellStyle.ForeColor))
-            {
-                e.Graphics.DrawString((e.RowIndex + 1).ToString(), e.InheritedRowStyle.Font, b, e.RowBounds.Location.X + 10, e.RowBounds.Location.Y + 4);
-            }
         }
 
         private void btnThemMoi_Click_1(object sender, EventArgs e)
@@ -67,47 +59,28 @@ namespace KimTravel.GUI.UControls
             frm.loadData = new frmActionGroupPrice.LoadData(loadDataGroup);
             frm.ShowDialog();
         }
-     
-        private void dtgPartner_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            var senderGrid = (DataGridView)sender;
-            if (senderGrid.DataSource != null)
-            {
-                if (senderGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "True")
-                {
-                    senderGrid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightGray;
-                }
-                else
-                {
-                    senderGrid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
-                }
 
-            }
+        private void gridViewAccount_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            var id = int.Parse(gridViewAccount.GetFocusedRowCellValue("ID").ToString());
+            var username = gridViewAccount.GetFocusedRowCellValue(gridColumnUsername).ToString();
+            _currentUserID = id;
+            lblText.Text = username;
+
+            var data = userService.GetPartnerViewReport(username);
+            SetRowsChecked(data);
         }
 
-        private void dtgAccount_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                var senderGrid = (DataGridView)sender;
-                var id = int.Parse(senderGrid.Rows[e.RowIndex].Cells["colUID"].Value.ToString());
-                var username = senderGrid.Rows[e.RowIndex].Cells["colUserName"].Value.ToString();
-                _currentUserID = id;
-                lblText.Text = username;
-
-                var data = userService.GetPartnerViewReport(username);
-                SetRowsChecked(data);
-            }
-            catch { }
-        }
         private string GetRowsChecked()
         {
             string rs = "";
-            foreach (DataGridViewRow row in dtgPartner.Rows)
+            for (int i = 0; i < gridViewData.SelectedRowsCount; i++)
             {
-                if (row.Cells["colCheck"].Value != null && (bool)row.Cells["colCheck"].Value)
+                var a = gridViewData.GetSelectedRows()[i];
+
+                if (gridViewData.GetSelectedRows()[i] > 0)
                 {
-                    rs += int.Parse(row.Cells["colPartnerID"].Value.ToString()) + ",";
+                    rs += int.Parse(gridViewData.GetRowCellValue(a, "PartnerID").ToString()) + ",";
                 }
             }
             return rs;
@@ -121,32 +94,36 @@ namespace KimTravel.GUI.UControls
                 if (item != "")
                     lsPartner.Add(int.Parse(item));
             }
-            foreach (DataGridViewRow row in dtgPartner.Rows)
+            for (int i = 0; i < gridViewData.RowCount; i++)
             {
-                int id = int.Parse(row.Cells["colPartnerID"].Value.ToString());
-                if(lsPartner.Contains(id))
+                var id = int.Parse(gridViewData.GetRowCellValue(i, "PartnerID").ToString());
+                if (lsPartner.Contains(id))
                 {
-                    row.Cells["colCheck"].Value = true;
-                }else
-                    row.Cells["colCheck"].Value = false;
+                    gridViewData.SelectRow(i);
+                }
+                else
+                    gridViewData.UnselectRow(i);
             }
+
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (_currentUserID == 0)
             {
-                MessageBox.Show("Bạn chưa chọn tài khoản để thiết lập.");
+                XtraMessageBox.Show("Bạn chưa chọn tài khoản để thiết lập.");
                 return;
             }
-            if (DialogResult.Yes == MessageBox.Show("Cập nhật phân quyền xem báo cáo cho tài khoản \"" + lblText.Text + "\"", "Thông báo", MessageBoxButtons.YesNo))
+            if (DialogResult.Yes == XtraMessageBox.Show("Cập nhật phân quyền xem báo cáo cho tài khoản \"" + lblText.Text + "\"", "Thông báo", MessageBoxButtons.YesNo))
             {
                 string data = GetRowsChecked();
                 var rs = userService.UpdateRoleViewReport(_currentUserID, data);
                 if (rs)
-                    MessageBox.Show("Cập nhật thành công.");
+                    XtraMessageBox.Show("Cập nhật thành công.");
                 else
-                    MessageBox.Show("Xảy ra lỗi. Cập nhật thất bại.");
+                    XtraMessageBox.Show("Xảy ra lỗi. Cập nhật thất bại.");
             }
         }
+
+       
     }
 }

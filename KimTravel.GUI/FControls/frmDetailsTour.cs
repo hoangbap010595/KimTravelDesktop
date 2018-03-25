@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using DevExpress.XtraEditors;
 
 namespace KimTravel.GUI.FControls
 {
@@ -57,10 +58,13 @@ namespace KimTravel.GUI.FControls
             cbbGroupTourID.DataSource = grTourService.GetListCombobox();
             cbbGroupTourID.ValueMember = "GroupID";
             cbbGroupTourID.DisplayMember = "Name";
+
             cbbPartnerID.DataSource = pnService.GetList();
             cbbPartnerID.ValueMember = "PartnerID";
             cbbPartnerID.DisplayMember = "Address";
 
+            Tour t = tService.GetByID((int)_objectBook.TourID);
+            cbbGroupTourID.SelectedValue = t.GroupID;
             cbbPartnerID.SelectedValue = _objectBook.PartnerID;
             cbbTourID.SelectedValue = _objectBook.TourID;
             cbbPartnerID.SelectedValue = _objectBook.PartnerID;
@@ -76,6 +80,7 @@ namespace KimTravel.GUI.FControls
             txtPriceSa.Text = _objectBook.PriceSale.ToString();
             txtPriceVTQ.Text = _objectBook.PriceVTQ.ToString();
             txtPartnerPrice.Text = _objectBook.PartnerPrice.ToString();
+            txtNote.Text = _objectBook.Note;
 
             txtPromotionPrice.Text = _objectBook.PromotionMoney.ToString();
             lblTotalBook.Text = _objectBook.Total.ToString();
@@ -148,22 +153,22 @@ namespace KimTravel.GUI.FControls
                 //book.IsCancel = false;
                 book.IsBooked = false;
 
-                if (book.StaffID == "" || book.StaffID == null) { MessageBox.Show("Tên NV book không thể để trống!"); return; }
+                if (book.StaffID == "" || book.StaffID == null) { XtraMessageBox.Show("Tên NV book không thể để trống!"); return; }
 
                 var rs = bookService.Update(book);
                 if (rs)
                 {
-                    MessageBox.Show("Cập nhật thành công");
+                    XtraMessageBox.Show("Cập nhật thành công");
                     if (loadData != null)
                         loadData();
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("Xảy ra lỗi vui lòng kiểm tra lại.");
+                    XtraMessageBox.Show("Xảy ra lỗi vui lòng kiểm tra lại.");
                 }
             }
-            catch (Exception ex) { MessageBox.Show("Xảy ra lỗi: " + ex.Message); }
+            catch (Exception ex) { XtraMessageBox.Show("Xảy ra lỗi: " + ex.Message); }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -178,20 +183,20 @@ namespace KimTravel.GUI.FControls
             if (_WorkID == 1)
             {
                 //Cancel = true
-                if (DialogResult.OK == MessageBox.Show("Xác nhận muốn hủy bỏ tour đã book này ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
+                if (DialogResult.OK == XtraMessageBox.Show("Xác nhận muốn hủy bỏ tour đã book này ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
                 {
                     bookService.UpdateBookCancel(_ObjID, true);
-                    MessageBox.Show("Tour đã hủy thành công!");
+                    XtraMessageBox.Show("Tour đã hủy thành công!");
                     _WorkID = 2;
                 }
             }
             else
             {
                 //Cancel = false
-                if (DialogResult.OK == MessageBox.Show("Xác nhận muốn hoàn tác tour đã hủy này ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
+                if (DialogResult.OK == XtraMessageBox.Show("Xác nhận muốn hoàn tác tour đã hủy này ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning))
                 {
                     bookService.UpdateBookCancel(_ObjID, false);
-                    MessageBox.Show("Hoàn tác thành công!");
+                    XtraMessageBox.Show("Hoàn tác thành công!");
                     _WorkID = 1;
                 }
             }
@@ -262,13 +267,16 @@ namespace KimTravel.GUI.FControls
             }
             return price;
         }
-        private void getService(string name, int price)
+        private void getService(string name, int price, int add)
         {
-            DataRow dr = tableService.NewRow();
-            dr["ServiceType"] = name;
-            dr["Price"] = price;
+            if (add == 1)
+            {
+                DataRow dr = tableService.NewRow();
+                dr["ServiceType"] = name;
+                dr["Price"] = price;
 
-            tableService.Rows.Add(dr);
+                tableService.Rows.Add(dr);
+            }
             tableService.AcceptChanges();
             dataGridViewGroupTour.DataSource = tableService;
             lblMoney.Text = "Total:" + String.Format("{0:#,###}", getTotalPriceService());
@@ -308,6 +316,7 @@ namespace KimTravel.GUI.FControls
             var total = ((priceRe + priceVTQ + priceService) * pax) - moneySale;
 
             lblTotalBook.Text = total.ToString();
+            lblMoney.Text = String.Format("{0:#,###}", priceService);
         }
 
         private void dataGridViewGroupTour_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -330,6 +339,13 @@ namespace KimTravel.GUI.FControls
         private void numPax_ValueChanged(object sender, EventArgs e)
         {
             payment();
+        }
+        private void txtFindPartner_TextChanged(object sender, EventArgs e)
+        {
+            string content = txtFindPartner.Text.Trim();
+            cbbPartnerID.DataSource = pnService.GetListCobobox(content);
+            cbbPartnerID.ValueMember = "PartnerID";
+            cbbPartnerID.DisplayMember = "Address";
         }
     }
 }

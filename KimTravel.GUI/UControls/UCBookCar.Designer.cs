@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPartnerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,7 +78,42 @@
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.rdCar05 = new System.Windows.Forms.RadioButton();
             this.rdCar510 = new System.Windows.Forms.RadioButton();
+            this.gridControlData = new DevExpress.XtraGrid.GridControl();
+            this.gridViewData = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumnID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnPax = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnPickUp = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnRoom = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnPartnerPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnNote = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnCar1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ckCar1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.gridColumnCar2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ckCar2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.gridColumnCar3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ckCar3 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.gridColumnCar4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ckCar4 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.gridColumnCar5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ckCar5 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.ckCar6 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.ckCar7 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.ckCar8 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.ckCar9 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.ckCar10 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCar3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCar4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCar5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCar6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCar7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCar8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCar9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCar10)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewGroupTour
@@ -91,14 +126,14 @@
             this.dataGridViewGroupTour.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewGroupTour.ColumnHeadersHeight = 40;
             this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
@@ -118,14 +153,14 @@
             this.colCar8,
             this.colCar9,
             this.colCar10});
-            this.dataGridViewGroupTour.Location = new System.Drawing.Point(3, 51);
+            this.dataGridViewGroupTour.Location = new System.Drawing.Point(285, 333);
             this.dataGridViewGroupTour.MultiSelect = false;
             this.dataGridViewGroupTour.Name = "dataGridViewGroupTour";
             this.dataGridViewGroupTour.RowHeadersWidth = 35;
             this.dataGridViewGroupTour.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.dataGridViewGroupTour.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dataGridViewGroupTour.RowTemplate.Height = 25;
-            this.dataGridViewGroupTour.Size = new System.Drawing.Size(1053, 383);
+            this.dataGridViewGroupTour.Size = new System.Drawing.Size(1045, 101);
             this.dataGridViewGroupTour.TabIndex = 0;
             this.dataGridViewGroupTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridViewGroupTour.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroupTour_CellValueChanged);
@@ -159,8 +194,8 @@
             // 
             this.colPax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPax.DataPropertyName = "Pax";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colPax.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colPax.DefaultCellStyle = dataGridViewCellStyle5;
             this.colPax.HeaderText = "Pax";
             this.colPax.Name = "colPax";
             this.colPax.Width = 50;
@@ -178,9 +213,9 @@
             // 
             this.colPartnerPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPartnerPrice.DataPropertyName = "PartnerPrice";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "#,###";
-            this.colPartnerPrice.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "#,###";
+            this.colPartnerPrice.DefaultCellStyle = dataGridViewCellStyle6;
             this.colPartnerPrice.HeaderText = "Thu hộ";
             this.colPartnerPrice.Name = "colPartnerPrice";
             this.colPartnerPrice.Width = 80;
@@ -276,7 +311,7 @@
             this.btnCar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCar1.ForeColor = System.Drawing.Color.Red;
-            this.btnCar1.Location = new System.Drawing.Point(134, 478);
+            this.btnCar1.Location = new System.Drawing.Point(286, 478);
             this.btnCar1.Name = "btnCar1";
             this.btnCar1.Size = new System.Drawing.Size(70, 32);
             this.btnCar1.TabIndex = 1;
@@ -291,7 +326,7 @@
             this.btnCar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCar2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnCar2.Location = new System.Drawing.Point(214, 478);
+            this.btnCar2.Location = new System.Drawing.Point(366, 478);
             this.btnCar2.Name = "btnCar2";
             this.btnCar2.Size = new System.Drawing.Size(70, 32);
             this.btnCar2.TabIndex = 2;
@@ -306,7 +341,7 @@
             this.btnCar3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCar3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCar3.ForeColor = System.Drawing.Color.Black;
-            this.btnCar3.Location = new System.Drawing.Point(294, 478);
+            this.btnCar3.Location = new System.Drawing.Point(446, 478);
             this.btnCar3.Name = "btnCar3";
             this.btnCar3.Size = new System.Drawing.Size(70, 32);
             this.btnCar3.TabIndex = 3;
@@ -321,7 +356,7 @@
             this.btnCar4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCar4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCar4.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.btnCar4.Location = new System.Drawing.Point(374, 478);
+            this.btnCar4.Location = new System.Drawing.Point(526, 478);
             this.btnCar4.Name = "btnCar4";
             this.btnCar4.Size = new System.Drawing.Size(70, 32);
             this.btnCar4.TabIndex = 4;
@@ -336,7 +371,7 @@
             this.btnCar5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCar5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCar5.ForeColor = System.Drawing.Color.Green;
-            this.btnCar5.Location = new System.Drawing.Point(454, 478);
+            this.btnCar5.Location = new System.Drawing.Point(606, 478);
             this.btnCar5.Name = "btnCar5";
             this.btnCar5.Size = new System.Drawing.Size(70, 32);
             this.btnCar5.TabIndex = 5;
@@ -351,7 +386,7 @@
             this.btnCar6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCar6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCar6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnCar6.Location = new System.Drawing.Point(534, 478);
+            this.btnCar6.Location = new System.Drawing.Point(686, 478);
             this.btnCar6.Name = "btnCar6";
             this.btnCar6.Size = new System.Drawing.Size(70, 32);
             this.btnCar6.TabIndex = 6;
@@ -366,7 +401,7 @@
             this.btnCar7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCar7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCar7.ForeColor = System.Drawing.Color.Fuchsia;
-            this.btnCar7.Location = new System.Drawing.Point(614, 478);
+            this.btnCar7.Location = new System.Drawing.Point(766, 478);
             this.btnCar7.Name = "btnCar7";
             this.btnCar7.Size = new System.Drawing.Size(70, 32);
             this.btnCar7.TabIndex = 7;
@@ -381,7 +416,7 @@
             this.btnCar8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCar8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCar8.ForeColor = System.Drawing.Color.Blue;
-            this.btnCar8.Location = new System.Drawing.Point(694, 478);
+            this.btnCar8.Location = new System.Drawing.Point(846, 478);
             this.btnCar8.Name = "btnCar8";
             this.btnCar8.Size = new System.Drawing.Size(70, 32);
             this.btnCar8.TabIndex = 8;
@@ -396,7 +431,7 @@
             this.btnCar9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCar9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCar9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnCar9.Location = new System.Drawing.Point(774, 478);
+            this.btnCar9.Location = new System.Drawing.Point(926, 478);
             this.btnCar9.Name = "btnCar9";
             this.btnCar9.Size = new System.Drawing.Size(70, 32);
             this.btnCar9.TabIndex = 9;
@@ -412,7 +447,7 @@
             this.btnCar10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCar10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCar10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnCar10.Location = new System.Drawing.Point(854, 478);
+            this.btnCar10.Location = new System.Drawing.Point(1006, 478);
             this.btnCar10.Name = "btnCar10";
             this.btnCar10.Size = new System.Drawing.Size(70, 32);
             this.btnCar10.TabIndex = 10;
@@ -426,7 +461,7 @@
             this.lblTotalXe1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalXe1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalXe1.ForeColor = System.Drawing.Color.Red;
-            this.lblTotalXe1.Location = new System.Drawing.Point(135, 449);
+            this.lblTotalXe1.Location = new System.Drawing.Point(287, 449);
             this.lblTotalXe1.Name = "lblTotalXe1";
             this.lblTotalXe1.Size = new System.Drawing.Size(68, 26);
             this.lblTotalXe1.TabIndex = 11;
@@ -439,7 +474,7 @@
             this.lblTotalXe2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalXe2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalXe2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lblTotalXe2.Location = new System.Drawing.Point(215, 449);
+            this.lblTotalXe2.Location = new System.Drawing.Point(367, 449);
             this.lblTotalXe2.Name = "lblTotalXe2";
             this.lblTotalXe2.Size = new System.Drawing.Size(68, 26);
             this.lblTotalXe2.TabIndex = 11;
@@ -452,7 +487,7 @@
             this.lblTotalXe3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalXe3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalXe3.ForeColor = System.Drawing.Color.Black;
-            this.lblTotalXe3.Location = new System.Drawing.Point(295, 449);
+            this.lblTotalXe3.Location = new System.Drawing.Point(447, 449);
             this.lblTotalXe3.Name = "lblTotalXe3";
             this.lblTotalXe3.Size = new System.Drawing.Size(68, 26);
             this.lblTotalXe3.TabIndex = 11;
@@ -465,7 +500,7 @@
             this.lblTotalXe4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalXe4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalXe4.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.lblTotalXe4.Location = new System.Drawing.Point(375, 449);
+            this.lblTotalXe4.Location = new System.Drawing.Point(527, 449);
             this.lblTotalXe4.Name = "lblTotalXe4";
             this.lblTotalXe4.Size = new System.Drawing.Size(68, 26);
             this.lblTotalXe4.TabIndex = 11;
@@ -478,7 +513,7 @@
             this.lblTotalXe5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalXe5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalXe5.ForeColor = System.Drawing.Color.Green;
-            this.lblTotalXe5.Location = new System.Drawing.Point(455, 449);
+            this.lblTotalXe5.Location = new System.Drawing.Point(607, 449);
             this.lblTotalXe5.Name = "lblTotalXe5";
             this.lblTotalXe5.Size = new System.Drawing.Size(68, 26);
             this.lblTotalXe5.TabIndex = 11;
@@ -491,7 +526,7 @@
             this.lblTotalXe6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalXe6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalXe6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblTotalXe6.Location = new System.Drawing.Point(535, 449);
+            this.lblTotalXe6.Location = new System.Drawing.Point(687, 449);
             this.lblTotalXe6.Name = "lblTotalXe6";
             this.lblTotalXe6.Size = new System.Drawing.Size(68, 26);
             this.lblTotalXe6.TabIndex = 11;
@@ -504,7 +539,7 @@
             this.lblTotalXe7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalXe7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalXe7.ForeColor = System.Drawing.Color.Fuchsia;
-            this.lblTotalXe7.Location = new System.Drawing.Point(615, 449);
+            this.lblTotalXe7.Location = new System.Drawing.Point(767, 449);
             this.lblTotalXe7.Name = "lblTotalXe7";
             this.lblTotalXe7.Size = new System.Drawing.Size(68, 26);
             this.lblTotalXe7.TabIndex = 11;
@@ -517,7 +552,7 @@
             this.lblTotalXe8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalXe8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalXe8.ForeColor = System.Drawing.Color.Blue;
-            this.lblTotalXe8.Location = new System.Drawing.Point(695, 449);
+            this.lblTotalXe8.Location = new System.Drawing.Point(847, 449);
             this.lblTotalXe8.Name = "lblTotalXe8";
             this.lblTotalXe8.Size = new System.Drawing.Size(68, 26);
             this.lblTotalXe8.TabIndex = 11;
@@ -530,7 +565,7 @@
             this.lblTotalXe9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalXe9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalXe9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblTotalXe9.Location = new System.Drawing.Point(775, 449);
+            this.lblTotalXe9.Location = new System.Drawing.Point(927, 449);
             this.lblTotalXe9.Name = "lblTotalXe9";
             this.lblTotalXe9.Size = new System.Drawing.Size(68, 26);
             this.lblTotalXe9.TabIndex = 11;
@@ -543,7 +578,7 @@
             this.lblTotalXe10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalXe10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalXe10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTotalXe10.Location = new System.Drawing.Point(855, 449);
+            this.lblTotalXe10.Location = new System.Drawing.Point(1007, 449);
             this.lblTotalXe10.Name = "lblTotalXe10";
             this.lblTotalXe10.Size = new System.Drawing.Size(68, 26);
             this.lblTotalXe10.TabIndex = 11;
@@ -553,23 +588,23 @@
             // cbbTourID
             // 
             this.cbbTourID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbTourID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbTourID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTourID.FormattingEnabled = true;
-            this.cbbTourID.ItemHeight = 16;
-            this.cbbTourID.Location = new System.Drawing.Point(185, 21);
+            this.cbbTourID.ItemHeight = 20;
+            this.cbbTourID.Location = new System.Drawing.Point(5, 141);
             this.cbbTourID.Name = "cbbTourID";
-            this.cbbTourID.Size = new System.Drawing.Size(164, 24);
+            this.cbbTourID.Size = new System.Drawing.Size(274, 28);
             this.cbbTourID.TabIndex = 2;
             // 
             // cbbGroupTourID
             // 
             this.cbbGroupTourID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbGroupTourID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbGroupTourID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbGroupTourID.FormattingEnabled = true;
-            this.cbbGroupTourID.ItemHeight = 16;
-            this.cbbGroupTourID.Location = new System.Drawing.Point(5, 21);
+            this.cbbGroupTourID.ItemHeight = 20;
+            this.cbbGroupTourID.Location = new System.Drawing.Point(5, 88);
             this.cbbGroupTourID.Name = "cbbGroupTourID";
-            this.cbbGroupTourID.Size = new System.Drawing.Size(164, 24);
+            this.cbbGroupTourID.Size = new System.Drawing.Size(274, 28);
             this.cbbGroupTourID.TabIndex = 1;
             this.cbbGroupTourID.SelectedIndexChanged += new System.EventHandler(this.cbbGroupTourID_SelectedIndexChanged);
             // 
@@ -578,7 +613,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(182, 1);
+            this.label2.Location = new System.Drawing.Point(2, 120);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 17);
             this.label2.TabIndex = 0;
@@ -589,7 +624,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(2, 1);
+            this.label1.Location = new System.Drawing.Point(2, 66);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 17);
             this.label1.TabIndex = 0;
@@ -600,7 +635,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label6.Location = new System.Drawing.Point(370, 1);
+            this.label6.Location = new System.Drawing.Point(3, 6);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 17);
             this.label6.TabIndex = 0;
@@ -610,17 +645,17 @@
             // 
             this.dtpStartDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpStartDate.CustomFormat = "dd-MM-yyyy";
-            this.dtpStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStartDate.Location = new System.Drawing.Point(373, 21);
+            this.dtpStartDate.Location = new System.Drawing.Point(5, 29);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(133, 23);
+            this.dtpStartDate.Size = new System.Drawing.Size(162, 26);
             this.dtpStartDate.TabIndex = 3;
             // 
             // btnTimKiem
             // 
             this.btnTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTimKiem.Location = new System.Drawing.Point(534, 6);
+            this.btnTimKiem.Location = new System.Drawing.Point(3, 358);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(100, 38);
             this.btnTimKiem.TabIndex = 4;
@@ -632,9 +667,9 @@
             // 
             this.rdCar05.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rdCar05.AutoSize = true;
-            this.rdCar05.Location = new System.Drawing.Point(901, 24);
+            this.rdCar05.Location = new System.Drawing.Point(286, 6);
             this.rdCar05.Name = "rdCar05";
-            this.rdCar05.Size = new System.Drawing.Size(69, 17);
+            this.rdCar05.Size = new System.Drawing.Size(67, 17);
             this.rdCar05.TabIndex = 12;
             this.rdCar05.Text = "Pick 5 xe";
             this.rdCar05.UseVisualStyleBackColor = true;
@@ -644,17 +679,266 @@
             // 
             this.rdCar510.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rdCar510.AutoSize = true;
-            this.rdCar510.Location = new System.Drawing.Point(976, 24);
+            this.rdCar510.Location = new System.Drawing.Point(361, 6);
             this.rdCar510.Name = "rdCar510";
-            this.rdCar510.Size = new System.Drawing.Size(75, 17);
+            this.rdCar510.Size = new System.Drawing.Size(73, 17);
             this.rdCar510.TabIndex = 12;
             this.rdCar510.Text = "Pick 10 xe";
             this.rdCar510.UseVisualStyleBackColor = true;
+            // 
+            // gridControlData
+            // 
+            this.gridControlData.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.gridControlData.Location = new System.Drawing.Point(285, 27);
+            this.gridControlData.MainView = this.gridViewData;
+            this.gridControlData.Name = "gridControlData";
+            this.gridControlData.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.ckCar1,
+            this.ckCar2,
+            this.ckCar3,
+            this.ckCar4,
+            this.ckCar5,
+            this.ckCar6,
+            this.ckCar7,
+            this.ckCar8,
+            this.ckCar9,
+            this.ckCar10});
+            this.gridControlData.Size = new System.Drawing.Size(1046, 300);
+            this.gridControlData.TabIndex = 14;
+            this.gridControlData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewData});
+            // 
+            // gridViewData
+            // 
+            this.gridViewData.ColumnPanelRowHeight = 35;
+            this.gridViewData.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumnID,
+            this.gridColumnPax,
+            this.gridColumnPickUp,
+            this.gridColumnRoom,
+            this.gridColumnPartnerPrice,
+            this.gridColumnNote,
+            this.gridColumnCar1,
+            this.gridColumnCar2,
+            this.gridColumnCar3,
+            this.gridColumnCar4,
+            this.gridColumnCar5});
+            this.gridViewData.GridControl = this.gridControlData;
+            this.gridViewData.IndicatorWidth = 35;
+            this.gridViewData.Name = "gridViewData";
+            this.gridViewData.OptionsCustomization.AllowColumnMoving = false;
+            this.gridViewData.OptionsView.ColumnAutoWidth = false;
+            this.gridViewData.OptionsView.ShowGroupPanel = false;
+            this.gridViewData.RowHeight = 25;
+            // 
+            // gridColumnID
+            // 
+            this.gridColumnID.Caption = "ID";
+            this.gridColumnID.FieldName = "ID";
+            this.gridColumnID.Name = "gridColumnID";
+            // 
+            // gridColumnPax
+            // 
+            this.gridColumnPax.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnPax.AppearanceCell.Options.UseFont = true;
+            this.gridColumnPax.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnPax.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPax.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnPax.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnPax.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnPax.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPax.Caption = "SL";
+            this.gridColumnPax.FieldName = "Pax";
+            this.gridColumnPax.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.gridColumnPax.MaxWidth = 50;
+            this.gridColumnPax.MinWidth = 50;
+            this.gridColumnPax.Name = "gridColumnPax";
+            this.gridColumnPax.OptionsColumn.AllowEdit = false;
+            this.gridColumnPax.OptionsColumn.ReadOnly = true;
+            this.gridColumnPax.Visible = true;
+            this.gridColumnPax.VisibleIndex = 0;
+            this.gridColumnPax.Width = 50;
+            // 
+            // gridColumnPickUp
+            // 
+            this.gridColumnPickUp.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnPickUp.AppearanceCell.Options.UseFont = true;
+            this.gridColumnPickUp.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnPickUp.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnPickUp.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnPickUp.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPickUp.Caption = "Pick Up";
+            this.gridColumnPickUp.FieldName = "PickUp";
+            this.gridColumnPickUp.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.gridColumnPickUp.MinWidth = 200;
+            this.gridColumnPickUp.Name = "gridColumnPickUp";
+            this.gridColumnPickUp.OptionsColumn.AllowEdit = false;
+            this.gridColumnPickUp.OptionsColumn.ReadOnly = true;
+            this.gridColumnPickUp.Visible = true;
+            this.gridColumnPickUp.VisibleIndex = 1;
+            this.gridColumnPickUp.Width = 200;
+            // 
+            // gridColumnRoom
+            // 
+            this.gridColumnRoom.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnRoom.AppearanceCell.Options.UseFont = true;
+            this.gridColumnRoom.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnRoom.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnRoom.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnRoom.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnRoom.Caption = "Room";
+            this.gridColumnRoom.FieldName = "Room";
+            this.gridColumnRoom.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.gridColumnRoom.MinWidth = 100;
+            this.gridColumnRoom.Name = "gridColumnRoom";
+            this.gridColumnRoom.OptionsColumn.AllowEdit = false;
+            this.gridColumnRoom.OptionsColumn.ReadOnly = true;
+            this.gridColumnRoom.Visible = true;
+            this.gridColumnRoom.VisibleIndex = 2;
+            this.gridColumnRoom.Width = 100;
+            // 
+            // gridColumnPartnerPrice
+            // 
+            this.gridColumnPartnerPrice.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnPartnerPrice.AppearanceCell.Options.UseFont = true;
+            this.gridColumnPartnerPrice.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnPartnerPrice.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumnPartnerPrice.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnPartnerPrice.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnPartnerPrice.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnPartnerPrice.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPartnerPrice.Caption = "Thu hộ";
+            this.gridColumnPartnerPrice.DisplayFormat.FormatString = "#,###";
+            this.gridColumnPartnerPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumnPartnerPrice.FieldName = "PartnerPrice";
+            this.gridColumnPartnerPrice.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.gridColumnPartnerPrice.MaxWidth = 120;
+            this.gridColumnPartnerPrice.MinWidth = 120;
+            this.gridColumnPartnerPrice.Name = "gridColumnPartnerPrice";
+            this.gridColumnPartnerPrice.OptionsColumn.AllowEdit = false;
+            this.gridColumnPartnerPrice.OptionsColumn.ReadOnly = true;
+            this.gridColumnPartnerPrice.Visible = true;
+            this.gridColumnPartnerPrice.VisibleIndex = 3;
+            this.gridColumnPartnerPrice.Width = 120;
+            // 
+            // gridColumnNote
+            // 
+            this.gridColumnNote.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnNote.AppearanceCell.Options.UseFont = true;
+            this.gridColumnNote.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnNote.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnNote.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnNote.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnNote.Caption = "Ghi chú";
+            this.gridColumnNote.FieldName = "Note";
+            this.gridColumnNote.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.gridColumnNote.MinWidth = 160;
+            this.gridColumnNote.Name = "gridColumnNote";
+            this.gridColumnNote.OptionsColumn.AllowEdit = false;
+            this.gridColumnNote.OptionsColumn.ReadOnly = true;
+            this.gridColumnNote.Visible = true;
+            this.gridColumnNote.VisibleIndex = 4;
+            this.gridColumnNote.Width = 160;
+            // 
+            // gridColumnCar1
+            // 
+            this.gridColumnCar1.Caption = "Xe 1";
+            this.gridColumnCar1.ColumnEdit = this.ckCar1;
+            this.gridColumnCar1.Name = "gridColumnCar1";
+            this.gridColumnCar1.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumnCar1.OptionsFilter.AllowFilter = false;
+            this.gridColumnCar1.Visible = true;
+            this.gridColumnCar1.VisibleIndex = 5;
+            // 
+            // ckCar1
+            // 
+            this.ckCar1.AutoHeight = false;
+            this.ckCar1.Name = "ckCar1";
+            this.ckCar1.EditValueChanged += new System.EventHandler(this.ckCar1_EditValueChanged);
+            // 
+            // gridColumnCar2
+            // 
+            this.gridColumnCar2.Caption = "Xe 2";
+            this.gridColumnCar2.ColumnEdit = this.ckCar2;
+            this.gridColumnCar2.Name = "gridColumnCar2";
+            this.gridColumnCar2.Visible = true;
+            this.gridColumnCar2.VisibleIndex = 6;
+            // 
+            // ckCar2
+            // 
+            this.ckCar2.AutoHeight = false;
+            this.ckCar2.Name = "ckCar2";
+            // 
+            // gridColumnCar3
+            // 
+            this.gridColumnCar3.Caption = "Xe 3";
+            this.gridColumnCar3.ColumnEdit = this.ckCar3;
+            this.gridColumnCar3.Name = "gridColumnCar3";
+            this.gridColumnCar3.Visible = true;
+            this.gridColumnCar3.VisibleIndex = 7;
+            // 
+            // ckCar3
+            // 
+            this.ckCar3.AutoHeight = false;
+            this.ckCar3.Name = "ckCar3";
+            // 
+            // gridColumnCar4
+            // 
+            this.gridColumnCar4.Caption = "Xe 4";
+            this.gridColumnCar4.ColumnEdit = this.ckCar4;
+            this.gridColumnCar4.Name = "gridColumnCar4";
+            this.gridColumnCar4.Visible = true;
+            this.gridColumnCar4.VisibleIndex = 8;
+            // 
+            // ckCar4
+            // 
+            this.ckCar4.AutoHeight = false;
+            this.ckCar4.Name = "ckCar4";
+            // 
+            // gridColumnCar5
+            // 
+            this.gridColumnCar5.Caption = "Xe 5";
+            this.gridColumnCar5.ColumnEdit = this.ckCar5;
+            this.gridColumnCar5.Name = "gridColumnCar5";
+            this.gridColumnCar5.Visible = true;
+            this.gridColumnCar5.VisibleIndex = 9;
+            // 
+            // ckCar5
+            // 
+            this.ckCar5.AutoHeight = false;
+            this.ckCar5.Name = "ckCar5";
+            // 
+            // ckCar6
+            // 
+            this.ckCar6.AutoHeight = false;
+            this.ckCar6.Name = "ckCar6";
+            // 
+            // ckCar7
+            // 
+            this.ckCar7.AutoHeight = false;
+            this.ckCar7.Name = "ckCar7";
+            // 
+            // ckCar8
+            // 
+            this.ckCar8.AutoHeight = false;
+            this.ckCar8.Name = "ckCar8";
+            // 
+            // ckCar9
+            // 
+            this.ckCar9.AutoHeight = false;
+            this.ckCar9.Name = "ckCar9";
+            // 
+            // ckCar10
+            // 
+            this.ckCar10.AutoHeight = false;
+            this.ckCar10.Name = "ckCar10";
             // 
             // UCBookCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.gridControlData);
             this.Controls.Add(this.rdCar510);
             this.Controls.Add(this.rdCar05);
             this.Controls.Add(this.btnTimKiem);
@@ -686,9 +970,21 @@
             this.Controls.Add(this.btnCar1);
             this.Controls.Add(this.dataGridViewGroupTour);
             this.Name = "UCBookCar";
-            this.Size = new System.Drawing.Size(1059, 513);
+            this.Size = new System.Drawing.Size(1333, 513);
             this.Load += new System.EventHandler(this.UCGroupTour_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCar3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCar4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCar5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCar6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCar7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCar8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCar9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ckCar10)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -742,5 +1038,28 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn colCar10;
         private System.Windows.Forms.RadioButton rdCar05;
         private System.Windows.Forms.RadioButton rdCar510;
+        private DevExpress.XtraGrid.GridControl gridControlData;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewData;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnID;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPax;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPickUp;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnRoom;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPartnerPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnNote;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnCar1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit ckCar1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnCar2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit ckCar2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnCar3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit ckCar3;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnCar4;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit ckCar4;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnCar5;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit ckCar5;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit ckCar6;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit ckCar7;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit ckCar8;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit ckCar9;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit ckCar10;
     }
 }

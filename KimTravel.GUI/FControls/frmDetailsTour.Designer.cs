@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtRoom = new System.Windows.Forms.TextBox();
@@ -49,7 +49,6 @@
             this.txtSaleBook = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.numPax = new System.Windows.Forms.NumericUpDown();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
-            this.btnFindParnet = new System.Windows.Forms.Button();
             this.cbbPartnerID = new System.Windows.Forms.ComboBox();
             this.cbbTourID = new System.Windows.Forms.ComboBox();
             this.cbbGroupTourID = new System.Windows.Forms.ComboBox();
@@ -76,6 +75,7 @@
             this.btnAddServiceType = new System.Windows.Forms.Button();
             this.btnUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnBack = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.txtFindPartner = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPax)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -99,6 +99,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtFindPartner);
             this.groupBox1.Controls.Add(this.txtRoom);
             this.groupBox1.Controls.Add(this.txtPickup);
             this.groupBox1.Controls.Add(this.label11);
@@ -115,7 +116,6 @@
             this.groupBox1.Controls.Add(this.txtSaleBook);
             this.groupBox1.Controls.Add(this.numPax);
             this.groupBox1.Controls.Add(this.dtpStartDate);
-            this.groupBox1.Controls.Add(this.btnFindParnet);
             this.groupBox1.Controls.Add(this.cbbPartnerID);
             this.groupBox1.Controls.Add(this.cbbTourID);
             this.groupBox1.Controls.Add(this.cbbGroupTourID);
@@ -313,17 +313,6 @@
             this.dtpStartDate.Size = new System.Drawing.Size(162, 23);
             this.dtpStartDate.TabIndex = 1;
             // 
-            // btnFindParnet
-            // 
-            this.btnFindParnet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFindParnet.Location = new System.Drawing.Point(347, 153);
-            this.btnFindParnet.Name = "btnFindParnet";
-            this.btnFindParnet.Size = new System.Drawing.Size(82, 26);
-            this.btnFindParnet.TabIndex = 6;
-            this.btnFindParnet.Text = "Tìm";
-            this.btnFindParnet.UseVisualStyleBackColor = true;
-            this.btnFindParnet.Click += new System.EventHandler(this.btnFindParnet_Click);
-            // 
             // cbbPartnerID
             // 
             this.cbbPartnerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -445,14 +434,14 @@
             this.dataGridViewGroupTour.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPartnerID,
             this.colServiceType,
@@ -488,9 +477,9 @@
             // 
             this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPrice.DataPropertyName = "Price";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "#,###";
-            this.colPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "#,###";
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle8;
             this.colPrice.HeaderText = "Đơn giá";
             this.colPrice.Name = "colPrice";
             this.colPrice.ReadOnly = true;
@@ -499,9 +488,9 @@
             // colRemove
             // 
             this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.colRemove.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.colRemove.DefaultCellStyle = dataGridViewCellStyle9;
             this.colRemove.HeaderText = "";
             this.colRemove.Name = "colRemove";
             this.colRemove.ReadOnly = true;
@@ -650,6 +639,14 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // txtFindPartner
+            // 
+            this.txtFindPartner.Location = new System.Drawing.Point(347, 155);
+            this.txtFindPartner.Name = "txtFindPartner";
+            this.txtFindPartner.Size = new System.Drawing.Size(82, 23);
+            this.txtFindPartner.TabIndex = 12;
+            this.txtFindPartner.TextChanged += new System.EventHandler(this.txtFindPartner_TextChanged);
+            // 
             // frmDetailsTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -694,7 +691,6 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField txtSaleBook;
         private System.Windows.Forms.NumericUpDown numPax;
         private System.Windows.Forms.DateTimePicker dtpStartDate;
-        private System.Windows.Forms.Button btnFindParnet;
         private System.Windows.Forms.ComboBox cbbPartnerID;
         private System.Windows.Forms.ComboBox cbbTourID;
         private System.Windows.Forms.ComboBox cbbGroupTourID;
@@ -728,5 +724,6 @@
         private System.Windows.Forms.TextBox txtPickup;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtPromotionPrice;
+        private System.Windows.Forms.TextBox txtFindPartner;
     }
 }

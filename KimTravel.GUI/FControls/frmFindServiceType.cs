@@ -1,4 +1,5 @@
-﻿using KimTravel.DAL;
+﻿using DevExpress.XtraEditors;
+using KimTravel.DAL;
 using KimTravel.DAL.Models;
 using KimTravel.DAL.Services;
 using MaterialSkin;
@@ -20,8 +21,9 @@ namespace KimTravel.GUI.FControls
         private MaterialSkinManager mSkin;
         private ServiceTypeService gtService = new ServiceTypeService();
 
-        public delegate void LoadData(string name, int price);
+        public delegate void LoadData(string name, int price, int add);
         public LoadData sendData;
+
         private int _PartnerID = -1;
         public frmFindServiceType()
         {
@@ -37,18 +39,16 @@ namespace KimTravel.GUI.FControls
             txtPartner.Focus();
             dataGridViewGroupTour.AutoGenerateColumns = false;
             dataGridViewGroupTour.DataSource = gtService.GetList();
-        }
 
+        }
+        private void loadData()
+        {
+            gtService = new ServiceTypeService();
+            dataGridViewGroupTour.DataSource = gtService.GetList();
+        }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (txtPrice.Text == "" || txtNameService.Text == "")
-            {
-                MessageBox.Show("Không có dịch vụ nào được chọn. Vui lòng thử lại");
-                return;
-            }
-            if (sendData != null)
-                sendData(txtNameService.Text, int.Parse(txtPrice.Text));
-            //this.Close();
+            this.Close();
         }
 
         private void txtPartner_KeyPress(object sender, KeyPressEventArgs e)
@@ -68,10 +68,7 @@ namespace KimTravel.GUI.FControls
         {
             try
             {
-                var x = dataGridViewGroupTour.Rows[e.RowIndex].Cells[0].Value.ToString();
-                _PartnerID = int.Parse(x);
-                txtNameService.Text = dataGridViewGroupTour.Rows[e.RowIndex].Cells[1].Value.ToString();
-                txtPrice.Text = dataGridViewGroupTour.Rows[e.RowIndex].Cells[2].Value.ToString();
+
             }
             catch { }
         }
@@ -81,45 +78,9 @@ namespace KimTravel.GUI.FControls
             this.Close();
         }
 
-        private void btnThemMoi_Click(object sender, EventArgs e)
-        {
-            ServiceType s = new ServiceType();
-            s.Name = txtNameService.Text;
-            s.Price = int.Parse(txtPrice.Text);
-
-            bool rs = gtService.Insert(s);
-            if (rs)
-            {
-                gtService = new ServiceTypeService();
-                dataGridViewGroupTour.DataSource = gtService.GetList();
-            }
-            else {
-                MessageBox.Show("Tên dịch vụ đã tồn tại trong hệ thống");
-            }
-        }
-
-        private void btnCapNhat_Click(object sender, EventArgs e)
-        {
-            ServiceType s = new ServiceType();
-            s.ID = _PartnerID;
-            s.Name = txtNameService.Text;
-            s.Price = int.Parse(txtPrice.Text);
-
-            bool rs = gtService.Update(s);
-            if (rs)
-            {
-                gtService = new ServiceTypeService();
-                dataGridViewGroupTour.DataSource = gtService.GetList();
-            }
-            else
-            {
-                MessageBox.Show("Tên dịch vụ đã tồn tại trong hệ thống");
-            }
-        }
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if(DialogResult.OK == MessageBox.Show("Bạn muốn xóa dịch vụ ra khỏi hệ thống ?","Xác nhận",MessageBoxButtons.OKCancel))
+            if(DialogResult.OK == XtraMessageBox.Show("Bạn muốn xóa dịch vụ ra khỏi hệ thống ?","Xác nhận",MessageBoxButtons.OKCancel))
             {
                 bool rs = gtService.Delete(_PartnerID);
                 if (rs)
@@ -129,7 +90,7 @@ namespace KimTravel.GUI.FControls
                 }
                 else
                 {
-                    MessageBox.Show("Không tìm thấy thông tin");
+                    XtraMessageBox.Show("Không tìm thấy thông tin");
                 }
             }
         }
@@ -143,5 +104,39 @@ namespace KimTravel.GUI.FControls
             }
         }
 
+        private void dataGridViewGroupTour_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+            if (senderGrid.DataSource != null)
+            {
+                if (senderGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "True")
+                {
+                    senderGrid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightGray;
+
+                    string service = dataGridViewGroupTour.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    int price = int.Parse(dataGridViewGroupTour.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    int add = 1;
+                    if (sendData != null)
+                        sendData(service, price, add);
+                }
+                else
+                {
+                    senderGrid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                    string service = dataGridViewGroupTour.Rows[e.RowIndex].Cells[2].Value.ToString();
+                    int price = int.Parse(dataGridViewGroupTour.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    int add = -1;
+                    if (sendData != null)
+                        sendData(service, price, add);
+                }
+
+            }
+        }
+
+        private void btnThemMoi_Click(object sender, EventArgs e)
+        {
+            frmActionService frm = new frmActionService();
+            frm.loadData = new frmActionService.LoadData(loadData);
+            frm.ShowDialog();
+        }
     }
 }

@@ -44,10 +44,10 @@
         <elementListCompartment Id="e1aba09f-cbcf-4468-834e-6e81a5ffafce" absoluteBounds="0.765, 5.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="3c5610e5-1ed0-432f-a1c7-d1dc051e72b0" absoluteBounds="0.75, 1.125, 2, 2.3478011067708335">
+    <classShape Id="3c5610e5-1ed0-432f-a1c7-d1dc051e72b0" absoluteBounds="0.75, 1.125, 2, 2.5401025390625">
       <DataClassMoniker Name="/KimTravelDataContext/Partner" />
       <nestedChildShapes>
-        <elementListCompartment Id="d20da6f0-600f-43e9-92c6-3bc27d3b1e8c" absoluteBounds="0.765, 1.585, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d20da6f0-600f-43e9-92c6-3bc27d3b1e8c" absoluteBounds="0.765, 1.585, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="7495497f-b889-4e0d-b4be-e37ac116beb9" absoluteBounds="9.75, 2.75, 2, 1.5785953776041666">
@@ -76,7 +76,7 @@
         <classShapeMoniker Id="009fc288-071b-42ff-b85b-4d6f1ca170c9" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 2.29890055338542); (3.5 : 2.29890055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 2.33255126953125); (3.5 : 2.33255126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/KimTravelDataContext/Partner/Partner_Staff" />
       <nodes>
         <classShapeMoniker Id="3c5610e5-1ed0-432f-a1c7-d1dc051e72b0" />

@@ -1,4 +1,5 @@
-﻿using KimTravel.DAL;
+﻿using DevExpress.XtraEditors;
+using KimTravel.DAL;
 using KimTravel.DAL.Models;
 using KimTravel.DAL.Services;
 using System;
@@ -13,7 +14,7 @@ using System.Windows.Forms;
 
 namespace KimTravel.GUI.FControls
 {
-    public partial class frmConfirm : Form
+    public partial class frmConfirm : XtraForm
     {
         private ApplicationUserService service = new ApplicationUserService();
         public delegate void ConfirmPassword();
@@ -34,7 +35,7 @@ namespace KimTravel.GUI.FControls
             }
             else
             {
-                MessageBox.Show("Mật khẩu không đúng. Vui lòng thử lại.");
+                XtraMessageBox.Show("Mật khẩu không đúng. Vui lòng thử lại.");
             }
         }
 

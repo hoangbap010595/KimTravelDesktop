@@ -28,11 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnPrint = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
             this.lblTour = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,20 +41,27 @@
             this.btnBack = new MaterialSkin.Controls.MaterialRaisedButton();
             this.label6 = new System.Windows.Forms.Label();
             this.lblMessageProgress = new System.Windows.Forms.Label();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPickup = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPartnerPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
+            this.gridControlData = new DevExpress.XtraGrid.GridControl();
+            this.gridViewData = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumnID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnPax = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnPickUp = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnRoom = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnPartnerPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnNote = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtUsername = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPrint
             // 
             this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnPrint.Depth = 0;
-            this.btnPrint.Location = new System.Drawing.Point(384, 602);
+            this.btnPrint.Location = new System.Drawing.Point(554, 600);
             this.btnPrint.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Primary = true;
@@ -68,49 +71,13 @@
             this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // dataGridViewGroupTour
-            // 
-            this.dataGridViewGroupTour.AllowUserToAddRows = false;
-            this.dataGridViewGroupTour.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewGroupTour.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewGroupTour.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewGroupTour.ColumnHeadersHeight = 30;
-            this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colID,
-            this.colPax,
-            this.colPickup,
-            this.colRoom,
-            this.colPartnerPrice,
-            this.colNote});
-            this.dataGridViewGroupTour.Location = new System.Drawing.Point(12, 154);
-            this.dataGridViewGroupTour.MultiSelect = false;
-            this.dataGridViewGroupTour.Name = "dataGridViewGroupTour";
-            this.dataGridViewGroupTour.ReadOnly = true;
-            this.dataGridViewGroupTour.RowHeadersWidth = 35;
-            this.dataGridViewGroupTour.RowTemplate.Height = 25;
-            this.dataGridViewGroupTour.RowTemplate.ReadOnly = true;
-            this.dataGridViewGroupTour.Size = new System.Drawing.Size(507, 434);
-            this.dataGridViewGroupTour.TabIndex = 0;
-            // 
             // lblTour
             // 
             this.lblTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblTour.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTour.Location = new System.Drawing.Point(75, 69);
+            this.lblTour.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTour.Location = new System.Drawing.Point(71, 69);
             this.lblTour.Name = "lblTour";
-            this.lblTour.Size = new System.Drawing.Size(171, 23);
+            this.lblTour.Size = new System.Drawing.Size(232, 25);
             this.lblTour.TabIndex = 0;
             this.lblTour.Text = "XE 1";
             this.lblTour.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -118,10 +85,10 @@
             // lblDate
             // 
             this.lblDate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(75, 98);
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(71, 103);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(171, 23);
+            this.lblDate.Size = new System.Drawing.Size(232, 25);
             this.lblDate.TabIndex = 0;
             this.lblDate.Text = "XE 1";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -131,7 +98,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 72);
+            this.label1.Location = new System.Drawing.Point(9, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 17);
             this.label1.TabIndex = 0;
@@ -142,7 +109,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 101);
+            this.label2.Location = new System.Drawing.Point(9, 106);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 17);
             this.label2.TabIndex = 0;
@@ -153,7 +120,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(297, 72);
+            this.label3.Location = new System.Drawing.Point(340, 72);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 17);
             this.label3.TabIndex = 0;
@@ -164,7 +131,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(297, 101);
+            this.label4.Location = new System.Drawing.Point(340, 106);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 17);
             this.label4.TabIndex = 0;
@@ -173,42 +140,43 @@
             // cbbHDV
             // 
             this.cbbHDV.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbHDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbHDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbHDV.FormattingEnabled = true;
-            this.cbbHDV.ItemHeight = 16;
-            this.cbbHDV.Location = new System.Drawing.Point(355, 68);
+            this.cbbHDV.ItemHeight = 20;
+            this.cbbHDV.Location = new System.Drawing.Point(398, 68);
             this.cbbHDV.Name = "cbbHDV";
-            this.cbbHDV.Size = new System.Drawing.Size(164, 24);
+            this.cbbHDV.Size = new System.Drawing.Size(164, 28);
             this.cbbHDV.TabIndex = 1;
             // 
             // cbbTaiXe
             // 
             this.cbbTaiXe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbTaiXe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbTaiXe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTaiXe.FormattingEnabled = true;
-            this.cbbTaiXe.ItemHeight = 16;
-            this.cbbTaiXe.Location = new System.Drawing.Point(355, 97);
+            this.cbbTaiXe.ItemHeight = 20;
+            this.cbbTaiXe.Location = new System.Drawing.Point(398, 102);
             this.cbbTaiXe.Name = "cbbTaiXe";
-            this.cbbTaiXe.Size = new System.Drawing.Size(164, 24);
+            this.cbbTaiXe.Size = new System.Drawing.Size(164, 28);
             this.cbbTaiXe.TabIndex = 2;
             // 
             // lblTotal
             // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotal.BackColor = System.Drawing.Color.Plum;
+            this.lblTotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTotal.Location = new System.Drawing.Point(13, 591);
+            this.lblTotal.Location = new System.Drawing.Point(11, 601);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(56, 17);
+            this.lblTotal.Size = new System.Drawing.Size(99, 36);
             this.lblTotal.TabIndex = 0;
             this.lblTotal.Text = "20 pax";
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnBack
             // 
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnBack.Depth = 0;
-            this.btnBack.Location = new System.Drawing.Point(243, 602);
+            this.btnBack.Location = new System.Drawing.Point(413, 600);
             this.btnBack.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnBack.Name = "btnBack";
             this.btnBack.Primary = true;
@@ -223,7 +191,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(9, 138);
+            this.label6.Location = new System.Drawing.Point(13, 152);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(229, 13);
             this.label6.TabIndex = 0;
@@ -234,77 +202,178 @@
             this.lblMessageProgress.AutoSize = true;
             this.lblMessageProgress.BackColor = System.Drawing.Color.Transparent;
             this.lblMessageProgress.ForeColor = System.Drawing.Color.Red;
-            this.lblMessageProgress.Location = new System.Drawing.Point(12, 626);
+            this.lblMessageProgress.Location = new System.Drawing.Point(121, 624);
             this.lblMessageProgress.Name = "lblMessageProgress";
             this.lblMessageProgress.Size = new System.Drawing.Size(131, 13);
             this.lblMessageProgress.TabIndex = 0;
             this.lblMessageProgress.Text = "Đang xử lý. Vui lòng chờ...";
             this.lblMessageProgress.Visible = false;
             // 
-            // colID
+            // gridControlData
             // 
-            this.colID.DataPropertyName = "ID";
-            this.colID.HeaderText = "ID";
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            this.colID.Visible = false;
+            this.gridControlData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControlData.Location = new System.Drawing.Point(11, 168);
+            this.gridControlData.MainView = this.gridViewData;
+            this.gridControlData.Name = "gridControlData";
+            this.gridControlData.Size = new System.Drawing.Size(679, 428);
+            this.gridControlData.TabIndex = 5;
+            this.gridControlData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewData});
             // 
-            // colPax
+            // gridViewData
             // 
-            this.colPax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPax.DataPropertyName = "Pax";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colPax.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colPax.HeaderText = "Pax";
-            this.colPax.Name = "colPax";
-            this.colPax.ReadOnly = true;
-            this.colPax.Width = 50;
+            this.gridViewData.ColumnPanelRowHeight = 35;
+            this.gridViewData.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumnID,
+            this.gridColumnPax,
+            this.gridColumnPickUp,
+            this.gridColumnRoom,
+            this.gridColumnPartnerPrice,
+            this.gridColumnNote});
+            this.gridViewData.GridControl = this.gridControlData;
+            this.gridViewData.IndicatorWidth = 35;
+            this.gridViewData.Name = "gridViewData";
+            this.gridViewData.OptionsCustomization.AllowColumnMoving = false;
+            this.gridViewData.OptionsView.ShowGroupPanel = false;
+            this.gridViewData.OptionsView.ShowIndicator = false;
+            this.gridViewData.RowHeight = 25;
             // 
-            // colPickup
+            // gridColumnID
             // 
-            this.colPickup.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPickup.DataPropertyName = "PickUp";
-            this.colPickup.HeaderText = "Pickup";
-            this.colPickup.Name = "colPickup";
-            this.colPickup.ReadOnly = true;
-            this.colPickup.Width = 150;
+            this.gridColumnID.Caption = "ID";
+            this.gridColumnID.FieldName = "ID";
+            this.gridColumnID.Name = "gridColumnID";
             // 
-            // colRoom
+            // gridColumnPax
             // 
-            this.colRoom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colRoom.DataPropertyName = "Room";
-            this.colRoom.HeaderText = "Room";
-            this.colRoom.Name = "colRoom";
-            this.colRoom.ReadOnly = true;
-            this.colRoom.Width = 60;
+            this.gridColumnPax.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnPax.AppearanceCell.Options.UseFont = true;
+            this.gridColumnPax.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnPax.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPax.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnPax.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnPax.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnPax.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPax.Caption = "Pax";
+            this.gridColumnPax.FieldName = "Pax";
+            this.gridColumnPax.MaxWidth = 50;
+            this.gridColumnPax.MinWidth = 50;
+            this.gridColumnPax.Name = "gridColumnPax";
+            this.gridColumnPax.OptionsColumn.AllowEdit = false;
+            this.gridColumnPax.OptionsColumn.ReadOnly = true;
+            this.gridColumnPax.Visible = true;
+            this.gridColumnPax.VisibleIndex = 0;
+            this.gridColumnPax.Width = 50;
             // 
-            // colPartnerPrice
+            // gridColumnPickUp
             // 
-            this.colPartnerPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPartnerPrice.DataPropertyName = "PartnerPrice";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "#,###";
-            this.colPartnerPrice.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colPartnerPrice.HeaderText = "Thu hộ";
-            this.colPartnerPrice.Name = "colPartnerPrice";
-            this.colPartnerPrice.ReadOnly = true;
-            this.colPartnerPrice.Width = 80;
+            this.gridColumnPickUp.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnPickUp.AppearanceCell.Options.UseFont = true;
+            this.gridColumnPickUp.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnPickUp.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnPickUp.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnPickUp.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPickUp.Caption = "Pick Up";
+            this.gridColumnPickUp.FieldName = "PickUp";
+            this.gridColumnPickUp.Name = "gridColumnPickUp";
+            this.gridColumnPickUp.OptionsColumn.AllowEdit = false;
+            this.gridColumnPickUp.OptionsColumn.ReadOnly = true;
+            this.gridColumnPickUp.Visible = true;
+            this.gridColumnPickUp.VisibleIndex = 1;
+            this.gridColumnPickUp.Width = 83;
             // 
-            // colNote
+            // gridColumnRoom
             // 
-            this.colNote.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colNote.DataPropertyName = "Note";
-            this.colNote.HeaderText = "Ghi chú";
-            this.colNote.Name = "colNote";
-            this.colNote.ReadOnly = true;
-            this.colNote.Width = 130;
+            this.gridColumnRoom.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnRoom.AppearanceCell.Options.UseFont = true;
+            this.gridColumnRoom.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnRoom.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnRoom.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnRoom.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnRoom.Caption = "Room";
+            this.gridColumnRoom.FieldName = "Room";
+            this.gridColumnRoom.MaxWidth = 120;
+            this.gridColumnRoom.MinWidth = 120;
+            this.gridColumnRoom.Name = "gridColumnRoom";
+            this.gridColumnRoom.OptionsColumn.AllowEdit = false;
+            this.gridColumnRoom.OptionsColumn.ReadOnly = true;
+            this.gridColumnRoom.Visible = true;
+            this.gridColumnRoom.VisibleIndex = 2;
+            this.gridColumnRoom.Width = 120;
+            // 
+            // gridColumnPartnerPrice
+            // 
+            this.gridColumnPartnerPrice.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnPartnerPrice.AppearanceCell.Options.UseFont = true;
+            this.gridColumnPartnerPrice.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnPartnerPrice.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumnPartnerPrice.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnPartnerPrice.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnPartnerPrice.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnPartnerPrice.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPartnerPrice.Caption = "Thu hộ";
+            this.gridColumnPartnerPrice.DisplayFormat.FormatString = "#,###";
+            this.gridColumnPartnerPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumnPartnerPrice.FieldName = "PartnerPrice";
+            this.gridColumnPartnerPrice.MaxWidth = 130;
+            this.gridColumnPartnerPrice.MinWidth = 130;
+            this.gridColumnPartnerPrice.Name = "gridColumnPartnerPrice";
+            this.gridColumnPartnerPrice.OptionsColumn.AllowEdit = false;
+            this.gridColumnPartnerPrice.OptionsColumn.ReadOnly = true;
+            this.gridColumnPartnerPrice.Visible = true;
+            this.gridColumnPartnerPrice.VisibleIndex = 3;
+            this.gridColumnPartnerPrice.Width = 130;
+            // 
+            // gridColumnNote
+            // 
+            this.gridColumnNote.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnNote.AppearanceCell.Options.UseFont = true;
+            this.gridColumnNote.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnNote.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnNote.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnNote.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnNote.Caption = "Ghi chú";
+            this.gridColumnNote.FieldName = "Note";
+            this.gridColumnNote.MaxWidth = 140;
+            this.gridColumnNote.MinWidth = 140;
+            this.gridColumnNote.Name = "gridColumnNote";
+            this.gridColumnNote.OptionsColumn.AllowEdit = false;
+            this.gridColumnNote.OptionsColumn.ReadOnly = true;
+            this.gridColumnNote.Visible = true;
+            this.gridColumnNote.VisibleIndex = 4;
+            this.gridColumnNote.Width = 140;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(568, 68);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtUsername.Properties.Appearance.Options.UseFont = true;
+            this.txtUsername.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtUsername.Size = new System.Drawing.Size(121, 28);
+            this.txtUsername.TabIndex = 6;
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Location = new System.Drawing.Point(568, 101);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.textEdit1.Properties.Appearance.Options.UseFont = true;
+            this.textEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.textEdit1.Size = new System.Drawing.Size(121, 28);
+            this.textEdit1.TabIndex = 6;
             // 
             // frmDetailsBookCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(531, 648);
+            this.ClientSize = new System.Drawing.Size(700, 650);
+            this.Controls.Add(this.textEdit1);
+            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.gridControlData);
             this.Controls.Add(this.lblMessageProgress);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbbTaiXe);
@@ -316,20 +385,22 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblTour);
-            this.Controls.Add(this.dataGridViewGroupTour);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnPrint);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(531, 648);
+            this.MaximumSize = new System.Drawing.Size(700, 650);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(531, 648);
+            this.MinimumSize = new System.Drawing.Size(700, 650);
             this.Name = "frmDetailsBookCar";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chi tiết xe đã đặt";
             this.Load += new System.EventHandler(this.frmActionGroupTour_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,7 +408,6 @@
 
         #endregion
         private MaterialSkin.Controls.MaterialRaisedButton btnPrint;
-        private System.Windows.Forms.DataGridView dataGridViewGroupTour;
         private System.Windows.Forms.Label lblTour;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label label1;
@@ -350,11 +420,15 @@
         private MaterialSkin.Controls.MaterialRaisedButton btnBack;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblMessageProgress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPax;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPickup;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRoom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPartnerPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNote;
+        private DevExpress.XtraGrid.GridControl gridControlData;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewData;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnID;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPax;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPickUp;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnRoom;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPartnerPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnNote;
+        private DevExpress.XtraEditors.TextEdit txtUsername;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
     }
 }

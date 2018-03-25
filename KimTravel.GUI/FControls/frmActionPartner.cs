@@ -1,4 +1,5 @@
-﻿using KimTravel.DAL;
+﻿using DevExpress.XtraEditors;
+using KimTravel.DAL;
 using KimTravel.DAL.Models;
 using KimTravel.DAL.Services;
 using MaterialSkin;
@@ -66,7 +67,7 @@ namespace KimTravel.GUI.FControls
             }
             else
             {
-                txtPartnerCode.Text = gtService.GetPartnerCode();
+                //txtPartnerCode.Text = gtService.GetPartnerCode();
             }
         }
 
@@ -74,18 +75,24 @@ namespace KimTravel.GUI.FControls
         {
             if(txtPartnerCode.Text == "")
             {
-                MessageBox.Show("Mã đơn vị không thể để trống.");
+                XtraMessageBox.Show("Mã đối tác không thể để trống.");
                 return;
             }
             if (txtName.Text == "")
             {
-                MessageBox.Show("Tên đơn vị không thể để trống.");
+                XtraMessageBox.Show("Tên đối tác không thể để trống.");
+                return;
+            }
+            if (txtAddress.Text == "")
+            {
+                XtraMessageBox.Show("Địa chỉ đối tác không thể để trống.");
                 return;
             }
             Partner groupTourNew = new Partner();
             groupTourNew.PartnerID = _objID;
             groupTourNew.PartnerCode = txtPartnerCode.Text;
             groupTourNew.Name = txtName.Text;
+            groupTourNew.Line = txtSoNha.Text;
             groupTourNew.Address = txtAddress.Text;
             groupTourNew.Phone = txtPhone.Text;
             groupTourNew.Status = int.Parse(cbbStatus.SelectedValue.ToString());
@@ -105,14 +112,14 @@ namespace KimTravel.GUI.FControls
             }
             if (rs)
             {
-                MessageBox.Show(msg);
+                XtraMessageBox.Show(msg);
 
                 if (loadData != null)
                     loadData();
                 this.Close();
             }
             else
-                MessageBox.Show("Tên đối tồn tại trong hệ thống. Vui lòng kiểm tra lại.");
+                XtraMessageBox.Show("Tên đối tồn tại trong hệ thống. Vui lòng kiểm tra lại.");
 
         }
 

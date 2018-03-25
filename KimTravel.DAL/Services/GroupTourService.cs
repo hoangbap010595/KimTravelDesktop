@@ -12,9 +12,20 @@ namespace KimTravel.DAL.Services
     {
         private readonly KimTravelDataContext db = new KimTravelDataContext();
 
-        public IEnumerable<GroupTour> GetList()
+        public IQueryable GetList()
         {
-            IEnumerable<GroupTour> data = db.GroupTours.OrderBy(x => x.Name).OrderByDescending(x => x.Enable).ToList();
+            IQueryable data = from g in db.GroupTours
+                              orderby g.Name
+                              select new
+                              {
+                                  g.GroupID,
+                                  g.Name,
+                                  g.DateCreate,
+                                  g.MinPax,
+                                  g.MaxPax,
+                                  g.Enable,
+                                  g.Note
+                              };
             return data;
         }
 

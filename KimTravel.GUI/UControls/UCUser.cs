@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using KimTravel.GUI.FControls;
 using KimTravel.DAL.Services;
+using DevExpress.XtraEditors;
 
 namespace KimTravel.GUI.UControls
 {
-    public partial class UCUser : UserControl
+    public partial class UCUser : XtraUserControl
     {
         private ApplicationUserService objService;
         public UCUser()
@@ -24,9 +25,9 @@ namespace KimTravel.GUI.UControls
         {
             objService = new ApplicationUserService();
             var data = objService.GetList();
-            dataGridViewGroupTour.DataSource = data;
-            dataGridViewGroupTour.Update();
-            dataGridViewGroupTour.Refresh();
+            gridControlData.DataSource = data;
+            gridControlData.Update();
+            gridControlData.Refresh();
         }
         private void btnThemMoi_Click(object sender, EventArgs e)
         {
@@ -37,45 +38,38 @@ namespace KimTravel.GUI.UControls
 
         private void UCGroupTour_Load(object sender, EventArgs e)
         {
-            dataGridViewGroupTour.AutoGenerateColumns = false;
             loadDataGroup();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                var senderGrid = (DataGridView)sender;
-                var id = int.Parse(senderGrid.Rows[e.RowIndex].Cells[0].Value.ToString());
-                if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                    e.RowIndex >= 0)
-                {
-                    if (senderGrid.Columns[e.ColumnIndex].Name != "colRole")
-                    {
-                        frmActionUser frm = new frmActionUser(1, id);
-                        frm.loadData = new frmActionUser.LoadData(loadDataGroup);
-                        frm.ShowDialog();
-                    }else
-                    {
-                        frmActionRoles frm = new frmActionRoles(id);
-                        frm.loadData = new frmActionRoles.LoadData(loadDataGroup);
-                        frm.ShowDialog();
-                    }
-                }
-            }
-            catch { }
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
             loadDataGroup();
         }
-        private void dataGridViewGroupTour_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+
+        private void btnClickRole_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            using (SolidBrush b = new SolidBrush(dataGridViewGroupTour.RowHeadersDefaultCellStyle.ForeColor))
+            int id = int.Parse(gridViewData.GetFocusedRowCellValue("ID").ToString());
+            frmActionRoles frm = new frmActionRoles(id);
+            frm.loadData = new frmActionRoles.LoadData(loadDataGroup);
+            frm.ShowDialog();
+        }
+
+        private void btnClickDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (DialogResult.OK == XtraMessageBox.Show("Xác nhận xóa dữ liệu ?", "Thông báo", MessageBoxButtons.OKCancel))
             {
-                e.Graphics.DrawString((e.RowIndex + 1).ToString(), e.InheritedRowStyle.Font, b, e.RowBounds.Location.X + 10, e.RowBounds.Location.Y + 4);
+                int id = int.Parse(gridViewData.GetFocusedRowCellValue("ID").ToString());
+                objService.Delete(id);
+                loadDataGroup();
             }
+        }
+
+        private void btnClickEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            int id = int.Parse(gridViewData.GetFocusedRowCellValue("ID").ToString());
+            frmActionUser frm = new frmActionUser(1, id);
+            frm.loadData = new frmActionUser.LoadData(loadDataGroup);
+            frm.ShowDialog();
         }
     }
 }

@@ -140,11 +140,11 @@
             // 
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.Depth = 0;
-            this.btnLogin.Location = new System.Drawing.Point(59, 335);
+            this.btnLogin.Location = new System.Drawing.Point(53, 331);
             this.btnLogin.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Primary = true;
-            this.btnLogin.Size = new System.Drawing.Size(149, 33);
+            this.btnLogin.Size = new System.Drawing.Size(160, 33);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -187,7 +187,6 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kim Travel";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.materialContextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

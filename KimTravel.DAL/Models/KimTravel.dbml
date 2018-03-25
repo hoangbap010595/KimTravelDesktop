@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="KimTravelDesktop" Class="KimTravelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=KimTravelDesktop;User ID=sa" SettingsObjectName="KimTravel.DAL.Properties.Settings" SettingsPropertyName="LocalConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=103.53.231.198;Initial Catalog=KimTravelDesktop;Persist Security Info=True;User ID=hoang1995" SettingsObjectName="KimTravel.DAL.Properties.Settings" SettingsPropertyName="KimTravelConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ApplicationRole" Member="ApplicationRoles">
     <Type Name="ApplicationRole">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -25,7 +25,7 @@
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Username" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Phone" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
       <Column Name="ConfirmMail" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="ConfirmPhone" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
@@ -104,13 +104,14 @@
   <Table Name="dbo.Partner" Member="Partners">
     <Type Name="Partner">
       <Column Name="PartnerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PartnerCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="PartnerCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Address" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="Phone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Note" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="GroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Line" Type="System.String" DbType="NVarChar(32)" CanBeNull="true" />
       <Association Name="Partner_Staff" Member="Staffs" ThisKey="PartnerID" OtherKey="PartnerID" Type="Staff" />
     </Type>
   </Table>

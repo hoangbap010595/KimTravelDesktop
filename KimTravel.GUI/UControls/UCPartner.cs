@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using KimTravel.GUI.FControls;
 using KimTravel.DAL.Services;
+using DevExpress.XtraEditors;
 
 namespace KimTravel.GUI.UControls
 {
-    public partial class UCPartner : UserControl
+    public partial class UCPartner : XtraUserControl
     {
         private PartnerService objService;
         public UCPartner()
@@ -24,9 +25,9 @@ namespace KimTravel.GUI.UControls
         {
             objService = new PartnerService();
             var data = objService.GetList();
-            dataGridViewGroupTour.DataSource = data;
-            dataGridViewGroupTour.Update();
-            dataGridViewGroupTour.Refresh();
+            gridControlData.DataSource = data;
+            gridControlData.Update();
+            gridControlData.Refresh();
         }
         private void btnThemMoi_Click(object sender, EventArgs e)
         {
@@ -37,7 +38,6 @@ namespace KimTravel.GUI.UControls
 
         private void UCGroupTour_Load(object sender, EventArgs e)
         {
-            dataGridViewGroupTour.AutoGenerateColumns = false;
             loadDataGroup();
         }
 
@@ -50,9 +50,14 @@ namespace KimTravel.GUI.UControls
                 if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                     e.RowIndex >= 0)
                 {
-                    frmActionPartner frm = new frmActionPartner(1, id);
-                    frm.loadData = new frmActionPartner.LoadData(loadDataGroup);
-                    frm.ShowDialog();
+                    if (senderGrid.Columns[e.ColumnIndex].Name == "colDelete")
+                    {
+                        
+                    }
+                    else
+                    {
+                        
+                    }
                 }
             }
             catch { }
@@ -62,13 +67,6 @@ namespace KimTravel.GUI.UControls
         {
             loadDataGroup();
         }
-        private void dataGridViewGroupTour_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            using (SolidBrush b = new SolidBrush(dataGridViewGroupTour.RowHeadersDefaultCellStyle.ForeColor))
-            {
-                e.Graphics.DrawString((e.RowIndex + 1).ToString(), e.InheritedRowStyle.Font, b, e.RowBounds.Location.X + 10, e.RowBounds.Location.Y + 4);
-            }
-        }
 
         private void btnImport_Click(object sender, EventArgs e)
         {
@@ -76,12 +74,22 @@ namespace KimTravel.GUI.UControls
             frm.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnClickDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            var content = txtContent.Text;
-            dataGridViewGroupTour.DataSource = objService.GetListFind(content);
-            dataGridViewGroupTour.Update();
-            dataGridViewGroupTour.Refresh();
+            var id = int.Parse(gridViewData.GetFocusedRowCellValue("PartnerID").ToString());
+            if (DialogResult.OK == XtraMessageBox.Show("Xác nhận xóa dữ liệu ?", "Thông báo", MessageBoxButtons.OKCancel))
+            {
+                objService.Delete(id);
+                loadDataGroup();
+            }
+        }
+
+        private void btnClickEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            var id = int.Parse(gridViewData.GetFocusedRowCellValue("PartnerID").ToString());
+            frmActionPartner frm = new frmActionPartner(1, id);
+            frm.loadData = new frmActionPartner.LoadData(loadDataGroup);
+            frm.ShowDialog();
         }
     }
 }

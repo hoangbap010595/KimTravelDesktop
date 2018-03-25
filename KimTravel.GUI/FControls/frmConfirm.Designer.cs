@@ -28,38 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.btnConfirm = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConfirm));
+            this.btnConfirm = new DevExpress.XtraEditors.SimpleButton();
+            this.txtPassword = new DevExpress.XtraEditors.TextEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(18, 12);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(248, 26);
-            this.txtPassword.TabIndex = 0;
-            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirm.Location = new System.Drawing.Point(89, 51);
+            this.btnConfirm.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnConfirm.Appearance.Options.UseFont = true;
+            this.btnConfirm.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnConfirm.Location = new System.Drawing.Point(85, 48);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(107, 28);
-            this.btnConfirm.TabIndex = 1;
-            this.btnConfirm.Text = "Xác nhận";
-            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Size = new System.Drawing.Size(114, 35);
+            this.btnConfirm.TabIndex = 2;
+            this.btnConfirm.Text = "Xác nhận";
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(12, 14);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtPassword.Properties.Appearance.Options.UseFont = true;
+            this.txtPassword.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtPassword.Size = new System.Drawing.Size(260, 28);
+            this.txtPassword.TabIndex = 3;
             // 
             // frmConfirm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 91);
-            this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.btnConfirm);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(300, 130);
             this.MinimizeBox = false;
@@ -70,14 +73,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhập mật khẩu xác nhận";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmConfirm_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Button btnConfirm;
+        private DevExpress.XtraEditors.SimpleButton btnConfirm;
+        private DevExpress.XtraEditors.TextEdit txtPassword;
     }
 }

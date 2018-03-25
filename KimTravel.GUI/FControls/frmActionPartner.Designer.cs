@@ -28,38 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtPartnerCode = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.txtName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.txtAddress = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.txtNote = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.btnUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.txtPhone = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.cbbStatus = new System.Windows.Forms.ComboBox();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.cbbGroupPartnerID = new System.Windows.Forms.ComboBox();
+            this.txtPhone = new DevExpress.XtraEditors.TextEdit();
+            this.txtName = new DevExpress.XtraEditors.TextEdit();
+            this.txtPartnerCode = new DevExpress.XtraEditors.TextEdit();
+            this.txtNote = new DevExpress.XtraEditors.MemoEdit();
+            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
+            this.txtSoNha = new DevExpress.XtraEditors.TextEdit();
+            this.txtAddress = new DevExpress.XtraEditors.TextEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPartnerCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoNha.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtPartnerCode
-            // 
-            this.txtPartnerCode.Depth = 0;
-            this.txtPartnerCode.Enabled = false;
-            this.txtPartnerCode.Hint = "";
-            this.txtPartnerCode.Location = new System.Drawing.Point(102, 81);
-            this.txtPartnerCode.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtPartnerCode.Name = "txtPartnerCode";
-            this.txtPartnerCode.PasswordChar = '\0';
-            this.txtPartnerCode.SelectedText = "";
-            this.txtPartnerCode.SelectionLength = 0;
-            this.txtPartnerCode.SelectionStart = 0;
-            this.txtPartnerCode.Size = new System.Drawing.Size(223, 23);
-            this.txtPartnerCode.TabIndex = 1;
-            this.txtPartnerCode.UseSystemPasswordChar = false;
             // 
             // materialLabel1
             // 
@@ -68,27 +59,12 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(12, 84);
+            this.materialLabel1.Location = new System.Drawing.Point(13, 79);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(81, 19);
             this.materialLabel1.TabIndex = 0;
             this.materialLabel1.Text = "Mã đối tác";
-            // 
-            // txtName
-            // 
-            this.txtName.Depth = 0;
-            this.txtName.Hint = "";
-            this.txtName.Location = new System.Drawing.Point(102, 125);
-            this.txtName.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtName.Name = "txtName";
-            this.txtName.PasswordChar = '\0';
-            this.txtName.SelectedText = "";
-            this.txtName.SelectionLength = 0;
-            this.txtName.SelectionStart = 0;
-            this.txtName.Size = new System.Drawing.Size(223, 23);
-            this.txtName.TabIndex = 2;
-            this.txtName.UseSystemPasswordChar = false;
             // 
             // materialLabel2
             // 
@@ -97,56 +73,12 @@
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel2.Location = new System.Drawing.Point(12, 128);
+            this.materialLabel2.Location = new System.Drawing.Point(13, 125);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(85, 19);
             this.materialLabel2.TabIndex = 0;
             this.materialLabel2.Text = "Tên đối tác";
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.Depth = 0;
-            this.txtAddress.Hint = "";
-            this.txtAddress.Location = new System.Drawing.Point(102, 167);
-            this.txtAddress.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.PasswordChar = '\0';
-            this.txtAddress.SelectedText = "";
-            this.txtAddress.SelectionLength = 0;
-            this.txtAddress.SelectionStart = 0;
-            this.txtAddress.Size = new System.Drawing.Size(223, 23);
-            this.txtAddress.TabIndex = 3;
-            this.txtAddress.UseSystemPasswordChar = false;
-            // 
-            // materialLabel3
-            // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel3.Location = new System.Drawing.Point(12, 170);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(55, 19);
-            this.materialLabel3.TabIndex = 0;
-            this.materialLabel3.Text = "Địa chỉ";
-            // 
-            // txtNote
-            // 
-            this.txtNote.Depth = 0;
-            this.txtNote.Hint = "";
-            this.txtNote.Location = new System.Drawing.Point(102, 247);
-            this.txtNote.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtNote.Name = "txtNote";
-            this.txtNote.PasswordChar = '\0';
-            this.txtNote.SelectedText = "";
-            this.txtNote.SelectionLength = 0;
-            this.txtNote.SelectionStart = 0;
-            this.txtNote.Size = new System.Drawing.Size(223, 23);
-            this.txtNote.TabIndex = 5;
-            this.txtNote.UseSystemPasswordChar = false;
             // 
             // materialLabel5
             // 
@@ -155,7 +87,7 @@
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel5.Location = new System.Drawing.Point(12, 250);
+            this.materialLabel5.Location = new System.Drawing.Point(425, 173);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
             this.materialLabel5.Size = new System.Drawing.Size(59, 19);
@@ -165,30 +97,15 @@
             // btnUpdate
             // 
             this.btnUpdate.Depth = 0;
-            this.btnUpdate.Location = new System.Drawing.Point(85, 370);
+            this.btnUpdate.Location = new System.Drawing.Point(274, 274);
             this.btnUpdate.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Primary = true;
-            this.btnUpdate.Size = new System.Drawing.Size(180, 39);
-            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.Size = new System.Drawing.Size(228, 39);
+            this.btnUpdate.TabIndex = 9;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.Depth = 0;
-            this.txtPhone.Hint = "";
-            this.txtPhone.Location = new System.Drawing.Point(102, 208);
-            this.txtPhone.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.PasswordChar = '\0';
-            this.txtPhone.SelectedText = "";
-            this.txtPhone.SelectionLength = 0;
-            this.txtPhone.SelectionStart = 0;
-            this.txtPhone.Size = new System.Drawing.Size(223, 23);
-            this.txtPhone.TabIndex = 4;
-            this.txtPhone.UseSystemPasswordChar = false;
             // 
             // materialLabel4
             // 
@@ -197,7 +114,7 @@
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(12, 211);
+            this.materialLabel4.Location = new System.Drawing.Point(13, 174);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(77, 19);
@@ -211,7 +128,7 @@
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel6.Location = new System.Drawing.Point(12, 287);
+            this.materialLabel6.Location = new System.Drawing.Point(425, 79);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
             this.materialLabel6.Size = new System.Drawing.Size(76, 19);
@@ -221,12 +138,12 @@
             // cbbStatus
             // 
             this.cbbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbStatus.FormattingEnabled = true;
-            this.cbbStatus.ItemHeight = 16;
-            this.cbbStatus.Location = new System.Drawing.Point(102, 283);
+            this.cbbStatus.ItemHeight = 20;
+            this.cbbStatus.Location = new System.Drawing.Point(515, 75);
             this.cbbStatus.Name = "cbbStatus";
-            this.cbbStatus.Size = new System.Drawing.Size(223, 24);
+            this.cbbStatus.Size = new System.Drawing.Size(243, 28);
             this.cbbStatus.TabIndex = 6;
             // 
             // materialLabel7
@@ -236,7 +153,7 @@
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel7.Location = new System.Drawing.Point(12, 324);
+            this.materialLabel7.Location = new System.Drawing.Point(425, 125);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
             this.materialLabel7.Size = new System.Drawing.Size(50, 19);
@@ -246,65 +163,145 @@
             // cbbGroupPartnerID
             // 
             this.cbbGroupPartnerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbGroupPartnerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbGroupPartnerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbGroupPartnerID.FormattingEnabled = true;
-            this.cbbGroupPartnerID.ItemHeight = 16;
-            this.cbbGroupPartnerID.Location = new System.Drawing.Point(102, 320);
+            this.cbbGroupPartnerID.ItemHeight = 20;
+            this.cbbGroupPartnerID.Location = new System.Drawing.Point(515, 121);
             this.cbbGroupPartnerID.Name = "cbbGroupPartnerID";
-            this.cbbGroupPartnerID.Size = new System.Drawing.Size(223, 24);
-            this.cbbGroupPartnerID.TabIndex = 6;
+            this.cbbGroupPartnerID.Size = new System.Drawing.Size(243, 28);
+            this.cbbGroupPartnerID.TabIndex = 7;
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(138, 170);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtPhone.Properties.Appearance.Options.UseFont = true;
+            this.txtPhone.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtPhone.Size = new System.Drawing.Size(261, 28);
+            this.txtPhone.TabIndex = 3;
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(138, 121);
+            this.txtName.Name = "txtName";
+            this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtName.Properties.Appearance.Options.UseFont = true;
+            this.txtName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtName.Size = new System.Drawing.Size(261, 28);
+            this.txtName.TabIndex = 2;
+            // 
+            // txtPartnerCode
+            // 
+            this.txtPartnerCode.Location = new System.Drawing.Point(138, 75);
+            this.txtPartnerCode.Name = "txtPartnerCode";
+            this.txtPartnerCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtPartnerCode.Properties.Appearance.Options.UseFont = true;
+            this.txtPartnerCode.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtPartnerCode.Size = new System.Drawing.Size(261, 28);
+            this.txtPartnerCode.TabIndex = 1;
+            // 
+            // txtNote
+            // 
+            this.txtNote.Location = new System.Drawing.Point(515, 172);
+            this.txtNote.Name = "txtNote";
+            this.txtNote.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtNote.Properties.Appearance.Options.UseFont = true;
+            this.txtNote.Size = new System.Drawing.Size(243, 75);
+            this.txtNote.TabIndex = 8;
+            // 
+            // materialLabel8
+            // 
+            this.materialLabel8.AutoSize = true;
+            this.materialLabel8.BackColor = System.Drawing.Color.Transparent;
+            this.materialLabel8.Depth = 0;
+            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel8.Location = new System.Drawing.Point(13, 224);
+            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel8.Name = "materialLabel8";
+            this.materialLabel8.Size = new System.Drawing.Size(113, 19);
+            this.materialLabel8.TabIndex = 0;
+            this.materialLabel8.Text = "Số nhà / Đường";
+            // 
+            // txtSoNha
+            // 
+            this.txtSoNha.Location = new System.Drawing.Point(138, 219);
+            this.txtSoNha.Name = "txtSoNha";
+            this.txtSoNha.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtSoNha.Properties.Appearance.Options.UseFont = true;
+            this.txtSoNha.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtSoNha.Size = new System.Drawing.Size(67, 28);
+            this.txtSoNha.TabIndex = 4;
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(211, 219);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtAddress.Properties.Appearance.Options.UseFont = true;
+            this.txtAddress.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtAddress.Size = new System.Drawing.Size(188, 28);
+            this.txtAddress.TabIndex = 5;
             // 
             // frmActionPartner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 420);
+            this.ClientSize = new System.Drawing.Size(777, 325);
+            this.Controls.Add(this.txtNote);
+            this.Controls.Add(this.txtAddress);
+            this.Controls.Add(this.txtSoNha);
+            this.Controls.Add(this.txtPhone);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtPartnerCode);
             this.Controls.Add(this.cbbGroupPartnerID);
             this.Controls.Add(this.cbbStatus);
             this.Controls.Add(this.materialLabel7);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.materialLabel6);
+            this.Controls.Add(this.materialLabel8);
             this.Controls.Add(this.materialLabel5);
             this.Controls.Add(this.materialLabel4);
-            this.Controls.Add(this.materialLabel3);
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.materialLabel1);
-            this.Controls.Add(this.txtNote);
-            this.Controls.Add(this.txtPhone);
-            this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.txtPartnerCode);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(350, 420);
+            this.MaximumSize = new System.Drawing.Size(777, 325);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(350, 420);
+            this.MinimumSize = new System.Drawing.Size(777, 325);
             this.Name = "frmActionPartner";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmActionGroupTour";
             this.Load += new System.EventHandler(this.frmActionGroupTour_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPartnerCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSoNha.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtPartnerCode;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtName;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtAddress;
-        private MaterialSkin.Controls.MaterialLabel materialLabel3;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtNote;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private MaterialSkin.Controls.MaterialRaisedButton btnUpdate;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtPhone;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private System.Windows.Forms.ComboBox cbbStatus;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private System.Windows.Forms.ComboBox cbbGroupPartnerID;
+        private DevExpress.XtraEditors.TextEdit txtPhone;
+        private DevExpress.XtraEditors.TextEdit txtName;
+        private DevExpress.XtraEditors.TextEdit txtPartnerCode;
+        private DevExpress.XtraEditors.MemoEdit txtNote;
+        private MaterialSkin.Controls.MaterialLabel materialLabel8;
+        private DevExpress.XtraEditors.TextEdit txtSoNha;
+        private DevExpress.XtraEditors.TextEdit txtAddress;
     }
 }

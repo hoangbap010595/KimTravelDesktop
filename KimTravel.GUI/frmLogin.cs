@@ -16,6 +16,7 @@ using System.Web;
 using System.Windows.Forms;
 using KimTravel.DAL;
 using KimTravel.DAL.Services;
+using DevExpress.XtraEditors;
 
 namespace KimTravel.GUI
 {
@@ -49,7 +50,7 @@ namespace KimTravel.GUI
                 switch (rs)
                 {
                     case -1:
-                        MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!\nVui lòng thử lại!");
+                        XtraMessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!\nVui lòng thử lại!");
                         break;
                     case 1:
                         Constant.CurrentSessionUser = user;
@@ -57,16 +58,16 @@ namespace KimTravel.GUI
                         this.Close();
                         break;
                     case 2:
-                        MessageBox.Show("Tài khoản không có quyền truy cập vào hệ thống !\nVui lòng liên hệ người quản trị!");
+                        XtraMessageBox.Show("Tài khoản không có quyền truy cập vào hệ thống !\nVui lòng liên hệ người quản trị!");
                         break;
                     case 0:
-                        MessageBox.Show("Tài khoản đã bị khóa !\nVui lòng liên hệ người quản trị!");
+                        XtraMessageBox.Show("Tài khoản đã bị khóa !\nVui lòng liên hệ người quản trị!");
                         break;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Xãy ra lỗi: " + ex.Message);
+                XtraMessageBox.Show("Xãy ra lỗi: " + ex.Message);
             }
         }
 
@@ -79,11 +80,6 @@ namespace KimTravel.GUI
         {
             if (e.KeyChar == 13)
                 btnLogin.PerformClick();
-        }
-        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (Constant.CurrentSessionUser == "")
-                Application.Exit();
         }
 
     }

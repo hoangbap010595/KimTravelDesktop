@@ -29,6 +29,25 @@ namespace KimTravel.DAL.Services
                        };
             return data;
         }
+        public IQueryable GetList(int id)
+        {
+            var data = from p in db.Prices
+                       from g in db.GroupPartners.Where(x => x.GroupPartnerID == p.GroupID).DefaultIfEmpty()
+                       from t in db.Tours.Where(x => x.TourID == p.TourID).DefaultIfEmpty()
+                       orderby p.GroupID
+                       //orderby t.Name
+                       where p.GroupID == id
+                       select new
+                       {
+                           p.Key,
+                           p.GroupID,
+                           p.TourID,
+                           p.PriceRe,
+                           g.GroupName,
+                           t.Name
+                       };
+            return data;
+        }
         public Price GetByID(int id)
         {
             Price data = db.Prices.FirstOrDefault(x => x.Key == id);

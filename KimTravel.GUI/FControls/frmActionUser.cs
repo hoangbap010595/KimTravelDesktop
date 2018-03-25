@@ -1,4 +1,5 @@
-﻿using KimTravel.DAL;
+﻿using DevExpress.XtraEditors;
+using KimTravel.DAL;
 using KimTravel.DAL.Models;
 using KimTravel.DAL.Services;
 using MaterialSkin;
@@ -53,7 +54,6 @@ namespace KimTravel.GUI.FControls
             if (_objectData != null)
             {
                 txtUsername.Text = _objectData.Username;
-                txtEmail.Text = _objectData.Email;
 
                 ckLock.Checked = _objectData.Locked == true ? true : false; ;
                 cbbStatus.SelectedValue = _objectData.Status;
@@ -66,7 +66,7 @@ namespace KimTravel.GUI.FControls
         {
             if (txtUsername.Text == "")
             {
-                MessageBox.Show("Tên đăng nhập không thể để trống.");
+                XtraMessageBox.Show("Tên đăng nhập không thể để trống.");
                 return;
             }
            
@@ -84,7 +84,7 @@ namespace KimTravel.GUI.FControls
                 string pass2 = txtConfirmPass.Text;
                 if (pass1 != pass2)
                 {
-                    MessageBox.Show("Mật khẩu không trùng khớp. Vui lòng nhập lại");
+                    XtraMessageBox.Show("Mật khẩu không trùng khớp. Vui lòng nhập lại");
                     txtPassword.Text = "";
                     txtConfirmPass.Text = "";
                     txtPassword.Focus();
@@ -107,14 +107,14 @@ namespace KimTravel.GUI.FControls
             }
             if (rs)
             {
-                MessageBox.Show(msg);
+                XtraMessageBox.Show(msg);
 
                 if (loadData != null)
                     loadData();
                 this.Close();
             }
             else
-                MessageBox.Show("Tên tài khoản tồn tại trong hệ thống. Vui lòng kiểm tra lại.");
+                XtraMessageBox.Show("Tên tài khoản tồn tại trong hệ thống. Vui lòng kiểm tra lại.");
 
         }
 
@@ -125,12 +125,12 @@ namespace KimTravel.GUI.FControls
 
             if (pass1 == "" || pass2 == "")
             {
-                MessageBox.Show("Hãy nhập đầy đủ thông tin");
+                XtraMessageBox.Show("Hãy nhập đầy đủ thông tin");
                 return;
             } 
             if(pass1 != pass2)
             {
-                MessageBox.Show("Mật khẩu không trùng khớp. Vui lòng nhập lại");
+                XtraMessageBox.Show("Mật khẩu không trùng khớp. Vui lòng nhập lại");
                 txtPassword.Text = "";
                 txtConfirmPass.Text = "";
                 txtPassword.Focus();
@@ -141,10 +141,10 @@ namespace KimTravel.GUI.FControls
                rs = gtService.UpdatePassword(_objectData, pass1);
             if (rs)
             {
-                MessageBox.Show("Cập nhật mật khẩu thành công");
+                XtraMessageBox.Show("Cập nhật mật khẩu thành công");
             }else
             {
-                MessageBox.Show("Cập nhật mật khẩu không thành công. Vui lòng thử lại");
+                XtraMessageBox.Show("Cập nhật mật khẩu không thành công. Vui lòng thử lại");
             }
         }
     }

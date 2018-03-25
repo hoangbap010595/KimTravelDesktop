@@ -28,89 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
-            this.btnThemMoi = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCGroupPartner));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dtgGroupPartner = new System.Windows.Forms.DataGridView();
-            this.btnAddGroupPartner = new System.Windows.Forms.Button();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.gridControlDataPartner = new DevExpress.XtraGrid.GridControl();
+            this.gridViewDataPartner = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumnID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnEdit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnClickEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gridColumnDelete = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnClickDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.colKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGroupNamePrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTourPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPriceRe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ActionUpdate = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colDelete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colDeleteGroup = new System.Windows.Forms.DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
+            this.gridControlPrice = new DevExpress.XtraGrid.GridControl();
+            this.gridViewPrice = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnTour = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnClickEditPrice = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnClickDeletePrice = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgGroupPartner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlDataPartner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewDataPartner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClickEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClickDelete)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClickEditPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClickDeletePrice)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridViewGroupTour
-            // 
-            this.dataGridViewGroupTour.AllowUserToAddRows = false;
-            this.dataGridViewGroupTour.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewGroupTour.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewGroupTour.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewGroupTour.ColumnHeadersHeight = 30;
-            this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colKey,
-            this.colGroupNamePrice,
-            this.colTourPrice,
-            this.colPriceRe,
-            this.ActionUpdate,
-            this.colDelete});
-            this.dataGridViewGroupTour.Location = new System.Drawing.Point(6, 77);
-            this.dataGridViewGroupTour.MultiSelect = false;
-            this.dataGridViewGroupTour.Name = "dataGridViewGroupTour";
-            this.dataGridViewGroupTour.ReadOnly = true;
-            this.dataGridViewGroupTour.RowHeadersWidth = 35;
-            this.dataGridViewGroupTour.RowTemplate.Height = 25;
-            this.dataGridViewGroupTour.RowTemplate.ReadOnly = true;
-            this.dataGridViewGroupTour.Size = new System.Drawing.Size(614, 423);
-            this.dataGridViewGroupTour.TabIndex = 0;
-            this.dataGridViewGroupTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridViewGroupTour.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridViewGroupTour_RowPostPaint);
-            // 
-            // btnThemMoi
-            // 
-            this.btnThemMoi.Location = new System.Drawing.Point(6, 46);
-            this.btnThemMoi.Name = "btnThemMoi";
-            this.btnThemMoi.Size = new System.Drawing.Size(100, 25);
-            this.btnThemMoi.TabIndex = 4;
-            this.btnThemMoi.Text = "Thêm";
-            this.btnThemMoi.UseVisualStyleBackColor = true;
-            this.btnThemMoi.Click += new System.EventHandler(this.btnThemMoi_Click_1);
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.Controls.Add(this.dtgGroupPartner);
-            this.groupBox1.Controls.Add(this.btnAddGroupPartner);
+            this.groupBox1.Controls.Add(this.simpleButton1);
+            this.groupBox1.Controls.Add(this.gridControlDataPartner);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 4);
             this.groupBox1.Name = "groupBox1";
@@ -119,59 +81,142 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nhóm đối tác";
             // 
-            // dtgGroupPartner
+            // simpleButton1
             // 
-            this.dtgGroupPartner.AllowUserToAddRows = false;
-            this.dtgGroupPartner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(301, 15);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(114, 32);
+            this.simpleButton1.TabIndex = 11;
+            this.simpleButton1.Text = "Thêm mới";
+            this.simpleButton1.Click += new System.EventHandler(this.btnThemMoi_Click);
+            // 
+            // gridControlDataPartner
+            // 
+            this.gridControlDataPartner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtgGroupPartner.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgGroupPartner.BackgroundColor = System.Drawing.Color.White;
-            this.dtgGroupPartner.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtgGroupPartner.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgGroupPartner.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dtgGroupPartner.ColumnHeadersHeight = 30;
-            this.dtgGroupPartner.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.colGroupName,
-            this.dataGridViewButtonColumn1,
-            this.colDeleteGroup});
-            this.dtgGroupPartner.Location = new System.Drawing.Point(6, 77);
-            this.dtgGroupPartner.MultiSelect = false;
-            this.dtgGroupPartner.Name = "dtgGroupPartner";
-            this.dtgGroupPartner.ReadOnly = true;
-            this.dtgGroupPartner.RowHeadersWidth = 35;
-            this.dtgGroupPartner.RowTemplate.Height = 25;
-            this.dtgGroupPartner.RowTemplate.ReadOnly = true;
-            this.dtgGroupPartner.Size = new System.Drawing.Size(409, 424);
-            this.dtgGroupPartner.TabIndex = 1;
-            this.dtgGroupPartner.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgGroupPartner_CellContentClick);
+            this.gridControlDataPartner.Location = new System.Drawing.Point(6, 53);
+            this.gridControlDataPartner.MainView = this.gridViewDataPartner;
+            this.gridControlDataPartner.Name = "gridControlDataPartner";
+            this.gridControlDataPartner.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.btnClickDelete,
+            this.btnClickEdit});
+            this.gridControlDataPartner.Size = new System.Drawing.Size(409, 448);
+            this.gridControlDataPartner.TabIndex = 10;
+            this.gridControlDataPartner.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewDataPartner});
             // 
-            // btnAddGroupPartner
+            // gridViewDataPartner
             // 
-            this.btnAddGroupPartner.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddGroupPartner.Location = new System.Drawing.Point(6, 44);
-            this.btnAddGroupPartner.Name = "btnAddGroupPartner";
-            this.btnAddGroupPartner.Size = new System.Drawing.Size(100, 25);
-            this.btnAddGroupPartner.TabIndex = 4;
-            this.btnAddGroupPartner.Text = "Thêm mới";
-            this.btnAddGroupPartner.UseVisualStyleBackColor = true;
-            this.btnAddGroupPartner.Click += new System.EventHandler(this.btnThemMoi_Click);
+            this.gridViewDataPartner.ColumnPanelRowHeight = 35;
+            this.gridViewDataPartner.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumnID,
+            this.gridColumnName,
+            this.gridColumnEdit,
+            this.gridColumnDelete});
+            this.gridViewDataPartner.GridControl = this.gridControlDataPartner;
+            this.gridViewDataPartner.IndicatorWidth = 35;
+            this.gridViewDataPartner.Name = "gridViewDataPartner";
+            this.gridViewDataPartner.OptionsCustomization.AllowColumnMoving = false;
+            this.gridViewDataPartner.OptionsView.ShowAutoFilterRow = true;
+            this.gridViewDataPartner.OptionsView.ShowGroupPanel = false;
+            this.gridViewDataPartner.RowHeight = 25;
+            this.gridViewDataPartner.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridViewDataPartner_RowClick);
+            // 
+            // gridColumnID
+            // 
+            this.gridColumnID.Caption = "ID";
+            this.gridColumnID.FieldName = "GroupPartnerID";
+            this.gridColumnID.Name = "gridColumnID";
+            // 
+            // gridColumnName
+            // 
+            this.gridColumnName.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnName.AppearanceCell.Options.UseFont = true;
+            this.gridColumnName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnName.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnName.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnName.Caption = "Nhóm";
+            this.gridColumnName.FieldName = "GroupName";
+            this.gridColumnName.MinWidth = 160;
+            this.gridColumnName.Name = "gridColumnName";
+            this.gridColumnName.OptionsColumn.AllowEdit = false;
+            this.gridColumnName.OptionsColumn.ReadOnly = true;
+            this.gridColumnName.Visible = true;
+            this.gridColumnName.VisibleIndex = 0;
+            this.gridColumnName.Width = 160;
+            // 
+            // gridColumnEdit
+            // 
+            this.gridColumnEdit.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnEdit.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnEdit.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnEdit.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnEdit.Caption = "Sửa";
+            this.gridColumnEdit.ColumnEdit = this.btnClickEdit;
+            this.gridColumnEdit.MaxWidth = 60;
+            this.gridColumnEdit.MinWidth = 60;
+            this.gridColumnEdit.Name = "gridColumnEdit";
+            this.gridColumnEdit.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumnEdit.OptionsFilter.AllowFilter = false;
+            this.gridColumnEdit.Visible = true;
+            this.gridColumnEdit.VisibleIndex = 1;
+            this.gridColumnEdit.Width = 60;
+            // 
+            // btnClickEdit
+            // 
+            this.btnClickEdit.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.btnClickEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions1, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
+            this.btnClickEdit.Name = "btnClickEdit";
+            this.btnClickEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnClickEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnClickEdit_ButtonClick);
+            // 
+            // gridColumnDelete
+            // 
+            this.gridColumnDelete.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumnDelete.AppearanceCell.Options.UseFont = true;
+            this.gridColumnDelete.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnDelete.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnDelete.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnDelete.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnDelete.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnDelete.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnDelete.Caption = "Xóa";
+            this.gridColumnDelete.ColumnEdit = this.btnClickDelete;
+            this.gridColumnDelete.CustomizationCaption = "Xóa";
+            this.gridColumnDelete.MaxWidth = 60;
+            this.gridColumnDelete.MinWidth = 60;
+            this.gridColumnDelete.Name = "gridColumnDelete";
+            this.gridColumnDelete.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumnDelete.OptionsFilter.AllowFilter = false;
+            this.gridColumnDelete.Visible = true;
+            this.gridColumnDelete.VisibleIndex = 2;
+            this.gridColumnDelete.Width = 60;
+            // 
+            // btnClickDelete
+            // 
+            this.btnClickDelete.AutoHeight = false;
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            this.btnClickDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Xóa", -1, true, true, false, editorButtonImageOptions2)});
+            this.btnClickDelete.Name = "btnClickDelete";
+            this.btnClickDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnClickDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnClickDelete_ButtonClick);
             // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.btnThemMoi);
-            this.groupBox2.Controls.Add(this.dataGridViewGroupTour);
+            this.groupBox2.Controls.Add(this.gridControlPrice);
+            this.groupBox2.Controls.Add(this.simpleButton2);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(430, 4);
             this.groupBox2.Name = "groupBox2";
@@ -180,113 +225,171 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thiết lập bảng giá theo nhóm";
             // 
-            // colKey
+            // gridControlPrice
             // 
-            this.colKey.DataPropertyName = "Key";
-            this.colKey.HeaderText = "ID";
-            this.colKey.Name = "colKey";
-            this.colKey.ReadOnly = true;
-            this.colKey.Visible = false;
+            this.gridControlPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControlPrice.Location = new System.Drawing.Point(0, 53);
+            this.gridControlPrice.MainView = this.gridViewPrice;
+            this.gridControlPrice.Name = "gridControlPrice";
+            this.gridControlPrice.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.btnClickDeletePrice,
+            this.btnClickEditPrice});
+            this.gridControlPrice.Size = new System.Drawing.Size(620, 448);
+            this.gridControlPrice.TabIndex = 12;
+            this.gridControlPrice.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewPrice});
             // 
-            // colGroupNamePrice
+            // gridViewPrice
             // 
-            this.colGroupNamePrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colGroupNamePrice.DataPropertyName = "GroupName";
-            this.colGroupNamePrice.HeaderText = "Nhóm";
-            this.colGroupNamePrice.Name = "colGroupNamePrice";
-            this.colGroupNamePrice.ReadOnly = true;
-            this.colGroupNamePrice.Width = 140;
+            this.gridViewPrice.ColumnPanelRowHeight = 35;
+            this.gridViewPrice.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumnTour,
+            this.gridColumn5,
+            this.gridColumn3,
+            this.gridColumn4});
+            this.gridViewPrice.GridControl = this.gridControlPrice;
+            this.gridViewPrice.IndicatorWidth = 35;
+            this.gridViewPrice.Name = "gridViewPrice";
+            this.gridViewPrice.OptionsCustomization.AllowColumnMoving = false;
+            this.gridViewPrice.OptionsView.ShowAutoFilterRow = true;
+            this.gridViewPrice.OptionsView.ShowGroupPanel = false;
+            this.gridViewPrice.RowHeight = 25;
             // 
-            // colTourPrice
+            // gridColumn1
             // 
-            this.colTourPrice.DataPropertyName = "Name";
-            this.colTourPrice.HeaderText = "Tour";
-            this.colTourPrice.Name = "colTourPrice";
-            this.colTourPrice.ReadOnly = true;
+            this.gridColumn1.Caption = "ID";
+            this.gridColumn1.FieldName = "Key";
+            this.gridColumn1.Name = "gridColumn1";
             // 
-            // colPriceRe
+            // gridColumn2
             // 
-            this.colPriceRe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPriceRe.DataPropertyName = "PriceRe";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "#,###";
-            this.colPriceRe.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colPriceRe.HeaderText = "Giá nhận";
-            this.colPriceRe.Name = "colPriceRe";
-            this.colPriceRe.ReadOnly = true;
-            this.colPriceRe.Width = 120;
+            this.gridColumn2.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumn2.AppearanceCell.Options.UseFont = true;
+            this.gridColumn2.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn2.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn2.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn2.Caption = "Nhóm";
+            this.gridColumn2.FieldName = "GroupName";
+            this.gridColumn2.MaxWidth = 140;
+            this.gridColumn2.MinWidth = 140;
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
+            this.gridColumn2.OptionsColumn.ReadOnly = true;
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 0;
+            this.gridColumn2.Width = 140;
             // 
-            // ActionUpdate
+            // gridColumnTour
             // 
-            this.ActionUpdate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.ActionUpdate.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ActionUpdate.HeaderText = "";
-            this.ActionUpdate.Name = "ActionUpdate";
-            this.ActionUpdate.ReadOnly = true;
-            this.ActionUpdate.Text = "Sửa";
-            this.ActionUpdate.UseColumnTextForButtonValue = true;
-            this.ActionUpdate.Width = 80;
+            this.gridColumnTour.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnTour.AppearanceCell.Options.UseFont = true;
+            this.gridColumnTour.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnTour.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnTour.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnTour.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnTour.Caption = "Tour";
+            this.gridColumnTour.FieldName = "Name";
+            this.gridColumnTour.Name = "gridColumnTour";
+            this.gridColumnTour.Visible = true;
+            this.gridColumnTour.VisibleIndex = 1;
             // 
-            // colDelete
+            // gridColumn5
             // 
-            this.colDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.colDelete.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colDelete.HeaderText = "";
-            this.colDelete.Name = "colDelete";
-            this.colDelete.ReadOnly = true;
-            this.colDelete.Text = "Xóa";
-            this.colDelete.UseColumnTextForButtonValue = true;
-            this.colDelete.Width = 80;
+            this.gridColumn5.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumn5.AppearanceCell.Options.UseFont = true;
+            this.gridColumn5.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn5.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumn5.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn5.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn5.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn5.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn5.Caption = "Giá nhận";
+            this.gridColumn5.DisplayFormat.FormatString = "#,###";
+            this.gridColumn5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn5.FieldName = "PriceRe";
+            this.gridColumn5.MaxWidth = 120;
+            this.gridColumn5.MinWidth = 120;
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 2;
+            this.gridColumn5.Width = 120;
             // 
-            // dataGridViewTextBoxColumn1
+            // gridColumn3
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "GroupPartnerID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
+            this.gridColumn3.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn3.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn3.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn3.Caption = "Sửa";
+            this.gridColumn3.ColumnEdit = this.btnClickEditPrice;
+            this.gridColumn3.MaxWidth = 60;
+            this.gridColumn3.MinWidth = 60;
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn3.OptionsFilter.AllowFilter = false;
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 3;
+            this.gridColumn3.Width = 60;
             // 
-            // colGroupName
+            // btnClickEditPrice
             // 
-            this.colGroupName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colGroupName.DataPropertyName = "GroupName";
-            this.colGroupName.HeaderText = "Tên nhóm";
-            this.colGroupName.Name = "colGroupName";
-            this.colGroupName.ReadOnly = true;
+            this.btnClickEditPrice.AutoHeight = false;
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
+            this.btnClickEditPrice.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions3, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
+            this.btnClickEditPrice.Name = "btnClickEditPrice";
+            this.btnClickEditPrice.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnClickEditPrice.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnClickEditPrice_ButtonClick);
             // 
-            // dataGridViewButtonColumn1
+            // gridColumn4
             // 
-            this.dataGridViewButtonColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.dataGridViewButtonColumn1.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewButtonColumn1.HeaderText = "";
-            this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            this.dataGridViewButtonColumn1.ReadOnly = true;
-            this.dataGridViewButtonColumn1.Text = "Sửa";
-            this.dataGridViewButtonColumn1.UseColumnTextForButtonValue = true;
-            this.dataGridViewButtonColumn1.Width = 80;
+            this.gridColumn4.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumn4.AppearanceCell.Options.UseFont = true;
+            this.gridColumn4.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn4.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn4.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn4.Caption = "Xóa";
+            this.gridColumn4.ColumnEdit = this.btnClickDeletePrice;
+            this.gridColumn4.CustomizationCaption = "Xóa";
+            this.gridColumn4.MaxWidth = 60;
+            this.gridColumn4.MinWidth = 60;
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumn4.OptionsFilter.AllowFilter = false;
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 4;
+            this.gridColumn4.Width = 60;
             // 
-            // colDeleteGroup
+            // btnClickDeletePrice
             // 
-            this.colDeleteGroup.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.colDeleteGroup.DefaultCellStyle = dataGridViewCellStyle7;
-            this.colDeleteGroup.HeaderText = "";
-            this.colDeleteGroup.Name = "colDeleteGroup";
-            this.colDeleteGroup.ReadOnly = true;
-            this.colDeleteGroup.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colDeleteGroup.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colDeleteGroup.Text = "Xóa";
-            this.colDeleteGroup.UseColumnTextForButtonValue = true;
-            this.colDeleteGroup.Width = 80;
+            this.btnClickDeletePrice.AutoHeight = false;
+            editorButtonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions4.Image")));
+            this.btnClickDeletePrice.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Xóa", -1, true, true, false, editorButtonImageOptions4)});
+            this.btnClickDeletePrice.Name = "btnClickDeletePrice";
+            this.btnClickDeletePrice.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnClickDeletePrice.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnClickDeletePrice_ButtonClick);
+            // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.simpleButton2.Appearance.Options.UseFont = true;
+            this.simpleButton2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.simpleButton2.Location = new System.Drawing.Point(506, 15);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(114, 32);
+            this.simpleButton2.TabIndex = 11;
+            this.simpleButton2.Text = "Thêm mới";
+            this.simpleButton2.Click += new System.EventHandler(this.btnThemMoi_Click_1);
             // 
             // UCGroupPartner
             // 
@@ -297,30 +400,42 @@
             this.Name = "UCGroupPartner";
             this.Size = new System.Drawing.Size(1059, 513);
             this.Load += new System.EventHandler(this.UCGroupTour_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgGroupPartner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlDataPartner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewDataPartner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClickEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClickDelete)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClickEditPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClickDeletePrice)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridViewGroupTour;
-        private System.Windows.Forms.Button btnThemMoi;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dtgGroupPartner;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnAddGroupPartner;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colKey;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGroupNamePrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTourPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPriceRe;
-        private System.Windows.Forms.DataGridViewButtonColumn ActionUpdate;
-        private System.Windows.Forms.DataGridViewButtonColumn colDelete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGroupName;
-        private System.Windows.Forms.DataGridViewButtonColumn dataGridViewButtonColumn1;
-        private System.Windows.Forms.DataGridViewButtonColumn colDeleteGroup;
+        private DevExpress.XtraGrid.GridControl gridControlDataPartner;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewDataPartner;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnID;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnName;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnClickEdit;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnDelete;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnClickDelete;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton2;
+        private DevExpress.XtraGrid.GridControl gridControlPrice;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnClickEditPrice;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnClickDeletePrice;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnTour;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
     }
 }

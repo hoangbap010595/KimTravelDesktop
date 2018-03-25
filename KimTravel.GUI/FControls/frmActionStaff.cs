@@ -1,4 +1,5 @@
-﻿using KimTravel.DAL;
+﻿using DevExpress.XtraEditors;
+using KimTravel.DAL;
 using KimTravel.DAL.Models;
 using KimTravel.DAL.Services;
 using MaterialSkin;
@@ -78,12 +79,12 @@ namespace KimTravel.GUI.FControls
         {
             if (txtPSID.Text == "")
             {
-                MessageBox.Show("Mã nhân viên không thể để trống.");
+                XtraMessageBox.Show("Mã nhân viên không thể để trống.");
                 return;
             }
             if (txtName.Text == "")
             {
-                MessageBox.Show("Tên nhân viên không thể để trống.");
+                XtraMessageBox.Show("Tên nhân viên không thể để trống.");
                 return;
             }
             Staff staff = new Staff();
@@ -112,14 +113,14 @@ namespace KimTravel.GUI.FControls
             }
             if (rs)
             {
-                MessageBox.Show(msg);
+                XtraMessageBox.Show(msg);
 
                 if (loadData != null)
                     loadData();
                 this.Close();
             }
             else
-                MessageBox.Show("Mã nhân viên tồn tại trong hệ thống. Vui lòng kiểm tra lại.");
+                XtraMessageBox.Show("Mã nhân viên tồn tại trong hệ thống. Vui lòng kiểm tra lại.");
 
         }
 

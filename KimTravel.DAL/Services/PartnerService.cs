@@ -17,15 +17,18 @@ namespace KimTravel.DAL.Services
         {
             IQueryable data = from p in db.Partners
                               from g in db.GroupPartners.Where(x => x.GroupPartnerID == p.GroupID).DefaultIfEmpty()
+                              orderby p.Line
                               orderby p.Name
                               select new
                               {
                                   p.PartnerID,
                                   p.PartnerCode,
                                   p.Name,
-                                  p.Address,
+                                  Address2 = p.Line == null ? " " + p.Address : p.Line + " " + p.Address,
                                   p.Phone,
                                   p.Note,
+                                  p.Line,
+                                  p.Address,
                                   p.GroupID,
                                   g.GroupName,
                                   Status = p.Status == 1 ? "Bình thường" : "Ngưng hợp tác"
@@ -36,18 +39,28 @@ namespace KimTravel.DAL.Services
         public IQueryable GetListFind(string content)
         {
             IQueryable data = from p in db.Partners
+                              from g in db.GroupPartners.Where(x => x.GroupPartnerID == p.GroupID).DefaultIfEmpty()
                               where p.Address.Contains(content) && p.Status == 1
+                              orderby p.Line
                               orderby p.Address
                               select new
                               {
                                   p.PartnerID,
                                   p.PartnerCode,
                                   p.Name,
-                                  p.Address,
+                                  Address2 = p.Line == null ? " " + p.Address : p.Line + " " + p.Address,
                                   p.Phone,
                                   p.Note,
+                                  p.Line,
+                                  p.Address,
+                                  g.GroupName,
                                   Status = p.Status == 1 ? "Bình thường" : "Ngưng hợp tác"
                               };
+            return data;
+        }
+        public IEnumerable<Partner> GetListCobobox(string code)
+        {
+            IEnumerable<Partner> data = db.Partners.Where(x => x.Status == 1 && x.PartnerCode.Contains(code)).OrderBy(x => x.Address).ToList();
             return data;
         }
         public IEnumerable<Partner> GetListCobobox()
@@ -97,6 +110,7 @@ namespace KimTravel.DAL.Services
                     currObject.Address = obj.Address;
                     currObject.Phone = obj.Phone;
                     currObject.Status = obj.Status;
+                    currObject.Line = obj.Line;
                     db.SubmitChanges();
                 }
                 return true;
