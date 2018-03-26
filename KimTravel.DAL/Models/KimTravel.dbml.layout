@@ -76,7 +76,7 @@
         <classShapeMoniker Id="009fc288-071b-42ff-b85b-4d6f1ca170c9" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 2.33255126953125); (3.5 : 2.33255126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 2.33255126953125); (3.5 : 2.33255126953125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/KimTravelDataContext/Partner/Partner_Staff" />
       <nodes>
         <classShapeMoniker Id="3c5610e5-1ed0-432f-a1c7-d1dc051e72b0" />
@@ -113,5 +113,12 @@
         <elementListCompartment Id="e9acb719-d1bf-4130-bdab-1b0ff08fde49" absoluteBounds="9.39, 10.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <associationConnector edgePoints="[(10.375 : 8.67470540364583); (10.375 : 9.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/KimTravelDataContext/PrintTour/PrintTour_DetailPrintTour" />
+      <nodes>
+        <classShapeMoniker Id="da4bb73e-3c35-4423-bda8-a83df4dc5998" />
+        <classShapeMoniker Id="4f64319f-ef3e-457c-bc22-02482ccac065" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

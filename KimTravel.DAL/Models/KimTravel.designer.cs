@@ -78,7 +78,7 @@ namespace KimTravel.DAL.Models
     #endregion
 		
 		public KimTravelDataContext() : 
-				base(global::KimTravel.DAL.Properties.Settings.Default.LocalConnectionString, mappingSource)
+				base(global::KimTravel.DAL.Properties.Settings.Default.KimTravelConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -3405,6 +3405,8 @@ namespace KimTravel.DAL.Models
 		
 		private System.Nullable<double> _TotalPax;
 		
+		private EntitySet<DetailPrintTour> _DetailPrintTours;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3435,6 +3437,7 @@ namespace KimTravel.DAL.Models
 		
 		public PrintTour()
 		{
+			this._DetailPrintTours = new EntitySet<DetailPrintTour>(new Action<DetailPrintTour>(this.attach_DetailPrintTours), new Action<DetailPrintTour>(this.detach_DetailPrintTours));
 			OnCreated();
 		}
 		
@@ -3658,6 +3661,19 @@ namespace KimTravel.DAL.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PrintTour_DetailPrintTour", Storage="_DetailPrintTours", ThisKey="ID", OtherKey="PrintID")]
+		public EntitySet<DetailPrintTour> DetailPrintTours
+		{
+			get
+			{
+				return this._DetailPrintTours;
+			}
+			set
+			{
+				this._DetailPrintTours.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -3677,6 +3693,18 @@ namespace KimTravel.DAL.Models
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_DetailPrintTours(DetailPrintTour entity)
+		{
+			this.SendPropertyChanging();
+			entity.PrintTour = this;
+		}
+		
+		private void detach_DetailPrintTours(DetailPrintTour entity)
+		{
+			this.SendPropertyChanging();
+			entity.PrintTour = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DetailPrintTour")]
@@ -3692,6 +3720,8 @@ namespace KimTravel.DAL.Models
 		private System.Nullable<int> _BookID;
 		
 		private System.Nullable<System.DateTime> _Date;
+		
+		private EntityRef<PrintTour> _PrintTour;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3709,6 +3739,7 @@ namespace KimTravel.DAL.Models
 		
 		public DetailPrintTour()
 		{
+			this._PrintTour = default(EntityRef<PrintTour>);
 			OnCreated();
 		}
 		
@@ -3743,6 +3774,10 @@ namespace KimTravel.DAL.Models
 			{
 				if ((this._PrintID != value))
 				{
+					if (this._PrintTour.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnPrintIDChanging(value);
 					this.SendPropertyChanging();
 					this._PrintID = value;
@@ -3788,6 +3823,40 @@ namespace KimTravel.DAL.Models
 					this._Date = value;
 					this.SendPropertyChanged("Date");
 					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PrintTour_DetailPrintTour", Storage="_PrintTour", ThisKey="PrintID", OtherKey="ID", IsForeignKey=true)]
+		public PrintTour PrintTour
+		{
+			get
+			{
+				return this._PrintTour.Entity;
+			}
+			set
+			{
+				PrintTour previousValue = this._PrintTour.Entity;
+				if (((previousValue != value) 
+							|| (this._PrintTour.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PrintTour.Entity = null;
+						previousValue.DetailPrintTours.Remove(this);
+					}
+					this._PrintTour.Entity = value;
+					if ((value != null))
+					{
+						value.DetailPrintTours.Add(this);
+						this._PrintID = value.ID;
+					}
+					else
+					{
+						this._PrintID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("PrintTour");
 				}
 			}
 		}

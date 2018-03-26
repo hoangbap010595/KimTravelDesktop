@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCBookCar));
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,6 +84,7 @@
             this.gridColumnPax = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lblSelected = new System.Windows.Forms.Label();
             this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
+            this.btnBoSungDoiTac = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
@@ -98,14 +99,14 @@
             this.dataGridViewGroupTour.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(246)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(246)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewGroupTour.ColumnHeadersHeight = 40;
             this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colID,
@@ -148,8 +149,8 @@
             // 
             this.colPax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPax.DataPropertyName = "Pax";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colPax.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colPax.DefaultCellStyle = dataGridViewCellStyle2;
             this.colPax.HeaderText = "Pax";
             this.colPax.Name = "colPax";
             this.colPax.Width = 50;
@@ -184,9 +185,9 @@
             // 
             this.colPartnerPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPartnerPrice.DataPropertyName = "PartnerPrice";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.Format = "#,###";
-            this.colPartnerPrice.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "#,###";
+            this.colPartnerPrice.DefaultCellStyle = dataGridViewCellStyle3;
             this.colPartnerPrice.HeaderText = "Thu hộ";
             this.colPartnerPrice.Name = "colPartnerPrice";
             this.colPartnerPrice.Width = 80;
@@ -725,18 +726,32 @@
             this.btnTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnTimKiem.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnTimKiem.Appearance.Options.UseFont = true;
-            this.btnTimKiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnTimKiem.Location = new System.Drawing.Point(52, 447);
+            this.btnTimKiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.ImageOptions.Image")));
+            this.btnTimKiem.Location = new System.Drawing.Point(6, 447);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(168, 32);
+            this.btnTimKiem.Size = new System.Drawing.Size(126, 32);
             this.btnTimKiem.TabIndex = 14;
             this.btnTimKiem.Text = "Lọc dữ liệu";
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
+            // btnBoSungDoiTac
+            // 
+            this.btnBoSungDoiTac.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnBoSungDoiTac.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.btnBoSungDoiTac.Appearance.Options.UseFont = true;
+            this.btnBoSungDoiTac.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnBoSungDoiTac.Location = new System.Drawing.Point(138, 447);
+            this.btnBoSungDoiTac.Name = "btnBoSungDoiTac";
+            this.btnBoSungDoiTac.Size = new System.Drawing.Size(141, 32);
+            this.btnBoSungDoiTac.TabIndex = 14;
+            this.btnBoSungDoiTac.Text = "Bổ sung";
+            this.btnBoSungDoiTac.Click += new System.EventHandler(this.btnBoSungDoiTac_Click);
             // 
             // UCBookCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnBoSungDoiTac);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.lblSelected);
             this.Controls.Add(this.gridControlData);
@@ -832,5 +847,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnTour;
         private System.Windows.Forms.Label lblSelected;
         private DevExpress.XtraEditors.SimpleButton btnTimKiem;
+        private DevExpress.XtraEditors.SimpleButton btnBoSungDoiTac;
     }
 }

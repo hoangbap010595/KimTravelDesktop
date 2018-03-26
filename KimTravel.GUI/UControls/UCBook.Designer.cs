@@ -772,7 +772,7 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Tour";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 130;
+            this.dataGridViewTextBoxColumn2.Width = 150;
             // 
             // colPartName
             // 
@@ -781,7 +781,7 @@
             this.colPartName.HeaderText = "Tên đối tác";
             this.colPartName.Name = "colPartName";
             this.colPartName.ReadOnly = true;
-            this.colPartName.Width = 150;
+            this.colPartName.Width = 180;
             // 
             // colCusName
             // 
@@ -798,7 +798,7 @@
             this.colPickup.HeaderText = "Pick up";
             this.colPickup.Name = "colPickup";
             this.colPickup.ReadOnly = true;
-            this.colPickup.Width = 160;
+            this.colPickup.Width = 200;
             // 
             // colRoom
             // 
@@ -807,7 +807,6 @@
             this.colRoom.HeaderText = "Room";
             this.colRoom.Name = "colRoom";
             this.colRoom.ReadOnly = true;
-            this.colRoom.Width = 80;
             // 
             // colNVBook
             // 
@@ -816,7 +815,6 @@
             this.colNVBook.HeaderText = "NV Book";
             this.colNVBook.Name = "colNVBook";
             this.colNVBook.ReadOnly = true;
-            this.colNVBook.Width = 80;
             // 
             // UCBook
             // 

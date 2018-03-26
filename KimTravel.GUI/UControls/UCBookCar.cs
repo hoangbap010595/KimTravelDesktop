@@ -230,11 +230,13 @@ namespace KimTravel.GUI.UControls
         private void refreshData(int numCar)
         {
             var colName = "colCar" + numCar;
+
             for (int i = 0; i < dataGridViewGroupTour.RowCount; i++)
             {
                 if (dataGridViewGroupTour.Rows[i].Cells[colName].Value != null && (bool)dataGridViewGroupTour.Rows[i].Cells[colName].Value)
                 {
                     dataGridViewGroupTour.Rows.RemoveAt(i);
+                    i--;
                 }
             }
             dataGridViewGroupTour.Update();
@@ -300,6 +302,11 @@ namespace KimTravel.GUI.UControls
             int total = dataGridViewGroupTour.RowCount;
             _Selected = total;
             lblSelected.Text = total.ToString();
+        }
+
+        private void btnBoSungDoiTac_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

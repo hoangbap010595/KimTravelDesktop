@@ -92,7 +92,6 @@ namespace KimTravel.GUI.UControls
                 string msg = "Đã book: " + C1;
                 lblMsgPax.Text = msg;
 
-                //numPax.Maximum = C3;
                 txtPriceRe.Text = priceService.GetPriceForPartner(partnerID, id);
             }
             catch { }

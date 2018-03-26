@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KimTravel.GUI", "KimTravel.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KimTravel.DAL", "KimTravel.DAL\KimTravel.DAL.csproj", "{F8151B75-6042-48A5-91FD-4AB6755EF36D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestReport", "TestReport\TestReport.csproj", "{E0D96E93-25EE-44DC-9761-0F2CE483CCF2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{F8151B75-6042-48A5-91FD-4AB6755EF36D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8151B75-6042-48A5-91FD-4AB6755EF36D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8151B75-6042-48A5-91FD-4AB6755EF36D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E0D96E93-25EE-44DC-9761-0F2CE483CCF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E0D96E93-25EE-44DC-9761-0F2CE483CCF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E0D96E93-25EE-44DC-9761-0F2CE483CCF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E0D96E93-25EE-44DC-9761-0F2CE483CCF2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

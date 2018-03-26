@@ -332,7 +332,7 @@ namespace KimTravel.GUI
                 }
             }
 
-            xtraTabControlMain.Controls.Clear();
+            xtraTabControlMain.TabPages.Clear();
             if (menu1 > 0)
             {
                 ribbonPageGroupHeThong.Visible = true;

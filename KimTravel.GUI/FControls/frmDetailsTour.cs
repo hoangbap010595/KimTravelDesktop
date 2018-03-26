@@ -24,6 +24,7 @@ namespace KimTravel.GUI.FControls
         private TourService tService = new TourService();
         private PartnerService pnService = new PartnerService();
         private BookService bookService = new BookService();
+        private PriceService priceService = new PriceService();
         private Book _objectBook;
         private DataTable tableService = new DataTable();
 
@@ -94,6 +95,7 @@ namespace KimTravel.GUI.FControls
             {
                 int gID = int.Parse(cbbGroupTourID.SelectedValue.ToString());
                 int id = int.Parse(cbbTourID.SelectedValue.ToString());
+                int partnerID = int.Parse(cbbPartnerID.SelectedValue.ToString());
                 string date1 = dtpStartDate.Value.ToString("yyyy-MM-dd");
                 Tour tour = tService.GetByID(id);
                 txtPriceSa.Text = tour.PriceSale.ToString();
@@ -104,6 +106,8 @@ namespace KimTravel.GUI.FControls
 
                 string msg = "Đã book: " + C1;
                 lblMsgPax.Text = msg;
+
+                txtPriceRe.Text = priceService.GetPriceForPartner(partnerID, id);
             }
             catch { }
         }

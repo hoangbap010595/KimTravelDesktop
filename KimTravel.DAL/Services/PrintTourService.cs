@@ -50,9 +50,39 @@ namespace KimTravel.DAL.Services
                            p.TourID,
                            t.Name,
                            p.DateStart,
-                           Guide1 = s1.Name,
+                           Guide1 = s1.ID,
+                           GuideName1 = s1.Name,
                            p.Guide2,
-                           Driver1 = s2.Name,
+                           Driver1 = s2.ID,
+                           DriverName1= s2.Name,
+                           p.Driver2,
+                           p.CarCode,
+                           p.DatePrint,
+                           p.TotalPax
+                       };
+            return data;
+        }
+        public IQueryable GetList(string dateStart)
+        {
+            DateTime date = DateTime.Parse(dateStart);
+            var data = from p in db.PrintTours
+                       join t in db.Tours on p.TourID equals t.TourID
+                       from s1 in db.Staffs.Where(x => x.ID == p.Guide1).DefaultIfEmpty()
+                       from s2 in db.Staffs.Where(x => x.ID == p.Driver1).DefaultIfEmpty()
+                       where p.DateStart == date
+                       orderby p.DateStart
+                       select new
+                       {
+                           p.ID,
+                           p.OrganizationID,
+                           p.TourID,
+                           t.Name,
+                           p.DateStart,
+                           Guide1 = s1.ID,
+                           GuideName1 = s1.Name,
+                           p.Guide2,
+                           Driver1 = s2.ID,
+                           DriverName1 = s2.Name,
                            p.Driver2,
                            p.CarCode,
                            p.DatePrint,
@@ -76,9 +106,11 @@ namespace KimTravel.DAL.Services
                            p.TourID,
                            t.Name,
                            p.DateStart,
-                           Guide1 = s1.Name,
+                           Guide1 = s1.ID,
+                           GuideName1 = s1.Name,
                            p.Guide2,
-                           Driver1 = s2.Name,
+                           Driver1 = s2.ID,
+                           DriverName1 = s2.Name,
                            p.Driver2,
                            p.CarCode,
                            p.DatePrint,

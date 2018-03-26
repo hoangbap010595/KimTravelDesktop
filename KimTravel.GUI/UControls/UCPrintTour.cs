@@ -72,9 +72,10 @@ namespace KimTravel.GUI.UControls
         {
             var tID = int.Parse(cbbTourID.SelectedValue.ToString());
             var dateStart = dtpStartDate.Value.ToString("yyyy-MM-dd");
-            var isCancel = rdBinhThuong.Checked == true ? false : true;
-
-            gridControlData.DataSource = printTourService.GetList(tID, dateStart);
+            if (ckViewAllPartner.Checked)
+                gridControlData.DataSource = printTourService.GetList(dateStart);
+            else
+                gridControlData.DataSource = printTourService.GetList(tID, dateStart);
         }
 
         private void btnExportExcel_Click(object sender, EventArgs e)
@@ -109,11 +110,18 @@ namespace KimTravel.GUI.UControls
 
         private void btnClickViews_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            //var id = int.Parse(gridViewData.GetFocusedRowCellValue("ID").ToString());
-            //int work = rdBinhThuong.Checked == true ? 1 : 2;
-            //frmDetailsTour frm = new frmDetailsTour(work, id);
-            //frm.loadData = new frmDetailsTour.LoadData(loadDataGroup);
-            //frm.ShowDialog();
+            var PrintID = int.Parse(gridViewData.GetFocusedRowCellValue("ID").ToString());
+            var TourID = int.Parse(gridViewData.GetFocusedRowCellValue("TourID").ToString());
+            var StartDate = DateTime.Parse(gridViewData.GetFocusedRowCellValue("DateStart").ToString()).ToString("dd-MM-yyyy");
+            var Carcode = gridViewData.GetFocusedRowCellValue("CarCode").ToString();
+            var Guide1 = int.Parse(gridViewData.GetFocusedRowCellValue("Guide1").ToString());
+            var Guide2 = gridViewData.GetFocusedRowCellValue("Guide2").ToString();
+            var Driver1 = int.Parse(gridViewData.GetFocusedRowCellValue("Driver1").ToString());
+            var Driver2 = gridViewData.GetFocusedRowCellValue("Driver2").ToString();
+            //float Pax = float.Parse(gridViewData.GetFocusedRowCellValue("TotalPax").ToString());
+
+            frmDetailsPrintAgain frm = new frmDetailsPrintAgain(PrintID, TourID, StartDate, Guide1, Guide2, Driver1, Driver2, Carcode);
+            frm.ShowDialog();
         }
     }
 }

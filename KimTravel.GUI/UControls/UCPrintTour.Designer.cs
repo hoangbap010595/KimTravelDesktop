@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCPrintTour));
             this.label6 = new System.Windows.Forms.Label();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
@@ -37,14 +37,12 @@
             this.cbbGroupTourID = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.rdBinhThuong = new System.Windows.Forms.RadioButton();
-            this.rdDaHuy = new System.Windows.Forms.RadioButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tảiLạiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xuấtExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gridControlData = new DevExpress.XtraGrid.GridControl();
             this.gridViewData = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumnPax = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnTourName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnStartDate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -58,9 +56,9 @@
             this.btnClickViews = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnExportExcel = new DevExpress.XtraEditors.SimpleButton();
             this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
-            this.gridColumnPax = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnTourID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ckViewAllPartner = new System.Windows.Forms.CheckBox();
             this.contextMenuStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClickViews)).BeginInit();
@@ -71,7 +69,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label6.Location = new System.Drawing.Point(378, 5);
+            this.label6.Location = new System.Drawing.Point(500, 5);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 17);
             this.label6.TabIndex = 0;
@@ -83,10 +81,10 @@
             this.dtpStartDate.CustomFormat = "dd-MM-yyyy";
             this.dtpStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStartDate.Location = new System.Drawing.Point(381, 25);
+            this.dtpStartDate.Location = new System.Drawing.Point(503, 25);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(133, 23);
-            this.dtpStartDate.TabIndex = 3;
+            this.dtpStartDate.TabIndex = 4;
             // 
             // cbbTourID
             // 
@@ -133,30 +131,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Chọn tour";
             // 
-            // rdBinhThuong
-            // 
-            this.rdBinhThuong.AutoSize = true;
-            this.rdBinhThuong.Checked = true;
-            this.rdBinhThuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdBinhThuong.Location = new System.Drawing.Point(8, 18);
-            this.rdBinhThuong.Name = "rdBinhThuong";
-            this.rdBinhThuong.Size = new System.Drawing.Size(102, 21);
-            this.rdBinhThuong.TabIndex = 6;
-            this.rdBinhThuong.TabStop = true;
-            this.rdBinhThuong.Text = "Binh thường";
-            this.rdBinhThuong.UseVisualStyleBackColor = true;
-            // 
-            // rdDaHuy
-            // 
-            this.rdDaHuy.AutoSize = true;
-            this.rdDaHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdDaHuy.Location = new System.Drawing.Point(130, 17);
-            this.rdDaHuy.Name = "rdDaHuy";
-            this.rdDaHuy.Size = new System.Drawing.Size(71, 21);
-            this.rdDaHuy.TabIndex = 6;
-            this.rdDaHuy.Text = "Đã hủy";
-            this.rdDaHuy.UseVisualStyleBackColor = true;
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -179,17 +153,6 @@
             this.xuấtExcelToolStripMenuItem.Text = "Xuất Excel";
             this.xuấtExcelToolStripMenuItem.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.rdBinhThuong);
-            this.groupBox1.Controls.Add(this.rdDaHuy);
-            this.groupBox1.Location = new System.Drawing.Point(530, 5);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(218, 45);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tình trạng";
-            // 
             // gridControlData
             // 
             this.gridControlData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -210,6 +173,7 @@
             this.gridViewData.ColumnPanelRowHeight = 35;
             this.gridViewData.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumnPax,
+            this.gridColumnTourID,
             this.gridColumnID,
             this.gridColumnTourName,
             this.gridColumnStartDate,
@@ -227,6 +191,25 @@
             this.gridViewData.OptionsView.ShowAutoFilterRow = true;
             this.gridViewData.OptionsView.ShowGroupPanel = false;
             this.gridViewData.RowHeight = 25;
+            // 
+            // gridColumnPax
+            // 
+            this.gridColumnPax.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnPax.AppearanceCell.Options.UseFont = true;
+            this.gridColumnPax.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnPax.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPax.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnPax.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnPax.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnPax.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPax.Caption = "Pax";
+            this.gridColumnPax.FieldName = "TotalPax";
+            this.gridColumnPax.MaxWidth = 60;
+            this.gridColumnPax.MinWidth = 60;
+            this.gridColumnPax.Name = "gridColumnPax";
+            this.gridColumnPax.Visible = true;
+            this.gridColumnPax.VisibleIndex = 0;
+            this.gridColumnPax.Width = 60;
             // 
             // gridColumnID
             // 
@@ -297,7 +280,7 @@
             this.gridColumnHDV1.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnHDV1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnHDV1.Caption = "HDV 1";
-            this.gridColumnHDV1.FieldName = "Guide1";
+            this.gridColumnHDV1.FieldName = "GuideName1";
             this.gridColumnHDV1.MinWidth = 120;
             this.gridColumnHDV1.Name = "gridColumnHDV1";
             this.gridColumnHDV1.Visible = true;
@@ -331,7 +314,7 @@
             this.gridColumnDriver1.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnDriver1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnDriver1.Caption = "Tài xế 1";
-            this.gridColumnDriver1.FieldName = "Driver1";
+            this.gridColumnDriver1.FieldName = "DriverName1";
             this.gridColumnDriver1.MinWidth = 120;
             this.gridColumnDriver1.Name = "gridColumnDriver1";
             this.gridColumnDriver1.Visible = true;
@@ -397,9 +380,9 @@
             // btnClickViews
             // 
             this.btnClickViews.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions4.Image")));
             this.btnClickViews.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions2, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
+            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions4, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
             this.btnClickViews.Name = "btnClickViews";
             this.btnClickViews.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnClickViews.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnClickViews_ButtonClick);
@@ -409,7 +392,7 @@
             this.btnExportExcel.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnExportExcel.Appearance.Options.UseFont = true;
             this.btnExportExcel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.ImageOptions.Image")));
-            this.btnExportExcel.Location = new System.Drawing.Point(874, 16);
+            this.btnExportExcel.Location = new System.Drawing.Point(768, 17);
             this.btnExportExcel.Name = "btnExportExcel";
             this.btnExportExcel.Size = new System.Drawing.Size(114, 32);
             this.btnExportExcel.TabIndex = 6;
@@ -421,40 +404,38 @@
             this.btnTimKiem.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnTimKiem.Appearance.Options.UseFont = true;
             this.btnTimKiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.ImageOptions.Image")));
-            this.btnTimKiem.Location = new System.Drawing.Point(754, 16);
+            this.btnTimKiem.Location = new System.Drawing.Point(648, 17);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(114, 32);
             this.btnTimKiem.TabIndex = 5;
             this.btnTimKiem.Text = "Tìm kiếm";
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
-            // gridColumnPax
+            // gridColumnTourID
             // 
-            this.gridColumnPax.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.gridColumnPax.AppearanceCell.Options.UseFont = true;
-            this.gridColumnPax.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumnPax.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumnPax.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.gridColumnPax.AppearanceHeader.Options.UseFont = true;
-            this.gridColumnPax.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumnPax.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumnPax.Caption = "Pax";
-            this.gridColumnPax.FieldName = "TotalPax";
-            this.gridColumnPax.MaxWidth = 60;
-            this.gridColumnPax.MinWidth = 60;
-            this.gridColumnPax.Name = "gridColumnPax";
-            this.gridColumnPax.Visible = true;
-            this.gridColumnPax.VisibleIndex = 0;
-            this.gridColumnPax.Width = 60;
+            this.gridColumnTourID.Caption = "TourID";
+            this.gridColumnTourID.FieldName = "TourID";
+            this.gridColumnTourID.Name = "gridColumnTourID";
+            // 
+            // ckViewAllPartner
+            // 
+            this.ckViewAllPartner.AutoSize = true;
+            this.ckViewAllPartner.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.ckViewAllPartner.Location = new System.Drawing.Point(374, 25);
+            this.ckViewAllPartner.Name = "ckViewAllPartner";
+            this.ckViewAllPartner.Size = new System.Drawing.Size(93, 21);
+            this.ckViewAllPartner.TabIndex = 3;
+            this.ckViewAllPartner.Text = "Xem tất cả";
+            this.ckViewAllPartner.UseVisualStyleBackColor = true;
             // 
             // UCPrintTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ckViewAllPartner);
             this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.gridControlData);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cbbTourID);
             this.Controls.Add(this.cbbGroupTourID);
             this.Controls.Add(this.label2);
@@ -465,8 +446,6 @@
             this.Size = new System.Drawing.Size(1284, 513);
             this.Load += new System.EventHandler(this.UCGroupTour_Load);
             this.contextMenuStrip1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClickViews)).EndInit();
@@ -482,12 +461,9 @@
         private System.Windows.Forms.ComboBox cbbGroupTourID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton rdBinhThuong;
-        private System.Windows.Forms.RadioButton rdDaHuy;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tảiLạiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xuấtExcelToolStripMenuItem;
-        private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraGrid.GridControl gridControlData;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewData;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnID;
@@ -504,5 +480,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnDriver1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnDriver2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnPax;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnTourID;
+        private System.Windows.Forms.CheckBox ckViewAllPartner;
     }
 }
