@@ -71,7 +71,25 @@ namespace KimTravel.DAL.Services
 
             return data;
         }
+        public IQueryable GetListBookedNotInCar(int groupID, string dateStart,bool isBooked = false)
+        {
+            var date = DateTime.Parse(dateStart);
+            IQueryable data = ((from b in db.Books
+                                join p in db.Partners on b.PartnerID equals p.PartnerID
+                                join t in db.Tours on b.TourID equals t.TourID
+                                join g in db.GroupTours on t.GroupID equals g.GroupID
+                                where b.IsBooked == isBooked && g.GroupID == groupID && b.StartDate == date
+                                orderby t.Name
+                                select new
+                                {
+                                    TourID = t.TourID,
+                                    b.Pax
+                                }).GroupBy(x => x.TourID)
+                                .Select(o => new { ID = o.Key, Total = o.Sum(x => x.Pax) }))
+                                .Join(db.Tours, O1 => O1.ID, O2 => O2.TourID, (O1, O2) => new { TourID = O1.ID, TourName = O2.Name, Pax = O1.Total });
 
+            return data;
+        }
         public IEnumerable<BookTourModel> GetListBookedDoneReport(int partnerID, int groupID, int month, int year, bool? isPayment = true, bool isBooked = true)
         {
             IEnumerable<BookTourModel> data = null;

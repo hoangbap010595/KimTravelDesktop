@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="KimTravelDesktop" Class="KimTravelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=103.53.231.198;Initial Catalog=KimTravelDesktop;Persist Security Info=True;User ID=hoang1995" SettingsObjectName="KimTravel.DAL.Properties.Settings" SettingsPropertyName="KimTravelConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=KimTravelDesktop;User ID=sa" SettingsObjectName="KimTravel.DAL.Properties.Settings" SettingsPropertyName="LocalConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ApplicationRole" Member="ApplicationRoles">
     <Type Name="ApplicationRole">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -158,6 +158,29 @@
       <Column Name="TourID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PriceRe" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PriceVTQ" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PrintTour" Member="PrintTours">
+    <Type Name="PrintTour">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OrganizationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TourID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DateStart" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Guide1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Guide2" Type="System.String" DbType="NVarChar(32)" CanBeNull="true" />
+      <Column Name="Driver1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Driver2" Type="System.String" DbType="NVarChar(32)" CanBeNull="true" />
+      <Column Name="CarCode" Type="System.String" DbType="NVarChar(16)" CanBeNull="true" />
+      <Column Name="DatePrint" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TotalPax" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DetailPrintTour" Member="DetailPrintTours">
+    <Type Name="DetailPrintTour">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PrintID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BookID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

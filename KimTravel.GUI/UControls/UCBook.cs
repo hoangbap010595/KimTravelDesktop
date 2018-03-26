@@ -114,7 +114,7 @@ namespace KimTravel.GUI.UControls
                 book.CustomName = "";
                 book.Room = txtRoom.Text;
                 Partner p = pnService.GetByID(int.Parse(cbbPartnerID.SelectedValue.ToString()));
-                book.PickUp = txtPickUp.Text.Trim() == "" ? p.Address : txtPickUp.Text;
+                book.PickUp = txtPickUp.Text.Trim() == "" ? p.Line  + " "+ p.Address : txtPickUp.Text;
 
                 //Service
                 book.PartnerPrice = int.Parse(txtPartnerPrice.Text == "" ? "0" : txtPartnerPrice.Text);

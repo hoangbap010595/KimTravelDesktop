@@ -69,10 +69,16 @@ namespace KimTravel.DAL.Models
     partial void InsertPrice(Price instance);
     partial void UpdatePrice(Price instance);
     partial void DeletePrice(Price instance);
+    partial void InsertPrintTour(PrintTour instance);
+    partial void UpdatePrintTour(PrintTour instance);
+    partial void DeletePrintTour(PrintTour instance);
+    partial void InsertDetailPrintTour(DetailPrintTour instance);
+    partial void UpdateDetailPrintTour(DetailPrintTour instance);
+    partial void DeleteDetailPrintTour(DetailPrintTour instance);
     #endregion
 		
 		public KimTravelDataContext() : 
-				base(global::KimTravel.DAL.Properties.Settings.Default.KimTravelConnectionString, mappingSource)
+				base(global::KimTravel.DAL.Properties.Settings.Default.LocalConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -202,6 +208,22 @@ namespace KimTravel.DAL.Models
 			get
 			{
 				return this.GetTable<Price>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PrintTour> PrintTours
+		{
+			get
+			{
+				return this.GetTable<PrintTour>();
+			}
+		}
+		
+		public System.Data.Linq.Table<DetailPrintTour> DetailPrintTours
+		{
+			get
+			{
+				return this.GetTable<DetailPrintTour>();
 			}
 		}
 	}
@@ -3330,6 +3352,442 @@ namespace KimTravel.DAL.Models
 					this._PriceVTQ = value;
 					this.SendPropertyChanged("PriceVTQ");
 					this.OnPriceVTQChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PrintTour")]
+	public partial class PrintTour : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private System.Nullable<int> _OrganizationID;
+		
+		private System.Nullable<int> _TourID;
+		
+		private System.Nullable<System.DateTime> _DateStart;
+		
+		private System.Nullable<int> _Guide1;
+		
+		private string _Guide2;
+		
+		private System.Nullable<int> _Driver1;
+		
+		private string _Driver2;
+		
+		private string _CarCode;
+		
+		private System.Nullable<System.DateTime> _DatePrint;
+		
+		private System.Nullable<double> _TotalPax;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnOrganizationIDChanging(System.Nullable<int> value);
+    partial void OnOrganizationIDChanged();
+    partial void OnTourIDChanging(System.Nullable<int> value);
+    partial void OnTourIDChanged();
+    partial void OnDateStartChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateStartChanged();
+    partial void OnGuide1Changing(System.Nullable<int> value);
+    partial void OnGuide1Changed();
+    partial void OnGuide2Changing(string value);
+    partial void OnGuide2Changed();
+    partial void OnDriver1Changing(System.Nullable<int> value);
+    partial void OnDriver1Changed();
+    partial void OnDriver2Changing(string value);
+    partial void OnDriver2Changed();
+    partial void OnCarCodeChanging(string value);
+    partial void OnCarCodeChanged();
+    partial void OnDatePrintChanging(System.Nullable<System.DateTime> value);
+    partial void OnDatePrintChanged();
+    partial void OnTotalPaxChanging(System.Nullable<double> value);
+    partial void OnTotalPaxChanged();
+    #endregion
+		
+		public PrintTour()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrganizationID", DbType="Int")]
+		public System.Nullable<int> OrganizationID
+		{
+			get
+			{
+				return this._OrganizationID;
+			}
+			set
+			{
+				if ((this._OrganizationID != value))
+				{
+					this.OnOrganizationIDChanging(value);
+					this.SendPropertyChanging();
+					this._OrganizationID = value;
+					this.SendPropertyChanged("OrganizationID");
+					this.OnOrganizationIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TourID", DbType="Int")]
+		public System.Nullable<int> TourID
+		{
+			get
+			{
+				return this._TourID;
+			}
+			set
+			{
+				if ((this._TourID != value))
+				{
+					this.OnTourIDChanging(value);
+					this.SendPropertyChanging();
+					this._TourID = value;
+					this.SendPropertyChanged("TourID");
+					this.OnTourIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateStart", DbType="Date")]
+		public System.Nullable<System.DateTime> DateStart
+		{
+			get
+			{
+				return this._DateStart;
+			}
+			set
+			{
+				if ((this._DateStart != value))
+				{
+					this.OnDateStartChanging(value);
+					this.SendPropertyChanging();
+					this._DateStart = value;
+					this.SendPropertyChanged("DateStart");
+					this.OnDateStartChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Guide1", DbType="Int")]
+		public System.Nullable<int> Guide1
+		{
+			get
+			{
+				return this._Guide1;
+			}
+			set
+			{
+				if ((this._Guide1 != value))
+				{
+					this.OnGuide1Changing(value);
+					this.SendPropertyChanging();
+					this._Guide1 = value;
+					this.SendPropertyChanged("Guide1");
+					this.OnGuide1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Guide2", DbType="NVarChar(32)")]
+		public string Guide2
+		{
+			get
+			{
+				return this._Guide2;
+			}
+			set
+			{
+				if ((this._Guide2 != value))
+				{
+					this.OnGuide2Changing(value);
+					this.SendPropertyChanging();
+					this._Guide2 = value;
+					this.SendPropertyChanged("Guide2");
+					this.OnGuide2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Driver1", DbType="Int")]
+		public System.Nullable<int> Driver1
+		{
+			get
+			{
+				return this._Driver1;
+			}
+			set
+			{
+				if ((this._Driver1 != value))
+				{
+					this.OnDriver1Changing(value);
+					this.SendPropertyChanging();
+					this._Driver1 = value;
+					this.SendPropertyChanged("Driver1");
+					this.OnDriver1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Driver2", DbType="NVarChar(32)")]
+		public string Driver2
+		{
+			get
+			{
+				return this._Driver2;
+			}
+			set
+			{
+				if ((this._Driver2 != value))
+				{
+					this.OnDriver2Changing(value);
+					this.SendPropertyChanging();
+					this._Driver2 = value;
+					this.SendPropertyChanged("Driver2");
+					this.OnDriver2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CarCode", DbType="NVarChar(16)")]
+		public string CarCode
+		{
+			get
+			{
+				return this._CarCode;
+			}
+			set
+			{
+				if ((this._CarCode != value))
+				{
+					this.OnCarCodeChanging(value);
+					this.SendPropertyChanging();
+					this._CarCode = value;
+					this.SendPropertyChanged("CarCode");
+					this.OnCarCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DatePrint", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DatePrint
+		{
+			get
+			{
+				return this._DatePrint;
+			}
+			set
+			{
+				if ((this._DatePrint != value))
+				{
+					this.OnDatePrintChanging(value);
+					this.SendPropertyChanging();
+					this._DatePrint = value;
+					this.SendPropertyChanged("DatePrint");
+					this.OnDatePrintChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalPax", DbType="Float")]
+		public System.Nullable<double> TotalPax
+		{
+			get
+			{
+				return this._TotalPax;
+			}
+			set
+			{
+				if ((this._TotalPax != value))
+				{
+					this.OnTotalPaxChanging(value);
+					this.SendPropertyChanging();
+					this._TotalPax = value;
+					this.SendPropertyChanged("TotalPax");
+					this.OnTotalPaxChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DetailPrintTour")]
+	public partial class DetailPrintTour : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private System.Nullable<int> _PrintID;
+		
+		private System.Nullable<int> _BookID;
+		
+		private System.Nullable<System.DateTime> _Date;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnPrintIDChanging(System.Nullable<int> value);
+    partial void OnPrintIDChanged();
+    partial void OnBookIDChanging(System.Nullable<int> value);
+    partial void OnBookIDChanged();
+    partial void OnDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateChanged();
+    #endregion
+		
+		public DetailPrintTour()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrintID", DbType="Int")]
+		public System.Nullable<int> PrintID
+		{
+			get
+			{
+				return this._PrintID;
+			}
+			set
+			{
+				if ((this._PrintID != value))
+				{
+					this.OnPrintIDChanging(value);
+					this.SendPropertyChanging();
+					this._PrintID = value;
+					this.SendPropertyChanged("PrintID");
+					this.OnPrintIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BookID", DbType="Int")]
+		public System.Nullable<int> BookID
+		{
+			get
+			{
+				return this._BookID;
+			}
+			set
+			{
+				if ((this._BookID != value))
+				{
+					this.OnBookIDChanging(value);
+					this.SendPropertyChanging();
+					this._BookID = value;
+					this.SendPropertyChanged("BookID");
+					this.OnBookIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
 				}
 			}
 		}

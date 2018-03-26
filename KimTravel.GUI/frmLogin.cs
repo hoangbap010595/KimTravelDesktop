@@ -55,7 +55,7 @@ namespace KimTravel.GUI
                     case 1:
                         Constant.CurrentSessionUser = user;
                         this.Hide();
-                        this.Close();
+                        //this.Close();
                         break;
                     case 2:
                         XtraMessageBox.Show("Tài khoản không có quyền truy cập vào hệ thống !\nVui lòng liên hệ người quản trị!");
@@ -82,5 +82,9 @@ namespace KimTravel.GUI
                 btnLogin.PerformClick();
         }
 
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Application.Exit();
+        }
     }
 }

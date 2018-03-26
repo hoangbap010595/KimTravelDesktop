@@ -24,11 +24,11 @@ namespace KimTravel.DAL.Services
                                   p.PartnerID,
                                   p.PartnerCode,
                                   p.Name,
-                                  Address2 = p.Line == null ? " " + p.Address : p.Line + " " + p.Address,
+                                  Address = p.Line == null ? " " + p.Address : p.Line + " " + p.Address,
                                   p.Phone,
                                   p.Note,
                                   p.Line,
-                                  p.Address,
+                                  //p.Address,
                                   p.GroupID,
                                   g.GroupName,
                                   Status = p.Status == 1 ? "Bình thường" : "Ngưng hợp tác"
@@ -58,14 +58,30 @@ namespace KimTravel.DAL.Services
                               };
             return data;
         }
-        public IEnumerable<Partner> GetListCobobox(string code)
+        public IQueryable GetListCobobox(string code)
         {
-            IEnumerable<Partner> data = db.Partners.Where(x => x.Status == 1 && x.PartnerCode.Contains(code)).OrderBy(x => x.Address).ToList();
+            IQueryable data = (from p in db.Partners
+                                         where p.Status == 1 && p.PartnerCode.Contains(code)
+                                         orderby p.Line
+                                         orderby p.Address
+                                         select new 
+                                         {
+                                             PartnerID = p.PartnerID,
+                                             Address = p.Line == null ? " " + p.Address : p.Line + " " + p.Address
+                                         });
             return data;
         }
-        public IEnumerable<Partner> GetListCobobox()
+        public IQueryable GetListCobobox()
         {
-            IEnumerable<Partner> data = db.Partners.Where(x => x.Status == 1).OrderBy(x => x.Address).ToList();
+            IQueryable data = (from p in db.Partners
+                                         where p.Status == 1
+                                         orderby p.Line
+                                         orderby p.Address
+                                         select new 
+                                         {
+                                             PartnerID = p.PartnerID,
+                                             Address = p.Line == null ? " " + p.Address : p.Line + " " + p.Address
+                                         });
             return data;
         }
         public string GetPartnerCode()

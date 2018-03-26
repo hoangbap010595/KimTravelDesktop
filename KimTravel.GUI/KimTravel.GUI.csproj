@@ -233,6 +233,12 @@
     <Compile Include="UControls\UCBookCar.Designer.cs">
       <DependentUpon>UCBookCar.cs</DependentUpon>
     </Compile>
+    <Compile Include="UControls\UCPrintTour.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UControls\UCPrintTour.Designer.cs">
+      <DependentUpon>UCPrintTour.cs</DependentUpon>
+    </Compile>
     <Compile Include="UControls\UCRoleViewReport.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -396,6 +402,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UControls\UCBookCar.resx">
       <DependentUpon>UCBookCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UControls\UCPrintTour.resx">
+      <DependentUpon>UCPrintTour.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UControls\UCRoleViewReport.resx">
       <DependentUpon>UCRoleViewReport.cs</DependentUpon>

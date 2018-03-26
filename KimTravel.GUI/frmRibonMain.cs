@@ -2,6 +2,7 @@
 using DevExpress.XtraTab;
 using DevExpress.XtraTab.ViewInfo;
 using KimTravel.DAL;
+using KimTravel.DAL.Services;
 using KimTravel.GUI.UControls;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace KimTravel.GUI
 {
     public partial class frmRibonMain : XtraForm
     {
+        private ApplicationUserRoleService userRoleService = new ApplicationUserRoleService();
         public frmRibonMain()
         {
             InitializeComponent();
@@ -105,7 +107,15 @@ namespace KimTravel.GUI
             addTab(xtraUserControl);
 
         }
-
+        private void barBtnTourPrint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            XtraUserControl xtraUserControl = new UCPrintTour();
+            xtraUserControl.Name = barBtnTourPrint.Name + "UControl";
+            xtraUserControl.Text = barBtnTourPrint.Caption;
+            xtraUserControl.Dock = DockStyle.Fill;
+            lblCurrent.Caption = "Danh sách tour đã in";
+            addTab(xtraUserControl);
+        }
         private void barQLTour_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
@@ -208,11 +218,11 @@ namespace KimTravel.GUI
 
         private void frmRibonMain_Load(object sender, EventArgs e)
         {
-            //frmLogin frm = new frmLogin();
-            //frm.ShowDialog();
+            frmLogin frm = new frmLogin();
+            frm.ShowDialog();
 
             lblAccount.Caption = "" + Constant.CurrentSessionUser;
-            //getMenuOfAccount();
+            getMenuOfAccount();
         }
 
         private void frmRibonMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -229,5 +239,126 @@ namespace KimTravel.GUI
             XtraTabPage page = (arg.Page as XtraTabPage);
             xtraTabControlMain.TabPages.Remove(page);
         }
+
+        private void getMenuOfAccount()
+        {
+            barBtnQuanLyTaiKhoan.Visibility = barBtnPhanQuyen.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            barBtnBookTour.Visibility = barBtnListBook.Visibility = barBtnPhanXe.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            barQLTour.Visibility = barBtnGroupTour.Visibility = barBtnPartner.Visibility = barBtnGroupPartner.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            barBtnCar.Visibility = barBtnStaff.Visibility = barBtnService.Visibility = barBtnDataHotel.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            barBtnReportPartner.Visibility = barBtnCongNo.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+
+            ribbonPageGroupHeThong.Visible = ribbonPageGroupTour.Visible = ribbonPageGroupNghiepVu.Visible = ribbonPageGroupData.Visible = ribbonPageGroupBaoCao.Visible = false;
+
+            int menu1 = 0;
+            int menu2 = 0;
+            int menu3 = 0;
+            int menu4 = 0;
+            int menu5 = 0;
+            string data = userRoleService.GetListRoles(Constant.CurrentSessionUser);
+            string[] roles = data.Split(',');
+            foreach (string item in roles)
+            {
+                int menuID = int.Parse(item);
+                switch (menuID)
+                {
+                    #region ===Check Role
+                    //Hệ thống
+                    case 5:
+                        barBtnQuanLyTaiKhoan.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                        menu1++;
+                        break;
+                    case 10:
+                        barBtnPhanQuyen.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                        menu1++;
+                        break;
+                    //Tour
+                    case 15:
+                        barBtnBookTour.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                        menu2++;
+                        break;
+                    case 20:
+                        barBtnListBook.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                        menu2++;
+                        break;
+                    case 25:
+                        barBtnPhanXe.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                        menu2++;
+                        break;
+                    //Nghiệp vụ
+                    case 30:
+                        barQLTour.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                        menu3++;
+                        break;
+                    case 35:
+                        barBtnGroupTour.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                        menu3++;
+                        break;
+                    case 40:
+                        barBtnPartner.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                        menu3++;
+                        break;
+                    case 45:
+                        barBtnGroupPartner.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                        menu3++;
+                        break;
+                    //Dữ liệu
+                    case 50:
+                        barBtnCar.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                        menu4++;
+                        break;
+                    case 55:
+                        barBtnStaff.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                        menu4++;
+                        break;
+                    case 60:
+                        barBtnService.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                        menu4++;
+                        break;
+                    case 65:
+                        barBtnDataHotel.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                        menu4++;
+                        break;
+                    //Báo cáo
+                    case 70:
+                        barBtnCongNo.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                        menu5++;
+                        break;
+                    case 75:
+                        barBtnReportPartner.Visibility = DevExpress.XtraBars.BarItemVisibility.Always;
+                        menu5++;
+                        break;
+                        #endregion End check role
+                }
+            }
+
+            xtraTabControlMain.Controls.Clear();
+            if (menu1 > 0)
+            {
+                ribbonPageGroupHeThong.Visible = true;
+            }
+            if (menu2 > 0)
+            {
+                ribbonPageGroupTour.Visible = true;
+            }
+            if (menu3 > 0)
+            {
+                ribbonPageGroupNghiepVu.Visible = true;
+            }
+            if (menu4 > 0)
+            {
+                ribbonPageGroupData.Visible = true;
+            }
+            if (menu5 > 0)
+            {
+                ribbonPageGroupBaoCao.Visible = true;
+            }
+            if (Constant.CurrentSessionUser == "")
+                barBtnDangXuat.Caption = "Đăng nhập";
+            else
+                barBtnDangXuat.Caption = "Đăng xuất";
+        }
+
+
     }
 }

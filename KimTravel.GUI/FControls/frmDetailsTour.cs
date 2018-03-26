@@ -59,7 +59,7 @@ namespace KimTravel.GUI.FControls
             cbbGroupTourID.ValueMember = "GroupID";
             cbbGroupTourID.DisplayMember = "Name";
 
-            cbbPartnerID.DataSource = pnService.GetList();
+            cbbPartnerID.DataSource = pnService.GetListCobobox();
             cbbPartnerID.ValueMember = "PartnerID";
             cbbPartnerID.DisplayMember = "Address";
 
@@ -134,7 +134,7 @@ namespace KimTravel.GUI.FControls
                 book.CustomName = txtCustomer.Text;
                 book.Room = txtRoom.Text;
                 Partner p = pnService.GetByID(int.Parse(cbbPartnerID.SelectedValue.ToString()));
-                book.PickUp = txtPickup.Text.Trim() == "" ? p.Address : txtPickup.Text;
+                book.PickUp = txtPickup.Text.Trim() == "" ? p.Line + " " + p.Address : txtPickup.Text;
 
                 //Service
                 book.PartnerPrice = int.Parse(txtPartnerPrice.Text == "" ? "0" : txtPartnerPrice.Text);

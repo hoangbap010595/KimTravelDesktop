@@ -35,6 +35,13 @@ namespace KimTravel.DAL.Services
             Car data = db.Cars.FirstOrDefault(x => x.CarID == id);
             return data;
         }
+        public string GetCode(int staffId)
+        {
+            Car data = db.Cars.FirstOrDefault(x => x.StaffID == staffId);
+            if (data == null)
+                return "";
+            return data.Code;
+        }
 
         public bool Insert(Car obj)
         {

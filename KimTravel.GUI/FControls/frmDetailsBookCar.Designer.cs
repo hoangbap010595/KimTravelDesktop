@@ -49,12 +49,15 @@
             this.gridColumnRoom = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnPartnerPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnNote = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtUsername = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtHdvName = new DevExpress.XtraEditors.TextEdit();
+            this.txtTXName = new DevExpress.XtraEditors.TextEdit();
+            this.txtBKS = new DevExpress.XtraEditors.TextEdit();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHdvName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTXName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBKS.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPrint
@@ -158,6 +161,7 @@
             this.cbbTaiXe.Name = "cbbTaiXe";
             this.cbbTaiXe.Size = new System.Drawing.Size(164, 28);
             this.cbbTaiXe.TabIndex = 2;
+            this.cbbTaiXe.SelectedIndexChanged += new System.EventHandler(this.cbbTaiXe_SelectedIndexChanged);
             // 
             // lblTotal
             // 
@@ -345,25 +349,46 @@
             this.gridColumnNote.VisibleIndex = 4;
             this.gridColumnNote.Width = 140;
             // 
-            // txtUsername
+            // txtHdvName
             // 
-            this.txtUsername.Location = new System.Drawing.Point(568, 68);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtUsername.Properties.Appearance.Options.UseFont = true;
-            this.txtUsername.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.txtUsername.Size = new System.Drawing.Size(121, 28);
-            this.txtUsername.TabIndex = 6;
+            this.txtHdvName.Location = new System.Drawing.Point(568, 68);
+            this.txtHdvName.Name = "txtHdvName";
+            this.txtHdvName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtHdvName.Properties.Appearance.Options.UseFont = true;
+            this.txtHdvName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtHdvName.Size = new System.Drawing.Size(121, 28);
+            this.txtHdvName.TabIndex = 6;
             // 
-            // textEdit1
+            // txtTXName
             // 
-            this.textEdit1.Location = new System.Drawing.Point(568, 101);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.textEdit1.Size = new System.Drawing.Size(121, 28);
-            this.textEdit1.TabIndex = 6;
+            this.txtTXName.Location = new System.Drawing.Point(568, 101);
+            this.txtTXName.Name = "txtTXName";
+            this.txtTXName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtTXName.Properties.Appearance.Options.UseFont = true;
+            this.txtTXName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtTXName.Size = new System.Drawing.Size(121, 28);
+            this.txtTXName.TabIndex = 6;
+            // 
+            // txtBKS
+            // 
+            this.txtBKS.Location = new System.Drawing.Point(398, 134);
+            this.txtBKS.Name = "txtBKS";
+            this.txtBKS.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtBKS.Properties.Appearance.Options.UseFont = true;
+            this.txtBKS.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtBKS.Size = new System.Drawing.Size(164, 28);
+            this.txtBKS.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(340, 141);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(39, 17);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "BKS:";
             // 
             // frmDetailsBookCar
             // 
@@ -371,13 +396,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(700, 650);
-            this.Controls.Add(this.textEdit1);
-            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.txtBKS);
+            this.Controls.Add(this.txtTXName);
+            this.Controls.Add(this.txtHdvName);
             this.Controls.Add(this.gridControlData);
             this.Controls.Add(this.lblMessageProgress);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbbTaiXe);
             this.Controls.Add(this.cbbHDV);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblTotal);
@@ -399,8 +426,9 @@
             this.Load += new System.EventHandler(this.frmActionGroupTour_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHdvName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTXName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBKS.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,7 +456,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnRoom;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnPartnerPrice;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnNote;
-        private DevExpress.XtraEditors.TextEdit txtUsername;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtHdvName;
+        private DevExpress.XtraEditors.TextEdit txtTXName;
+        private DevExpress.XtraEditors.TextEdit txtBKS;
+        private System.Windows.Forms.Label label5;
     }
 }

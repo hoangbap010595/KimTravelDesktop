@@ -82,6 +82,8 @@
     </Compile>
     <Compile Include="Services\ApplicationUserRoleService.cs" />
     <Compile Include="Services\CarTypeService.cs" />
+    <Compile Include="Services\PrintTourDetailsService.cs" />
+    <Compile Include="Services\PrintTourService.cs" />
     <Compile Include="Services\PriceService.cs" />
     <Compile Include="Services\GroupPartnerService.cs" />
     <Compile Include="Services\ServiceTypeService.cs" />
@@ -97,7 +99,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Models\KimTravel.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>KimTravel.designer.cs</LastGenOutput>

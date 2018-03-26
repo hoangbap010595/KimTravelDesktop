@@ -20,6 +20,8 @@ namespace KimTravel.GUI.UControls
         private TourService tService = new TourService();
         private BookService objService;
         private List<Control> listControl;
+        private int _TourID = 0;
+        private int _Selected = 0;
         public UCBookCar()
         {
             InitializeComponent();
@@ -67,7 +69,6 @@ namespace KimTravel.GUI.UControls
                         }
                     }
                 }
-
             }
             catch { }
         }
@@ -85,8 +86,9 @@ namespace KimTravel.GUI.UControls
                         if (i != e.ColumnIndex)
                             senderGrid[i, e.RowIndex].ReadOnly = true;
                     }
-                    float pax = float.Parse(senderGrid.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    float pax = float.Parse(senderGrid.Rows[e.RowIndex].Cells["colPax"].Value.ToString());
                     getTotalInCar(e.ColumnIndex, pax);
+                    _Selected -= 1;
                 }
                 else
                 {
@@ -95,10 +97,11 @@ namespace KimTravel.GUI.UControls
                     {
                         senderGrid[i, e.RowIndex].ReadOnly = false;
                     }
-                    float pax = float.Parse(senderGrid.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    float pax = float.Parse(senderGrid.Rows[e.RowIndex].Cells["colPax"].Value.ToString());
                     getTotalInCar(e.ColumnIndex, -pax);
+                    _Selected += 1;
                 }
-
+                lblSelected.Text = _Selected.ToString();
             }
         }
         private void getTotalInCar(int colIndex, float add)
@@ -152,35 +155,23 @@ namespace KimTravel.GUI.UControls
         {
             loadDataGroup();
         }
-        private void dataGridViewGroupTour_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            using (SolidBrush b = new SolidBrush(dataGridViewGroupTour.RowHeadersDefaultCellStyle.ForeColor))
-            {
-                e.Graphics.DrawString((e.RowIndex + 1).ToString(), e.InheritedRowStyle.Font, b, e.RowBounds.Location.X + 10, e.RowBounds.Location.Y + 4);
-            }
-        }
 
         private void cbbGroupTourID_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                var x = cbbGroupTourID.SelectedValue.ToString();
-                int gID = int.Parse(x);
-                cbbTourID.DataSource = tService.GetListForGroup(gID);
-                cbbTourID.ValueMember = "TourID";
-                cbbTourID.DisplayMember = "Name";
-
                 btnTimKiem.PerformClick();
             }
             catch { }
         }
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            var tID = int.Parse(cbbTourID.SelectedValue.ToString());
-            var dateStart = dtpStartDate.Value.ToString("yyyy-MM-dd");
-
-            dataGridViewGroupTour.DataSource = objService.GetListBooked(tID, dateStart, false);
-            gridControlData.DataSource = objService.GetListBooked(tID, dateStart, false);
+            //var dateStart = dtpStartDate.Value.ToString("yyyy-MM-dd");
+            //dataGridViewGroupTour.DataSource = objService.GetListBooked(_TourID, dateStart, false);
+            var x = cbbGroupTourID.SelectedValue.ToString();
+            int gID = int.Parse(x);
+            var date = dtpStartDate.Value.ToString("yyyy-MM-dd");
+            gridControlData.DataSource = objService.GetListBookedNotInCar(gID, date);
         }
 
         private void rdCar05_CheckedChanged(object sender, EventArgs e)
@@ -226,9 +217,8 @@ namespace KimTravel.GUI.UControls
             }
             if (data.Rows.Count > 0)
             {
-                int tourID = int.Parse(cbbTourID.SelectedValue.ToString());
-                string startDate = dtpStartDate.Value.ToString("dd-MM-yyyy");
-                frmDetailsBookCar frm = new frmDetailsBookCar(data, numCar, tourID, startDate);
+                string startDate = dtpStartDate.Value.ToString("yyyy-MM-dd");
+                frmDetailsBookCar frm = new frmDetailsBookCar(data, numCar, _TourID, startDate);
                 frm.refreshData = new frmDetailsBookCar.RefreshData(refreshData);
                 frm.ShowDialog();
             }
@@ -239,19 +229,20 @@ namespace KimTravel.GUI.UControls
         }
         private void refreshData(int numCar)
         {
-            //var colName = "colCar" + numCar;
-            //foreach (DataGridViewRow row in dataGridViewGroupTour.Rows)
-            //{
-            //    if (row.Cells[colName].Value != null && (bool)row.Cells[colName].Value)
-            //    {
-            //        dataGridViewGroupTour.Rows.Remove(row);
-            //    }
-            //}
-            //dataGridViewGroupTour.Update();
-            //dataGridViewGroupTour.Refresh();
-            //listControl[numCar - 1].Text = "0";
-        }
+            var colName = "colCar" + numCar;
+            for (int i = 0; i < dataGridViewGroupTour.RowCount; i++)
+            {
+                if (dataGridViewGroupTour.Rows[i].Cells[colName].Value != null && (bool)dataGridViewGroupTour.Rows[i].Cells[colName].Value)
+                {
+                    dataGridViewGroupTour.Rows.RemoveAt(i);
+                }
+            }
+            dataGridViewGroupTour.Update();
+            dataGridViewGroupTour.Refresh();
+            listControl[numCar - 1].Text = "0";
 
+        }
+        #region ====Car
         private void btnCar1_Click(object sender, EventArgs e)
         {
             getDataRowChecked("colCar1", 1);
@@ -300,11 +291,15 @@ namespace KimTravel.GUI.UControls
         {
             getDataRowChecked("colCar10", 10);
         }
-
-        private void ckCar1_EditValueChanged(object sender, EventArgs e)
+        #endregion
+        private void gridViewData_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            int[] selectedRows = gridViewData.GetSelectedRows();
-            List<DataRowView> list = selectedRows.Select(i => gridViewData.GetRow(i) as DataRowView).ToList();
+            _TourID = int.Parse(gridViewData.GetFocusedRowCellValue("TourID").ToString());
+            var dateStart = dtpStartDate.Value.ToString("yyyy-MM-dd");
+            dataGridViewGroupTour.DataSource = objService.GetListBooked(_TourID, dateStart, false);
+            int total = dataGridViewGroupTour.RowCount;
+            _Selected = total;
+            lblSelected.Text = total.ToString();
         }
     }
 }
