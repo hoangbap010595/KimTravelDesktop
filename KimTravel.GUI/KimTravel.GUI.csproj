@@ -486,7 +486,6 @@
     <EmbeddedResource Include="xtraRPPrintBookTour.resx">
       <DependentUpon>xtraRPPrintBookTour.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="KimTravel.GUI_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

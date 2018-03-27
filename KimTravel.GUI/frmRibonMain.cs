@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -359,6 +360,12 @@ namespace KimTravel.GUI
                 barBtnDangXuat.Caption = "Đăng xuất";
         }
 
-
+        private void barBtnCheckUpdate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            string fileNameUpdate = "\\test.txt";
+            string appPath = Path.GetDirectoryName(Application.ExecutablePath);
+            var filePath = String.Concat(appPath, fileNameUpdate);
+            System.Diagnostics.Process.Start(filePath);
+        }
     }
 }
