@@ -152,6 +152,12 @@
     <Compile Include="FControls\frmActionRoles.Designer.cs">
       <DependentUpon>frmActionRoles.cs</DependentUpon>
     </Compile>
+    <Compile Include="FControls\frmBoSungDoiTac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FControls\frmBoSungDoiTac.Designer.cs">
+      <DependentUpon>frmBoSungDoiTac.cs</DependentUpon>
+    </Compile>
     <Compile Include="FControls\frmConfirm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -372,6 +378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FControls\frmActionRoles.resx">
       <DependentUpon>frmActionRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FControls\frmBoSungDoiTac.resx">
+      <DependentUpon>frmBoSungDoiTac.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FControls\frmConfirm.resx">
       <DependentUpon>frmConfirm.cs</DependentUpon>

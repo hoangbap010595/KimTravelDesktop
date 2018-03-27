@@ -11,6 +11,8 @@ using KimTravel.GUI.FControls;
 using KimTravel.DAL.Services;
 using KimTravel.DAL;
 using DevExpress.XtraEditors;
+using KimTravel.DAL.Models;
+using System.Reflection;
 
 namespace KimTravel.GUI.UControls
 {
@@ -20,8 +22,11 @@ namespace KimTravel.GUI.UControls
         private TourService tService = new TourService();
         private BookService objService;
         private List<Control> listControl;
+        private List<DataTable> listTablePick;
+        private DataTable _tableTemp = new DataTable();
         private int _TourID = 0;
         private int _Selected = 0;
+        private int _indexTourSelected = 0;
         public UCBookCar()
         {
             InitializeComponent();
@@ -50,6 +55,22 @@ namespace KimTravel.GUI.UControls
             dtpStartDate.Value = DateTime.Now.AddDays(1);
             rdCar05.Checked = true;
 
+            _tableTemp.Columns.Add("ID", typeof(int));
+            _tableTemp.Columns.Add("Pax", typeof(float));
+            _tableTemp.Columns.Add("PickUp");
+            _tableTemp.Columns.Add("Room");
+            _tableTemp.Columns.Add("PartnerPrice", typeof(int));
+            _tableTemp.Columns.Add("Note");
+            _tableTemp.Columns.Add("colCar1", typeof(bool));
+            _tableTemp.Columns.Add("colCar2", typeof(bool));
+            _tableTemp.Columns.Add("colCar3", typeof(bool));
+            _tableTemp.Columns.Add("colCar4", typeof(bool));
+            _tableTemp.Columns.Add("colCar5", typeof(bool));
+            _tableTemp.Columns.Add("colCar6", typeof(bool));
+            _tableTemp.Columns.Add("colCar7", typeof(bool));
+            _tableTemp.Columns.Add("colCar8", typeof(bool));
+            _tableTemp.Columns.Add("colCar9", typeof(bool));
+            _tableTemp.Columns.Add("colCar10", typeof(bool));
             listControl = new List<Control> { lblTotalXe1, lblTotalXe2, lblTotalXe3, lblTotalXe4, lblTotalXe5, lblTotalXe6, lblTotalXe7, lblTotalXe8, lblTotalXe9, lblTotalXe10 };
         }
 
@@ -89,6 +110,7 @@ namespace KimTravel.GUI.UControls
                     float pax = float.Parse(senderGrid.Rows[e.RowIndex].Cells["colPax"].Value.ToString());
                     getTotalInCar(e.ColumnIndex, pax);
                     _Selected -= 1;
+                    listTablePick[_indexTourSelected].Rows[e.RowIndex][e.ColumnIndex] = true;
                 }
                 else
                 {
@@ -100,6 +122,7 @@ namespace KimTravel.GUI.UControls
                     float pax = float.Parse(senderGrid.Rows[e.RowIndex].Cells["colPax"].Value.ToString());
                     getTotalInCar(e.ColumnIndex, -pax);
                     _Selected += 1;
+                    listTablePick[_indexTourSelected].Rows[e.RowIndex][e.ColumnIndex] = false;
                 }
                 lblSelected.Text = _Selected.ToString();
             }
@@ -166,12 +189,68 @@ namespace KimTravel.GUI.UControls
         }
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            //var dateStart = dtpStartDate.Value.ToString("yyyy-MM-dd");
-            //dataGridViewGroupTour.DataSource = objService.GetListBooked(_TourID, dateStart, false);
+            listTablePick = new List<DataTable>();
             var x = cbbGroupTourID.SelectedValue.ToString();
             int gID = int.Parse(x);
-            var date = dtpStartDate.Value.ToString("yyyy-MM-dd");
-            gridControlData.DataSource = objService.GetListBookedNotInCar(gID, date);
+            var dateStart = dtpStartDate.Value.ToString("yyyy-MM-dd");
+            gridControlData.DataSource = objService.GetListBookedNotInCar(gID, dateStart);
+            for (int i = 0; i < gridViewData.RowCount; i++)
+            {
+                listTablePick.Add(new DataTable());
+            }
+            for (int i = 0; i < gridViewData.RowCount; i++)
+            {
+                _TourID = int.Parse(gridViewData.GetRowCellValue(i, "TourID").ToString());
+                var listData = objService.GetListBooked(_TourID, dateStart, false);
+                DataTable table = _tableTemp.Clone();
+                foreach (var item in listData)
+                {
+                    DataRow dr = table.NewRow();
+                    Type myType = item.GetType();
+                    IList<PropertyInfo> props = new List<PropertyInfo>(myType.GetProperties());
+                    foreach (PropertyInfo prop in props)
+                    {
+                        var key = prop.Name;
+                        object propValue = prop.GetValue(item, null);
+                        switch (key)
+                        {
+                            case "ID":
+                                dr["ID"] = int.Parse(propValue.ToString());
+                                break;
+                            case "Pax":
+                                dr["Pax"] = float.Parse(propValue.ToString());
+                                break;
+                            case "PickUp":
+                                dr["PickUp"] = propValue.ToString();
+                                break;
+                            case "Room":
+                                dr["Room"] = propValue.ToString();
+                                break;
+                            case "PartnerPrice":
+                                dr["PartnerPrice"] = int.Parse(propValue.ToString());
+                                break;
+                            case "Note":
+                                dr["Note"] = propValue.ToString();
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    dr["colCar1"] = false;
+                    dr["colCar2"] = false;
+                    dr["colCar3"] = false;
+                    dr["colCar4"] = false;
+                    dr["colCar5"] = false;
+                    dr["colCar6"] = false;
+                    dr["colCar7"] = false;
+                    dr["colCar8"] = false;
+                    dr["colCar9"] = false;
+                    dr["colCar10"] = false;
+                    table.Rows.Add(dr);
+                }
+                listTablePick[i] = table;
+            }
+            dataGridViewGroupTour.DataSource = listTablePick[_indexTourSelected];
         }
 
         private void rdCar05_CheckedChanged(object sender, EventArgs e)
@@ -296,17 +375,79 @@ namespace KimTravel.GUI.UControls
         #endregion
         private void gridViewData_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            _TourID = int.Parse(gridViewData.GetFocusedRowCellValue("TourID").ToString());
-            var dateStart = dtpStartDate.Value.ToString("yyyy-MM-dd");
-            dataGridViewGroupTour.DataSource = objService.GetListBooked(_TourID, dateStart, false);
-            int total = dataGridViewGroupTour.RowCount;
-            _Selected = total;
-            lblSelected.Text = total.ToString();
+            _indexTourSelected = e.RowHandle;
+            dataGridViewGroupTour.DataSource = listTablePick[_indexTourSelected];
+            int total = listTablePick[_indexTourSelected].Rows.Count;
+            dataGridViewGroupTour_DataBindingComplete();
+            //lblSelected.Text = total.ToString();
+            //_Selected = total;
         }
 
+        private void boSungDoiTac(DataTable data)
+        {
+            DataTable dt = listTablePick[_indexTourSelected];
+            foreach (DataRow item in data.Rows)
+            {
+                DataRow dr = dt.NewRow();
+                dr["ID"] = int.Parse(item["ID"].ToString());
+                dr["Pax"] = float.Parse(item["Pax"].ToString());
+                dr["PickUp"] = item["PickUp"].ToString();
+                dr["Room"] = item["Room"].ToString();
+                dr["PartnerPrice"] = int.Parse(item["PartnerPrice"].ToString());
+                dr["Note"] = item["Note"].ToString();
+                dr["colCar1"] = false;
+                dr["colCar2"] = false;
+                dr["colCar3"] = false;
+                dr["colCar4"] = false;
+                dr["colCar5"] = false;
+                dr["colCar6"] = false;
+                dr["colCar7"] = false;
+                dr["colCar8"] = false;
+                dr["colCar9"] = false;
+                dr["colCar10"] = false;
+                dt.Rows.Add(dr);
+            }
+            listTablePick[_indexTourSelected] = dt;
+            listTablePick[_indexTourSelected].AcceptChanges();
+            dataGridViewGroupTour.DataSource = listTablePick[_indexTourSelected];
+        }
         private void btnBoSungDoiTac_Click(object sender, EventArgs e)
         {
+            var dateStart = dtpStartDate.Value.ToString("yyyy-MM-dd");
+            frmBoSungDoiTac frm = new frmBoSungDoiTac(dateStart);
+            frm.confirm = new frmBoSungDoiTac.ConfirmAddPartner(boSungDoiTac);
+            frm.ShowDialog();
+        }
 
+        private void dataGridViewGroupTour_DataBindingComplete()
+        {
+            foreach (DataGridViewRow row in dataGridViewGroupTour.Rows)
+            {
+                //bool colCar1 = bool.Parse(row.Cells[6].Value.ToString());
+                //bool colCar2 = bool.Parse(row.Cells[7].Value.ToString());
+                //bool colCar3 = bool.Parse(row.Cells[8].Value.ToString());
+                //bool colCar4 = bool.Parse(row.Cells[9].Value.ToString());
+                //bool colCar5 = bool.Parse(row.Cells[10].Value.ToString());
+                //bool colCar6 = bool.Parse(row.Cells[11].Value.ToString());
+                //bool colCar7 = bool.Parse(row.Cells[12].Value.ToString());
+                //bool colCar8 = bool.Parse(row.Cells[13].Value.ToString());
+                //bool colCar9 = bool.Parse(row.Cells[14].Value.ToString());
+                //bool colCar10 = bool.Parse(row.Cells[15].Value.ToString());
+
+                for (int i = 6; i < dataGridViewGroupTour.Columns.Count; i++)
+                {
+                    bool colCar = bool.Parse(row.Cells[i].Value.ToString());
+                    if (colCar)
+                    {
+                        row.DefaultCellStyle.BackColor = Color.LightGray;
+                        dataGridViewGroupTour.Columns[i].ReadOnly = true;
+                    }else
+                    {
+                        dataGridViewGroupTour.Columns[i].ReadOnly = false;
+                    }
+
+                }
+            }
         }
     }
 }

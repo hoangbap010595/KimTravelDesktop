@@ -78,7 +78,7 @@ namespace KimTravel.GUI.UControls
             {
                 var a = gridViewData.GetSelectedRows()[i];
 
-                if (gridViewData.GetSelectedRows()[i] > 0)
+                if (gridViewData.GetSelectedRows()[i] > -1)
                 {
                     rs += int.Parse(gridViewData.GetRowCellValue(a, "PartnerID").ToString()) + ",";
                 }

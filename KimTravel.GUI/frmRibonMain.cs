@@ -362,10 +362,17 @@ namespace KimTravel.GUI
 
         private void barBtnCheckUpdate_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            string fileNameUpdate = "\\test.txt";
-            string appPath = Path.GetDirectoryName(Application.ExecutablePath);
-            var filePath = String.Concat(appPath, fileNameUpdate);
-            System.Diagnostics.Process.Start(filePath);
+            try
+            {
+                string fileNameUpdate = "\\test.txt";
+                string appPath = Path.GetDirectoryName(Application.ExecutablePath);
+                var filePath = String.Concat(appPath, fileNameUpdate);
+                System.Diagnostics.Process.Start(filePath);
+            }
+            catch (Exception exx)
+            {
+                XtraMessageBox.Show(exx.Message);
+            }
         }
     }
 }

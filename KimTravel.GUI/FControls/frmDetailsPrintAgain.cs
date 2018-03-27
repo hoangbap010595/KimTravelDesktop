@@ -59,7 +59,6 @@ namespace KimTravel.GUI.FControls
             mSkin.Theme = ConfigApp.Themes;
             mSkin.ColorScheme = new ColorScheme(ConfigApp.Primary, ConfigApp.DarkPrimary, ConfigApp.LightPrimary, ConfigApp.Accent, ConfigApp.TextShade);
            
-
             lblTotal.Text = countPax() + " pax";
         }
 
@@ -101,7 +100,7 @@ namespace KimTravel.GUI.FControls
 
             btnPrint.Enabled = btnBack.Enabled = false;
             lblMessageProgress.Visible = true;
-            var msg = XtraMessageBox.Show("Hệ thống sẽ cập nhật trạng thái tour đã được book.\nBạn muốn cập nhật dữ liệu vào hệ thống và in các bản ghi ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var msg = XtraMessageBox.Show("Các thông tin thay đổi sẽ không cập nhật vào hệ thống. Tiếp tục in?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (DialogResult.Yes == msg)
             {
                 //xtraRPPrintBookTour xtra = new xtraRPPrintBookTour(_dataTemp, _tourName, _startDate.ToString("dd-MM-yyyy"), selectNameHDV, selectNameTX);

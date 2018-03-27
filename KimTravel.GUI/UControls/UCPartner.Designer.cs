@@ -162,7 +162,7 @@
             this.gridColumnAddress.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnAddress.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnAddress.Caption = "Địa chỉ";
-            this.gridColumnAddress.FieldName = "Address2";
+            this.gridColumnAddress.FieldName = "Address";
             this.gridColumnAddress.MinWidth = 200;
             this.gridColumnAddress.Name = "gridColumnAddress";
             this.gridColumnAddress.OptionsColumn.AllowEdit = false;
