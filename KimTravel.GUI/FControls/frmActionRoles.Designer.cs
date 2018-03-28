@@ -29,9 +29,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmActionRoles));
             this.txtUsername = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.btnUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ck1_PhanQuyen = new System.Windows.Forms.CheckBox();
             this.ck1_TaiKhoan = new System.Windows.Forms.CheckBox();
@@ -52,6 +52,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.ck5_DoiTac = new System.Windows.Forms.CheckBox();
             this.ck5_CongNo = new System.Windows.Forms.CheckBox();
+            this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -64,7 +65,7 @@
             this.txtUsername.Depth = 0;
             this.txtUsername.Enabled = false;
             this.txtUsername.Hint = "";
-            this.txtUsername.Location = new System.Drawing.Point(97, 72);
+            this.txtUsername.Location = new System.Drawing.Point(97, 10);
             this.txtUsername.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.PasswordChar = '\0';
@@ -82,32 +83,19 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(12, 76);
+            this.materialLabel1.Location = new System.Drawing.Point(12, 14);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(79, 19);
             this.materialLabel1.TabIndex = 0;
             this.materialLabel1.Text = "Tài khoản:";
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Depth = 0;
-            this.btnUpdate.Location = new System.Drawing.Point(397, 431);
-            this.btnUpdate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Primary = true;
-            this.btnUpdate.Size = new System.Drawing.Size(180, 43);
-            this.btnUpdate.TabIndex = 7;
-            this.btnUpdate.Text = "Cập nhật";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.ck1_PhanQuyen);
             this.groupBox1.Controls.Add(this.ck1_TaiKhoan);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(16, 120);
+            this.groupBox1.Location = new System.Drawing.Point(16, 58);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(132, 197);
             this.groupBox1.TabIndex = 0;
@@ -140,7 +128,7 @@
             this.groupBox2.Controls.Add(this.ck2_SapXepXe);
             this.groupBox2.Controls.Add(this.ck2_Booktour);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(154, 120);
+            this.groupBox2.Location = new System.Drawing.Point(154, 58);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(132, 197);
             this.groupBox2.TabIndex = 0;
@@ -184,7 +172,7 @@
             this.groupBox3.Controls.Add(this.ck3_QLNhomDT);
             this.groupBox3.Controls.Add(this.ck3_QLNhomTour);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(292, 120);
+            this.groupBox3.Location = new System.Drawing.Point(292, 58);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(139, 197);
             this.groupBox3.TabIndex = 0;
@@ -238,7 +226,7 @@
             this.groupBox4.Controls.Add(this.ck4_DLDichVu);
             this.groupBox4.Controls.Add(this.ck4_DLKhachSan);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(437, 120);
+            this.groupBox4.Location = new System.Drawing.Point(437, 58);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(132, 197);
             this.groupBox4.TabIndex = 0;
@@ -290,7 +278,7 @@
             this.groupBox5.Controls.Add(this.ck5_DoiTac);
             this.groupBox5.Controls.Add(this.ck5_CongNo);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(16, 323);
+            this.groupBox5.Location = new System.Drawing.Point(16, 261);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(132, 151);
             this.groupBox5.TabIndex = 0;
@@ -317,21 +305,36 @@
             this.ck5_CongNo.Text = "Công nợ";
             this.ck5_CongNo.UseVisualStyleBackColor = true;
             // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTimKiem.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnTimKiem.Appearance.Options.UseFont = true;
+            this.btnTimKiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.ImageOptions.Image")));
+            this.btnTimKiem.Location = new System.Drawing.Point(404, 373);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(173, 39);
+            this.btnTimKiem.TabIndex = 8;
+            this.btnTimKiem.Text = "Cập nhật";
+            this.btnTimKiem.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // frmActionRoles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 486);
+            this.ClientSize = new System.Drawing.Size(589, 421);
+            this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.txtUsername);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(605, 460);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(605, 460);
             this.Name = "frmActionRoles";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -357,7 +360,6 @@
 
         private MaterialSkin.Controls.MaterialSingleLineTextField txtUsername;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialRaisedButton btnUpdate;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -378,5 +380,6 @@
         private System.Windows.Forms.CheckBox ck4_DLKhachSan;
         private System.Windows.Forms.CheckBox ck5_CongNo;
         private System.Windows.Forms.CheckBox ck5_DoiTac;
+        private DevExpress.XtraEditors.SimpleButton btnTimKiem;
     }
 }

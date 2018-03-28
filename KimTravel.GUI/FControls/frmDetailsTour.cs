@@ -17,9 +17,8 @@ using DevExpress.XtraEditors;
 
 namespace KimTravel.GUI.FControls
 {
-    public partial class frmDetailsTour : MaterialForm
+    public partial class frmDetailsTour : XtraForm
     {
-        private MaterialSkinManager mSkin;
         private GroupTourService grTourService = new GroupTourService();
         private TourService tService = new TourService();
         private PartnerService pnService = new PartnerService();
@@ -43,11 +42,6 @@ namespace KimTravel.GUI.FControls
 
         private void frmActionGroupTour_Load(object sender, EventArgs e)
         {
-            mSkin = MaterialSkinManager.Instance;
-            mSkin.AddFormToManage(this);
-            mSkin.Theme = ConfigApp.Themes;
-            mSkin.ColorScheme = new ColorScheme(ConfigApp.Primary, ConfigApp.DarkPrimary, ConfigApp.LightPrimary, ConfigApp.Accent, ConfigApp.TextShade);
-
             if (_WorkID == 1)
                 btnCancel.Text = "Hủy bỏ";
             else

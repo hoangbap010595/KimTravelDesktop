@@ -28,7 +28,6 @@ namespace KimTravel.DAL.Services
                                   p.Phone,
                                   p.Note,
                                   p.Line,
-                                  //p.Address,
                                   p.GroupID,
                                   g.GroupName,
                                   Status = p.Status == 1 ? "Bình thường" : "Ngưng hợp tác"
@@ -48,11 +47,10 @@ namespace KimTravel.DAL.Services
                                   p.PartnerID,
                                   p.PartnerCode,
                                   p.Name,
-                                  Address2 = p.Line == null ? " " + p.Address : p.Line + " " + p.Address,
+                                  Address = p.Line == null ? " " + p.Address : p.Line + " " + p.Address,
                                   p.Phone,
                                   p.Note,
                                   p.Line,
-                                  p.Address,
                                   g.GroupName,
                                   Status = p.Status == 1 ? "Bình thường" : "Ngưng hợp tác"
                               };

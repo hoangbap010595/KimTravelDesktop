@@ -16,10 +16,8 @@ using System.Windows.Forms;
 
 namespace KimTravel.GUI.FControls
 {
-    public partial class frmActionService : MaterialForm
+    public partial class frmActionService : XtraForm
     {
-        private MaterialSkinManager mSkin;
-
         private ServiceTypeService gtService = new ServiceTypeService();
         ServiceType _objectData;
         private int _action = -1;
@@ -36,10 +34,6 @@ namespace KimTravel.GUI.FControls
 
         private void frmActionGroupTour_Load(object sender, EventArgs e)
         {
-            mSkin = MaterialSkinManager.Instance;
-            mSkin.AddFormToManage(this);
-            mSkin.Theme = ConfigApp.Themes;
-            mSkin.ColorScheme = new ColorScheme(ConfigApp.Primary, ConfigApp.DarkPrimary, ConfigApp.LightPrimary, ConfigApp.Accent, ConfigApp.TextShade);
             txtServiceName.Focus();
 
             if (_action == -1)
@@ -58,7 +52,7 @@ namespace KimTravel.GUI.FControls
         {
             if (txtServiceName.Text == "")
             {
-                XtraMessageBox.Show("Số xe(BKS) không thể để trống.");
+                XtraMessageBox.Show("Tên dịch vụ không thể để trống.");
                 return;
             }
             ServiceType service = new ServiceType();

@@ -16,9 +16,8 @@ using System.Windows.Forms;
 
 namespace KimTravel.GUI.FControls
 {
-    public partial class frmActionCar : MaterialForm
+    public partial class frmActionCar : XtraForm
     {
-        private MaterialSkinManager mSkin;
         private Car _objectData;
         private CarService carService = new CarService();
         private StaffService staffService = new StaffService();
@@ -38,10 +37,6 @@ namespace KimTravel.GUI.FControls
 
         private void frmActionGroupTour_Load(object sender, EventArgs e)
         {
-            mSkin = MaterialSkinManager.Instance;
-            mSkin.AddFormToManage(this);
-            mSkin.Theme = ConfigApp.Themes;
-            mSkin.ColorScheme = new ColorScheme(ConfigApp.Primary, ConfigApp.DarkPrimary, ConfigApp.LightPrimary, ConfigApp.Accent, ConfigApp.TextShade);
             txtCode.Focus();
 
             cbbType.DataSource = typeCarService.GetListCobobox();
@@ -77,7 +72,7 @@ namespace KimTravel.GUI.FControls
             Car car = new Car();
             car.CarID = _objID;
             car.Code = txtCode.Text;
-            car.Max = int.Parse(txtMax.Text);
+            car.Max = int.Parse(txtMax.Text == "" ? "0" : txtMax.Text);
             car.Type = int.Parse(cbbType.SelectedValue.ToString());
             car.Note = txtNote.Text;
             var sID = cbbKindStaff.Enabled == true ? cbbKindStaff.SelectedValue.ToString() : "-1";
@@ -107,6 +102,13 @@ namespace KimTravel.GUI.FControls
                 XtraMessageBox.Show("Biển số xe tồn tại trong hệ thống. Vui lòng kiểm tra lại.");
 
         }
+        private void TextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+        {
 
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

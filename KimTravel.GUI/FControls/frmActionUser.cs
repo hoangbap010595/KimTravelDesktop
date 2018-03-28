@@ -16,9 +16,8 @@ using System.Windows.Forms;
 
 namespace KimTravel.GUI.FControls
 {
-    public partial class frmActionUser : MaterialForm
+    public partial class frmActionUser : XtraForm
     {
-        private MaterialSkinManager mSkin;
         private ApplicationUser _objectData;
         private ApplicationUserService gtService = new ApplicationUserService();
 
@@ -36,10 +35,6 @@ namespace KimTravel.GUI.FControls
 
         private void frmActionGroupTour_Load(object sender, EventArgs e)
         {
-            mSkin = MaterialSkinManager.Instance;
-            mSkin.AddFormToManage(this);
-            mSkin.Theme = ConfigApp.Themes;
-            mSkin.ColorScheme = new ColorScheme(ConfigApp.Primary, ConfigApp.DarkPrimary, ConfigApp.LightPrimary, ConfigApp.Accent, ConfigApp.TextShade);
             txtUsername.Focus();
 
             cbbStatus.DataSource = Constant.getListStatusUser();

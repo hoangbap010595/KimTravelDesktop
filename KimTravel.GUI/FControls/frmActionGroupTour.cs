@@ -15,9 +15,8 @@ using System.Windows.Forms;
 
 namespace KimTravel.GUI.FControls
 {
-    public partial class frmActionGroupTour : MaterialForm
+    public partial class frmActionGroupTour : XtraForm
     {
-        private MaterialSkinManager mSkin;
         private GroupTour _groupTour;
         private GroupTourService gtService = new GroupTourService();
         private int _action = -1;
@@ -46,10 +45,6 @@ namespace KimTravel.GUI.FControls
 
         private void frmActionGroupTour_Load(object sender, EventArgs e)
         {
-            mSkin = MaterialSkinManager.Instance;
-            mSkin.AddFormToManage(this);
-            mSkin.Theme = ConfigApp.Themes;
-            mSkin.ColorScheme = new ColorScheme(ConfigApp.Primary, ConfigApp.DarkPrimary, ConfigApp.LightPrimary, ConfigApp.Accent, ConfigApp.TextShade);
             txtGroupName.Focus();
         }
 

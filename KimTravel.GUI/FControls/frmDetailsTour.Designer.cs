@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDetailsTour));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtFindPartner = new System.Windows.Forms.TextBox();
             this.txtRoom = new System.Windows.Forms.TextBox();
             this.txtPickup = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@
             this.txtCustomer = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtSaleBook = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.numPax = new System.Windows.Forms.NumericUpDown();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.cbbPartnerID = new System.Windows.Forms.ComboBox();
@@ -72,10 +72,11 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.btnAddServiceType = new System.Windows.Forms.Button();
-            this.btnUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnBack = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.txtFindPartner = new System.Windows.Forms.TextBox();
+            this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.btnBack = new DevExpress.XtraEditors.SimpleButton();
+            this.txtSaleBook = new System.Windows.Forms.TextBox();
+            this.btnAddServiceType = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPax)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -83,24 +84,11 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.Depth = 0;
-            this.btnCancel.Location = new System.Drawing.Point(630, 490);
-            this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Primary = true;
-            this.btnCancel.Size = new System.Drawing.Size(158, 40);
-            this.btnCancel.TabIndex = 18;
-            this.btnCancel.Text = "Hủy bỏ";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtFindPartner);
             this.groupBox1.Controls.Add(this.txtRoom);
+            this.groupBox1.Controls.Add(this.txtSaleBook);
             this.groupBox1.Controls.Add(this.txtPickup);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtNote);
@@ -113,19 +101,26 @@
             this.groupBox1.Controls.Add(this.txtCustomer);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtSaleBook);
             this.groupBox1.Controls.Add(this.numPax);
             this.groupBox1.Controls.Add(this.dtpStartDate);
             this.groupBox1.Controls.Add(this.cbbPartnerID);
             this.groupBox1.Controls.Add(this.cbbTourID);
             this.groupBox1.Controls.Add(this.cbbGroupTourID);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 73);
+            this.groupBox1.Location = new System.Drawing.Point(12, 11);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(446, 457);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
+            // 
+            // txtFindPartner
+            // 
+            this.txtFindPartner.Location = new System.Drawing.Point(347, 155);
+            this.txtFindPartner.Name = "txtFindPartner";
+            this.txtFindPartner.Size = new System.Drawing.Size(82, 23);
+            this.txtFindPartner.TabIndex = 12;
+            this.txtFindPartner.TextChanged += new System.EventHandler(this.txtFindPartner_TextChanged);
             // 
             // txtRoom
             // 
@@ -265,21 +260,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nhóm tour";
             // 
-            // txtSaleBook
-            // 
-            this.txtSaleBook.Depth = 0;
-            this.txtSaleBook.Hint = "Nhập tên người book";
-            this.txtSaleBook.Location = new System.Drawing.Point(129, 287);
-            this.txtSaleBook.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtSaleBook.Name = "txtSaleBook";
-            this.txtSaleBook.PasswordChar = '\0';
-            this.txtSaleBook.SelectedText = "";
-            this.txtSaleBook.SelectionLength = 0;
-            this.txtSaleBook.SelectionStart = 0;
-            this.txtSaleBook.Size = new System.Drawing.Size(300, 23);
-            this.txtSaleBook.TabIndex = 10;
-            this.txtSaleBook.UseSystemPasswordChar = false;
-            // 
             // numPax
             // 
             this.numPax.DecimalPlaces = 2;
@@ -352,6 +332,7 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.btnAddServiceType);
             this.groupBox3.Controls.Add(this.txtPriceVTQ);
             this.groupBox3.Controls.Add(this.txtPartnerPrice);
             this.groupBox3.Controls.Add(this.lblMoney);
@@ -365,9 +346,8 @@
             this.groupBox3.Controls.Add(this.label19);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.label23);
-            this.groupBox3.Controls.Add(this.btnAddServiceType);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(464, 73);
+            this.groupBox3.Location = new System.Drawing.Point(464, 11);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(488, 406);
             this.groupBox3.TabIndex = 6;
@@ -434,14 +414,14 @@
             this.dataGridViewGroupTour.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPartnerID,
             this.colServiceType,
@@ -477,9 +457,9 @@
             // 
             this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPrice.DataPropertyName = "Price";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "#,###";
-            this.colPrice.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "#,###";
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle5;
             this.colPrice.HeaderText = "Đơn giá";
             this.colPrice.Name = "colPrice";
             this.colPrice.ReadOnly = true;
@@ -488,9 +468,9 @@
             // colRemove
             // 
             this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.colRemove.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.colRemove.DefaultCellStyle = dataGridViewCellStyle6;
             this.colRemove.HeaderText = "";
             this.colRemove.Name = "colRemove";
             this.colRemove.ReadOnly = true;
@@ -600,67 +580,79 @@
             this.label23.TabIndex = 0;
             this.label23.Text = "Giá nhận";
             // 
-            // btnAddServiceType
+            // btnTimKiem
             // 
-            this.btnAddServiceType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddServiceType.Location = new System.Drawing.Point(6, 116);
-            this.btnAddServiceType.Name = "btnAddServiceType";
-            this.btnAddServiceType.Size = new System.Drawing.Size(56, 20);
-            this.btnAddServiceType.TabIndex = 16;
-            this.btnAddServiceType.Text = "Thêm";
-            this.btnAddServiceType.UseVisualStyleBackColor = true;
-            this.btnAddServiceType.Click += new System.EventHandler(this.btnAddServiceType_Click);
+            this.btnTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTimKiem.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnTimKiem.Appearance.Options.UseFont = true;
+            this.btnTimKiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.ImageOptions.Image")));
+            this.btnTimKiem.Location = new System.Drawing.Point(470, 426);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(154, 39);
+            this.btnTimKiem.TabIndex = 17;
+            this.btnTimKiem.Text = "Cập nhật";
+            this.btnTimKiem.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // btnUpdate
+            // btnCancel
             // 
-            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdate.Depth = 0;
-            this.btnUpdate.Location = new System.Drawing.Point(470, 490);
-            this.btnUpdate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Primary = true;
-            this.btnUpdate.Size = new System.Drawing.Size(154, 40);
-            this.btnUpdate.TabIndex = 17;
-            this.btnUpdate.Text = "Cập nhật";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnCancel.Appearance.Options.UseFont = true;
+            this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image1")));
+            this.btnCancel.Location = new System.Drawing.Point(630, 426);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(158, 39);
+            this.btnCancel.TabIndex = 18;
+            this.btnCancel.Text = "Hủy bỏ";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnBack
             // 
-            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBack.Depth = 0;
-            this.btnBack.Location = new System.Drawing.Point(794, 490);
-            this.btnBack.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnBack.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnBack.Appearance.Options.UseFont = true;
+            this.btnBack.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.btnBack.Location = new System.Drawing.Point(794, 426);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Primary = true;
-            this.btnBack.Size = new System.Drawing.Size(158, 40);
+            this.btnBack.Size = new System.Drawing.Size(158, 39);
             this.btnBack.TabIndex = 19;
-            this.btnBack.Text = "Quay lại";
-            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Text = "Quay lại";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // txtFindPartner
+            // txtSaleBook
             // 
-            this.txtFindPartner.Location = new System.Drawing.Point(347, 155);
-            this.txtFindPartner.Name = "txtFindPartner";
-            this.txtFindPartner.Size = new System.Drawing.Size(82, 23);
-            this.txtFindPartner.TabIndex = 12;
-            this.txtFindPartner.TextChanged += new System.EventHandler(this.txtFindPartner_TextChanged);
+            this.txtSaleBook.Location = new System.Drawing.Point(125, 286);
+            this.txtSaleBook.Name = "txtSaleBook";
+            this.txtSaleBook.Size = new System.Drawing.Size(214, 23);
+            this.txtSaleBook.TabIndex = 10;
+            // 
+            // btnAddServiceType
+            // 
+            this.btnAddServiceType.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.btnAddServiceType.Appearance.Options.UseFont = true;
+            this.btnAddServiceType.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnAddServiceType.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnAddServiceType.Location = new System.Drawing.Point(6, 109);
+            this.btnAddServiceType.Name = "btnAddServiceType";
+            this.btnAddServiceType.Size = new System.Drawing.Size(64, 27);
+            this.btnAddServiceType.TabIndex = 17;
+            this.btnAddServiceType.Text = "Thêm";
+            this.btnAddServiceType.Click += new System.EventHandler(this.btnAddServiceType_Click);
             // 
             // frmDetailsTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 542);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(964, 472);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnTimKiem);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(964, 542);
+            this.MaximumSize = new System.Drawing.Size(980, 511);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(964, 542);
+            this.MinimumSize = new System.Drawing.Size(980, 511);
             this.Name = "frmDetailsTour";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -680,7 +672,6 @@
         }
 
         #endregion
-        private MaterialSkin.Controls.MaterialRaisedButton btnCancel;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblMsgPax;
         private System.Windows.Forms.Label label6;
@@ -688,7 +679,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtSaleBook;
         private System.Windows.Forms.NumericUpDown numPax;
         private System.Windows.Forms.DateTimePicker dtpStartDate;
         private System.Windows.Forms.ComboBox cbbPartnerID;
@@ -706,9 +696,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button btnAddServiceType;
-        private MaterialSkin.Controls.MaterialRaisedButton btnUpdate;
-        private MaterialSkin.Controls.MaterialRaisedButton btnBack;
         private System.Windows.Forms.Label lblMoney;
         private System.Windows.Forms.TextBox txtNote;
         private System.Windows.Forms.Label label7;
@@ -725,5 +712,10 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtPromotionPrice;
         private System.Windows.Forms.TextBox txtFindPartner;
+        private DevExpress.XtraEditors.SimpleButton btnTimKiem;
+        private DevExpress.XtraEditors.SimpleButton btnCancel;
+        private DevExpress.XtraEditors.SimpleButton btnBack;
+        private System.Windows.Forms.TextBox txtSaleBook;
+        private DevExpress.XtraEditors.SimpleButton btnAddServiceType;
     }
 }

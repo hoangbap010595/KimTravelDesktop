@@ -16,9 +16,8 @@ using System.Windows.Forms;
 
 namespace KimTravel.GUI.FControls
 {
-    public partial class frmActionGroupPrice : MaterialForm
+    public partial class frmActionGroupPrice : XtraForm
     {
-        private MaterialSkinManager mSkin;
         private Price _objectData;
         private PriceService priceService = new PriceService();
         private GroupPartnerService groupService = new GroupPartnerService();
@@ -38,10 +37,6 @@ namespace KimTravel.GUI.FControls
 
         private void frmActionGroupTour_Load(object sender, EventArgs e)
         {
-            mSkin = MaterialSkinManager.Instance;
-            mSkin.AddFormToManage(this);
-            mSkin.Theme = ConfigApp.Themes;
-            mSkin.ColorScheme = new ColorScheme(ConfigApp.Primary, ConfigApp.DarkPrimary, ConfigApp.LightPrimary, ConfigApp.Accent, ConfigApp.TextShade);
             txtPriceRe.Focus();
 
             cbbGroupPartner.DataSource = groupService.GetList();

@@ -53,12 +53,6 @@ namespace KimTravel.GUI.UControls
         {
             try
             {
-                var x = cbbGroupTourID.SelectedValue.ToString();
-                int gID = int.Parse(x);
-                cbbTourID.DataSource = tService.GetListForGroup(gID);
-                cbbTourID.ValueMember = "TourID";
-                cbbTourID.DisplayMember = "Name";
-
                 btnTimKiem.PerformClick();
             }
             catch { }
@@ -70,11 +64,10 @@ namespace KimTravel.GUI.UControls
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            var tID = int.Parse(cbbTourID.SelectedValue.ToString());
+            int gID = int.Parse(cbbGroupTourID.SelectedValue.ToString());
             var dateStart = dtpStartDate.Value.ToString("yyyy-MM-dd");
-            var isCancel = rdBinhThuong.Checked == true ? false : true;
-
-            gridControlData.DataSource = objService.GetListBooked(tID, dateStart, isCancel);
+            bool isCancel = rdBinhThuong.Checked == true ? false : true;
+            gridControlTour.DataSource = objService.GetListBookedNotInCar(gID, dateStart, false, isCancel);
         }
 
         private void btnExportExcel_Click(object sender, EventArgs e)
@@ -114,6 +107,14 @@ namespace KimTravel.GUI.UControls
             frmDetailsTour frm = new frmDetailsTour(work, id);
             frm.loadData = new frmDetailsTour.LoadData(loadDataGroup);
             frm.ShowDialog();
+        }
+
+        private void gridViewTour_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            int tourID = int.Parse(gridViewTour.GetFocusedRowCellValue("TourID").ToString());
+            var dateStart = dtpStartDate.Value.ToString("yyyy-MM-dd");
+            bool isCancel = rdBinhThuong.Checked == true ? false : true;
+            gridControlData.DataSource = objService.GetListBooked(tourID, dateStart, isCancel);
         }
     }
 }

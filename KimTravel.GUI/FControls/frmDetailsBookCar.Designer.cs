@@ -78,7 +78,7 @@
             // 
             this.lblTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTour.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTour.Location = new System.Drawing.Point(71, 69);
+            this.lblTour.Location = new System.Drawing.Point(71, 28);
             this.lblTour.Name = "lblTour";
             this.lblTour.Size = new System.Drawing.Size(232, 25);
             this.lblTour.TabIndex = 0;
@@ -89,7 +89,7 @@
             // 
             this.lblDate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(71, 103);
+            this.lblDate.Location = new System.Drawing.Point(71, 62);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(232, 25);
             this.lblDate.TabIndex = 0;
@@ -101,7 +101,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 72);
+            this.label1.Location = new System.Drawing.Point(9, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 17);
             this.label1.TabIndex = 0;
@@ -112,7 +112,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 106);
+            this.label2.Location = new System.Drawing.Point(9, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 17);
             this.label2.TabIndex = 0;
@@ -123,7 +123,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(340, 72);
+            this.label3.Location = new System.Drawing.Point(340, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 17);
             this.label3.TabIndex = 0;
@@ -134,7 +134,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(340, 106);
+            this.label4.Location = new System.Drawing.Point(340, 65);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 17);
             this.label4.TabIndex = 0;
@@ -146,7 +146,7 @@
             this.cbbHDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbHDV.FormattingEnabled = true;
             this.cbbHDV.ItemHeight = 20;
-            this.cbbHDV.Location = new System.Drawing.Point(398, 68);
+            this.cbbHDV.Location = new System.Drawing.Point(398, 27);
             this.cbbHDV.Name = "cbbHDV";
             this.cbbHDV.Size = new System.Drawing.Size(164, 28);
             this.cbbHDV.TabIndex = 1;
@@ -157,7 +157,7 @@
             this.cbbTaiXe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTaiXe.FormattingEnabled = true;
             this.cbbTaiXe.ItemHeight = 20;
-            this.cbbTaiXe.Location = new System.Drawing.Point(398, 102);
+            this.cbbTaiXe.Location = new System.Drawing.Point(398, 61);
             this.cbbTaiXe.Name = "cbbTaiXe";
             this.cbbTaiXe.Size = new System.Drawing.Size(164, 28);
             this.cbbTaiXe.TabIndex = 2;
@@ -195,9 +195,9 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(13, 152);
+            this.label6.Location = new System.Drawing.Point(13, 131);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(229, 13);
+            this.label6.Size = new System.Drawing.Size(236, 13);
             this.label6.TabIndex = 0;
             this.label6.Text = "(Hãy kiểm tra kỹ thông tin bên dưới trước khi in)";
             // 
@@ -208,7 +208,7 @@
             this.lblMessageProgress.ForeColor = System.Drawing.Color.Red;
             this.lblMessageProgress.Location = new System.Drawing.Point(121, 624);
             this.lblMessageProgress.Name = "lblMessageProgress";
-            this.lblMessageProgress.Size = new System.Drawing.Size(131, 13);
+            this.lblMessageProgress.Size = new System.Drawing.Size(136, 13);
             this.lblMessageProgress.TabIndex = 0;
             this.lblMessageProgress.Text = "Đang xử lý. Vui lòng chờ...";
             this.lblMessageProgress.Visible = false;
@@ -218,10 +218,10 @@
             this.gridControlData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControlData.Location = new System.Drawing.Point(11, 168);
+            this.gridControlData.Location = new System.Drawing.Point(11, 147);
             this.gridControlData.MainView = this.gridViewData;
             this.gridControlData.Name = "gridControlData";
-            this.gridControlData.Size = new System.Drawing.Size(679, 428);
+            this.gridControlData.Size = new System.Drawing.Size(679, 449);
             this.gridControlData.TabIndex = 5;
             this.gridControlData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewData});
@@ -351,7 +351,7 @@
             // 
             // txtHdvName
             // 
-            this.txtHdvName.Location = new System.Drawing.Point(568, 68);
+            this.txtHdvName.Location = new System.Drawing.Point(568, 27);
             this.txtHdvName.Name = "txtHdvName";
             this.txtHdvName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtHdvName.Properties.Appearance.Options.UseFont = true;
@@ -361,7 +361,7 @@
             // 
             // txtTXName
             // 
-            this.txtTXName.Location = new System.Drawing.Point(568, 101);
+            this.txtTXName.Location = new System.Drawing.Point(568, 60);
             this.txtTXName.Name = "txtTXName";
             this.txtTXName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtTXName.Properties.Appearance.Options.UseFont = true;
@@ -371,7 +371,7 @@
             // 
             // txtBKS
             // 
-            this.txtBKS.Location = new System.Drawing.Point(398, 134);
+            this.txtBKS.Location = new System.Drawing.Point(398, 93);
             this.txtBKS.Name = "txtBKS";
             this.txtBKS.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtBKS.Properties.Appearance.Options.UseFont = true;
@@ -384,7 +384,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(340, 141);
+            this.label5.Location = new System.Drawing.Point(340, 100);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 17);
             this.label5.TabIndex = 0;
@@ -394,7 +394,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(700, 650);
             this.Controls.Add(this.txtBKS);
             this.Controls.Add(this.txtTXName);
@@ -415,9 +414,9 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnPrint);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(700, 650);
+            this.MaximumSize = new System.Drawing.Size(716, 689);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(700, 650);
+            this.MinimumSize = new System.Drawing.Size(716, 689);
             this.Name = "frmDetailsBookCar";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

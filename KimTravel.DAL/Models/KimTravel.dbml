@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="KimTravelDesktop" Class="KimTravelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=103.53.231.198;Initial Catalog=KimTravelDesktop;Persist Security Info=True;User ID=hoang1995" SettingsObjectName="KimTravel.DAL.Properties.Settings" SettingsPropertyName="KimTravelConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=KimTravelDesktop;User ID=sa" SettingsObjectName="KimTravel.DAL.Properties.Settings" SettingsPropertyName="LocalConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ApplicationRole" Member="ApplicationRoles">
     <Type Name="ApplicationRole">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

@@ -108,7 +108,7 @@ namespace KimTravel.GUI.UControls
                             senderGrid[i, e.RowIndex].ReadOnly = true;
                     }
                     float pax = float.Parse(senderGrid.Rows[e.RowIndex].Cells["colPax"].Value.ToString());
-                    getTotalInCar(e.ColumnIndex, pax);
+                    getTotalInCar(senderGrid.Columns[e.ColumnIndex].Name, pax);
                     _Selected -= 1;
                     listTablePick[_indexTourSelected].Rows[e.RowIndex][e.ColumnIndex] = true;
                 }
@@ -120,55 +120,55 @@ namespace KimTravel.GUI.UControls
                         senderGrid[i, e.RowIndex].ReadOnly = false;
                     }
                     float pax = float.Parse(senderGrid.Rows[e.RowIndex].Cells["colPax"].Value.ToString());
-                    getTotalInCar(e.ColumnIndex, -pax);
+                    getTotalInCar(senderGrid.Columns[e.ColumnIndex].Name, -pax);
                     _Selected += 1;
                     listTablePick[_indexTourSelected].Rows[e.RowIndex][e.ColumnIndex] = false;
                 }
                 lblSelected.Text = _Selected.ToString();
             }
         }
-        private void getTotalInCar(int colIndex, float add)
+        private void getTotalInCar(string colName, float add)
         {
             float count = 0;
-            switch (colIndex)
+            switch (colName)
             {
-                case 7:
+                case "colCar1":
                     count = float.Parse(lblTotalXe1.Text) + add;
                     lblTotalXe1.Text = count.ToString();
                     break;
-                case 8:
+                case "colCar2":
                     count = float.Parse(lblTotalXe2.Text) + add;
                     lblTotalXe2.Text = count.ToString();
                     break;
-                case 9:
+                case "colCar3":
                     count = float.Parse(lblTotalXe3.Text) + add;
                     lblTotalXe3.Text = count.ToString();
                     break;
-                case 10:
+                case "colCar4":
                     count = float.Parse(lblTotalXe4.Text) + add;
                     lblTotalXe4.Text = count.ToString();
                     break;
-                case 11:
+                case "colCar5":
                     count = float.Parse(lblTotalXe5.Text) + add;
                     lblTotalXe5.Text = count.ToString();
                     break;
-                case 12:
+                case "colCar6":
                     count = float.Parse(lblTotalXe6.Text) + add;
                     lblTotalXe6.Text = count.ToString();
                     break;
-                case 13:
+                case "colCar7":
                     count = float.Parse(lblTotalXe7.Text) + add;
                     lblTotalXe7.Text = count.ToString();
                     break;
-                case 14:
+                case "colCar8":
                     count = float.Parse(lblTotalXe8.Text) + add;
                     lblTotalXe8.Text = count.ToString();
                     break;
-                case 15:
+                case "colCar9":
                     count = float.Parse(lblTotalXe9.Text) + add;
                     lblTotalXe9.Text = count.ToString();
                     break;
-                case 16:
+                case "colCar10":
                     count = float.Parse(lblTotalXe10.Text) + add;
                     lblTotalXe10.Text = count.ToString();
                     break;
@@ -251,6 +251,8 @@ namespace KimTravel.GUI.UControls
                 listTablePick[i] = table;
             }
             dataGridViewGroupTour.DataSource = listTablePick[_indexTourSelected];
+            _Selected = listTablePick[_indexTourSelected].Rows.Count;
+            lblSelected.Text = listTablePick[_indexTourSelected].Rows.Count.ToString();
         }
 
         private void rdCar05_CheckedChanged(object sender, EventArgs e)
@@ -377,10 +379,7 @@ namespace KimTravel.GUI.UControls
         {
             _indexTourSelected = e.RowHandle;
             dataGridViewGroupTour.DataSource = listTablePick[_indexTourSelected];
-            int total = listTablePick[_indexTourSelected].Rows.Count;
             dataGridViewGroupTour_DataBindingComplete();
-            //lblSelected.Text = total.ToString();
-            //_Selected = total;
         }
 
         private void boSungDoiTac(DataTable data)
@@ -410,6 +409,7 @@ namespace KimTravel.GUI.UControls
             listTablePick[_indexTourSelected] = dt;
             listTablePick[_indexTourSelected].AcceptChanges();
             dataGridViewGroupTour.DataSource = listTablePick[_indexTourSelected];
+            dataGridViewGroupTour_DataBindingComplete();
         }
         private void btnBoSungDoiTac_Click(object sender, EventArgs e)
         {
@@ -418,35 +418,95 @@ namespace KimTravel.GUI.UControls
             frm.confirm = new frmBoSungDoiTac.ConfirmAddPartner(boSungDoiTac);
             frm.ShowDialog();
         }
+        private void setLabelCar()
+        {
+            foreach (Control item in listControl)
+            {
+                item.Text = "0";
+            }
 
+        }
         private void dataGridViewGroupTour_DataBindingComplete()
         {
+            setLabelCar();
+            int total = 0;
             foreach (DataGridViewRow row in dataGridViewGroupTour.Rows)
             {
-                //bool colCar1 = bool.Parse(row.Cells[6].Value.ToString());
-                //bool colCar2 = bool.Parse(row.Cells[7].Value.ToString());
-                //bool colCar3 = bool.Parse(row.Cells[8].Value.ToString());
-                //bool colCar4 = bool.Parse(row.Cells[9].Value.ToString());
-                //bool colCar5 = bool.Parse(row.Cells[10].Value.ToString());
-                //bool colCar6 = bool.Parse(row.Cells[11].Value.ToString());
-                //bool colCar7 = bool.Parse(row.Cells[12].Value.ToString());
-                //bool colCar8 = bool.Parse(row.Cells[13].Value.ToString());
-                //bool colCar9 = bool.Parse(row.Cells[14].Value.ToString());
-                //bool colCar10 = bool.Parse(row.Cells[15].Value.ToString());
-
+                bool check = false;
                 for (int i = 6; i < dataGridViewGroupTour.Columns.Count; i++)
                 {
+                    float pax = float.Parse(row.Cells["colPax"].Value.ToString());
                     bool colCar = bool.Parse(row.Cells[i].Value.ToString());
                     if (colCar)
                     {
+                        getTotalInCar(dataGridViewGroupTour.Columns[i].Name, pax);
+                        check = true;
                         row.DefaultCellStyle.BackColor = Color.LightGray;
-                        dataGridViewGroupTour.Columns[i].ReadOnly = true;
-                    }else
+                        row.Cells[i].ReadOnly = false;
+                    }
+                    else
                     {
-                        dataGridViewGroupTour.Columns[i].ReadOnly = false;
+                        row.Cells[i].ReadOnly = true;
+                    }
+                }
+                if (!check)
+                {
+                    for (int i = 6; i < dataGridViewGroupTour.Columns.Count; i++)
+                    {
+                        row.Cells[i].ReadOnly = false;
                     }
 
+                    total++;
                 }
+            }
+            _Selected = total;
+            lblSelected.Text = total.ToString();
+        }
+
+        private void xoaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var index = dataGridViewGroupTour.CurrentRow.Index;
+            listTablePick[_indexTourSelected].Rows.RemoveAt(index);
+            listTablePick[_indexTourSelected].AcceptChanges();
+            dataGridViewGroupTour.DataSource = listTablePick[_indexTourSelected];
+            dataGridViewGroupTour_DataBindingComplete();
+        }
+
+        private void bôSungThêmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnBoSungDoiTac.PerformClick();
+        }
+
+        private void lamMơiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.OK == XtraMessageBox.Show("Bạn muốn xóa tất cả các đối tác đã chọn. Sắp xếp lại từ đầu ?", "Xác nhận", MessageBoxButtons.OKCancel))
+            {
+                DataTable dt = _tableTemp.Clone();
+                foreach (DataGridViewRow row in dataGridViewGroupTour.Rows)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["ID"] = int.Parse(row.Cells["colID"].Value.ToString());
+                    dr["Pax"] = float.Parse(row.Cells["colPax"].Value.ToString());
+                    dr["PickUp"] = row.Cells["colPickUp"].Value.ToString();
+                    dr["Room"] = row.Cells["colRoom"].Value.ToString();
+                    dr["PartnerPrice"] = int.Parse(row.Cells["colPartnerPrice"].Value.ToString());
+                    dr["Note"] = row.Cells["colNote"].Value.ToString();
+                    dr["colCar1"] = false;
+                    dr["colCar2"] = false;
+                    dr["colCar3"] = false;
+                    dr["colCar4"] = false;
+                    dr["colCar5"] = false;
+                    dr["colCar6"] = false;
+                    dr["colCar7"] = false;
+                    dr["colCar8"] = false;
+                    dr["colCar9"] = false;
+                    dr["colCar10"] = false;
+                    dt.Rows.Add(dr);
+                }
+                listTablePick[_indexTourSelected] = dt;
+                listTablePick[_indexTourSelected].AcceptChanges();
+                dataGridViewGroupTour.DataSource = listTablePick[_indexTourSelected];
+                dataGridViewGroupTour_DataBindingComplete();
             }
         }
     }

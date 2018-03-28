@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCBook));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtNote = new DevExpress.XtraEditors.MemoEdit();
             this.btnAddPartner = new DevExpress.XtraEditors.SimpleButton();
@@ -69,7 +69,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblMoney = new System.Windows.Forms.Label();
             this.btnAddServiceType = new DevExpress.XtraEditors.SimpleButton();
-            this.btnUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
             this.colPartnerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colServiceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,6 +89,7 @@
             this.colPickup = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNVBook = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnUpdate = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPartnerPrice.Properties)).BeginInit();
@@ -509,9 +509,9 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.btnUpdate);
             this.groupBox3.Controls.Add(this.lblMoney);
             this.groupBox3.Controls.Add(this.btnAddServiceType);
-            this.groupBox3.Controls.Add(this.btnUpdate);
             this.groupBox3.Controls.Add(this.dataGridViewGroupTour);
             this.groupBox3.Controls.Add(this.panel1);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -546,20 +546,6 @@
             this.btnAddServiceType.Text = "Thêm";
             this.btnAddServiceType.Click += new System.EventHandler(this.btnAddServiceType_Click);
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUpdate.Depth = 0;
-            this.btnUpdate.Location = new System.Drawing.Point(499, 173);
-            this.btnUpdate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Primary = true;
-            this.btnUpdate.Size = new System.Drawing.Size(129, 75);
-            this.btnUpdate.TabIndex = 19;
-            this.btnUpdate.Text = "Cập nhật";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
             // dataGridViewGroupTour
             // 
             this.dataGridViewGroupTour.AllowUserToAddRows = false;
@@ -569,14 +555,14 @@
             this.dataGridViewGroupTour.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPartnerID,
             this.colServiceType,
@@ -612,9 +598,9 @@
             // 
             this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPrice.DataPropertyName = "Price";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "#,###";
-            this.colPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "#,###";
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle7;
             this.colPrice.HeaderText = "Đơn giá";
             this.colPrice.Name = "colPrice";
             this.colPrice.ReadOnly = true;
@@ -623,9 +609,9 @@
             // colRemove
             // 
             this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.colRemove.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.colRemove.DefaultCellStyle = dataGridViewCellStyle8;
             this.colRemove.HeaderText = "";
             this.colRemove.Name = "colRemove";
             this.colRemove.ReadOnly = true;
@@ -715,14 +701,14 @@
             this.dtpTourBookedForPartner.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dtpTourBookedForPartner.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dtpTourBookedForPartner.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtpTourBookedForPartner.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtpTourBookedForPartner.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dtpTourBookedForPartner.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn3,
@@ -757,9 +743,9 @@
             // 
             this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.dataGridViewTextBoxColumn3.DataPropertyName = "Pax";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn3.HeaderText = "Pax";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -815,6 +801,21 @@
             this.colNVBook.HeaderText = "NV Book";
             this.colNVBook.Name = "colNVBook";
             this.colNVBook.ReadOnly = true;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUpdate.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnUpdate.Appearance.Options.UseFont = true;
+            this.btnUpdate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnUpdate.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btnUpdate.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnUpdate.Location = new System.Drawing.Point(496, 174);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(132, 76);
+            this.btnUpdate.TabIndex = 20;
+            this.btnUpdate.Text = "Hoàn tất";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // UCBook
             // 
@@ -878,7 +879,6 @@
         private System.Windows.Forms.Label lblTotalBook;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label16;
-        private MaterialSkin.Controls.MaterialRaisedButton btnUpdate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPartnerID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colServiceType;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
@@ -910,5 +910,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPickup;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRoom;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNVBook;
+        private DevExpress.XtraEditors.SimpleButton btnUpdate;
     }
 }

@@ -17,14 +17,11 @@ using DevExpress.XtraEditors;
 
 namespace KimTravel.GUI.FControls
 {
-    public partial class frmDetailsPrintAgain : MaterialForm
+    public partial class frmDetailsPrintAgain : XtraForm
     {
-        private MaterialSkinManager mSkin;
         private StaffService staffService = new StaffService();
         private TourService tourService = new TourService();
         private PrintTourDetailsService printDetailService = new PrintTourDetailsService();
-        //Print
-        private DataTable _dataTemp;
 
         private int _TourID = 0;
 
@@ -54,11 +51,6 @@ namespace KimTravel.GUI.FControls
 
         private void frmActionGroupTour_Load(object sender, EventArgs e)
         {
-            mSkin = MaterialSkinManager.Instance;
-            mSkin.AddFormToManage(this);
-            mSkin.Theme = ConfigApp.Themes;
-            mSkin.ColorScheme = new ColorScheme(ConfigApp.Primary, ConfigApp.DarkPrimary, ConfigApp.LightPrimary, ConfigApp.Accent, ConfigApp.TextShade);
-           
             lblTotal.Text = countPax() + " pax";
         }
 
@@ -79,37 +71,61 @@ namespace KimTravel.GUI.FControls
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var hdvName = txtHdvName.Text;
-            var txName = txtTXName.Text;
-            var hdvID = cbbHDV.SelectedValue == null ? "0" : cbbHDV.SelectedValue.ToString();
-            var txID = cbbTaiXe.SelectedValue == null ? "0" : cbbTaiXe.SelectedValue.ToString();
-            Staff _objectHDV = staffService.GetByID(int.Parse(hdvID));
-            Staff _objectTX = staffService.GetByID(int.Parse(txID));
-
-            var selectNameHDV = hdvName != "" ? hdvName : _objectHDV == null ? "" : _objectHDV.Name;
-            var selectNameTX = txName != "" ? txName : _objectTX == null ? "" : _objectTX.Name;
-            if (String.IsNullOrEmpty(selectNameHDV))
+            try
             {
-                XtraMessageBox.Show("Vui lòng nhập thông tin hướng dẫn viên.", "Thông báo"); return;
-            }
+                var hdvName = txtHdvName.Text;
+                var txName = txtTXName.Text;
+                var hdvID = cbbHDV.SelectedValue == null ? "0" : cbbHDV.SelectedValue.ToString();
+                var txID = cbbTaiXe.SelectedValue == null ? "0" : cbbTaiXe.SelectedValue.ToString();
+                Staff _objectHDV = staffService.GetByID(int.Parse(hdvID));
+                Staff _objectTX = staffService.GetByID(int.Parse(txID));
 
-            if (String.IsNullOrEmpty(selectNameTX))
-            {
-                XtraMessageBox.Show("Vui lòng nhập thông tin tài xế.", "Thông báo"); return;
-            }
+                var selectNameHDV = hdvName != "" ? hdvName : _objectHDV == null ? "" : _objectHDV.Name;
+                var selectNameTX = txName != "" ? txName : _objectTX == null ? "" : _objectTX.Name;
+                if (String.IsNullOrEmpty(selectNameHDV))
+                {
+                    XtraMessageBox.Show("Vui lòng nhập thông tin hướng dẫn viên.", "Thông báo"); return;
+                }
 
-            btnPrint.Enabled = btnBack.Enabled = false;
-            lblMessageProgress.Visible = true;
-            var msg = XtraMessageBox.Show("Các thông tin thay đổi sẽ không cập nhật vào hệ thống. Tiếp tục in?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (DialogResult.Yes == msg)
-            {
-                //xtraRPPrintBookTour xtra = new xtraRPPrintBookTour(_dataTemp, _tourName, _startDate.ToString("dd-MM-yyyy"), selectNameHDV, selectNameTX);
+                if (String.IsNullOrEmpty(selectNameTX))
+                {
+                    XtraMessageBox.Show("Vui lòng nhập thông tin tài xế.", "Thông báo"); return;
+                }
+
+                btnPrint.Enabled = btnBack.Enabled = false;
+                lblMessageProgress.Visible = true;
+
+                DataTable data = new DataTable();
+                data.Columns.Add("ID", typeof(int));
+                data.Columns.Add("PickUp");
+                data.Columns.Add("Room");
+                data.Columns.Add("Pax", typeof(float));
+                data.Columns.Add("PartnerPrice", typeof(int));
+                data.Columns.Add("Note");
+                for (int i = 0; i < gridViewData.RowCount; i++)
+                {
+                    DataRow dr = data.NewRow();
+                    dr["ID"] = int.Parse(gridViewData.GetRowCellValue(i, "DetailID").ToString());
+                    dr["PickUp"] = gridViewData.GetRowCellValue(i, "PickUp").ToString();
+                    dr["Room"] = gridViewData.GetRowCellValue(i, "Room").ToString();
+                    dr["Pax"] = float.Parse(gridViewData.GetRowCellValue(i, "Pax").ToString());
+                    dr["PartnerPrice"] = int.Parse(gridViewData.GetRowCellValue(i, "PartnerPrice").ToString());
+                    dr["Note"] = gridViewData.GetRowCellValue(i, "Note").ToString();
+                    data.Rows.Add(dr);
+                }
+                xtraRPPrintBookTour xtra = new xtraRPPrintBookTour(data, lblTour.Text, lblDate.Text, selectNameHDV, selectNameTX);
                 //xtra.Print();
                 //xtra.PrintDialog();
-                //xtra.ShowPreview();
+                xtra.ShowPreview();
+
+                btnBack.Enabled = true;
+                lblMessageProgress.Visible = false;
             }
-            btnBack.Enabled = true;
-            lblMessageProgress.Visible = false;
+            catch (Exception ex)
+            {
+                btnPrint.Enabled = btnBack.Enabled = false;
+                XtraMessageBox.Show(ex.Message);
+            }
         }
 
         private void TextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)

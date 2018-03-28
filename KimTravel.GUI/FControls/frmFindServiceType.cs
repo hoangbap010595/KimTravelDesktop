@@ -16,9 +16,8 @@ using System.Windows.Forms;
 
 namespace KimTravel.GUI.FControls
 {
-    public partial class frmFindServiceType : MaterialForm
+    public partial class frmFindServiceType : XtraForm
     {
-        private MaterialSkinManager mSkin;
         private ServiceTypeService gtService = new ServiceTypeService();
 
         public delegate void LoadData(string name, int price, int add);
@@ -32,10 +31,6 @@ namespace KimTravel.GUI.FControls
 
         private void frmActionGroupTour_Load(object sender, EventArgs e)
         {
-            mSkin = MaterialSkinManager.Instance;
-            mSkin.AddFormToManage(this);
-            mSkin.Theme = ConfigApp.Themes;
-            mSkin.ColorScheme = new ColorScheme(ConfigApp.Primary, ConfigApp.DarkPrimary, ConfigApp.LightPrimary, ConfigApp.Accent, ConfigApp.TextShade);
             txtPartner.Focus();
             dataGridViewGroupTour.AutoGenerateColumns = false;
             dataGridViewGroupTour.DataSource = gtService.GetList();

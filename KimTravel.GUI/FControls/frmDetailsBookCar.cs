@@ -17,9 +17,8 @@ using DevExpress.XtraEditors;
 
 namespace KimTravel.GUI.FControls
 {
-    public partial class frmDetailsBookCar : MaterialForm
+    public partial class frmDetailsBookCar : XtraForm
     {
-        private MaterialSkinManager mSkin;
         private StaffService staffService = new StaffService();
         private TourService tourService = new TourService();
         //Print
@@ -50,10 +49,6 @@ namespace KimTravel.GUI.FControls
 
         private void frmActionGroupTour_Load(object sender, EventArgs e)
         {
-            mSkin = MaterialSkinManager.Instance;
-            mSkin.AddFormToManage(this);
-            mSkin.Theme = ConfigApp.Themes;
-            mSkin.ColorScheme = new ColorScheme(ConfigApp.Primary, ConfigApp.DarkPrimary, ConfigApp.LightPrimary, ConfigApp.Accent, ConfigApp.TextShade);
             gridControlData.DataSource = _dataTemp;
 
             cbbHDV.DataSource = staffService.GetStaffHDV();

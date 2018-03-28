@@ -16,9 +16,8 @@ using System.Windows.Forms;
 
 namespace KimTravel.GUI.FControls
 {
-    public partial class frmActionRoles : MaterialForm
+    public partial class frmActionRoles : XtraForm
     {
-        private MaterialSkinManager mSkin;
         private ApplicationUser _objectData;
         private ApplicationUserService gtService = new ApplicationUserService();
         private ApplicationUserRoleService userRoleService = new ApplicationUserRoleService();
@@ -95,10 +94,6 @@ namespace KimTravel.GUI.FControls
         }
         private void frmActionGroupTour_Load(object sender, EventArgs e)
         {
-            mSkin = MaterialSkinManager.Instance;
-            mSkin.AddFormToManage(this);
-            mSkin.Theme = ConfigApp.Themes;
-            mSkin.ColorScheme = new ColorScheme(ConfigApp.Primary, ConfigApp.DarkPrimary, ConfigApp.LightPrimary, ConfigApp.Accent, ConfigApp.TextShade);
             txtUsername.Focus();
             txtUsername.Text = _objectData.Username;
             loadRole();
@@ -153,11 +148,6 @@ namespace KimTravel.GUI.FControls
                 else
                     XtraMessageBox.Show("Cập nhật thất bại");
             }
-
-        }
-
-        private void btnUpdatePass_Click(object sender, EventArgs e)
-        {
 
         }
     }

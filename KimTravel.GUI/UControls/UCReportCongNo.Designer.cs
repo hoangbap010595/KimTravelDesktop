@@ -33,7 +33,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCReportCongNo));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             this.btnClickViews = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.checkIsPayMent = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.cbbMonth = new System.Windows.Forms.ComboBox();
             this.cbbPartnerID = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -69,22 +69,25 @@
             this.gridColumnPromotionMoney = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnTotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnPayment = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemCheckEditPayment = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.gridColumnDateCreate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnEdit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnClickViews2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnExportExcel = new DevExpress.XtraEditors.SimpleButton();
             this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.ckViewAllPartner = new System.Windows.Forms.CheckBox();
             this.txtFindPartner = new DevExpress.XtraEditors.TextEdit();
-            this.btnClickViews2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gridColumnDatePayment = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.btnClickViews)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkIsPayMent)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFindPartner.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEditPayment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClickViews2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFindPartner.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClickViews
@@ -96,10 +99,10 @@
             this.btnClickViews.Name = "btnClickViews";
             this.btnClickViews.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
-            // repositoryItemCheckEdit1
+            // checkIsPayMent
             // 
-            this.repositoryItemCheckEdit1.AutoHeight = false;
-            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
+            this.checkIsPayMent.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style8;
+            this.checkIsPayMent.Name = "checkIsPayMent";
             // 
             // cbbMonth
             // 
@@ -267,7 +270,8 @@
             this.gridControlData.MainView = this.gridViewData;
             this.gridControlData.Name = "gridControlData";
             this.gridControlData.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.btnClickViews2});
+            this.btnClickViews2,
+            this.repositoryItemCheckEditPayment});
             this.gridControlData.Size = new System.Drawing.Size(2341, 505);
             this.gridControlData.TabIndex = 13;
             this.gridControlData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -296,7 +300,8 @@
             this.gridColumnTotal,
             this.gridColumnPayment,
             this.gridColumnDateCreate,
-            this.gridColumnEdit});
+            this.gridColumnEdit,
+            this.gridColumnDatePayment});
             this.gridViewData.GridControl = this.gridControlData;
             this.gridViewData.IndicatorWidth = 35;
             this.gridViewData.Name = "gridViewData";
@@ -363,6 +368,8 @@
             this.gridColumnService.FieldName = "ServiceName";
             this.gridColumnService.MinWidth = 150;
             this.gridColumnService.Name = "gridColumnService";
+            this.gridColumnService.OptionsColumn.AllowEdit = false;
+            this.gridColumnService.OptionsColumn.ReadOnly = true;
             this.gridColumnService.Visible = true;
             this.gridColumnService.VisibleIndex = 2;
             this.gridColumnService.Width = 150;
@@ -379,6 +386,8 @@
             this.gridColumnPartner.FieldName = "PartnerName";
             this.gridColumnPartner.MinWidth = 180;
             this.gridColumnPartner.Name = "gridColumnPartner";
+            this.gridColumnPartner.OptionsColumn.AllowEdit = false;
+            this.gridColumnPartner.OptionsColumn.ReadOnly = true;
             this.gridColumnPartner.Visible = true;
             this.gridColumnPartner.VisibleIndex = 3;
             this.gridColumnPartner.Width = 180;
@@ -409,6 +418,8 @@
             this.gridColumnPickUp.FieldName = "PickUp";
             this.gridColumnPickUp.MinWidth = 200;
             this.gridColumnPickUp.Name = "gridColumnPickUp";
+            this.gridColumnPickUp.OptionsColumn.AllowEdit = false;
+            this.gridColumnPickUp.OptionsColumn.ReadOnly = true;
             this.gridColumnPickUp.Visible = true;
             this.gridColumnPickUp.VisibleIndex = 4;
             this.gridColumnPickUp.Width = 200;
@@ -425,6 +436,8 @@
             this.gridColumnRoom.FieldName = "Room";
             this.gridColumnRoom.MinWidth = 100;
             this.gridColumnRoom.Name = "gridColumnRoom";
+            this.gridColumnRoom.OptionsColumn.AllowEdit = false;
+            this.gridColumnRoom.OptionsColumn.ReadOnly = true;
             this.gridColumnRoom.Visible = true;
             this.gridColumnRoom.VisibleIndex = 5;
             this.gridColumnRoom.Width = 100;
@@ -446,6 +459,8 @@
             this.gridColumnPartnerPrice.MaxWidth = 120;
             this.gridColumnPartnerPrice.MinWidth = 120;
             this.gridColumnPartnerPrice.Name = "gridColumnPartnerPrice";
+            this.gridColumnPartnerPrice.OptionsColumn.AllowEdit = false;
+            this.gridColumnPartnerPrice.OptionsColumn.ReadOnly = true;
             this.gridColumnPartnerPrice.Visible = true;
             this.gridColumnPartnerPrice.VisibleIndex = 6;
             this.gridColumnPartnerPrice.Width = 120;
@@ -462,6 +477,8 @@
             this.gridColumnSales.FieldName = "StaffID";
             this.gridColumnSales.MinWidth = 120;
             this.gridColumnSales.Name = "gridColumnSales";
+            this.gridColumnSales.OptionsColumn.AllowEdit = false;
+            this.gridColumnSales.OptionsColumn.ReadOnly = true;
             this.gridColumnSales.Visible = true;
             this.gridColumnSales.VisibleIndex = 7;
             this.gridColumnSales.Width = 120;
@@ -501,6 +518,8 @@
             this.gridColumnStartDate.MaxWidth = 120;
             this.gridColumnStartDate.MinWidth = 120;
             this.gridColumnStartDate.Name = "gridColumnStartDate";
+            this.gridColumnStartDate.OptionsColumn.AllowEdit = false;
+            this.gridColumnStartDate.OptionsColumn.ReadOnly = true;
             this.gridColumnStartDate.Visible = true;
             this.gridColumnStartDate.VisibleIndex = 9;
             this.gridColumnStartDate.Width = 120;
@@ -522,6 +541,8 @@
             this.gridColumnPriceReceive.MaxWidth = 120;
             this.gridColumnPriceReceive.MinWidth = 120;
             this.gridColumnPriceReceive.Name = "gridColumnPriceReceive";
+            this.gridColumnPriceReceive.OptionsColumn.AllowEdit = false;
+            this.gridColumnPriceReceive.OptionsColumn.ReadOnly = true;
             this.gridColumnPriceReceive.Visible = true;
             this.gridColumnPriceReceive.VisibleIndex = 10;
             this.gridColumnPriceReceive.Width = 120;
@@ -543,6 +564,8 @@
             this.gridColumnPriceSale.MaxWidth = 120;
             this.gridColumnPriceSale.MinWidth = 120;
             this.gridColumnPriceSale.Name = "gridColumnPriceSale";
+            this.gridColumnPriceSale.OptionsColumn.AllowEdit = false;
+            this.gridColumnPriceSale.OptionsColumn.ReadOnly = true;
             this.gridColumnPriceSale.Visible = true;
             this.gridColumnPriceSale.VisibleIndex = 11;
             this.gridColumnPriceSale.Width = 120;
@@ -564,6 +587,8 @@
             this.gridColumnPriceVTQ.MaxWidth = 120;
             this.gridColumnPriceVTQ.MinWidth = 120;
             this.gridColumnPriceVTQ.Name = "gridColumnPriceVTQ";
+            this.gridColumnPriceVTQ.OptionsColumn.AllowEdit = false;
+            this.gridColumnPriceVTQ.OptionsColumn.ReadOnly = true;
             this.gridColumnPriceVTQ.Visible = true;
             this.gridColumnPriceVTQ.VisibleIndex = 12;
             this.gridColumnPriceVTQ.Width = 120;
@@ -585,6 +610,8 @@
             this.gridColumnPromotionMoney.MaxWidth = 120;
             this.gridColumnPromotionMoney.MinWidth = 120;
             this.gridColumnPromotionMoney.Name = "gridColumnPromotionMoney";
+            this.gridColumnPromotionMoney.OptionsColumn.AllowEdit = false;
+            this.gridColumnPromotionMoney.OptionsColumn.ReadOnly = true;
             this.gridColumnPromotionMoney.Visible = true;
             this.gridColumnPromotionMoney.VisibleIndex = 13;
             this.gridColumnPromotionMoney.Width = 120;
@@ -606,6 +633,8 @@
             this.gridColumnTotal.MaxWidth = 120;
             this.gridColumnTotal.MinWidth = 120;
             this.gridColumnTotal.Name = "gridColumnTotal";
+            this.gridColumnTotal.OptionsColumn.AllowEdit = false;
+            this.gridColumnTotal.OptionsColumn.ReadOnly = true;
             this.gridColumnTotal.Visible = true;
             this.gridColumnTotal.VisibleIndex = 14;
             this.gridColumnTotal.Width = 120;
@@ -621,16 +650,20 @@
             this.gridColumnPayment.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnPayment.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnPayment.Caption = "Đã thanh toán";
-            this.gridColumnPayment.ColumnEdit = this.repositoryItemCheckEdit1;
+            this.gridColumnPayment.ColumnEdit = this.repositoryItemCheckEditPayment;
             this.gridColumnPayment.FieldName = "IsPayment";
             this.gridColumnPayment.MaxWidth = 120;
             this.gridColumnPayment.MinWidth = 120;
             this.gridColumnPayment.Name = "gridColumnPayment";
-            this.gridColumnPayment.OptionsColumn.AllowEdit = false;
             this.gridColumnPayment.OptionsColumn.ReadOnly = true;
             this.gridColumnPayment.Visible = true;
             this.gridColumnPayment.VisibleIndex = 15;
             this.gridColumnPayment.Width = 120;
+            // 
+            // repositoryItemCheckEditPayment
+            // 
+            this.repositoryItemCheckEditPayment.AutoHeight = false;
+            this.repositoryItemCheckEditPayment.Name = "repositoryItemCheckEditPayment";
             // 
             // gridColumnDateCreate
             // 
@@ -642,7 +675,7 @@
             this.gridColumnDateCreate.AppearanceHeader.Options.UseFont = true;
             this.gridColumnDateCreate.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnDateCreate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumnDateCreate.Caption = "Ngày tạo";
+            this.gridColumnDateCreate.Caption = "Ngày book";
             this.gridColumnDateCreate.DisplayFormat.FormatString = "dd-MM-yyyy";
             this.gridColumnDateCreate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.gridColumnDateCreate.FieldName = "DateCreate";
@@ -652,7 +685,7 @@
             this.gridColumnDateCreate.OptionsColumn.AllowEdit = false;
             this.gridColumnDateCreate.OptionsColumn.ReadOnly = true;
             this.gridColumnDateCreate.Visible = true;
-            this.gridColumnDateCreate.VisibleIndex = 16;
+            this.gridColumnDateCreate.VisibleIndex = 17;
             this.gridColumnDateCreate.Width = 120;
             // 
             // gridColumnEdit
@@ -671,8 +704,18 @@
             this.gridColumnEdit.OptionsFilter.AllowAutoFilter = false;
             this.gridColumnEdit.OptionsFilter.AllowFilter = false;
             this.gridColumnEdit.Visible = true;
-            this.gridColumnEdit.VisibleIndex = 17;
+            this.gridColumnEdit.VisibleIndex = 18;
             this.gridColumnEdit.Width = 60;
+            // 
+            // btnClickViews2
+            // 
+            this.btnClickViews2.AutoHeight = false;
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            this.btnClickViews2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions2, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
+            this.btnClickViews2.Name = "btnClickViews2";
+            this.btnClickViews2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnClickViews2.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnClickViews2_ButtonClick);
             // 
             // btnExportExcel
             // 
@@ -732,15 +775,26 @@
             this.txtFindPartner.TabIndex = 15;
             this.txtFindPartner.TextChanged += new System.EventHandler(this.txtFindPartner_TextChanged);
             // 
-            // btnClickViews2
+            // gridColumnDatePayment
             // 
-            this.btnClickViews2.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
-            this.btnClickViews2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions2, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
-            this.btnClickViews2.Name = "btnClickViews2";
-            this.btnClickViews2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.btnClickViews2.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnClickViews2_ButtonClick);
+            this.gridColumnDatePayment.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnDatePayment.AppearanceCell.Options.UseFont = true;
+            this.gridColumnDatePayment.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnDatePayment.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnDatePayment.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnDatePayment.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnDatePayment.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnDatePayment.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnDatePayment.Caption = "Ngày thanh toán";
+            this.gridColumnDatePayment.DisplayFormat.FormatString = "dd-MM-yyyy";
+            this.gridColumnDatePayment.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumnDatePayment.FieldName = "DatePayment";
+            this.gridColumnDatePayment.MaxWidth = 120;
+            this.gridColumnDatePayment.MinWidth = 120;
+            this.gridColumnDatePayment.Name = "gridColumnDatePayment";
+            this.gridColumnDatePayment.Visible = true;
+            this.gridColumnDatePayment.VisibleIndex = 16;
+            this.gridColumnDatePayment.Width = 120;
             // 
             // UCReportCongNo
             // 
@@ -765,14 +819,15 @@
             this.Size = new System.Drawing.Size(2570, 513);
             this.Load += new System.EventHandler(this.UCGroupTour_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btnClickViews)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkIsPayMent)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFindPartner.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEditPayment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClickViews2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFindPartner.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -822,7 +877,9 @@
         private DevExpress.XtraEditors.TextEdit txtFindPartner;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnPayment;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnClickViews;
-        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit checkIsPayMent;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnClickViews2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEditPayment;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnDatePayment;
     }
 }

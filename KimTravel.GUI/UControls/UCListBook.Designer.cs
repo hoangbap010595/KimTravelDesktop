@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions6 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCListBook));
             this.label6 = new System.Windows.Forms.Label();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
-            this.cbbTourID = new System.Windows.Forms.ComboBox();
             this.cbbGroupTourID = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -67,11 +66,18 @@
             this.gridColumnTotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnExportExcel = new DevExpress.XtraEditors.SimpleButton();
             this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
+            this.gridControlTour = new DevExpress.XtraGrid.GridControl();
+            this.gridViewTour = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnPax = new DevExpress.XtraGrid.Columns.GridColumn();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClickViews)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlTour)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewTour)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
@@ -79,7 +85,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label6.Location = new System.Drawing.Point(378, 5);
+            this.label6.Location = new System.Drawing.Point(3, 6);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 17);
             this.label6.TabIndex = 0;
@@ -89,33 +95,22 @@
             // 
             this.dtpStartDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpStartDate.CustomFormat = "dd-MM-yyyy";
-            this.dtpStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStartDate.Location = new System.Drawing.Point(381, 25);
+            this.dtpStartDate.Location = new System.Drawing.Point(6, 26);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(133, 23);
+            this.dtpStartDate.Size = new System.Drawing.Size(169, 26);
             this.dtpStartDate.TabIndex = 3;
-            // 
-            // cbbTourID
-            // 
-            this.cbbTourID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbTourID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbTourID.FormattingEnabled = true;
-            this.cbbTourID.ItemHeight = 16;
-            this.cbbTourID.Location = new System.Drawing.Point(193, 25);
-            this.cbbTourID.Name = "cbbTourID";
-            this.cbbTourID.Size = new System.Drawing.Size(164, 24);
-            this.cbbTourID.TabIndex = 2;
             // 
             // cbbGroupTourID
             // 
             this.cbbGroupTourID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbGroupTourID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbGroupTourID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbGroupTourID.FormattingEnabled = true;
-            this.cbbGroupTourID.ItemHeight = 16;
-            this.cbbGroupTourID.Location = new System.Drawing.Point(13, 25);
+            this.cbbGroupTourID.ItemHeight = 20;
+            this.cbbGroupTourID.Location = new System.Drawing.Point(6, 76);
             this.cbbGroupTourID.Name = "cbbGroupTourID";
-            this.cbbGroupTourID.Size = new System.Drawing.Size(164, 24);
+            this.cbbGroupTourID.Size = new System.Drawing.Size(270, 28);
             this.cbbGroupTourID.TabIndex = 1;
             this.cbbGroupTourID.SelectedIndexChanged += new System.EventHandler(this.cbbGroupTourID_SelectedIndexChanged);
             // 
@@ -124,7 +119,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(10, 5);
+            this.label1.Location = new System.Drawing.Point(3, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 17);
             this.label1.TabIndex = 0;
@@ -135,7 +130,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(190, 5);
+            this.label2.Location = new System.Drawing.Point(3, 106);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 17);
             this.label2.TabIndex = 0;
@@ -146,7 +141,7 @@
             this.rdBinhThuong.AutoSize = true;
             this.rdBinhThuong.Checked = true;
             this.rdBinhThuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdBinhThuong.Location = new System.Drawing.Point(8, 18);
+            this.rdBinhThuong.Location = new System.Drawing.Point(39, 18);
             this.rdBinhThuong.Name = "rdBinhThuong";
             this.rdBinhThuong.Size = new System.Drawing.Size(102, 21);
             this.rdBinhThuong.TabIndex = 6;
@@ -158,7 +153,7 @@
             // 
             this.rdDaHuy.AutoSize = true;
             this.rdDaHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdDaHuy.Location = new System.Drawing.Point(130, 17);
+            this.rdDaHuy.Location = new System.Drawing.Point(161, 17);
             this.rdDaHuy.Name = "rdDaHuy";
             this.rdDaHuy.Size = new System.Drawing.Size(71, 21);
             this.rdDaHuy.TabIndex = 6;
@@ -189,11 +184,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.rdBinhThuong);
             this.groupBox1.Controls.Add(this.rdDaHuy);
-            this.groupBox1.Location = new System.Drawing.Point(530, 5);
+            this.groupBox1.Location = new System.Drawing.Point(6, 464);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(218, 45);
+            this.groupBox1.Size = new System.Drawing.Size(270, 45);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tình trạng";
@@ -203,12 +199,12 @@
             this.gridControlData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControlData.Location = new System.Drawing.Point(3, 56);
+            this.gridControlData.Location = new System.Drawing.Point(282, 3);
             this.gridControlData.MainView = this.gridViewData;
             this.gridControlData.Name = "gridControlData";
             this.gridControlData.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnClickViews});
-            this.gridControlData.Size = new System.Drawing.Size(2238, 454);
+            this.gridControlData.Size = new System.Drawing.Size(519, 594);
             this.gridControlData.TabIndex = 10;
             this.gridControlData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewData});
@@ -240,7 +236,6 @@
             this.gridViewData.IndicatorWidth = 35;
             this.gridViewData.Name = "gridViewData";
             this.gridViewData.OptionsCustomization.AllowColumnMoving = false;
-            this.gridViewData.OptionsView.ColumnAutoWidth = false;
             this.gridViewData.OptionsView.ShowAutoFilterRow = true;
             this.gridViewData.OptionsView.ShowGroupPanel = false;
             this.gridViewData.RowHeight = 25;
@@ -571,9 +566,9 @@
             // btnClickViews
             // 
             this.btnClickViews.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions6.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions6.Image")));
             this.btnClickViews.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions1, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
+            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions6, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
             this.btnClickViews.Name = "btnClickViews";
             this.btnClickViews.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnClickViews.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnClickViews_ButtonClick);
@@ -601,44 +596,120 @@
             // 
             // btnExportExcel
             // 
+            this.btnExportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnExportExcel.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnExportExcel.Appearance.Options.UseFont = true;
             this.btnExportExcel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.ImageOptions.Image")));
-            this.btnExportExcel.Location = new System.Drawing.Point(874, 16);
+            this.btnExportExcel.Location = new System.Drawing.Point(140, 519);
             this.btnExportExcel.Name = "btnExportExcel";
-            this.btnExportExcel.Size = new System.Drawing.Size(114, 32);
+            this.btnExportExcel.Size = new System.Drawing.Size(136, 32);
             this.btnExportExcel.TabIndex = 6;
             this.btnExportExcel.Text = "Xuất Excel";
             this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
             // btnTimKiem
             // 
+            this.btnTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnTimKiem.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnTimKiem.Appearance.Options.UseFont = true;
             this.btnTimKiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.ImageOptions.Image")));
-            this.btnTimKiem.Location = new System.Drawing.Point(754, 16);
+            this.btnTimKiem.Location = new System.Drawing.Point(6, 519);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(114, 32);
+            this.btnTimKiem.Size = new System.Drawing.Size(128, 32);
             this.btnTimKiem.TabIndex = 5;
-            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.Text = "Lọc dữ liệu";
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
+            // gridControlTour
+            // 
+            this.gridControlTour.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.gridControlTour.Location = new System.Drawing.Point(3, 126);
+            this.gridControlTour.MainView = this.gridViewTour;
+            this.gridControlTour.Name = "gridControlTour";
+            this.gridControlTour.Size = new System.Drawing.Size(273, 332);
+            this.gridControlTour.TabIndex = 14;
+            this.gridControlTour.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewTour});
+            // 
+            // gridViewTour
+            // 
+            this.gridViewTour.ColumnPanelRowHeight = 35;
+            this.gridViewTour.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.gridColumn2,
+            this.gridColumnPax});
+            this.gridViewTour.GridControl = this.gridControlTour;
+            this.gridViewTour.IndicatorWidth = 35;
+            this.gridViewTour.Name = "gridViewTour";
+            this.gridViewTour.OptionsCustomization.AllowColumnMoving = false;
+            this.gridViewTour.OptionsView.ShowGroupPanel = false;
+            this.gridViewTour.OptionsView.ShowIndicator = false;
+            this.gridViewTour.RowHeight = 25;
+            this.gridViewTour.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridViewTour_RowClick);
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "ID";
+            this.gridColumn1.FieldName = "TourID";
+            this.gridColumn1.Name = "gridColumn1";
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumn2.AppearanceCell.Options.UseFont = true;
+            this.gridColumn2.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumn2.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn2.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn2.Caption = "Tour";
+            this.gridColumn2.FieldName = "TourName";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
+            this.gridColumn2.OptionsColumn.AllowFocus = false;
+            this.gridColumn2.OptionsColumn.ReadOnly = true;
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 0;
+            this.gridColumn2.Width = 83;
+            // 
+            // gridColumnPax
+            // 
+            this.gridColumnPax.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnPax.AppearanceCell.Options.UseFont = true;
+            this.gridColumnPax.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnPax.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPax.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnPax.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnPax.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnPax.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPax.Caption = "Pax";
+            this.gridColumnPax.FieldName = "Pax";
+            this.gridColumnPax.MaxWidth = 50;
+            this.gridColumnPax.MinWidth = 50;
+            this.gridColumnPax.Name = "gridColumnPax";
+            this.gridColumnPax.OptionsColumn.AllowEdit = false;
+            this.gridColumnPax.OptionsColumn.AllowFocus = false;
+            this.gridColumnPax.OptionsColumn.ReadOnly = true;
+            this.gridColumnPax.Visible = true;
+            this.gridColumnPax.VisibleIndex = 1;
+            this.gridColumnPax.Width = 50;
             // 
             // UCListBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.gridControlTour);
             this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.gridControlData);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.cbbTourID);
             this.Controls.Add(this.cbbGroupTourID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dtpStartDate);
             this.Name = "UCListBook";
-            this.Size = new System.Drawing.Size(2244, 513);
+            this.Size = new System.Drawing.Size(804, 600);
             this.Load += new System.EventHandler(this.UCGroupTour_Load);
             this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -646,6 +717,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClickViews)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlTour)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewTour)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -654,7 +727,6 @@
         #endregion
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtpStartDate;
-        private System.Windows.Forms.ComboBox cbbTourID;
         private System.Windows.Forms.ComboBox cbbGroupTourID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -688,5 +760,10 @@
         private DevExpress.XtraEditors.SimpleButton btnExportExcel;
         private DevExpress.XtraEditors.SimpleButton btnTimKiem;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnTotal;
+        private DevExpress.XtraGrid.GridControl gridControlTour;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewTour;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPax;
     }
 }

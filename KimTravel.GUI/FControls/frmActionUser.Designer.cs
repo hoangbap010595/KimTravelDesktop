@@ -28,23 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmActionUser));
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.btnUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.cbbStatus = new System.Windows.Forms.ComboBox();
             this.ckLock = new MaterialSkin.Controls.MaterialCheckBox();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.panelPassword = new System.Windows.Forms.Panel();
+            this.txtConfirmPass = new DevExpress.XtraEditors.TextEdit();
+            this.txtPassword = new DevExpress.XtraEditors.TextEdit();
             this.btnUpdatePass = new System.Windows.Forms.Button();
             this.txtUsername = new DevExpress.XtraEditors.TextEdit();
-            this.txtPassword = new DevExpress.XtraEditors.TextEdit();
-            this.txtConfirmPass = new DevExpress.XtraEditors.TextEdit();
+            this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
             this.panelPassword.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConfirmPass.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // materialLabel1
@@ -54,7 +55,7 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(9, 88);
+            this.materialLabel1.Location = new System.Drawing.Point(9, 25);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(77, 19);
@@ -74,19 +75,6 @@
             this.materialLabel3.Size = new System.Drawing.Size(71, 19);
             this.materialLabel3.TabIndex = 0;
             this.materialLabel3.Text = "Mật khẩu";
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Depth = 0;
-            this.btnUpdate.Location = new System.Drawing.Point(84, 394);
-            this.btnUpdate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Primary = true;
-            this.btnUpdate.Size = new System.Drawing.Size(180, 39);
-            this.btnUpdate.TabIndex = 7;
-            this.btnUpdate.Text = "Cập nhật";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // materialLabel4
             // 
@@ -109,7 +97,7 @@
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel6.Location = new System.Drawing.Point(10, 136);
+            this.materialLabel6.Location = new System.Drawing.Point(10, 73);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
             this.materialLabel6.Size = new System.Drawing.Size(76, 19);
@@ -122,7 +110,7 @@
             this.cbbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbStatus.FormattingEnabled = true;
             this.cbbStatus.ItemHeight = 20;
-            this.cbbStatus.Location = new System.Drawing.Point(120, 132);
+            this.cbbStatus.Location = new System.Drawing.Point(120, 69);
             this.cbbStatus.Name = "cbbStatus";
             this.cbbStatus.Size = new System.Drawing.Size(223, 28);
             this.cbbStatus.TabIndex = 2;
@@ -133,7 +121,7 @@
             this.ckLock.BackColor = System.Drawing.Color.Transparent;
             this.ckLock.Depth = 0;
             this.ckLock.Font = new System.Drawing.Font("Roboto", 10F);
-            this.ckLock.Location = new System.Drawing.Point(120, 180);
+            this.ckLock.Location = new System.Drawing.Point(120, 117);
             this.ckLock.Margin = new System.Windows.Forms.Padding(0);
             this.ckLock.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ckLock.MouseState = MaterialSkin.MouseState.HOVER;
@@ -150,7 +138,7 @@
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel7.Location = new System.Drawing.Point(10, 184);
+            this.materialLabel7.Location = new System.Drawing.Point(10, 121);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
             this.materialLabel7.Size = new System.Drawing.Size(42, 19);
@@ -165,10 +153,30 @@
             this.panelPassword.Controls.Add(this.btnUpdatePass);
             this.panelPassword.Controls.Add(this.materialLabel3);
             this.panelPassword.Controls.Add(this.materialLabel4);
-            this.panelPassword.Location = new System.Drawing.Point(5, 240);
+            this.panelPassword.Location = new System.Drawing.Point(5, 177);
             this.panelPassword.Name = "panelPassword";
             this.panelPassword.Size = new System.Drawing.Size(341, 132);
             this.panelPassword.TabIndex = 9;
+            // 
+            // txtConfirmPass
+            // 
+            this.txtConfirmPass.Location = new System.Drawing.Point(104, 57);
+            this.txtConfirmPass.Name = "txtConfirmPass";
+            this.txtConfirmPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtConfirmPass.Properties.Appearance.Options.UseFont = true;
+            this.txtConfirmPass.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtConfirmPass.Size = new System.Drawing.Size(223, 28);
+            this.txtConfirmPass.TabIndex = 1;
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(104, 16);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtPassword.Properties.Appearance.Options.UseFont = true;
+            this.txtPassword.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtPassword.Size = new System.Drawing.Size(223, 28);
+            this.txtPassword.TabIndex = 1;
             // 
             // btnUpdatePass
             // 
@@ -182,7 +190,7 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(120, 83);
+            this.txtUsername.Location = new System.Drawing.Point(120, 20);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtUsername.Properties.Appearance.Options.UseFont = true;
@@ -190,43 +198,36 @@
             this.txtUsername.Size = new System.Drawing.Size(223, 28);
             this.txtUsername.TabIndex = 1;
             // 
-            // txtPassword
+            // btnTimKiem
             // 
-            this.txtPassword.Location = new System.Drawing.Point(104, 16);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtPassword.Properties.Appearance.Options.UseFont = true;
-            this.txtPassword.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.txtPassword.Size = new System.Drawing.Size(223, 28);
-            this.txtPassword.TabIndex = 1;
-            // 
-            // txtConfirmPass
-            // 
-            this.txtConfirmPass.Location = new System.Drawing.Point(104, 57);
-            this.txtConfirmPass.Name = "txtConfirmPass";
-            this.txtConfirmPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtConfirmPass.Properties.Appearance.Options.UseFont = true;
-            this.txtConfirmPass.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.txtConfirmPass.Size = new System.Drawing.Size(223, 28);
-            this.txtConfirmPass.TabIndex = 1;
+            this.btnTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTimKiem.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnTimKiem.Appearance.Options.UseFont = true;
+            this.btnTimKiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.ImageOptions.Image")));
+            this.btnTimKiem.Location = new System.Drawing.Point(85, 332);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(180, 39);
+            this.btnTimKiem.TabIndex = 10;
+            this.btnTimKiem.Text = "Cập nhật";
+            this.btnTimKiem.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // frmActionUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 455);
+            this.ClientSize = new System.Drawing.Size(350, 383);
+            this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.panelPassword);
             this.Controls.Add(this.ckLock);
             this.Controls.Add(this.materialLabel7);
             this.Controls.Add(this.cbbStatus);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.materialLabel6);
             this.Controls.Add(this.materialLabel1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(350, 455);
+            this.MaximumSize = new System.Drawing.Size(366, 422);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(350, 455);
+            this.MinimumSize = new System.Drawing.Size(366, 422);
             this.Name = "frmActionUser";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -235,9 +236,9 @@
             this.Load += new System.EventHandler(this.frmActionGroupTour_Load);
             this.panelPassword.ResumeLayout(false);
             this.panelPassword.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtConfirmPass.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtUsername.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,7 +247,6 @@
         #endregion
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
-        private MaterialSkin.Controls.MaterialRaisedButton btnUpdate;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private System.Windows.Forms.ComboBox cbbStatus;
@@ -257,5 +257,6 @@
         private DevExpress.XtraEditors.TextEdit txtUsername;
         private DevExpress.XtraEditors.TextEdit txtConfirmPass;
         private DevExpress.XtraEditors.TextEdit txtPassword;
+        private DevExpress.XtraEditors.SimpleButton btnTimKiem;
     }
 }

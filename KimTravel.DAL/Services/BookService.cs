@@ -45,6 +45,13 @@ namespace KimTravel.DAL.Services
 
             return data;
         }
+        /// <summary>
+        /// Báo cáo xem theo đối tác
+        /// </summary>
+        /// <param name="month"></param>
+        /// <param name="year"></param>
+        /// <param name="isBooked"></param>
+        /// <returns></returns>
         public IQueryable GetListBookedDoneReportPartner(int month, int year, bool isBooked = true)
         {
             var test = uService.GetPartnerViewReport(Constant.CurrentSessionUser);
@@ -71,14 +78,21 @@ namespace KimTravel.DAL.Services
 
             return data;
         }
-        public IQueryable GetListBookedNotInCar(int groupID, string dateStart,bool isBooked = false)
+        /// <summary>
+        /// Lấy danh sách đã book chưa được sắp xe
+        /// </summary>
+        /// <param name="groupID"></param>
+        /// <param name="dateStart"></param>
+        /// <param name="isBooked"></param>
+        /// <returns></returns>
+        public IQueryable GetListBookedNotInCar(int groupID, string dateStart,bool isBooked = false,bool isCancel = false)
         {
             var date = DateTime.Parse(dateStart);
             IQueryable data = ((from b in db.Books
                                 join p in db.Partners on b.PartnerID equals p.PartnerID
                                 join t in db.Tours on b.TourID equals t.TourID
                                 join g in db.GroupTours on t.GroupID equals g.GroupID
-                                where b.IsBooked == isBooked && g.GroupID == groupID && b.StartDate == date
+                                where b.IsBooked == isBooked && b.IsCancel == isCancel && g.GroupID == groupID && b.StartDate == date
                                 orderby t.Name
                                 select new
                                 {
@@ -176,6 +190,8 @@ namespace KimTravel.DAL.Services
                            b.Note,
                            b.ServiceType,
                            b.Total,
+                           b.IsPayment,
+                           b.DatePayment,
                            b.ServiceName
                        };
             }
@@ -213,6 +229,8 @@ namespace KimTravel.DAL.Services
                            b.Note,
                            b.ServiceType,
                            b.Total,
+                           b.IsPayment,
+                           b.DatePayment,
                            b.ServiceName
                        };
             }
@@ -255,6 +273,8 @@ namespace KimTravel.DAL.Services
                            b.Note,
                            b.ServiceType,
                            b.Total,
+                           b.IsPayment,
+                           b.DatePayment,
                            b.ServiceName
                        };
             }
@@ -292,6 +312,8 @@ namespace KimTravel.DAL.Services
                            b.Note,
                            b.ServiceType,
                            b.Total,
+                           b.IsPayment,
+                           b.DatePayment,
                            b.ServiceName
                        };
             }

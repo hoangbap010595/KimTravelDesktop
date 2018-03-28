@@ -17,9 +17,8 @@ using System.Windows.Forms;
 
 namespace KimTravel.GUI.FControls
 {
-    public partial class frmImportPartner : MaterialForm
+    public partial class frmImportPartner : XtraForm
     {
-        private MaterialSkinManager mSkin;
         private DataTable dtDataTemp;
         private PartnerService service = new PartnerService();
         public frmImportPartner()
@@ -29,11 +28,6 @@ namespace KimTravel.GUI.FControls
 
         private void frmActionGroupTour_Load(object sender, EventArgs e)
         {
-            mSkin = MaterialSkinManager.Instance;
-            mSkin.AddFormToManage(this);
-            mSkin.Theme = ConfigApp.Themes;
-            mSkin.ColorScheme = new ColorScheme(ConfigApp.Primary, ConfigApp.DarkPrimary, ConfigApp.LightPrimary, ConfigApp.Accent, ConfigApp.TextShade);
-
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

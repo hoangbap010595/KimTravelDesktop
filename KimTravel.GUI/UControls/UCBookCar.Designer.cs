@@ -28,11 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCBookCar));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
+            this.contextMenuStripGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.xoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bôSungThêmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lamMơiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCar1 = new System.Windows.Forms.Button();
             this.btnCar2 = new System.Windows.Forms.Button();
             this.btnCar3 = new System.Windows.Forms.Button();
@@ -85,6 +90,7 @@
             this.colCar9 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colCar10 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
+            this.contextMenuStripGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
             this.SuspendLayout();
@@ -124,6 +130,7 @@
             this.colCar8,
             this.colCar9,
             this.colCar10});
+            this.dataGridViewGroupTour.ContextMenuStrip = this.contextMenuStripGrid;
             this.dataGridViewGroupTour.Location = new System.Drawing.Point(285, 29);
             this.dataGridViewGroupTour.MultiSelect = false;
             this.dataGridViewGroupTour.Name = "dataGridViewGroupTour";
@@ -135,6 +142,39 @@
             this.dataGridViewGroupTour.TabIndex = 0;
             this.dataGridViewGroupTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridViewGroupTour.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroupTour_CellValueChanged);
+            // 
+            // contextMenuStripGrid
+            // 
+            this.contextMenuStripGrid.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xoaToolStripMenuItem,
+            this.bôSungThêmToolStripMenuItem,
+            this.lamMơiToolStripMenuItem});
+            this.contextMenuStripGrid.Name = "contextMenuStripGrid";
+            this.contextMenuStripGrid.Size = new System.Drawing.Size(149, 70);
+            // 
+            // xoaToolStripMenuItem
+            // 
+            this.xoaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("xoaToolStripMenuItem.Image")));
+            this.xoaToolStripMenuItem.Name = "xoaToolStripMenuItem";
+            this.xoaToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.xoaToolStripMenuItem.Text = "Xóa";
+            this.xoaToolStripMenuItem.Click += new System.EventHandler(this.xoaToolStripMenuItem_Click);
+            // 
+            // bôSungThêmToolStripMenuItem
+            // 
+            this.bôSungThêmToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("bôSungThêmToolStripMenuItem.Image")));
+            this.bôSungThêmToolStripMenuItem.Name = "bôSungThêmToolStripMenuItem";
+            this.bôSungThêmToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.bôSungThêmToolStripMenuItem.Text = "Bổ sung thêm";
+            this.bôSungThêmToolStripMenuItem.Click += new System.EventHandler(this.bôSungThêmToolStripMenuItem_Click);
+            // 
+            // lamMơiToolStripMenuItem
+            // 
+            this.lamMơiToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("lamMơiToolStripMenuItem.Image")));
+            this.lamMơiToolStripMenuItem.Name = "lamMơiToolStripMenuItem";
+            this.lamMơiToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.lamMơiToolStripMenuItem.Text = "Sắp xếp lại";
+            this.lamMơiToolStripMenuItem.Click += new System.EventHandler(this.lamMơiToolStripMenuItem_Click);
             // 
             // btnCar1
             // 
@@ -639,7 +679,7 @@
             this.colRoom.HeaderText = "Room";
             this.colRoom.Name = "colRoom";
             this.colRoom.ReadOnly = true;
-            this.colRoom.Width = 50;
+            this.colRoom.Width = 80;
             // 
             // colPartnerPrice
             // 
@@ -786,6 +826,7 @@
             this.Size = new System.Drawing.Size(1333, 513);
             this.Load += new System.EventHandler(this.UCGroupTour_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).EndInit();
+            this.contextMenuStripGrid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).EndInit();
             this.ResumeLayout(false);
@@ -830,6 +871,10 @@
         private System.Windows.Forms.Label lblSelected;
         private DevExpress.XtraEditors.SimpleButton btnTimKiem;
         private DevExpress.XtraEditors.SimpleButton btnBoSungDoiTac;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripGrid;
+        private System.Windows.Forms.ToolStripMenuItem xoaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bôSungThêmToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lamMơiToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPax;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPickUp;

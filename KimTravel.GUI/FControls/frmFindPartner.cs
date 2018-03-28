@@ -1,4 +1,5 @@
-﻿using KimTravel.DAL;
+﻿using DevExpress.XtraEditors;
+using KimTravel.DAL;
 using KimTravel.DAL.Models;
 using KimTravel.DAL.Services;
 using MaterialSkin;
@@ -15,9 +16,8 @@ using System.Windows.Forms;
 
 namespace KimTravel.GUI.FControls
 {
-    public partial class frmFindPartner : MaterialForm
+    public partial class frmFindPartner : XtraForm
     {
-        private MaterialSkinManager mSkin;
         private PartnerService gtService = new PartnerService();
 
         public delegate void LoadData(int pID);
@@ -30,10 +30,6 @@ namespace KimTravel.GUI.FControls
 
         private void frmActionGroupTour_Load(object sender, EventArgs e)
         {
-            mSkin = MaterialSkinManager.Instance;
-            mSkin.AddFormToManage(this);
-            mSkin.Theme = ConfigApp.Themes;
-            mSkin.ColorScheme = new ColorScheme(ConfigApp.Primary, ConfigApp.DarkPrimary, ConfigApp.LightPrimary, ConfigApp.Accent, ConfigApp.TextShade);
             txtPartner.Focus();
             dataGridViewGroupTour.AutoGenerateColumns = false;
             dataGridViewGroupTour.DataSource = gtService.GetList();

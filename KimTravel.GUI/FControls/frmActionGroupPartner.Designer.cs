@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmActionGroupPartner));
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.btnUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.txtGroupPartner = new DevExpress.XtraEditors.TextEdit();
+            this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.txtGroupPartner.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,29 +42,16 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(26, 96);
+            this.materialLabel1.Location = new System.Drawing.Point(26, 36);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(80, 19);
             this.materialLabel1.TabIndex = 0;
             this.materialLabel1.Text = "Tên nhóm:";
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Depth = 0;
-            this.btnUpdate.Location = new System.Drawing.Point(255, 139);
-            this.btnUpdate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Primary = true;
-            this.btnUpdate.Size = new System.Drawing.Size(180, 39);
-            this.btnUpdate.TabIndex = 2;
-            this.btnUpdate.Text = "Cập nhật";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
             // txtGroupPartner
             // 
-            this.txtGroupPartner.Location = new System.Drawing.Point(112, 91);
+            this.txtGroupPartner.Location = new System.Drawing.Point(112, 31);
             this.txtGroupPartner.Name = "txtGroupPartner";
             this.txtGroupPartner.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtGroupPartner.Properties.Appearance.Options.UseFont = true;
@@ -71,18 +59,31 @@
             this.txtGroupPartner.Size = new System.Drawing.Size(323, 28);
             this.txtGroupPartner.TabIndex = 1;
             // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTimKiem.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnTimKiem.Appearance.Options.UseFont = true;
+            this.btnTimKiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.ImageOptions.Image")));
+            this.btnTimKiem.Location = new System.Drawing.Point(262, 75);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(173, 39);
+            this.btnTimKiem.TabIndex = 7;
+            this.btnTimKiem.Text = "Cập nhật";
+            this.btnTimKiem.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // frmActionGroupPartner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 190);
+            this.ClientSize = new System.Drawing.Size(459, 126);
+            this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.txtGroupPartner);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.materialLabel1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(460, 190);
+            this.MaximumSize = new System.Drawing.Size(475, 165);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(460, 190);
+            this.MinimumSize = new System.Drawing.Size(475, 165);
             this.Name = "frmActionGroupPartner";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -97,7 +98,7 @@
 
         #endregion
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialRaisedButton btnUpdate;
         private DevExpress.XtraEditors.TextEdit txtGroupPartner;
+        private DevExpress.XtraEditors.SimpleButton btnTimKiem;
     }
 }

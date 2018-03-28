@@ -66,6 +66,7 @@ namespace KimTravel.DAL.Services
                 if (currObject != null)
                 {
                     currObject.Name = gTour.Name;
+                    currObject.MinPax = gTour.MinPax;
                     currObject.MaxPax = gTour.MaxPax;
                     currObject.Enable = gTour.Enable;
                     currObject.Note = gTour.Note;
