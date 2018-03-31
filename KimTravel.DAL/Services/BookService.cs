@@ -28,7 +28,7 @@ namespace KimTravel.DAL.Services
                                                      join g in db.GroupTours on t.GroupID equals g.GroupID
                                                      where lsPartner.Contains((int)b.PartnerID) && b.IsBooked == isBooked && b.PartnerID == partnerID
                                                            && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
-                                                     orderby b.StartDate
+                                                     orderby p.Address, p.Line
                                                      select new PartnerBookTourModel
                                                      {
                                                          ID = b.ID,
@@ -67,7 +67,7 @@ namespace KimTravel.DAL.Services
                                 join t in db.Tours on b.TourID equals t.TourID
                                 join g in db.GroupTours on t.GroupID equals g.GroupID
                                 where lsPartner.Contains((int)b.PartnerID) && b.IsBooked == isBooked && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
-                                orderby b.StartDate
+                                orderby p.Address, p.Line
                                 select new
                                 {
                                     b.ID,
@@ -85,7 +85,7 @@ namespace KimTravel.DAL.Services
         /// <param name="dateStart"></param>
         /// <param name="isBooked"></param>
         /// <returns></returns>
-        public IQueryable GetListBookedNotInCar(int groupID, string dateStart,bool isBooked = false,bool isCancel = false)
+        public IQueryable GetListBookedNotInCar(int groupID, string dateStart, bool isBooked = false, bool isCancel = false)
         {
             var date = DateTime.Parse(dateStart);
             IQueryable data = ((from b in db.Books
@@ -93,7 +93,7 @@ namespace KimTravel.DAL.Services
                                 join t in db.Tours on b.TourID equals t.TourID
                                 join g in db.GroupTours on t.GroupID equals g.GroupID
                                 where b.IsBooked == isBooked && b.IsCancel == isCancel && g.GroupID == groupID && b.StartDate == date
-                                orderby t.Name
+                                orderby p.Address, p.Line
                                 select new
                                 {
                                     TourID = t.TourID,
@@ -245,7 +245,7 @@ namespace KimTravel.DAL.Services
                        join p in db.Partners on b.PartnerID equals p.PartnerID
                        join t in db.Tours on b.TourID equals t.TourID
                        join g in db.GroupTours on t.GroupID equals g.GroupID
-                       where b.IsBooked == isBooked  && g.GroupID == groupID
+                       where b.IsBooked == isBooked && g.GroupID == groupID
                              && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
                        orderby b.StartDate
                        select new
@@ -326,7 +326,7 @@ namespace KimTravel.DAL.Services
                               join g in db.GroupTours on t.GroupID equals g.GroupID
                               from p in db.Partners.Where(x => x.PartnerID == b.PartnerID)
                               where b.IsCancel == isCancel && b.IsBooked != true
-                              orderby b.StartDate
+                              orderby b.StartDate, p.Address, p.Line
                               select new
                               {
                                   b.ID,
@@ -369,7 +369,7 @@ namespace KimTravel.DAL.Services
                               where b.PartnerID == partnerID && b.StartDate.Value == date
                                     && b.IsCancel == isCancel
                                     && b.IsBooked != true
-                              orderby b.StartDate
+                              orderby p.Address, p.Line
                               select new
                               {
                                   b.ID,
@@ -379,7 +379,8 @@ namespace KimTravel.DAL.Services
                                   b.Room,
                                   b.Pax,
                                   PartnerName = p.Name,
-                                  SaleBook = b.StaffID
+                                  SaleBook = b.StaffID,
+                                  b.ServiceName
                               };
 
             return data;
@@ -394,7 +395,7 @@ namespace KimTravel.DAL.Services
                                     && b.StartDate.Value == date
                                     && b.IsCancel == isCancel
                                     && b.IsBooked != true
-                              orderby b.StartDate
+                              orderby p.Address, p.Line
                               select new
                               {
                                   b.ID,

@@ -49,7 +49,6 @@ namespace KimTravel.GUI.UControls
             cbbPartnerID.ValueMember = "PartnerID";
             cbbPartnerID.DisplayMember = "Address";
 
-            dtpTourBookedForPartner.AutoGenerateColumns = false;
         }
 
         private void cbbGroupTourID_SelectedIndexChanged(object sender, EventArgs e)
@@ -84,13 +83,12 @@ namespace KimTravel.GUI.UControls
                 string date1 = dtpStartDate.Value.ToString("yyyy-MM-dd");
                 Tour tour = tService.GetByID(id);
                 txtPriceSa.Text = tour.PriceSale.ToString();
-                txtPriceVTQ.Text = tour.PriceVTQ.ToString();
 
                 Dictionary<string, object> dataObject = bService.getInfoBooked(gID, id, date1);
                 int C1 = int.Parse(dataObject["CurrentTotal"].ToString());
 
                 string msg = "Đã book: " + C1;
-                lblMsgPax.Text = msg;
+                //lblMsgPax.Text = msg;
 
                 txtPriceRe.Text = priceService.GetPriceForPartner(partnerID, id);
             }
@@ -113,13 +111,13 @@ namespace KimTravel.GUI.UControls
                 book.CustomName = "";
                 book.Room = txtRoom.Text;
                 Partner p = pnService.GetByID(int.Parse(cbbPartnerID.SelectedValue.ToString()));
-                book.PickUp = txtPickUp.Text.Trim() == "" ? p.Line  + " "+ p.Address : txtPickUp.Text;
+                book.PickUp = txtPickUp.Text.Trim() == "" ? p.Line + " " + p.Address : txtPickUp.Text;
 
                 //Service
                 book.PartnerPrice = int.Parse(txtPartnerPrice.Text == "" ? "0" : txtPartnerPrice.Text);
                 book.PriceReceive = int.Parse(txtPriceRe.Text == "" ? "0" : txtPriceRe.Text);
                 book.PriceSale = int.Parse(txtPriceSa.Text == "" ? "0" : txtPriceSa.Text);
-                book.PriceVTQ = int.Parse(txtPriceVTQ.Text == "" ? "0" : txtPriceVTQ.Text);
+                //book.PriceVTQ = 0;
                 book.Note = txtNote.Text;
 
                 book.ServiceType = getJsonServiceType();
@@ -133,20 +131,32 @@ namespace KimTravel.GUI.UControls
                 book.IsBooked = false;
                 book.IsPayment = false;
                 if (book.StaffID == "" || book.StaffID == null) { XtraMessageBox.Show("Tên NV book không thể để trống!"); return; }
-                var rs = bService.Insert(book);
-                if (rs)
+                Tour t = tService.GetByID((int)book.TourID);
+                string msg = "Xác nhận thông tin book tour:";
+                msg += "\n\tNgày đi     :\t" + book.StartDate.Value.ToString("dd-MM-yyyy");
+                msg += "\n\tSố lượng   :\t" + book.Pax;
+                msg += "\n\tTour          :\t" + t.Name;
+                msg += "\n\tDịch vụ      :\t" + book.ServiceName;
+                msg += "\n\tĐối tác      :\t" + p.Name;
+                msg += "\n\tGhi chú      :\t" + book.Note;
+                msg += "\n\tNV Book     :\t" + book.StaffID;
+                if (DialogResult.OK == XtraMessageBox.Show(msg, "Xác nhận", MessageBoxButtons.OKCancel))
                 {
-                    XtraMessageBox.Show("Book tour thành công!");
-                    txtNote.Text = txtRoom.Text = txtSaleBook.Text = txtPickUp.Text = txtPartnerPrice.Text = "";
-                    numPax.Value = 2;
-                    cbbPartnerID_SelectedValueChanged(sender, e);
-                    tableService.Rows.Clear();
-                    dataGridViewGroupTour.DataSource = tableService;
-                }else
-                {
-                    XtraMessageBox.Show("Các điều kiện không hợp lệ!. Book tour thất bại.");
+                    var rs = bService.Insert(book);
+                    if (rs)
+                    {
+                        XtraMessageBox.Show("Book tour thành công!");
+                        txtNote.Text = txtRoom.Text = txtSaleBook.Text = txtPickUp.Text = txtPartnerPrice.Text = "";
+                        numPax.Value = 2;
+                        cbbPartnerID_SelectedValueChanged(sender, e);
+                        tableService.Rows.Clear();
+                        dataGridViewGroupTour.DataSource = tableService;
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Các điều kiện không hợp lệ!. Book tour thất bại.");
+                    }
                 }
-              
             }
             catch (Exception ex)
             {
@@ -194,7 +204,7 @@ namespace KimTravel.GUI.UControls
 
                 tableService.Rows.Add(dr);
             }
-           
+
             tableService.AcceptChanges();
             dataGridViewGroupTour.DataSource = tableService;
             lblMoney.Text = "Total:" + String.Format("{0:#,###}", getTotalPriceService());
@@ -232,9 +242,8 @@ namespace KimTravel.GUI.UControls
                 int partnerID = int.Parse(cbbPartnerID.SelectedValue.ToString());
                 int tourID = int.Parse(cbbTourID.SelectedValue.ToString());
 
-                dtpTourBookedForPartner.DataSource = bService.GetList(partnerID, date);
-                dtpTourBookedForPartner.Update();
-                dtpTourBookedForPartner.Refresh();
+                gridControlData.DataSource = bService.GetList(partnerID, date);
+
                 txtPriceRe.Text = priceService.GetPriceForPartner(partnerID, tourID);
             }
             catch { }
@@ -249,27 +258,27 @@ namespace KimTravel.GUI.UControls
         {
             try
             {
-                int priceSale = int.Parse(txtPriceSa.Text == "" ? "0" : txtPriceSa.Text);
-                int priceRe = int.Parse(txtPriceRe.Text == "" ? "0" : txtPriceRe.Text);
-                int priceVTQ = int.Parse(txtPriceVTQ.Text == "" ? "0" : txtPriceVTQ.Text);
-                int pricePartner = int.Parse(txtPartnerPrice.Text == "" ? "0" : txtPartnerPrice.Text);
-                int priceService = getTotalPriceService();
-                int moneySale = 0;
+                float priceSale = float.Parse(txtPriceSa.Text == "" ? "0" : txtPriceSa.Text);
+                float priceRe = float.Parse(txtPriceRe.Text == "" ? "0" : txtPriceRe.Text);
+                float pricePartner = float.Parse(txtPartnerPrice.Text == "" ? "0" : txtPartnerPrice.Text);
+                float priceService = getTotalPriceService();
+                float moneySale = 0;
                 if (txtPromotionMoney.Text != "")
                 {
-                    moneySale = int.Parse(txtPromotionMoney.Text);
+                    moneySale = float.Parse(txtPromotionMoney.Text);
                 }
 
-                float pax = float.Parse(numPax.Value.ToString());
+                float priceTotal = priceRe + priceService;
+                double paxTotal = double.Parse(numPax.Value.ToString()) * priceTotal;
 
-                var total = ((priceRe + priceVTQ + priceService) * pax) - moneySale;
+                double total = paxTotal - moneySale;
 
                 lblTotalBook.Text = total.ToString();
                 lblFGiaBan.Text = String.Format("{0:#,###}", priceSale);
                 lblFGiaNhan.Text = String.Format("{0:#,###}", priceRe);
-                lblFGiaVTQ.Text = String.Format("{0:#,###}", priceVTQ);
                 lblFThuHo.Text = String.Format("{0:#,###}", pricePartner);
                 lblMoney.Text = String.Format("{0:#,###}", priceService);
+                lblMsgTotal.Text = String.Format("{0:#,###}", total);
             }
             catch
             {
@@ -303,6 +312,41 @@ namespace KimTravel.GUI.UControls
             frmActionPartner frm = new frmActionPartner();
             frm.loadData = new frmActionPartner.LoadData(loadDataPartner);
             frm.ShowDialog();
+        }
+
+        private void loadDataGroup()
+        {
+            string date = dtpStartDate.Value.ToString("yyyy-MM-dd");
+            int partnerID = int.Parse(cbbPartnerID.SelectedValue.ToString());
+            gridControlData.DataSource = bService.GetList(partnerID, date);
+        }
+        private void btnClickEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            try
+            {
+                int id = int.Parse(gridViewData.GetFocusedRowCellValue("ID").ToString());
+                frmDetailsTour frm = new frmDetailsTour(1, id);
+                frm.loadData = new frmDetailsTour.LoadData(loadDataGroup);
+                frm.ShowDialog();
+            }
+            catch { }
+        }
+
+        private void btnClickDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (DialogResult.OK == XtraMessageBox.Show("Bạn chắc chắn muốn xóa tour ra khỏi danh sách ?", "Xác nhận", MessageBoxButtons.OKCancel))
+            {
+                try
+                {
+                    int id = int.Parse(gridViewData.GetFocusedRowCellValue("ID").ToString());
+                    bService.Delete(id);
+                    loadDataGroup();
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }

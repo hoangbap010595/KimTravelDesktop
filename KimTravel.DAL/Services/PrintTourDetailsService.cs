@@ -14,10 +14,10 @@ namespace KimTravel.DAL.Services
         public IQueryable GetList(int parentID)
         {
             var data = from d in db.DetailPrintTours
-                           //join p in db.PrintTours on d.PrintID equals p.ID
                        join b in db.Books on d.BookID equals b.ID
+                       join p in db.Partners on b.PartnerID equals p.PartnerID
                        where d.PrintID == parentID
-                       //orderby t.Name
+                       orderby p.Address, p.Line
                        select new
                        {
                            DetailID = d.ID,

@@ -54,6 +54,7 @@ namespace KimTravel.GUI.FControls
             {
                 txtPartnerCode.Text = _objectData.PartnerCode;
                 txtName.Text = _objectData.Name;
+                txtSoNha.Text = _objectData.Line;
                 txtAddress.Text = _objectData.Address;
                 txtPhone.Text = _objectData.Phone;
                 txtNote.Text = _objectData.Note;

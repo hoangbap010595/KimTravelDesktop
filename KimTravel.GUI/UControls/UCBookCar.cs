@@ -25,7 +25,7 @@ namespace KimTravel.GUI.UControls
         private List<DataTable> listTablePick;
         private DataTable _tableTemp = new DataTable();
         private int _TourID = 0;
-        private int _Selected = 0;
+        private float _Selected = 0;
         private int _indexTourSelected = 0;
         public UCBookCar()
         {
@@ -109,7 +109,7 @@ namespace KimTravel.GUI.UControls
                     }
                     float pax = float.Parse(senderGrid.Rows[e.RowIndex].Cells["colPax"].Value.ToString());
                     getTotalInCar(senderGrid.Columns[e.ColumnIndex].Name, pax);
-                    _Selected -= 1;
+                    _Selected -= pax;
                     listTablePick[_indexTourSelected].Rows[e.RowIndex][e.ColumnIndex] = true;
                 }
                 else
@@ -121,7 +121,7 @@ namespace KimTravel.GUI.UControls
                     }
                     float pax = float.Parse(senderGrid.Rows[e.RowIndex].Cells["colPax"].Value.ToString());
                     getTotalInCar(senderGrid.Columns[e.ColumnIndex].Name, -pax);
-                    _Selected += 1;
+                    _Selected += pax;
                     listTablePick[_indexTourSelected].Rows[e.RowIndex][e.ColumnIndex] = false;
                 }
                 lblSelected.Text = _Selected.ToString();
@@ -251,8 +251,9 @@ namespace KimTravel.GUI.UControls
                 listTablePick[i] = table;
             }
             dataGridViewGroupTour.DataSource = listTablePick[_indexTourSelected];
-            _Selected = listTablePick[_indexTourSelected].Rows.Count;
-            lblSelected.Text = listTablePick[_indexTourSelected].Rows.Count.ToString();
+            dataGridViewGroupTour_DataBindingComplete();
+            //_Selected = listTablePick[_indexTourSelected].Rows.Count;
+            //lblSelected.Text = listTablePick[_indexTourSelected].Rows.Count.ToString();
         }
 
         private void rdCar05_CheckedChanged(object sender, EventArgs e)
@@ -323,7 +324,6 @@ namespace KimTravel.GUI.UControls
             dataGridViewGroupTour.Update();
             dataGridViewGroupTour.Refresh();
             listControl[numCar - 1].Text = "0";
-
         }
         #region ====Car
         private void btnCar1_Click(object sender, EventArgs e)
@@ -429,13 +429,14 @@ namespace KimTravel.GUI.UControls
         private void dataGridViewGroupTour_DataBindingComplete()
         {
             setLabelCar();
-            int total = 0;
+            float total = 0;
             foreach (DataGridViewRow row in dataGridViewGroupTour.Rows)
             {
+                float pax = float.Parse(row.Cells["colPax"].Value.ToString());
                 bool check = false;
                 for (int i = 6; i < dataGridViewGroupTour.Columns.Count; i++)
                 {
-                    float pax = float.Parse(row.Cells["colPax"].Value.ToString());
+
                     bool colCar = bool.Parse(row.Cells[i].Value.ToString());
                     if (colCar)
                     {
@@ -456,7 +457,7 @@ namespace KimTravel.GUI.UControls
                         row.Cells[i].ReadOnly = false;
                     }
 
-                    total++;
+                    total += pax;
                 }
             }
             _Selected = total;

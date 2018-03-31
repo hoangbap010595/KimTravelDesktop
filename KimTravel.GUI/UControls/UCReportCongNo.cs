@@ -148,7 +148,7 @@ namespace KimTravel.GUI.UControls
 
         private void btnXuatBaoCao_Click(object sender, EventArgs e)
         {
-            var tID = int.Parse(cbbPartnerID.SelectedValue.ToString());
+            var partnerID = int.Parse(cbbPartnerID.SelectedValue.ToString());
             var groupID = int.Parse(cbbGroupTour.SelectedValue.ToString());
             var month = int.Parse(cbbMonth.SelectedValue.ToString());
             var year = int.Parse(cbbYear.SelectedValue.ToString());
@@ -159,7 +159,7 @@ namespace KimTravel.GUI.UControls
                 isPayment = null;
             }
 
-            xtraRPBaoCaoCongNo rp = new xtraRPBaoCaoCongNo(tID, groupID, month, year, isPayment);
+            xtraRPBaoCaoCongNo rp = new xtraRPBaoCaoCongNo(partnerID, groupID, month, year, isPayment);
             rp.ShowPreview();
         }
 

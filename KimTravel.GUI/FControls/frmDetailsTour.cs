@@ -73,7 +73,6 @@ namespace KimTravel.GUI.FControls
 
             txtPriceRe.Text = _objectBook.PriceReceive.ToString();
             txtPriceSa.Text = _objectBook.PriceSale.ToString();
-            txtPriceVTQ.Text = _objectBook.PriceVTQ.ToString();
             txtPartnerPrice.Text = _objectBook.PartnerPrice.ToString();
             txtNote.Text = _objectBook.Note;
 
@@ -93,13 +92,12 @@ namespace KimTravel.GUI.FControls
                 string date1 = dtpStartDate.Value.ToString("yyyy-MM-dd");
                 Tour tour = tService.GetByID(id);
                 txtPriceSa.Text = tour.PriceSale.ToString();
-                txtPriceVTQ.Text = tour.PriceVTQ.ToString();
 
                 Dictionary<string, object> dataObject = bookService.getInfoBooked(gID, id, date1);
                 int C1 = int.Parse(dataObject["CurrentTotal"].ToString());
 
                 string msg = "Đã book: " + C1;
-                lblMsgPax.Text = msg;
+                //lblMsgPax.Text = msg;
 
                 txtPriceRe.Text = priceService.GetPriceForPartner(partnerID, id);
             }
@@ -138,7 +136,7 @@ namespace KimTravel.GUI.FControls
                 book.PartnerPrice = int.Parse(txtPartnerPrice.Text == "" ? "0" : txtPartnerPrice.Text);
                 book.PriceReceive = int.Parse(txtPriceRe.Text == "" ? "0" : txtPriceRe.Text);
                 book.PriceSale = int.Parse(txtPriceSa.Text == "" ? "0" : txtPriceSa.Text);
-                book.PriceVTQ = int.Parse(txtPriceVTQ.Text == "" ? "0" : txtPriceVTQ.Text);
+                //book.PriceVTQ = 0;
                 book.Note = txtNote.Text;
 
                 book.ServiceType = getJsonServiceType();
@@ -301,7 +299,6 @@ namespace KimTravel.GUI.FControls
         private void payment()
         {
             int priceRe = int.Parse(txtPriceRe.Text == "" ? "0" : txtPriceRe.Text);
-            int priceVTQ = int.Parse(txtPriceVTQ.Text == "" ? "0" : txtPriceVTQ.Text);
             int priceService = getTotalPriceService();
             int moneySale = 0;
             if (txtPromotionPrice.Text != "")
@@ -309,9 +306,10 @@ namespace KimTravel.GUI.FControls
                 moneySale = int.Parse(txtPromotionPrice.Text);
             }
 
-            float pax = float.Parse(numPax.Value.ToString());
+            float priceTotal = priceRe + priceService;
+            double paxTotal = double.Parse(numPax.Value.ToString()) * priceTotal;
 
-            var total = ((priceRe + priceVTQ + priceService) * pax) - moneySale;
+            double total = paxTotal - moneySale;
 
             lblTotalBook.Text = total.ToString();
             lblMoney.Text = String.Format("{0:#,###}", priceService);

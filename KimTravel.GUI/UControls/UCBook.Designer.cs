@@ -29,16 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCBook));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtNote = new DevExpress.XtraEditors.MemoEdit();
             this.btnAddPartner = new DevExpress.XtraEditors.SimpleButton();
             this.txtPartnerPrice = new DevExpress.XtraEditors.TextEdit();
-            this.txtPriceVTQ = new DevExpress.XtraEditors.TextEdit();
             this.txtPriceSa = new DevExpress.XtraEditors.TextEdit();
             this.txtPriceRe = new DevExpress.XtraEditors.TextEdit();
             this.txtSaleBook = new DevExpress.XtraEditors.TextEdit();
@@ -47,13 +46,10 @@
             this.txtFindPartner = new DevExpress.XtraEditors.TextEdit();
             this.label10 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.lblMsgPax = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.lblFThuHo = new System.Windows.Forms.Label();
-            this.lblFGiaVTQ = new System.Windows.Forms.Label();
             this.lblFGiaBan = new System.Windows.Forms.Label();
             this.lblFGiaNhan = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -75,25 +71,30 @@
             this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRemove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnUpdate = new DevExpress.XtraEditors.SimpleButton();
             this.lblTotalBook = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.txtPromotionMoney = new DevExpress.XtraEditors.TextEdit();
+            this.lblMsgTotal = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dtpTourBookedForPartner = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPartName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCusName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPickup = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNVBook = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnUpdate = new DevExpress.XtraEditors.SimpleButton();
+            this.gridControlData = new DevExpress.XtraGrid.GridControl();
+            this.gridViewData = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumnID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnPax = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnTour = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnServiceName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnPartnerName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnPickUp = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnRoom = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnSaleBook = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnEdit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnClickEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gridColumnDelete = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnClickDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPartnerPrice.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPriceVTQ.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPriceSa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPriceRe.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSaleBook.Properties)).BeginInit();
@@ -106,15 +107,19 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPromotionMoney.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpTourBookedForPartner)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClickEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClickDelete)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.txtNote);
             this.groupBox1.Controls.Add(this.btnAddPartner);
             this.groupBox1.Controls.Add(this.txtPartnerPrice);
-            this.groupBox1.Controls.Add(this.txtPriceVTQ);
             this.groupBox1.Controls.Add(this.txtPriceSa);
             this.groupBox1.Controls.Add(this.txtPriceRe);
             this.groupBox1.Controls.Add(this.txtSaleBook);
@@ -123,13 +128,10 @@
             this.groupBox1.Controls.Add(this.txtFindPartner);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.lblMsgPax);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.lblFThuHo);
-            this.groupBox1.Controls.Add(this.lblFGiaVTQ);
             this.groupBox1.Controls.Add(this.lblFGiaBan);
             this.groupBox1.Controls.Add(this.lblFGiaNhan);
             this.groupBox1.Controls.Add(this.label4);
@@ -152,10 +154,12 @@
             // 
             // txtNote
             // 
-            this.txtNote.Location = new System.Drawing.Point(131, 423);
+            this.txtNote.Location = new System.Drawing.Point(131, 395);
             this.txtNote.Name = "txtNote";
             this.txtNote.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtNote.Properties.Appearance.Options.UseFont = true;
+            this.txtNote.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtNote.Properties.MaxLength = 20;
             this.txtNote.Size = new System.Drawing.Size(301, 65);
             this.txtNote.TabIndex = 14;
             // 
@@ -171,35 +175,25 @@
             // 
             // txtPartnerPrice
             // 
-            this.txtPartnerPrice.Location = new System.Drawing.Point(131, 380);
+            this.txtPartnerPrice.Location = new System.Drawing.Point(131, 352);
             this.txtPartnerPrice.Name = "txtPartnerPrice";
             this.txtPartnerPrice.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPartnerPrice.Properties.Appearance.Options.UseFont = true;
             this.txtPartnerPrice.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtPartnerPrice.Properties.MaxLength = 9;
             this.txtPartnerPrice.Size = new System.Drawing.Size(133, 28);
             this.txtPartnerPrice.TabIndex = 13;
             this.txtPartnerPrice.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
             this.txtPartnerPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
-            // txtPriceVTQ
-            // 
-            this.txtPriceVTQ.Location = new System.Drawing.Point(131, 344);
-            this.txtPriceVTQ.Name = "txtPriceVTQ";
-            this.txtPriceVTQ.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtPriceVTQ.Properties.Appearance.Options.UseFont = true;
-            this.txtPriceVTQ.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.txtPriceVTQ.Size = new System.Drawing.Size(133, 28);
-            this.txtPriceVTQ.TabIndex = 12;
-            this.txtPriceVTQ.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
-            this.txtPriceVTQ.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
-            // 
             // txtPriceSa
             // 
-            this.txtPriceSa.Location = new System.Drawing.Point(131, 308);
+            this.txtPriceSa.Location = new System.Drawing.Point(131, 309);
             this.txtPriceSa.Name = "txtPriceSa";
             this.txtPriceSa.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPriceSa.Properties.Appearance.Options.UseFont = true;
             this.txtPriceSa.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtPriceSa.Properties.MaxLength = 9;
             this.txtPriceSa.Size = new System.Drawing.Size(133, 28);
             this.txtPriceSa.TabIndex = 11;
             this.txtPriceSa.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
@@ -212,6 +206,7 @@
             this.txtPriceRe.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPriceRe.Properties.Appearance.Options.UseFont = true;
             this.txtPriceRe.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtPriceRe.Properties.MaxLength = 9;
             this.txtPriceRe.Size = new System.Drawing.Size(133, 28);
             this.txtPriceRe.TabIndex = 10;
             this.txtPriceRe.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
@@ -224,6 +219,7 @@
             this.txtSaleBook.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtSaleBook.Properties.Appearance.Options.UseFont = true;
             this.txtSaleBook.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtSaleBook.Properties.MaxLength = 50;
             this.txtSaleBook.Size = new System.Drawing.Size(211, 28);
             this.txtSaleBook.TabIndex = 9;
             // 
@@ -234,6 +230,7 @@
             this.txtPickUp.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPickUp.Properties.Appearance.Options.UseFont = true;
             this.txtPickUp.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtPickUp.Properties.MaxLength = 50;
             this.txtPickUp.Size = new System.Drawing.Size(210, 28);
             this.txtPickUp.TabIndex = 7;
             // 
@@ -244,6 +241,7 @@
             this.txtRoom.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtRoom.Properties.Appearance.Options.UseFont = true;
             this.txtRoom.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtRoom.Properties.MaxLength = 50;
             this.txtRoom.Size = new System.Drawing.Size(84, 28);
             this.txtRoom.TabIndex = 8;
             // 
@@ -274,28 +272,18 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label15.Location = new System.Drawing.Point(8, 428);
+            this.label15.Location = new System.Drawing.Point(8, 400);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(57, 17);
             this.label15.TabIndex = 0;
             this.label15.Text = "Ghi chú";
-            // 
-            // lblMsgPax
-            // 
-            this.lblMsgPax.AutoSize = true;
-            this.lblMsgPax.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMsgPax.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblMsgPax.Location = new System.Drawing.Point(348, 65);
-            this.lblMsgPax.Name = "lblMsgPax";
-            this.lblMsgPax.Size = new System.Drawing.Size(0, 15);
-            this.lblMsgPax.TabIndex = 0;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label14.Location = new System.Drawing.Point(7, 387);
+            this.label14.Location = new System.Drawing.Point(7, 357);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(59, 17);
             this.label14.TabIndex = 0;
@@ -317,51 +305,29 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label12.Location = new System.Drawing.Point(7, 315);
+            this.label12.Location = new System.Drawing.Point(7, 316);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(65, 17);
             this.label12.TabIndex = 0;
             this.label12.Text = "Giá bán";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label13.Location = new System.Drawing.Point(7, 351);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(70, 17);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Giá VTQ";
             // 
             // lblFThuHo
             // 
             this.lblFThuHo.AutoSize = true;
             this.lblFThuHo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFThuHo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblFThuHo.Location = new System.Drawing.Point(271, 389);
+            this.lblFThuHo.Location = new System.Drawing.Point(271, 358);
             this.lblFThuHo.Name = "lblFThuHo";
             this.lblFThuHo.Size = new System.Drawing.Size(64, 17);
             this.lblFThuHo.TabIndex = 0;
             this.lblFThuHo.Text = "0000000";
-            // 
-            // lblFGiaVTQ
-            // 
-            this.lblFGiaVTQ.AutoSize = true;
-            this.lblFGiaVTQ.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFGiaVTQ.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblFGiaVTQ.Location = new System.Drawing.Point(271, 351);
-            this.lblFGiaVTQ.Name = "lblFGiaVTQ";
-            this.lblFGiaVTQ.Size = new System.Drawing.Size(64, 17);
-            this.lblFGiaVTQ.TabIndex = 0;
-            this.lblFGiaVTQ.Text = "0000000";
             // 
             // lblFGiaBan
             // 
             this.lblFGiaBan.AutoSize = true;
             this.lblFGiaBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFGiaBan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblFGiaBan.Location = new System.Drawing.Point(271, 315);
+            this.lblFGiaBan.Location = new System.Drawing.Point(271, 316);
             this.lblFGiaBan.Name = "lblFGiaBan";
             this.lblFGiaBan.Size = new System.Drawing.Size(64, 17);
             this.lblFGiaBan.TabIndex = 0;
@@ -509,7 +475,6 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.btnUpdate);
             this.groupBox3.Controls.Add(this.lblMoney);
             this.groupBox3.Controls.Add(this.btnAddServiceType);
             this.groupBox3.Controls.Add(this.dataGridViewGroupTour);
@@ -517,18 +482,19 @@
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(462, 10);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(634, 260);
+            this.groupBox3.Size = new System.Drawing.Size(1001, 260);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dịch vụ";
             // 
             // lblMoney
             // 
+            this.lblMoney.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMoney.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblMoney.Location = new System.Drawing.Point(493, 27);
+            this.lblMoney.Location = new System.Drawing.Point(835, 27);
             this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(129, 18);
+            this.lblMoney.Size = new System.Drawing.Size(154, 18);
             this.lblMoney.TabIndex = 0;
             this.lblMoney.Text = "Total";
             this.lblMoney.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -555,14 +521,14 @@
             this.dataGridViewGroupTour.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPartnerID,
             this.colServiceType,
@@ -575,7 +541,7 @@
             this.dataGridViewGroupTour.RowHeadersWidth = 35;
             this.dataGridViewGroupTour.RowTemplate.Height = 23;
             this.dataGridViewGroupTour.RowTemplate.ReadOnly = true;
-            this.dataGridViewGroupTour.Size = new System.Drawing.Size(622, 120);
+            this.dataGridViewGroupTour.Size = new System.Drawing.Size(989, 120);
             this.dataGridViewGroupTour.TabIndex = 8;
             this.dataGridViewGroupTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroupTour_CellContentClick);
             // 
@@ -598,9 +564,9 @@
             // 
             this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPrice.DataPropertyName = "Price";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "#,###";
-            this.colPrice.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "#,###";
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle2;
             this.colPrice.HeaderText = "Đơn giá";
             this.colPrice.Name = "colPrice";
             this.colPrice.ReadOnly = true;
@@ -609,9 +575,9 @@
             // colRemove
             // 
             this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.colRemove.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.colRemove.DefaultCellStyle = dataGridViewCellStyle3;
             this.colRemove.HeaderText = "";
             this.colRemove.Name = "colRemove";
             this.colRemove.ReadOnly = true;
@@ -623,25 +589,42 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.panel1.BackColor = System.Drawing.SystemColors.Menu;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.lblTotalBook);
             this.panel1.Controls.Add(this.label18);
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.txtPromotionMoney);
+            this.panel1.Controls.Add(this.lblMsgTotal);
             this.panel1.Location = new System.Drawing.Point(6, 173);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(487, 79);
+            this.panel1.Size = new System.Drawing.Size(989, 79);
             this.panel1.TabIndex = 3;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUpdate.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnUpdate.Appearance.Options.UseFont = true;
+            this.btnUpdate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.ImageOptions.Image")));
+            this.btnUpdate.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.btnUpdate.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnUpdate.Location = new System.Drawing.Point(849, 5);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(132, 64);
+            this.btnUpdate.TabIndex = 20;
+            this.btnUpdate.Text = "Hoàn tất";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // lblTotalBook
             // 
             this.lblTotalBook.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalBook.ForeColor = System.Drawing.Color.Red;
-            this.lblTotalBook.Location = new System.Drawing.Point(333, 11);
+            this.lblTotalBook.Location = new System.Drawing.Point(417, 2);
             this.lblTotalBook.Name = "lblTotalBook";
-            this.lblTotalBook.Size = new System.Drawing.Size(135, 47);
+            this.lblTotalBook.Size = new System.Drawing.Size(209, 47);
             this.lblTotalBook.TabIndex = 0;
             this.lblTotalBook.Text = "1900000000";
             this.lblTotalBook.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -651,7 +634,7 @@
             this.label18.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label18.Location = new System.Drawing.Point(245, 12);
+            this.label18.Location = new System.Drawing.Point(329, 3);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(86, 46);
             this.label18.TabIndex = 0;
@@ -663,7 +646,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label16.Location = new System.Drawing.Point(9, 25);
+            this.label16.Location = new System.Drawing.Point(19, 12);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(41, 17);
             this.label16.TabIndex = 0;
@@ -671,151 +654,262 @@
             // 
             // txtPromotionMoney
             // 
-            this.txtPromotionMoney.Location = new System.Drawing.Point(56, 18);
+            this.txtPromotionMoney.Location = new System.Drawing.Point(22, 33);
             this.txtPromotionMoney.Name = "txtPromotionMoney";
             this.txtPromotionMoney.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPromotionMoney.Properties.Appearance.Options.UseFont = true;
             this.txtPromotionMoney.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.txtPromotionMoney.Size = new System.Drawing.Size(146, 28);
+            this.txtPromotionMoney.Size = new System.Drawing.Size(217, 28);
             this.txtPromotionMoney.TabIndex = 16;
             this.txtPromotionMoney.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
             this.txtPromotionMoney.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
+            // lblMsgTotal
+            // 
+            this.lblMsgTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMsgTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblMsgTotal.Location = new System.Drawing.Point(414, 50);
+            this.lblMsgTotal.Name = "lblMsgTotal";
+            this.lblMsgTotal.Size = new System.Drawing.Size(212, 25);
+            this.lblMsgTotal.TabIndex = 0;
+            this.lblMsgTotal.Text = "0000000";
+            this.lblMsgTotal.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.dtpTourBookedForPartner);
+            this.groupBox2.Controls.Add(this.gridControlData);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(461, 274);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(634, 228);
+            this.groupBox2.Size = new System.Drawing.Size(1001, 228);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tour đã book";
             // 
-            // dtpTourBookedForPartner
+            // gridControlData
             // 
-            this.dtpTourBookedForPartner.AllowUserToAddRows = false;
-            this.dtpTourBookedForPartner.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtpTourBookedForPartner.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dtpTourBookedForPartner.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dtpTourBookedForPartner.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtpTourBookedForPartner.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dtpTourBookedForPartner.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn2,
-            this.colPartName,
-            this.colCusName,
-            this.colPickup,
-            this.colRoom,
-            this.colNVBook});
-            this.dtpTourBookedForPartner.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtpTourBookedForPartner.Location = new System.Drawing.Point(3, 19);
-            this.dtpTourBookedForPartner.MultiSelect = false;
-            this.dtpTourBookedForPartner.Name = "dtpTourBookedForPartner";
-            this.dtpTourBookedForPartner.ReadOnly = true;
-            this.dtpTourBookedForPartner.RowHeadersVisible = false;
-            this.dtpTourBookedForPartner.RowHeadersWidth = 35;
-            this.dtpTourBookedForPartner.RowTemplate.Height = 23;
-            this.dtpTourBookedForPartner.RowTemplate.ReadOnly = true;
-            this.dtpTourBookedForPartner.Size = new System.Drawing.Size(628, 206);
-            this.dtpTourBookedForPartner.TabIndex = 8;
-            this.dtpTourBookedForPartner.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroupTour_CellContentClick);
+            this.gridControlData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlData.Location = new System.Drawing.Point(3, 19);
+            this.gridControlData.MainView = this.gridViewData;
+            this.gridControlData.Name = "gridControlData";
+            this.gridControlData.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.btnClickDelete,
+            this.btnClickEdit});
+            this.gridControlData.Size = new System.Drawing.Size(995, 206);
+            this.gridControlData.TabIndex = 1;
+            this.gridControlData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewData});
             // 
-            // dataGridViewTextBoxColumn1
+            // gridViewData
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "ID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
+            this.gridViewData.ColumnPanelRowHeight = 30;
+            this.gridViewData.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumnID,
+            this.gridColumnPax,
+            this.gridColumnTour,
+            this.gridColumnServiceName,
+            this.gridColumnPartnerName,
+            this.gridColumnPickUp,
+            this.gridColumnRoom,
+            this.gridColumnSaleBook,
+            this.gridColumnEdit,
+            this.gridColumnDelete});
+            this.gridViewData.GridControl = this.gridControlData;
+            this.gridViewData.IndicatorWidth = 35;
+            this.gridViewData.Name = "gridViewData";
+            this.gridViewData.OptionsCustomization.AllowColumnMoving = false;
+            this.gridViewData.OptionsView.ColumnAutoWidth = false;
+            this.gridViewData.OptionsView.ShowGroupPanel = false;
+            this.gridViewData.RowHeight = 25;
             // 
-            // dataGridViewTextBoxColumn3
+            // gridColumnID
             // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Pax";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Pax";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 50;
+            this.gridColumnID.Caption = "ID";
+            this.gridColumnID.FieldName = "ID";
+            this.gridColumnID.Name = "gridColumnID";
             // 
-            // dataGridViewTextBoxColumn2
+            // gridColumnPax
             // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "TourName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Tour";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 150;
+            this.gridColumnPax.AppearanceCell.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumnPax.AppearanceCell.Options.UseFont = true;
+            this.gridColumnPax.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnPax.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPax.AppearanceHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumnPax.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnPax.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnPax.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPax.Caption = "Pax";
+            this.gridColumnPax.FieldName = "Pax";
+            this.gridColumnPax.MaxWidth = 60;
+            this.gridColumnPax.MinWidth = 60;
+            this.gridColumnPax.Name = "gridColumnPax";
+            this.gridColumnPax.OptionsColumn.AllowEdit = false;
+            this.gridColumnPax.OptionsColumn.ReadOnly = true;
+            this.gridColumnPax.Visible = true;
+            this.gridColumnPax.VisibleIndex = 0;
+            this.gridColumnPax.Width = 60;
             // 
-            // colPartName
+            // gridColumnTour
             // 
-            this.colPartName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPartName.DataPropertyName = "PartnerName";
-            this.colPartName.HeaderText = "Tên đối tác";
-            this.colPartName.Name = "colPartName";
-            this.colPartName.ReadOnly = true;
-            this.colPartName.Width = 180;
+            this.gridColumnTour.AppearanceCell.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumnTour.AppearanceCell.Options.UseFont = true;
+            this.gridColumnTour.AppearanceHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumnTour.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnTour.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnTour.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnTour.Caption = "Tour";
+            this.gridColumnTour.FieldName = "TourName";
+            this.gridColumnTour.MinWidth = 160;
+            this.gridColumnTour.Name = "gridColumnTour";
+            this.gridColumnTour.OptionsColumn.AllowEdit = false;
+            this.gridColumnTour.OptionsColumn.ReadOnly = true;
+            this.gridColumnTour.Visible = true;
+            this.gridColumnTour.VisibleIndex = 1;
+            this.gridColumnTour.Width = 160;
             // 
-            // colCusName
+            // gridColumnServiceName
             // 
-            this.colCusName.DataPropertyName = "CustomName";
-            this.colCusName.HeaderText = "Tên khách hàng";
-            this.colCusName.Name = "colCusName";
-            this.colCusName.ReadOnly = true;
-            this.colCusName.Visible = false;
+            this.gridColumnServiceName.AppearanceCell.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumnServiceName.AppearanceCell.Options.UseFont = true;
+            this.gridColumnServiceName.AppearanceHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumnServiceName.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnServiceName.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnServiceName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnServiceName.Caption = "Dịch vụ";
+            this.gridColumnServiceName.FieldName = "ServiceName";
+            this.gridColumnServiceName.MinWidth = 160;
+            this.gridColumnServiceName.Name = "gridColumnServiceName";
+            this.gridColumnServiceName.OptionsColumn.AllowEdit = false;
+            this.gridColumnServiceName.OptionsColumn.ReadOnly = true;
+            this.gridColumnServiceName.Visible = true;
+            this.gridColumnServiceName.VisibleIndex = 2;
+            this.gridColumnServiceName.Width = 160;
             // 
-            // colPickup
+            // gridColumnPartnerName
             // 
-            this.colPickup.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPickup.DataPropertyName = "PickUp";
-            this.colPickup.HeaderText = "Pick up";
-            this.colPickup.Name = "colPickup";
-            this.colPickup.ReadOnly = true;
-            this.colPickup.Width = 200;
+            this.gridColumnPartnerName.AppearanceCell.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumnPartnerName.AppearanceCell.Options.UseFont = true;
+            this.gridColumnPartnerName.AppearanceHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumnPartnerName.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnPartnerName.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnPartnerName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPartnerName.Caption = "Tên đối tác";
+            this.gridColumnPartnerName.FieldName = "PartnerName";
+            this.gridColumnPartnerName.MinWidth = 160;
+            this.gridColumnPartnerName.Name = "gridColumnPartnerName";
+            this.gridColumnPartnerName.Visible = true;
+            this.gridColumnPartnerName.VisibleIndex = 3;
+            this.gridColumnPartnerName.Width = 160;
             // 
-            // colRoom
+            // gridColumnPickUp
             // 
-            this.colRoom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colRoom.DataPropertyName = "Room";
-            this.colRoom.HeaderText = "Room";
-            this.colRoom.Name = "colRoom";
-            this.colRoom.ReadOnly = true;
+            this.gridColumnPickUp.AppearanceCell.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumnPickUp.AppearanceCell.Options.UseFont = true;
+            this.gridColumnPickUp.AppearanceHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumnPickUp.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnPickUp.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnPickUp.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPickUp.Caption = "Pick Up";
+            this.gridColumnPickUp.FieldName = "PickUp";
+            this.gridColumnPickUp.MinWidth = 160;
+            this.gridColumnPickUp.Name = "gridColumnPickUp";
+            this.gridColumnPickUp.Visible = true;
+            this.gridColumnPickUp.VisibleIndex = 4;
+            this.gridColumnPickUp.Width = 160;
             // 
-            // colNVBook
+            // gridColumnRoom
             // 
-            this.colNVBook.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colNVBook.DataPropertyName = "SaleBook";
-            this.colNVBook.HeaderText = "NV Book";
-            this.colNVBook.Name = "colNVBook";
-            this.colNVBook.ReadOnly = true;
+            this.gridColumnRoom.AppearanceCell.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumnRoom.AppearanceCell.Options.UseFont = true;
+            this.gridColumnRoom.AppearanceHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumnRoom.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnRoom.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnRoom.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnRoom.Caption = "Room";
+            this.gridColumnRoom.FieldName = "Room";
+            this.gridColumnRoom.MinWidth = 80;
+            this.gridColumnRoom.Name = "gridColumnRoom";
+            this.gridColumnRoom.Visible = true;
+            this.gridColumnRoom.VisibleIndex = 5;
+            this.gridColumnRoom.Width = 116;
             // 
-            // btnUpdate
+            // gridColumnSaleBook
             // 
-            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUpdate.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnUpdate.Appearance.Options.UseFont = true;
-            this.btnUpdate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnUpdate.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.btnUpdate.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnUpdate.Location = new System.Drawing.Point(496, 174);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(132, 76);
-            this.btnUpdate.TabIndex = 20;
-            this.btnUpdate.Text = "Hoàn tất";
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.gridColumnSaleBook.AppearanceCell.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumnSaleBook.AppearanceCell.Options.UseFont = true;
+            this.gridColumnSaleBook.AppearanceHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumnSaleBook.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnSaleBook.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnSaleBook.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnSaleBook.Caption = "NV Book";
+            this.gridColumnSaleBook.FieldName = "SaleBook";
+            this.gridColumnSaleBook.MinWidth = 120;
+            this.gridColumnSaleBook.Name = "gridColumnSaleBook";
+            this.gridColumnSaleBook.Visible = true;
+            this.gridColumnSaleBook.VisibleIndex = 6;
+            this.gridColumnSaleBook.Width = 120;
+            // 
+            // gridColumnEdit
+            // 
+            this.gridColumnEdit.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnEdit.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnEdit.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnEdit.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnEdit.Caption = "Sửa";
+            this.gridColumnEdit.ColumnEdit = this.btnClickEdit;
+            this.gridColumnEdit.MaxWidth = 60;
+            this.gridColumnEdit.MinWidth = 60;
+            this.gridColumnEdit.Name = "gridColumnEdit";
+            this.gridColumnEdit.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumnEdit.OptionsFilter.AllowFilter = false;
+            this.gridColumnEdit.Visible = true;
+            this.gridColumnEdit.VisibleIndex = 7;
+            this.gridColumnEdit.Width = 60;
+            // 
+            // btnClickEdit
+            // 
+            this.btnClickEdit.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.btnClickEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions1, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
+            this.btnClickEdit.Name = "btnClickEdit";
+            this.btnClickEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnClickEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnClickEdit_ButtonClick);
+            // 
+            // gridColumnDelete
+            // 
+            this.gridColumnDelete.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumnDelete.AppearanceCell.Options.UseFont = true;
+            this.gridColumnDelete.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnDelete.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnDelete.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnDelete.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnDelete.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnDelete.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnDelete.Caption = "Xóa";
+            this.gridColumnDelete.ColumnEdit = this.btnClickDelete;
+            this.gridColumnDelete.CustomizationCaption = "Xóa";
+            this.gridColumnDelete.MaxWidth = 60;
+            this.gridColumnDelete.MinWidth = 60;
+            this.gridColumnDelete.Name = "gridColumnDelete";
+            this.gridColumnDelete.OptionsFilter.AllowAutoFilter = false;
+            this.gridColumnDelete.OptionsFilter.AllowFilter = false;
+            this.gridColumnDelete.Visible = true;
+            this.gridColumnDelete.VisibleIndex = 8;
+            this.gridColumnDelete.Width = 60;
+            // 
+            // btnClickDelete
+            // 
+            this.btnClickDelete.AutoHeight = false;
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            this.btnClickDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Xóa", -1, true, true, false, editorButtonImageOptions2)});
+            this.btnClickDelete.Name = "btnClickDelete";
+            this.btnClickDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnClickDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnClickDelete_ButtonClick);
             // 
             // UCBook
             // 
@@ -827,14 +921,13 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Name = "UCBook";
-            this.Size = new System.Drawing.Size(1107, 515);
+            this.Size = new System.Drawing.Size(1474, 515);
             this.Tag = "";
             this.Load += new System.EventHandler(this.UCGroupTour_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPartnerPrice.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPriceVTQ.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPriceSa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPriceRe.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSaleBook.Properties)).EndInit();
@@ -848,7 +941,10 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPromotionMoney.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtpTourBookedForPartner)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClickEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClickDelete)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -862,7 +958,6 @@
         private System.Windows.Forms.DateTimePicker dtpStartDate;
         private System.Windows.Forms.NumericUpDown numPax;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label lblMsgPax;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -870,7 +965,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label15;
@@ -885,9 +979,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn colRemove;
         private System.Windows.Forms.Label lblMoney;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dtpTourBookedForPartner;
         private System.Windows.Forms.Label lblFThuHo;
-        private System.Windows.Forms.Label lblFGiaVTQ;
         private System.Windows.Forms.Label lblFGiaBan;
         private System.Windows.Forms.Label lblFGiaNhan;
         private DevExpress.XtraEditors.TextEdit txtFindPartner;
@@ -896,20 +988,26 @@
         private DevExpress.XtraEditors.TextEdit txtPickUp;
         private DevExpress.XtraEditors.TextEdit txtRoom;
         private DevExpress.XtraEditors.TextEdit txtPartnerPrice;
-        private DevExpress.XtraEditors.TextEdit txtPriceVTQ;
         private DevExpress.XtraEditors.TextEdit txtPriceSa;
         private DevExpress.XtraEditors.TextEdit txtPriceRe;
         private DevExpress.XtraEditors.MemoEdit txtNote;
         private DevExpress.XtraEditors.TextEdit txtPromotionMoney;
         private DevExpress.XtraEditors.SimpleButton btnAddServiceType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPartName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCusName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPickup;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRoom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNVBook;
         private DevExpress.XtraEditors.SimpleButton btnUpdate;
+        private DevExpress.XtraGrid.GridControl gridControlData;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewData;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnID;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPax;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnTour;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnServiceName;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPartnerName;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPickUp;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnRoom;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnSaleBook;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnClickEdit;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnDelete;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnClickDelete;
+        private System.Windows.Forms.Label lblMsgTotal;
     }
 }

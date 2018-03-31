@@ -34,6 +34,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDetailsTourDone));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtRoom = new System.Windows.Forms.TextBox();
+            this.txtSaleBook = new System.Windows.Forms.TextBox();
             this.txtPickup = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtNote = new System.Windows.Forms.TextBox();
@@ -52,7 +53,6 @@
             this.cbbTourID = new System.Windows.Forms.ComboBox();
             this.cbbGroupTourID = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtPriceVTQ = new System.Windows.Forms.TextBox();
             this.txtPartnerPrice = new System.Windows.Forms.TextBox();
             this.lblMoney = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -63,7 +63,6 @@
             this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRemove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lblTotalBook = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
             this.txtPromotionPrice = new System.Windows.Forms.TextBox();
@@ -77,7 +76,6 @@
             this.ckIsPayment = new System.Windows.Forms.CheckBox();
             this.btnBack = new DevExpress.XtraEditors.SimpleButton();
             this.btnUpdate = new DevExpress.XtraEditors.SimpleButton();
-            this.txtSaleBook = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPax)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -122,6 +120,14 @@
             this.txtRoom.ReadOnly = true;
             this.txtRoom.Size = new System.Drawing.Size(82, 23);
             this.txtRoom.TabIndex = 8;
+            // 
+            // txtSaleBook
+            // 
+            this.txtSaleBook.Location = new System.Drawing.Point(129, 286);
+            this.txtSaleBook.Name = "txtSaleBook";
+            this.txtSaleBook.ReadOnly = true;
+            this.txtSaleBook.Size = new System.Drawing.Size(210, 23);
+            this.txtSaleBook.TabIndex = 10;
             // 
             // txtPickup
             // 
@@ -247,7 +253,13 @@
             // 
             // numPax
             // 
+            this.numPax.DecimalPlaces = 2;
             this.numPax.Enabled = false;
+            this.numPax.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            65536});
             this.numPax.Location = new System.Drawing.Point(347, 112);
             this.numPax.Minimum = new decimal(new int[] {
             1,
@@ -328,14 +340,12 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.txtPriceVTQ);
             this.groupBox3.Controls.Add(this.txtPartnerPrice);
             this.groupBox3.Controls.Add(this.lblMoney);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.txtPriceSa);
             this.groupBox3.Controls.Add(this.dataGridViewGroupTour);
             this.groupBox3.Controls.Add(this.lblTotalBook);
-            this.groupBox3.Controls.Add(this.label22);
             this.groupBox3.Controls.Add(this.panel1);
             this.groupBox3.Controls.Add(this.txtPriceRe);
             this.groupBox3.Controls.Add(this.label19);
@@ -350,20 +360,9 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dịch vụ";
             // 
-            // txtPriceVTQ
-            // 
-            this.txtPriceVTQ.Location = new System.Drawing.Point(94, 72);
-            this.txtPriceVTQ.MaxLength = 9;
-            this.txtPriceVTQ.Name = "txtPriceVTQ";
-            this.txtPriceVTQ.ReadOnly = true;
-            this.txtPriceVTQ.Size = new System.Drawing.Size(134, 23);
-            this.txtPriceVTQ.TabIndex = 14;
-            this.txtPriceVTQ.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
-            this.txtPriceVTQ.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
-            // 
             // txtPartnerPrice
             // 
-            this.txtPartnerPrice.Location = new System.Drawing.Point(327, 72);
+            this.txtPartnerPrice.Location = new System.Drawing.Point(319, 22);
             this.txtPartnerPrice.MaxLength = 9;
             this.txtPartnerPrice.Name = "txtPartnerPrice";
             this.txtPartnerPrice.ReadOnly = true;
@@ -388,7 +387,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label8.Location = new System.Drawing.Point(257, 75);
+            this.label8.Location = new System.Drawing.Point(249, 25);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 17);
             this.label8.TabIndex = 0;
@@ -396,7 +395,7 @@
             // 
             // txtPriceSa
             // 
-            this.txtPriceSa.Location = new System.Drawing.Point(327, 22);
+            this.txtPriceSa.Location = new System.Drawing.Point(94, 71);
             this.txtPriceSa.MaxLength = 9;
             this.txtPriceSa.Name = "txtPriceSa";
             this.txtPriceSa.ReadOnly = true;
@@ -491,17 +490,6 @@
             this.lblTotalBook.Text = "1900000000";
             this.lblTotalBook.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label22.Location = new System.Drawing.Point(18, 75);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(70, 17);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "Giá VTQ";
-            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -552,7 +540,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label19.Location = new System.Drawing.Point(257, 25);
+            this.label19.Location = new System.Drawing.Point(18, 75);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(65, 17);
             this.label19.TabIndex = 0;
@@ -659,14 +647,6 @@
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // txtSaleBook
-            // 
-            this.txtSaleBook.Location = new System.Drawing.Point(129, 286);
-            this.txtSaleBook.Name = "txtSaleBook";
-            this.txtSaleBook.ReadOnly = true;
-            this.txtSaleBook.Size = new System.Drawing.Size(210, 23);
-            this.txtSaleBook.TabIndex = 10;
-            // 
             // frmDetailsTourDone
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -725,11 +705,9 @@
         private System.Windows.Forms.Label lblMoney;
         private System.Windows.Forms.TextBox txtNote;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtPriceVTQ;
         private System.Windows.Forms.TextBox txtPartnerPrice;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtPriceSa;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtPriceRe;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label23;

@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDetailsTour));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtFindPartner = new System.Windows.Forms.TextBox();
             this.txtRoom = new System.Windows.Forms.TextBox();
+            this.txtSaleBook = new System.Windows.Forms.TextBox();
             this.txtPickup = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtNote = new System.Windows.Forms.TextBox();
@@ -53,7 +54,7 @@
             this.cbbTourID = new System.Windows.Forms.ComboBox();
             this.cbbGroupTourID = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtPriceVTQ = new System.Windows.Forms.TextBox();
+            this.btnAddServiceType = new DevExpress.XtraEditors.SimpleButton();
             this.txtPartnerPrice = new System.Windows.Forms.TextBox();
             this.lblMoney = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -64,7 +65,6 @@
             this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRemove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lblTotalBook = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
             this.txtPromotionPrice = new System.Windows.Forms.TextBox();
@@ -75,8 +75,6 @@
             this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnBack = new DevExpress.XtraEditors.SimpleButton();
-            this.txtSaleBook = new System.Windows.Forms.TextBox();
-            this.btnAddServiceType = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPax)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -128,6 +126,13 @@
             this.txtRoom.Name = "txtRoom";
             this.txtRoom.Size = new System.Drawing.Size(82, 23);
             this.txtRoom.TabIndex = 8;
+            // 
+            // txtSaleBook
+            // 
+            this.txtSaleBook.Location = new System.Drawing.Point(125, 286);
+            this.txtSaleBook.Name = "txtSaleBook";
+            this.txtSaleBook.Size = new System.Drawing.Size(214, 23);
+            this.txtSaleBook.TabIndex = 10;
             // 
             // txtPickup
             // 
@@ -333,14 +338,12 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.btnAddServiceType);
-            this.groupBox3.Controls.Add(this.txtPriceVTQ);
             this.groupBox3.Controls.Add(this.txtPartnerPrice);
             this.groupBox3.Controls.Add(this.lblMoney);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.txtPriceSa);
             this.groupBox3.Controls.Add(this.dataGridViewGroupTour);
             this.groupBox3.Controls.Add(this.lblTotalBook);
-            this.groupBox3.Controls.Add(this.label22);
             this.groupBox3.Controls.Add(this.panel1);
             this.groupBox3.Controls.Add(this.txtPriceRe);
             this.groupBox3.Controls.Add(this.label19);
@@ -354,19 +357,22 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dịch vụ";
             // 
-            // txtPriceVTQ
+            // btnAddServiceType
             // 
-            this.txtPriceVTQ.Location = new System.Drawing.Point(94, 72);
-            this.txtPriceVTQ.MaxLength = 9;
-            this.txtPriceVTQ.Name = "txtPriceVTQ";
-            this.txtPriceVTQ.Size = new System.Drawing.Size(134, 23);
-            this.txtPriceVTQ.TabIndex = 14;
-            this.txtPriceVTQ.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
-            this.txtPriceVTQ.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+            this.btnAddServiceType.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.btnAddServiceType.Appearance.Options.UseFont = true;
+            this.btnAddServiceType.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddServiceType.ImageOptions.Image")));
+            this.btnAddServiceType.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.btnAddServiceType.Location = new System.Drawing.Point(6, 109);
+            this.btnAddServiceType.Name = "btnAddServiceType";
+            this.btnAddServiceType.Size = new System.Drawing.Size(64, 27);
+            this.btnAddServiceType.TabIndex = 17;
+            this.btnAddServiceType.Text = "Thêm";
+            this.btnAddServiceType.Click += new System.EventHandler(this.btnAddServiceType_Click);
             // 
             // txtPartnerPrice
             // 
-            this.txtPartnerPrice.Location = new System.Drawing.Point(327, 72);
+            this.txtPartnerPrice.Location = new System.Drawing.Point(319, 24);
             this.txtPartnerPrice.MaxLength = 9;
             this.txtPartnerPrice.Name = "txtPartnerPrice";
             this.txtPartnerPrice.Size = new System.Drawing.Size(134, 23);
@@ -390,7 +396,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label8.Location = new System.Drawing.Point(257, 75);
+            this.label8.Location = new System.Drawing.Point(249, 27);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 17);
             this.label8.TabIndex = 0;
@@ -398,7 +404,7 @@
             // 
             // txtPriceSa
             // 
-            this.txtPriceSa.Location = new System.Drawing.Point(327, 22);
+            this.txtPriceSa.Location = new System.Drawing.Point(94, 66);
             this.txtPriceSa.MaxLength = 9;
             this.txtPriceSa.Name = "txtPriceSa";
             this.txtPriceSa.Size = new System.Drawing.Size(134, 23);
@@ -414,14 +420,14 @@
             this.dataGridViewGroupTour.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPartnerID,
             this.colServiceType,
@@ -457,9 +463,9 @@
             // 
             this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPrice.DataPropertyName = "Price";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "#,###";
-            this.colPrice.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "#,###";
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle2;
             this.colPrice.HeaderText = "Đơn giá";
             this.colPrice.Name = "colPrice";
             this.colPrice.ReadOnly = true;
@@ -468,9 +474,9 @@
             // colRemove
             // 
             this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.colRemove.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.colRemove.DefaultCellStyle = dataGridViewCellStyle3;
             this.colRemove.HeaderText = "";
             this.colRemove.Name = "colRemove";
             this.colRemove.ReadOnly = true;
@@ -490,17 +496,6 @@
             this.lblTotalBook.TabIndex = 0;
             this.lblTotalBook.Text = "1900000000";
             this.lblTotalBook.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label22.Location = new System.Drawing.Point(18, 75);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(70, 17);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "Giá VTQ";
             // 
             // panel1
             // 
@@ -550,7 +545,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label19.Location = new System.Drawing.Point(257, 25);
+            this.label19.Location = new System.Drawing.Point(18, 69);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(65, 17);
             this.label19.TabIndex = 0;
@@ -598,7 +593,7 @@
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnCancel.Appearance.Options.UseFont = true;
-            this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image1")));
+            this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
             this.btnCancel.Location = new System.Drawing.Point(630, 426);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(158, 39);
@@ -611,33 +606,13 @@
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnBack.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnBack.Appearance.Options.UseFont = true;
-            this.btnBack.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
+            this.btnBack.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.ImageOptions.Image")));
             this.btnBack.Location = new System.Drawing.Point(794, 426);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(158, 39);
             this.btnBack.TabIndex = 19;
             this.btnBack.Text = "Quay lại";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // txtSaleBook
-            // 
-            this.txtSaleBook.Location = new System.Drawing.Point(125, 286);
-            this.txtSaleBook.Name = "txtSaleBook";
-            this.txtSaleBook.Size = new System.Drawing.Size(214, 23);
-            this.txtSaleBook.TabIndex = 10;
-            // 
-            // btnAddServiceType
-            // 
-            this.btnAddServiceType.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnAddServiceType.Appearance.Options.UseFont = true;
-            this.btnAddServiceType.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnAddServiceType.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnAddServiceType.Location = new System.Drawing.Point(6, 109);
-            this.btnAddServiceType.Name = "btnAddServiceType";
-            this.btnAddServiceType.Size = new System.Drawing.Size(64, 27);
-            this.btnAddServiceType.TabIndex = 17;
-            this.btnAddServiceType.Text = "Thêm";
-            this.btnAddServiceType.Click += new System.EventHandler(this.btnAddServiceType_Click);
             // 
             // frmDetailsTour
             // 
@@ -699,11 +674,9 @@
         private System.Windows.Forms.Label lblMoney;
         private System.Windows.Forms.TextBox txtNote;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtPriceVTQ;
         private System.Windows.Forms.TextBox txtPartnerPrice;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtPriceSa;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtPriceRe;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label23;

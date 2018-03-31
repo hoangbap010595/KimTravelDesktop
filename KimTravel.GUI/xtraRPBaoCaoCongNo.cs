@@ -29,7 +29,6 @@ namespace KimTravel.GUI
             lblPartnerAddress.Text = p.Address;
             lblPartnerPhone.Text = p.Phone;
         }
-
         public xtraRPBaoCaoCongNo(DataTable dt)
         {
             InitializeComponent();

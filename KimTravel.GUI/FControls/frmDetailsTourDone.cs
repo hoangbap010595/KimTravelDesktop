@@ -45,11 +45,17 @@ namespace KimTravel.GUI.FControls
             cbbGroupTourID.DataSource = grTourService.GetListCombobox();
             cbbGroupTourID.ValueMember = "GroupID";
             cbbGroupTourID.DisplayMember = "Name";
+
+            cbbTourID.DataSource = tService.GetListCobobox();
+            cbbTourID.ValueMember = "TourID";
+            cbbTourID.DisplayMember = "Name";
+
             cbbPartnerID.DataSource = pnService.GetList();
             cbbPartnerID.ValueMember = "PartnerID";
             cbbPartnerID.DisplayMember = "Address";
 
-            cbbPartnerID.SelectedValue = _objectBook.PartnerID;
+            Tour t = tService.GetByID((int)_objectBook.TourID);
+            cbbGroupTourID.SelectedValue = t.GroupID;
             cbbTourID.SelectedValue = _objectBook.TourID;
             cbbPartnerID.SelectedValue = _objectBook.PartnerID;
 
@@ -62,7 +68,7 @@ namespace KimTravel.GUI.FControls
 
             txtPriceRe.Text = _objectBook.PriceReceive.ToString();
             txtPriceSa.Text = _objectBook.PriceSale.ToString();
-            txtPriceVTQ.Text = _objectBook.PriceVTQ.ToString();
+
             txtPartnerPrice.Text = _objectBook.PartnerPrice.ToString();
 
             txtPromotionPrice.Text = _objectBook.PromotionMoney.ToString();
@@ -82,7 +88,6 @@ namespace KimTravel.GUI.FControls
                 string date1 = dtpStartDate.Value.ToString("yyyy-MM-dd");
                 Tour tour = tService.GetByID(id);
                 txtPriceSa.Text = tour.PriceSale.ToString();
-                txtPriceVTQ.Text = tour.PriceVTQ.ToString();
             }
             catch { }
         }
@@ -200,7 +205,6 @@ namespace KimTravel.GUI.FControls
         private void payment()
         {
             int priceRe = int.Parse(txtPriceRe.Text == "" ? "0" : txtPriceRe.Text);
-            int priceVTQ = int.Parse(txtPriceVTQ.Text == "" ? "0" : txtPriceVTQ.Text);
             int priceService = getTotalPriceService();
             int moneySale = 0;
             if (txtPromotionPrice.Text != "")
@@ -208,9 +212,10 @@ namespace KimTravel.GUI.FControls
                 moneySale = int.Parse(txtPromotionPrice.Text);
             }
 
-            int pax = int.Parse(numPax.Value.ToString());
+            float priceTotal = priceRe + priceService;
+            double paxTotal = double.Parse(numPax.Value.ToString()) * priceTotal;
 
-            var total = ((priceRe + priceVTQ + priceService) * pax) - moneySale;
+            double total = paxTotal - moneySale;
 
             lblTotalBook.Text = total.ToString();
         }

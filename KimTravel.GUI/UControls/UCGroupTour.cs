@@ -49,7 +49,7 @@ namespace KimTravel.GUI.UControls
         private void btnClickDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             var id = int.Parse(gridViewData.GetFocusedRowCellValue("GroupID").ToString());
-            if (DialogResult.OK == XtraMessageBox.Show("Xác nhận xóa dữ liệu ?", "Thông báo", MessageBoxButtons.OKCancel))
+            if (DialogResult.OK == XtraMessageBox.Show("Khi nhóm tour bị xóa thì các tour nằm trong nhóm xẽ bị xóa theo. Xác nhận xóa dữ liệu ?", "Thông báo", MessageBoxButtons.OKCancel))
             {
                 gtService.Delete(id);
                 loadDataGroup();

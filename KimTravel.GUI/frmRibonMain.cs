@@ -364,7 +364,7 @@ namespace KimTravel.GUI
         {
             try
             {
-                string fileNameUpdate = "\\test.txt";
+                string fileNameUpdate = "\\kimtravel_updater.exe";
                 string appPath = Path.GetDirectoryName(Application.ExecutablePath);
                 var filePath = String.Concat(appPath, fileNameUpdate);
                 System.Diagnostics.Process.Start(filePath);
