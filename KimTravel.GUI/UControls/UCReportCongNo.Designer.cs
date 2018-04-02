@@ -32,23 +32,13 @@
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCReportCongNo));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            this.repositoryItemCheckEditPayment = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.btnClickViews2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnClickViews = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.checkIsPayMent = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.cbbMonth = new System.Windows.Forms.ComboBox();
-            this.cbbPartnerID = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tảiLạiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xuấtExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cbbYear = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbbGroupTour = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdALL = new System.Windows.Forms.RadioButton();
-            this.rdDaThanhToan = new System.Windows.Forms.RadioButton();
-            this.rdChuaThanhToan = new System.Windows.Forms.RadioButton();
             this.gridControlData = new DevExpress.XtraGrid.GridControl();
             this.gridViewData = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumnID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -69,33 +59,42 @@
             this.gridColumnPromotionMoney = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnTotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnPayment = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemCheckEditPayment = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.gridColumnDateCreate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnEdit = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnClickViews2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.btnExportExcel = new DevExpress.XtraEditors.SimpleButton();
-            this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.ckViewAllPartner = new System.Windows.Forms.CheckBox();
-            this.txtFindPartner = new DevExpress.XtraEditors.TextEdit();
             this.gridColumnDatePayment = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnExportExcel = new DevExpress.XtraEditors.SimpleButton();
+            this.btnPaymentAll = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnBack = new DevExpress.XtraEditors.SimpleButton();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEditPayment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClickViews2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClickViews)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkIsPayMent)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEditPayment)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnClickViews2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFindPartner.Properties)).BeginInit();
             this.SuspendLayout();
+            // 
+            // repositoryItemCheckEditPayment
+            // 
+            this.repositoryItemCheckEditPayment.AutoHeight = false;
+            this.repositoryItemCheckEditPayment.Name = "repositoryItemCheckEditPayment";
+            // 
+            // btnClickViews2
+            // 
+            this.btnClickViews2.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.btnClickViews2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions1, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
+            this.btnClickViews2.Name = "btnClickViews2";
+            this.btnClickViews2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
             // btnClickViews
             // 
             this.btnClickViews.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.btnClickViews.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions1, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
+            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions2, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
             this.btnClickViews.Name = "btnClickViews";
             this.btnClickViews.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -103,50 +102,6 @@
             // 
             this.checkIsPayMent.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style8;
             this.checkIsPayMent.Name = "checkIsPayMent";
-            // 
-            // cbbMonth
-            // 
-            this.cbbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbMonth.FormattingEnabled = true;
-            this.cbbMonth.ItemHeight = 20;
-            this.cbbMonth.Location = new System.Drawing.Point(8, 25);
-            this.cbbMonth.Name = "cbbMonth";
-            this.cbbMonth.Size = new System.Drawing.Size(107, 28);
-            this.cbbMonth.TabIndex = 1;
-            // 
-            // cbbPartnerID
-            // 
-            this.cbbPartnerID.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbPartnerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbPartnerID.FormattingEnabled = true;
-            this.cbbPartnerID.ItemHeight = 20;
-            this.cbbPartnerID.Location = new System.Drawing.Point(8, 126);
-            this.cbbPartnerID.Name = "cbbPartnerID";
-            this.cbbPartnerID.Size = new System.Drawing.Size(213, 28);
-            this.cbbPartnerID.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(5, 75);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Đối tác:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(8, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Tháng:";
             // 
             // contextMenuStrip1
             // 
@@ -170,109 +125,15 @@
             this.xuấtExcelToolStripMenuItem.Text = "Xuất Excel";
             this.xuấtExcelToolStripMenuItem.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
-            // cbbYear
-            // 
-            this.cbbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbYear.FormattingEnabled = true;
-            this.cbbYear.ItemHeight = 20;
-            this.cbbYear.Location = new System.Drawing.Point(121, 25);
-            this.cbbYear.Name = "cbbYear";
-            this.cbbYear.Size = new System.Drawing.Size(100, 28);
-            this.cbbYear.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(118, 5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 17);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Năm:";
-            // 
-            // cbbGroupTour
-            // 
-            this.cbbGroupTour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbGroupTour.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbGroupTour.FormattingEnabled = true;
-            this.cbbGroupTour.ItemHeight = 20;
-            this.cbbGroupTour.Location = new System.Drawing.Point(11, 223);
-            this.cbbGroupTour.Name = "cbbGroupTour";
-            this.cbbGroupTour.Size = new System.Drawing.Size(210, 28);
-            this.cbbGroupTour.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(8, 203);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 17);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Nhóm:";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.rdALL);
-            this.groupBox1.Controls.Add(this.rdDaThanhToan);
-            this.groupBox1.Controls.Add(this.rdChuaThanhToan);
-            this.groupBox1.Location = new System.Drawing.Point(11, 253);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(210, 116);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tình trạng";
-            // 
-            // rdALL
-            // 
-            this.rdALL.AutoSize = true;
-            this.rdALL.Checked = true;
-            this.rdALL.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdALL.Location = new System.Drawing.Point(32, 26);
-            this.rdALL.Name = "rdALL";
-            this.rdALL.Size = new System.Drawing.Size(58, 19);
-            this.rdALL.TabIndex = 6;
-            this.rdALL.TabStop = true;
-            this.rdALL.Text = "Tất cả";
-            this.rdALL.UseVisualStyleBackColor = true;
-            // 
-            // rdDaThanhToan
-            // 
-            this.rdDaThanhToan.AutoSize = true;
-            this.rdDaThanhToan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdDaThanhToan.Location = new System.Drawing.Point(32, 76);
-            this.rdDaThanhToan.Name = "rdDaThanhToan";
-            this.rdDaThanhToan.Size = new System.Drawing.Size(102, 19);
-            this.rdDaThanhToan.TabIndex = 6;
-            this.rdDaThanhToan.Text = "Đã thanh toán";
-            this.rdDaThanhToan.UseVisualStyleBackColor = true;
-            // 
-            // rdChuaThanhToan
-            // 
-            this.rdChuaThanhToan.AutoSize = true;
-            this.rdChuaThanhToan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdChuaThanhToan.Location = new System.Drawing.Point(32, 51);
-            this.rdChuaThanhToan.Name = "rdChuaThanhToan";
-            this.rdChuaThanhToan.Size = new System.Drawing.Size(115, 19);
-            this.rdChuaThanhToan.TabIndex = 6;
-            this.rdChuaThanhToan.Text = "Chưa thanh toán";
-            this.rdChuaThanhToan.UseVisualStyleBackColor = true;
-            // 
             // gridControlData
             // 
             this.gridControlData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControlData.Location = new System.Drawing.Point(226, 5);
+            this.gridControlData.Location = new System.Drawing.Point(3, 51);
             this.gridControlData.MainView = this.gridViewData;
             this.gridControlData.Name = "gridControlData";
-            this.gridControlData.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.btnClickViews2,
-            this.repositoryItemCheckEditPayment});
-            this.gridControlData.Size = new System.Drawing.Size(2341, 505);
+            this.gridControlData.Size = new System.Drawing.Size(1162, 591);
             this.gridControlData.TabIndex = 13;
             this.gridControlData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewData});
@@ -308,6 +169,7 @@
             this.gridViewData.OptionsCustomization.AllowColumnMoving = false;
             this.gridViewData.OptionsView.ColumnAutoWidth = false;
             this.gridViewData.OptionsView.ShowAutoFilterRow = true;
+            this.gridViewData.OptionsView.ShowFooter = true;
             this.gridViewData.OptionsView.ShowGroupPanel = false;
             this.gridViewData.RowHeight = 25;
             // 
@@ -334,6 +196,8 @@
             this.gridColumnName.Name = "gridColumnName";
             this.gridColumnName.OptionsColumn.AllowEdit = false;
             this.gridColumnName.OptionsColumn.ReadOnly = true;
+            this.gridColumnName.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Pax", "{0:0.##}")});
             this.gridColumnName.Visible = true;
             this.gridColumnName.VisibleIndex = 0;
             this.gridColumnName.Width = 50;
@@ -635,6 +499,8 @@
             this.gridColumnTotal.Name = "gridColumnTotal";
             this.gridColumnTotal.OptionsColumn.AllowEdit = false;
             this.gridColumnTotal.OptionsColumn.ReadOnly = true;
+            this.gridColumnTotal.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Total", "{0:#,###}")});
             this.gridColumnTotal.Visible = true;
             this.gridColumnTotal.VisibleIndex = 14;
             this.gridColumnTotal.Width = 120;
@@ -659,11 +525,6 @@
             this.gridColumnPayment.Visible = true;
             this.gridColumnPayment.VisibleIndex = 15;
             this.gridColumnPayment.Width = 120;
-            // 
-            // repositoryItemCheckEditPayment
-            // 
-            this.repositoryItemCheckEditPayment.AutoHeight = false;
-            this.repositoryItemCheckEditPayment.Name = "repositoryItemCheckEditPayment";
             // 
             // gridColumnDateCreate
             // 
@@ -707,74 +568,6 @@
             this.gridColumnEdit.VisibleIndex = 18;
             this.gridColumnEdit.Width = 60;
             // 
-            // btnClickViews2
-            // 
-            this.btnClickViews2.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
-            this.btnClickViews2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions2, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
-            this.btnClickViews2.Name = "btnClickViews2";
-            this.btnClickViews2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.btnClickViews2.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnClickViews2_ButtonClick);
-            // 
-            // btnExportExcel
-            // 
-            this.btnExportExcel.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnExportExcel.Appearance.Options.UseFont = true;
-            this.btnExportExcel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.ImageOptions.Image")));
-            this.btnExportExcel.Location = new System.Drawing.Point(9, 423);
-            this.btnExportExcel.Name = "btnExportExcel";
-            this.btnExportExcel.Size = new System.Drawing.Size(106, 40);
-            this.btnExportExcel.TabIndex = 6;
-            this.btnExportExcel.Text = "Xuất Excel";
-            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
-            // 
-            // btnTimKiem
-            // 
-            this.btnTimKiem.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnTimKiem.Appearance.Options.UseFont = true;
-            this.btnTimKiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.ImageOptions.Image")));
-            this.btnTimKiem.Location = new System.Drawing.Point(9, 375);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(211, 42);
-            this.btnTimKiem.TabIndex = 5;
-            this.btnTimKiem.Text = "Lọc dữ liệu";
-            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(121, 423);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(99, 40);
-            this.simpleButton1.TabIndex = 7;
-            this.simpleButton1.Text = "In";
-            this.simpleButton1.Click += new System.EventHandler(this.btnXuatBaoCao_Click);
-            // 
-            // ckViewAllPartner
-            // 
-            this.ckViewAllPartner.AutoSize = true;
-            this.ckViewAllPartner.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.ckViewAllPartner.Location = new System.Drawing.Point(11, 166);
-            this.ckViewAllPartner.Name = "ckViewAllPartner";
-            this.ckViewAllPartner.Size = new System.Drawing.Size(138, 21);
-            this.ckViewAllPartner.TabIndex = 14;
-            this.ckViewAllPartner.Text = "Xem tất cả đối tác";
-            this.ckViewAllPartner.UseVisualStyleBackColor = true;
-            // 
-            // txtFindPartner
-            // 
-            this.txtFindPartner.Location = new System.Drawing.Point(8, 95);
-            this.txtFindPartner.Name = "txtFindPartner";
-            this.txtFindPartner.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtFindPartner.Properties.Appearance.Options.UseFont = true;
-            this.txtFindPartner.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.txtFindPartner.Size = new System.Drawing.Size(137, 28);
-            this.txtFindPartner.TabIndex = 15;
-            this.txtFindPartner.TextChanged += new System.EventHandler(this.txtFindPartner_TextChanged);
-            // 
             // gridColumnDatePayment
             // 
             this.gridColumnDatePayment.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -796,59 +589,85 @@
             this.gridColumnDatePayment.VisibleIndex = 16;
             this.gridColumnDatePayment.Width = 120;
             // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportExcel.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.btnExportExcel.Appearance.Options.UseFont = true;
+            this.btnExportExcel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.ImageOptions.Image")));
+            this.btnExportExcel.Location = new System.Drawing.Point(742, 6);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(137, 39);
+            this.btnExportExcel.TabIndex = 2;
+            this.btnExportExcel.Text = "Xuất Excel";
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
+            // 
+            // btnPaymentAll
+            // 
+            this.btnPaymentAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPaymentAll.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.btnPaymentAll.Appearance.Options.UseFont = true;
+            this.btnPaymentAll.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPaymentAll.ImageOptions.Image")));
+            this.btnPaymentAll.Location = new System.Drawing.Point(578, 6);
+            this.btnPaymentAll.Name = "btnPaymentAll";
+            this.btnPaymentAll.Size = new System.Drawing.Size(158, 39);
+            this.btnPaymentAll.TabIndex = 1;
+            this.btnPaymentAll.Text = "Thanh toán tất cả";
+            this.btnPaymentAll.Click += new System.EventHandler(this.btnPaymentAll_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(885, 6);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(137, 39);
+            this.simpleButton1.TabIndex = 3;
+            this.simpleButton1.Text = "In";
+            this.simpleButton1.Click += new System.EventHandler(this.btnXuatBaoCao_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBack.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.btnBack.Appearance.Options.UseFont = true;
+            this.btnBack.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.ImageOptions.Image")));
+            this.btnBack.Location = new System.Drawing.Point(1028, 6);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(137, 39);
+            this.btnBack.TabIndex = 4;
+            this.btnBack.Text = "Quay lại";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // UCReportCongNo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.txtFindPartner);
-            this.Controls.Add(this.ckViewAllPartner);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.btnExportExcel);
-            this.Controls.Add(this.btnTimKiem);
+            this.Controls.Add(this.btnPaymentAll);
             this.Controls.Add(this.gridControlData);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.cbbGroupTour);
-            this.Controls.Add(this.cbbYear);
-            this.Controls.Add(this.cbbMonth);
-            this.Controls.Add(this.cbbPartnerID);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label1);
             this.Name = "UCReportCongNo";
-            this.Size = new System.Drawing.Size(2570, 513);
+            this.Size = new System.Drawing.Size(1168, 651);
             this.Load += new System.EventHandler(this.UCGroupTour_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEditPayment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClickViews2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClickViews)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkIsPayMent)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEditPayment)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnClickViews2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFindPartner.Properties)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox cbbMonth;
-        private System.Windows.Forms.ComboBox cbbPartnerID;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tảiLạiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xuấtExcelToolStripMenuItem;
-        private System.Windows.Forms.ComboBox cbbYear;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbbGroupTour;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rdDaThanhToan;
-        private System.Windows.Forms.RadioButton rdChuaThanhToan;
-        private System.Windows.Forms.RadioButton rdALL;
         private DevExpress.XtraGrid.GridControl gridControlData;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewData;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnID;
@@ -871,15 +690,14 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnEdit;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnTotal;
         private DevExpress.XtraEditors.SimpleButton btnExportExcel;
-        private DevExpress.XtraEditors.SimpleButton btnTimKiem;
+        private DevExpress.XtraEditors.SimpleButton btnPaymentAll;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private System.Windows.Forms.CheckBox ckViewAllPartner;
-        private DevExpress.XtraEditors.TextEdit txtFindPartner;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnPayment;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnClickViews;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit checkIsPayMent;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnClickViews2;
-        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEditPayment;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnDatePayment;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEditPayment;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnClickViews2;
+        private DevExpress.XtraEditors.SimpleButton btnBack;
     }
 }

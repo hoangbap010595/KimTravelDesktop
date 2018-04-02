@@ -24,15 +24,26 @@ namespace KimTravel.GUI.UControls
         private GroupTourService grTourService = new GroupTourService();
         private TourService tService = new TourService();
         private BookService objService;
+        private int _Month = 0;
+        private int _Year = 0;
+        private int _PartnerID = 0;
+        private int _IsPayment = -1;
         public UCReportCongNo()
         {
             InitializeComponent();
         }
-
+        public UCReportCongNo(int partnerID, int month, int year, int typePayment)
+        {
+            InitializeComponent();
+            this._PartnerID = partnerID;
+            this._Month = month;
+            this._Year = year;
+            this._IsPayment = typePayment;
+        }
         private void loadDataGroup()
         {
             objService = new BookService();
-            btnTimKiem.PerformClick();
+            btnPaymentAll.PerformClick();
         }
         private DataTable listMonth()
         {
@@ -71,51 +82,27 @@ namespace KimTravel.GUI.UControls
 
         private void UCGroupTour_Load(object sender, EventArgs e)
         {
+            btnPaymentAll.Visible = false;
             objService = new BookService();
-            cbbPartnerID.DataSource = partnerService.GetListCobobox();
-            cbbPartnerID.ValueMember = "PartnerID";
-            cbbPartnerID.DisplayMember = "Address";
-
-            cbbGroupTour.DataSource = grTourService.GetListCombobox();
-            cbbGroupTour.ValueMember = "GroupID";
-            cbbGroupTour.DisplayMember = "Name";
-
-            cbbMonth.DataSource = listMonth();
-            cbbMonth.ValueMember = "ID";
-            cbbMonth.DisplayMember = "Month";
-
-            cbbYear.DataSource = listYear();
-            cbbYear.ValueMember = "ID";
-            cbbYear.DisplayMember = "Year";
-
-            cbbMonth.SelectedValue = DateTime.Now.Month;
-            cbbYear.SelectedValue = DateTime.Now.Year;
+            if (_IsPayment == 1)
+                gridControlData.DataSource = objService.GetListBookedDone(_PartnerID, _Month, _Year, true, true);
+            else if (_IsPayment == 2)
+            {
+                btnPaymentAll.Visible = true;
+                gridControlData.DataSource = objService.GetListBookedDone(_PartnerID, _Month, _Year, false, true);
+            }
+            else
+                gridControlData.DataSource = objService.GetListBookedDone(_PartnerID, _Month, _Year, null, true);
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            btnTimKiem.PerformClick();
+            btnPaymentAll.PerformClick();
         }
-
-        private void btnTimKiem_Click(object sender, EventArgs e)
+        private void btnPaymentAll_Click(object sender, EventArgs e)
         {
-            var partnerID = int.Parse(cbbPartnerID.SelectedValue.ToString());
-            var groupID = int.Parse(cbbGroupTour.SelectedValue.ToString());
-            var month = int.Parse(cbbMonth.SelectedValue.ToString());
-            var year = int.Parse(cbbYear.SelectedValue.ToString());
-            bool? isPayment = rdDaThanhToan.Checked == true ? true : false;
 
-            if (rdALL.Checked)
-            {
-                isPayment = null;
-            }
-
-            if (ckViewAllPartner.Checked)
-                gridControlData.DataSource = objService.GetListBookedDoneAllParnert(groupID, month, year, isPayment, true);
-            else
-                gridControlData.DataSource = objService.GetListBookedDone(partnerID, groupID, month, year, isPayment, true);
         }
-
         private void btnExportExcel_Click(object sender, EventArgs e)
         {
             try
@@ -148,35 +135,34 @@ namespace KimTravel.GUI.UControls
 
         private void btnXuatBaoCao_Click(object sender, EventArgs e)
         {
-            var partnerID = int.Parse(cbbPartnerID.SelectedValue.ToString());
-            var groupID = int.Parse(cbbGroupTour.SelectedValue.ToString());
-            var month = int.Parse(cbbMonth.SelectedValue.ToString());
-            var year = int.Parse(cbbYear.SelectedValue.ToString());
-            bool? isPayment = rdDaThanhToan.Checked == true ? true : false;
+            //var partnerID = int.Parse(cbbPartnerID.SelectedValue.ToString());
+            //var month = int.Parse(cbbMonth.SelectedValue.ToString());
+            //var year = int.Parse(cbbYear.SelectedValue.ToString());
+            //bool? isPayment = rdDaThanhToan.Checked == true ? true : false;
 
-            if (rdALL.Checked)
-            {
-                isPayment = null;
-            }
+            //if (rdALL.Checked)
+            //{
+            //    isPayment = null;
+            //}
 
-            xtraRPBaoCaoCongNo rp = new xtraRPBaoCaoCongNo(partnerID, groupID, month, year, isPayment);
-            rp.ShowPreview();
-        }
-
-        private void txtFindPartner_TextChanged(object sender, EventArgs e)
-        {
-            string content = txtFindPartner.Text.Trim();
-            cbbPartnerID.DataSource = partnerService.GetListCobobox(content);
-            cbbPartnerID.ValueMember = "PartnerID";
-            cbbPartnerID.DisplayMember = "Address";
+            //xtraRPBaoCaoCongNo rp = new xtraRPBaoCaoCongNo(partnerID, month, year, isPayment);
+            //rp.ShowPreview();
         }
 
         private void btnClickViews2_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             var id = int.Parse(gridViewData.GetFocusedRowCellValue("ID").ToString());
-            frmDetailsTourDone frm = new frmDetailsTourDone(id);
-            frm.loadData = new frmDetailsTourDone.LoadData(loadDataGroup);
+            var work = bool.Parse(gridViewData.GetFocusedRowCellValue("IsCancel").ToString()) == true ? 2 : 1;
+            frmDetailsTour frm = new frmDetailsTour(work, id);
+            frm.loadData = new frmDetailsTour.LoadData(loadDataGroup);
             frm.ShowDialog();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Form frm = Application.OpenForms["frmPaymentDetail"];
+            if (frm != null)
+                frm.Close();
         }
     }
 }

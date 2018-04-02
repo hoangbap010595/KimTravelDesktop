@@ -73,8 +73,10 @@ namespace KimTravel.DAL.Services
                                     b.ID,
                                     b.PartnerID,
                                     b.Total,
+                                    Payment = b.IsPayment == true ? b.Total : 0,
+                                    NotPayment = b.IsPayment == false ? b.Total : 0,
                                     p.Name
-                                }).GroupBy(x => x.PartnerID).Select(o => new { ID = o.Key, Count = o.Count(), Total = o.Sum(x => x.Total) })).Join(db.Partners, O1 => O1.ID, O2 => O2.PartnerID, (O1, O2) => new { ID = O1.ID, PartnerName = O2.Name, Count = O1.Count, Total = O1.Total });
+                                }).GroupBy(x => x.PartnerID).Select(o => new { ID = o.Key, Count = o.Count(), Payment = o.Sum(x => x.Payment), NotPayment = o.Sum(x => x.NotPayment) })).Join(db.Partners, O1 => O1.ID, O2 => O2.PartnerID, (O1, O2) => new { ID = O1.ID, PartnerName = O2.Name, Count = O1.Count, Payment = O1.Payment, NotPayment = O1.NotPayment });
 
             return data;
         }
@@ -85,7 +87,7 @@ namespace KimTravel.DAL.Services
         /// <param name="dateStart"></param>
         /// <param name="isBooked"></param>
         /// <returns></returns>
-        public IQueryable GetListBookedNotInCar(int groupID, string dateStart, bool isBooked = false, bool isCancel = false)
+        public IQueryable GetListBookedNotInCar(int groupID, string dateStart, bool isBooked = true, bool isCancel = false)
         {
             var date = DateTime.Parse(dateStart);
             IQueryable data = ((from b in db.Books
@@ -104,7 +106,7 @@ namespace KimTravel.DAL.Services
 
             return data;
         }
-        public IEnumerable<BookTourModel> GetListBookedDoneReport(int partnerID, int groupID, int month, int year, bool? isPayment = true, bool isBooked = true)
+        public IEnumerable<BookTourModel> GetListBookedDoneReport(int partnerID, int month, int year, bool? isPayment = true, bool isBooked = true)
         {
             IEnumerable<BookTourModel> data = null;
             if (isPayment == null)
@@ -113,7 +115,7 @@ namespace KimTravel.DAL.Services
                        join p in db.Partners on b.PartnerID equals p.PartnerID
                        join t in db.Tours on b.TourID equals t.TourID
                        join g in db.GroupTours on t.GroupID equals g.GroupID
-                       where b.IsBooked == isBooked && b.PartnerID == partnerID && g.GroupID == groupID
+                       where b.IsBooked == isBooked && b.PartnerID == partnerID 
                              && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
                        orderby b.StartDate
                        select new BookTourModel
@@ -135,7 +137,7 @@ namespace KimTravel.DAL.Services
                        join p in db.Partners on b.PartnerID equals p.PartnerID
                        join t in db.Tours on b.TourID equals t.TourID
                        join g in db.GroupTours on t.GroupID equals g.GroupID
-                       where b.IsPayment == isPayment && b.IsBooked == isBooked && b.PartnerID == partnerID && g.GroupID == groupID
+                       where b.IsPayment == isPayment && b.IsBooked == isBooked && b.PartnerID == partnerID
                              && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
                        orderby b.StartDate
                        select new BookTourModel
@@ -153,7 +155,7 @@ namespace KimTravel.DAL.Services
             }
             return data;
         }
-        public IQueryable GetListBookedDone(int partnerID, int groupID, int month, int year, bool? isPayment = true, bool isBooked = true)
+        public IQueryable GetListBookedDone(int partnerID, int month, int year, bool? isPayment = true, bool isBooked = true)
         {
             IQueryable data = null;
             if (isPayment == null)
@@ -162,7 +164,7 @@ namespace KimTravel.DAL.Services
                        join p in db.Partners on b.PartnerID equals p.PartnerID
                        join t in db.Tours on b.TourID equals t.TourID
                        join g in db.GroupTours on t.GroupID equals g.GroupID
-                       where b.IsBooked == isBooked && b.PartnerID == partnerID && g.GroupID == groupID
+                       where b.IsBooked == isBooked && b.PartnerID == partnerID
                              && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
                        orderby b.StartDate
                        select new
@@ -192,7 +194,8 @@ namespace KimTravel.DAL.Services
                            b.Total,
                            b.IsPayment,
                            b.DatePayment,
-                           b.ServiceName
+                           b.ServiceName,
+                           b.IsCancel
                        };
             }
             else
@@ -201,7 +204,7 @@ namespace KimTravel.DAL.Services
                        join p in db.Partners on b.PartnerID equals p.PartnerID
                        join t in db.Tours on b.TourID equals t.TourID
                        join g in db.GroupTours on t.GroupID equals g.GroupID
-                       where b.IsPayment == isPayment && b.IsBooked == isBooked && b.PartnerID == partnerID && g.GroupID == groupID
+                       where b.IsPayment == isPayment && b.IsBooked == isBooked && b.PartnerID == partnerID
                              && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
                        orderby b.StartDate
                        select new
@@ -231,12 +234,13 @@ namespace KimTravel.DAL.Services
                            b.Total,
                            b.IsPayment,
                            b.DatePayment,
-                           b.ServiceName
+                           b.ServiceName,
+                           b.IsCancel
                        };
             }
             return data;
         }
-        public IQueryable GetListBookedDoneAllParnert(int groupID, int month, int year, bool? isPayment = true, bool isBooked = true)
+        public IQueryable GetListBookedDoneAllParnert(int month, int year, bool? isPayment = true, bool isBooked = true)
         {
             IQueryable data = null;
             if (isPayment == null)
@@ -245,7 +249,7 @@ namespace KimTravel.DAL.Services
                        join p in db.Partners on b.PartnerID equals p.PartnerID
                        join t in db.Tours on b.TourID equals t.TourID
                        join g in db.GroupTours on t.GroupID equals g.GroupID
-                       where b.IsBooked == isBooked && g.GroupID == groupID
+                       where b.IsBooked == isBooked
                              && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
                        orderby b.StartDate
                        select new
@@ -275,7 +279,8 @@ namespace KimTravel.DAL.Services
                            b.Total,
                            b.IsPayment,
                            b.DatePayment,
-                           b.ServiceName
+                           b.ServiceName,
+                           b.IsCancel
                        };
             }
             else
@@ -284,7 +289,7 @@ namespace KimTravel.DAL.Services
                        join p in db.Partners on b.PartnerID equals p.PartnerID
                        join t in db.Tours on b.TourID equals t.TourID
                        join g in db.GroupTours on t.GroupID equals g.GroupID
-                       where b.IsPayment == isPayment && b.IsBooked == isBooked && g.GroupID == groupID
+                       where b.IsPayment == isPayment && b.IsBooked == isBooked
                              && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
                        orderby b.StartDate
                        select new
@@ -325,7 +330,7 @@ namespace KimTravel.DAL.Services
                               join t in db.Tours on b.TourID equals t.TourID
                               join g in db.GroupTours on t.GroupID equals g.GroupID
                               from p in db.Partners.Where(x => x.PartnerID == b.PartnerID)
-                              where b.IsCancel == isCancel && b.IsBooked != true
+                              where b.IsCancel == isCancel && b.IsBooked == true
                               orderby b.StartDate, p.Address, p.Line
                               select new
                               {
@@ -368,7 +373,7 @@ namespace KimTravel.DAL.Services
                               from p in db.Partners.Where(x => x.PartnerID == b.PartnerID)
                               where b.PartnerID == partnerID && b.StartDate.Value == date
                                     && b.IsCancel == isCancel
-                                    && b.IsBooked != true
+                                    && b.IsBooked == true
                               orderby p.Address, p.Line
                               select new
                               {
@@ -378,6 +383,7 @@ namespace KimTravel.DAL.Services
                                   b.PickUp,
                                   b.Room,
                                   b.Pax,
+                                  b.PartnerPrice,
                                   PartnerName = p.Name,
                                   SaleBook = b.StaffID,
                                   b.ServiceName
@@ -394,7 +400,7 @@ namespace KimTravel.DAL.Services
                               where b.TourID == tourID
                                     && b.StartDate.Value == date
                                     && b.IsCancel == isCancel
-                                    && b.IsBooked != true
+                                    && b.IsBooked == true
                               orderby p.Address, p.Line
                               select new
                               {
@@ -433,7 +439,7 @@ namespace KimTravel.DAL.Services
             var data = (from b in db.Books
                         join t in db.Tours on b.TourID equals t.TourID
                         join g in db.GroupTours on t.GroupID equals g.GroupID
-                        where b.TourID == tourID && b.StartDate.Value == date1 && b.IsCancel == false && b.IsBooked != true
+                        where b.TourID == tourID && b.StartDate.Value == date1 && b.IsCancel == false && b.IsBooked == true
                         select new
                         {
                             b
@@ -522,6 +528,10 @@ namespace KimTravel.DAL.Services
                 currObject.CustomName = obj.CustomName;
                 currObject.Room = obj.Room;
                 currObject.PickUp = obj.PickUp;
+
+                //Tre Em
+                currObject.PaxChild = obj.PaxChild;
+                currObject.PriceReChild = obj.PriceReChild;
 
                 //Service
                 currObject.PartnerPrice = obj.PartnerPrice;

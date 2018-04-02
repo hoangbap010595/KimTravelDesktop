@@ -14,19 +14,18 @@ namespace KimTravel.GUI
         private BookService objService;
         private PartnerService partnerService;
         private GroupTourService groupTourService;
-        public xtraRPBaoCaoCongNo(int partnerID, int groupID, int month, int year,bool? isPayment)
+        public xtraRPBaoCaoCongNo(int partnerID, int month, int year,bool? isPayment)
         {
             InitializeComponent();
             objService = new BookService();
             partnerService = new PartnerService();
             groupTourService = new GroupTourService();
-            this.objectDataSource1.DataSource = objService.GetListBookedDoneReport(partnerID, groupID, month, year, isPayment, true);
-            GroupTour g = groupTourService.GetByID(groupID);
-            string title = "CÔNG NỢ " + g.Name + " THÁNG " + month + "/" + year;
+            this.objectDataSource1.DataSource = objService.GetListBookedDoneReport(partnerID,  month, year, isPayment, true);
+            //GroupTour g = groupTourService.GetByID(groupID);
+            string title = "CÔNG NỢ THÁNG " + month + "/" + year;
             lblTitle.Text = title.ToUpper();
             Partner p = partnerService.GetByID(partnerID);
             lblPartnerName.Text = p.Name;
-            lblPartnerAddress.Text = p.Address;
             lblPartnerPhone.Text = p.Phone;
         }
         public xtraRPBaoCaoCongNo(DataTable dt)

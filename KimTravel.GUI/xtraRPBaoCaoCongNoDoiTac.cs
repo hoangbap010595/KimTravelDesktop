@@ -20,13 +20,12 @@ namespace KimTravel.GUI
             objService = new BookService();
             partnerService = new PartnerService();
             groupTourService = new GroupTourService();
-            this.objectDataSource1.DataSource = objService.GetListBookedDoneReport(partnerID, groupID, month, year, true);
+            this.objectDataSource1.DataSource = objService.GetListBookedDoneReport(partnerID, month, year, true);
             GroupTour g = groupTourService.GetByID(groupID);
             string title = "CÔNG NỢ " + g.Name + " THÁNG " + month + "/" + year;
             lblTitle.Text = title.ToUpper();
             Partner p = partnerService.GetByID(partnerID);
             lblPartnerName.Text = p.Name;
-            lblPartnerAddress.Text = p.Address;
             lblPartnerPhone.Text = p.Phone;
         }
         public xtraRPBaoCaoCongNoDoiTac(int partnerID, int month, int year)
@@ -40,7 +39,6 @@ namespace KimTravel.GUI
             lblTitle.Text = title.ToUpper();
             Partner p = partnerService.GetByID(partnerID);
             lblPartnerName.Text = p.Name;
-            lblPartnerAddress.Text = p.Address;
             lblPartnerPhone.Text = p.Phone;
         }
         public xtraRPBaoCaoCongNoDoiTac(DataTable dt)

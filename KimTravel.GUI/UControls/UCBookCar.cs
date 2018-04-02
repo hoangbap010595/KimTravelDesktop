@@ -200,8 +200,10 @@ namespace KimTravel.GUI.UControls
             }
             for (int i = 0; i < gridViewData.RowCount; i++)
             {
-                _TourID = int.Parse(gridViewData.GetRowCellValue(i, "TourID").ToString());
-                var listData = objService.GetListBooked(_TourID, dateStart, false);
+                int tID = int.Parse(gridViewData.GetRowCellValue(i, "TourID").ToString());
+                if (i == 0)
+                    _TourID = tID;
+                var listData = objService.GetListBooked(tID, dateStart, false);
                 DataTable table = _tableTemp.Clone();
                 foreach (var item in listData)
                 {
@@ -250,10 +252,13 @@ namespace KimTravel.GUI.UControls
                 }
                 listTablePick[i] = table;
             }
-            dataGridViewGroupTour.DataSource = listTablePick[_indexTourSelected];
-            dataGridViewGroupTour_DataBindingComplete();
-            //_Selected = listTablePick[_indexTourSelected].Rows.Count;
-            //lblSelected.Text = listTablePick[_indexTourSelected].Rows.Count.ToString();
+            if (listTablePick.Count > 0)
+            {
+                dataGridViewGroupTour.DataSource = listTablePick[_indexTourSelected];
+                dataGridViewGroupTour_DataBindingComplete();
+                //_Selected = listTablePick[_indexTourSelected].Rows.Count;
+                //lblSelected.Text = listTablePick[_indexTourSelected].Rows.Count.ToString();
+            }
         }
 
         private void rdCar05_CheckedChanged(object sender, EventArgs e)
@@ -377,6 +382,7 @@ namespace KimTravel.GUI.UControls
         #endregion
         private void gridViewData_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
+            _TourID = int.Parse(gridViewData.GetFocusedRowCellValue("TourID").ToString());
             _indexTourSelected = e.RowHandle;
             dataGridViewGroupTour.DataSource = listTablePick[_indexTourSelected];
             dataGridViewGroupTour_DataBindingComplete();

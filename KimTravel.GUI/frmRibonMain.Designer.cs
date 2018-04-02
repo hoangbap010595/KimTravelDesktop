@@ -50,6 +50,7 @@
             this.lblAccount = new DevExpress.XtraBars.BarStaticItem();
             this.lblCurrent = new DevExpress.XtraBars.BarStaticItem();
             this.barBtnTourPrint = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnCheckUpdate = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupHeThong = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroupTour = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -58,10 +59,9 @@
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroupData = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.xtraTabControlMain = new DevExpress.XtraTab.XtraTabControl();
-            this.barBtnCheckUpdate = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControlMain)).BeginInit();
             this.SuspendLayout();
@@ -200,7 +200,7 @@
             // 
             // barBtnGroupPartner
             // 
-            this.barBtnGroupPartner.Caption = "Quản lý nhóm đối tác";
+            this.barBtnGroupPartner.Caption = "Giá nhận đối tác";
             this.barBtnGroupPartner.Id = 9;
             this.barBtnGroupPartner.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtnGroupPartner.ImageOptions.Image")));
             this.barBtnGroupPartner.LargeWidth = 80;
@@ -329,6 +329,17 @@
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             this.barBtnTourPrint.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnTourPrint_ItemClick);
             // 
+            // barBtnCheckUpdate
+            // 
+            this.barBtnCheckUpdate.Caption = "Kiểm tra cập nhật";
+            this.barBtnCheckUpdate.Id = 21;
+            this.barBtnCheckUpdate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtnCheckUpdate.ImageOptions.Image")));
+            this.barBtnCheckUpdate.LargeWidth = 80;
+            this.barBtnCheckUpdate.Name = "barBtnCheckUpdate";
+            this.barBtnCheckUpdate.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            this.barBtnCheckUpdate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnCheckUpdate_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -400,6 +411,12 @@
             this.ribbonPageGroupData.Text = "Dữ liệu";
             this.ribbonPageGroupData.Visible = false;
             // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barBtnCheckUpdate);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "Thông tin";
+            // 
             // ribbonStatusBar1
             // 
             this.ribbonStatusBar1.ItemLinks.Add(this.lblAccount);
@@ -422,23 +439,6 @@
             this.xtraTabControlMain.Size = new System.Drawing.Size(1350, 561);
             this.xtraTabControlMain.TabIndex = 2;
             this.xtraTabControlMain.CloseButtonClick += new System.EventHandler(this.xtraTabControlMain_CloseButtonClick);
-            // 
-            // barBtnCheckUpdate
-            // 
-            this.barBtnCheckUpdate.Caption = "Kiểm tra cập nhật";
-            this.barBtnCheckUpdate.Id = 21;
-            this.barBtnCheckUpdate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtnCheckUpdate.ImageOptions.Image")));
-            this.barBtnCheckUpdate.LargeWidth = 80;
-            this.barBtnCheckUpdate.Name = "barBtnCheckUpdate";
-            this.barBtnCheckUpdate.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.barBtnCheckUpdate.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnCheckUpdate_ItemClick);
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barBtnCheckUpdate);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Thông tin";
             // 
             // frmRibonMain
             // 

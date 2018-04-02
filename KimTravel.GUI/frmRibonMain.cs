@@ -224,6 +224,7 @@ namespace KimTravel.GUI
 
             lblAccount.Caption = "" + Constant.CurrentSessionUser;
             getMenuOfAccount();
+            barBtnCongNo.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
         }
 
         private void frmRibonMain_FormClosing(object sender, FormClosingEventArgs e)

@@ -37,11 +37,11 @@ namespace KimTravel.GUI.FControls
             InitializeComponent();
             _dataTemp = dt;
             _tourID = tourID;
+            _startDate = DateTime.Parse(startDate);
             Tour t = tourService.GetByID(tourID);
             lblTour.Text = t.Name;
-            lblDate.Text = startDate;
+            lblDate.Text = _startDate.ToString("dd-MMM");
             _tourName = t.Name;
-            _startDate = DateTime.Parse(startDate);
             _numCar = numCar;
             this.Text = "Chi tiết xe " + numCar;
             btnPrint.UseVisualStyleBackColor = true;

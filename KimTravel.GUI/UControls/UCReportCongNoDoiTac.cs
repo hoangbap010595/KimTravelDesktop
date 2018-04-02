@@ -136,5 +136,20 @@ namespace KimTravel.GUI.UControls
             xtraRPBaoCaoCongNoDoiTac rp = new xtraRPBaoCaoCongNoDoiTac(id, month, year);
             rp.ShowPreview();
         }
+
+        private void ShowPayment(int typePayment)
+        {
+            var id = int.Parse(gridViewData.GetFocusedRowCellValue("ID").ToString());
+            var month = int.Parse(cbbMonth.SelectedValue.ToString());
+            var year = int.Parse(cbbYear.SelectedValue.ToString());
+            frmPaymentDetail frm = new frmPaymentDetail(id, month, year, typePayment);
+            frm.ShowDialog();
+        }
+        private void btnViewDetails_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            frmConfirmPayment frm = new frmConfirmPayment();
+            frm.sendPayment = new frmConfirmPayment.SendPayment(ShowPayment);
+            frm.ShowDialog();
+        }
     }
 }

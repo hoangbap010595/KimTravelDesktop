@@ -25,6 +25,7 @@ namespace KimTravel.DAL.Services
                            p.TourID,
                            p.PriceRe,
                            g.GroupName,
+                           p.PriceReChild,
                            t.Name
                        };
             return data;
@@ -43,6 +44,7 @@ namespace KimTravel.DAL.Services
                            p.GroupID,
                            p.TourID,
                            p.PriceRe,
+                           p.PriceReChild,
                            g.GroupName,
                            t.Name
                        };
@@ -60,6 +62,20 @@ namespace KimTravel.DAL.Services
             {
                 int gID = db.Partners.FirstOrDefault(x => x.PartnerID == partnerID).GroupID.Value;
                 rs = db.Prices.FirstOrDefault(x => x.GroupID == gID && x.TourID == tourID).PriceRe.Value;
+            }
+            catch
+            {
+                rs = 0;
+            }
+            return rs.ToString();
+        }
+        public string GetPriceChildForPartner(int partnerID, int tourID)
+        {
+            int rs = 0;
+            try
+            {
+                int gID = db.Partners.FirstOrDefault(x => x.PartnerID == partnerID).GroupID.Value;
+                rs = db.Prices.FirstOrDefault(x => x.GroupID == gID && x.TourID == tourID).PriceReChild.Value;
             }
             catch
             {
@@ -91,7 +107,7 @@ namespace KimTravel.DAL.Services
                     currObject.GroupID = obj.GroupID;
                     currObject.TourID = obj.TourID;
                     currObject.PriceRe = obj.PriceRe;
-                    // currObject.GroupID = obj.GroupID;
+                    currObject.PriceReChild = obj.PriceReChild;
                     db.SubmitChanges();
                 }
                 return true;

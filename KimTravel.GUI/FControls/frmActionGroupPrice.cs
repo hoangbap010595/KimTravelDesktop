@@ -22,7 +22,9 @@ namespace KimTravel.GUI.FControls
         private PriceService priceService = new PriceService();
         private GroupPartnerService groupService = new GroupPartnerService();
         private TourService tourService = new TourService();
-        
+        GroupTourService grTourService = new GroupTourService();
+
+
         private int _action = -1;
         private int _objID = -1;
         public delegate void LoadData();
@@ -43,9 +45,9 @@ namespace KimTravel.GUI.FControls
             cbbGroupPartner.ValueMember = "GroupPartnerID";
             cbbGroupPartner.DisplayMember = "GroupName";
 
-            cbbTour.DataSource = tourService.GetListCobobox();
-            cbbTour.ValueMember = "TourID";
-            cbbTour.DisplayMember = "Name";
+            cbbGroupTour.DataSource = grTourService.GetListCombobox();
+            cbbGroupTour.ValueMember = "GroupID";
+            cbbGroupTour.DisplayMember = "Name";
 
             if (_action == -1)
                 this.Text = "Thêm mới giá nhận theo tour";
@@ -55,6 +57,7 @@ namespace KimTravel.GUI.FControls
             if (_objectData != null)
             {
                 txtPriceRe.Text = _objectData.PriceRe.ToString();
+                txtPriceReChild.Text = _objectData.PriceReChild.ToString();
                 cbbGroupPartner.SelectedValue = _objectData.GroupID;
                 cbbTour.SelectedValue = _objectData.TourID;
             }
@@ -64,7 +67,12 @@ namespace KimTravel.GUI.FControls
         {
             if (txtPriceRe.Text == "")
             {
-                XtraMessageBox.Show("Giá nhận không thể để trống.");
+                XtraMessageBox.Show("Giá nhận người lớn không thể để trống.");
+                return;
+            }
+            if (txtPriceReChild.Text == "")
+            {
+                XtraMessageBox.Show("Giá nhận trẻ em không thể để trống.");
                 return;
             }
             Price price = new Price();
@@ -72,7 +80,7 @@ namespace KimTravel.GUI.FControls
             price.GroupID = int.Parse(cbbGroupPartner.SelectedValue.ToString());
             price.TourID = int.Parse(cbbTour.SelectedValue.ToString());
             price.PriceRe = int.Parse(txtPriceRe.Text);
-
+            price.PriceReChild = int.Parse(txtPriceReChild.Text);
             var rs = false;
             var msg = "";
             if (_action == -1)
@@ -104,6 +112,19 @@ namespace KimTravel.GUI.FControls
             {
                 e.Handled = true;
             }
+        }
+
+        private void cbbGroupTour_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var x = cbbGroupTour.SelectedValue.ToString();
+                int gID = int.Parse(x);
+                cbbTour.DataSource = tourService.GetListForGroup(gID);
+                cbbTour.ValueMember = "TourID";
+                cbbTour.DisplayMember = "Name";
+            }
+            catch { }
         }
     }
 }

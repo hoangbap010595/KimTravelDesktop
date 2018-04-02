@@ -164,6 +164,12 @@
     <Compile Include="FControls\frmConfirm.Designer.cs">
       <DependentUpon>frmConfirm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FControls\frmConfirmPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FControls\frmConfirmPayment.Designer.cs">
+      <DependentUpon>frmConfirmPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="FControls\frmDetailsPrintAgain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +247,12 @@
     </Compile>
     <Compile Include="FControls\frmBookTour.Designer.cs">
       <DependentUpon>frmBookTour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FControls\frmPaymentDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FControls\frmPaymentDetail.Designer.cs">
+      <DependentUpon>frmPaymentDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -385,6 +397,9 @@
     <EmbeddedResource Include="FControls\frmConfirm.resx">
       <DependentUpon>frmConfirm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FControls\frmConfirmPayment.resx">
+      <DependentUpon>frmConfirmPayment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FControls\frmDetailsPrintAgain.resx">
       <DependentUpon>frmDetailsPrintAgain.cs</DependentUpon>
     </EmbeddedResource>
@@ -423,6 +438,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FControls\frmBookTour.resx">
       <DependentUpon>frmBookTour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FControls\frmPaymentDetail.resx">
+      <DependentUpon>frmPaymentDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

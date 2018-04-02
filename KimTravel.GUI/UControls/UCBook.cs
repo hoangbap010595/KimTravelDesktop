@@ -85,9 +85,9 @@ namespace KimTravel.GUI.UControls
                 txtPriceSa.Text = tour.PriceSale.ToString();
 
                 Dictionary<string, object> dataObject = bService.getInfoBooked(gID, id, date1);
-                int C1 = int.Parse(dataObject["CurrentTotal"].ToString());
-
-                string msg = "Đã book: " + C1;
+                float C1 = float.Parse(dataObject["CurrentTotal"].ToString());
+                float C2 = float.Parse(dataObject["MaxPax"].ToString());
+                string msg = "Đã book: " + C1; 
                 //lblMsgPax.Text = msg;
 
                 txtPriceRe.Text = priceService.GetPriceForPartner(partnerID, id);
@@ -117,6 +117,9 @@ namespace KimTravel.GUI.UControls
                 book.PartnerPrice = int.Parse(txtPartnerPrice.Text == "" ? "0" : txtPartnerPrice.Text);
                 book.PriceReceive = int.Parse(txtPriceRe.Text == "" ? "0" : txtPriceRe.Text);
                 book.PriceSale = int.Parse(txtPriceSa.Text == "" ? "0" : txtPriceSa.Text);
+                //Tre em
+                book.PriceReChild = int.Parse(txtPriceReChild.Text == "" ? "0" : txtPriceReChild.Text);
+                book.PaxChild = float.Parse(numPaxChild.Value.ToString());
                 //book.PriceVTQ = 0;
                 book.Note = txtNote.Text;
 
@@ -128,7 +131,7 @@ namespace KimTravel.GUI.UControls
                 book.DateCreate = DateTime.Now;
                 book.CreateBy = Constant.CurrentSessionUser;
                 book.IsCancel = false;
-                book.IsBooked = false;
+                book.IsBooked = true;
                 book.IsPayment = false;
                 if (book.StaffID == "" || book.StaffID == null) { XtraMessageBox.Show("Tên NV book không thể để trống!"); return; }
                 Tour t = tService.GetByID((int)book.TourID);
@@ -146,8 +149,9 @@ namespace KimTravel.GUI.UControls
                     if (rs)
                     {
                         XtraMessageBox.Show("Book tour thành công!");
-                        txtNote.Text = txtRoom.Text = txtSaleBook.Text = txtPickUp.Text = txtPartnerPrice.Text = "";
+                        txtNote.Text = txtRoom.Text = txtSaleBook.Text = txtPickUp.Text = txtPartnerPrice.Text = txtPriceSaChild.Text = "";
                         numPax.Value = 2;
+                        numPaxChild.Value = 0;
                         cbbPartnerID_SelectedValueChanged(sender, e);
                         tableService.Rows.Clear();
                         dataGridViewGroupTour.DataSource = tableService;
@@ -245,6 +249,7 @@ namespace KimTravel.GUI.UControls
                 gridControlData.DataSource = bService.GetList(partnerID, date);
 
                 txtPriceRe.Text = priceService.GetPriceForPartner(partnerID, tourID);
+                txtPriceReChild.Text = priceService.GetPriceChildForPartner(partnerID, tourID);
             }
             catch { }
         }
@@ -260,6 +265,10 @@ namespace KimTravel.GUI.UControls
             {
                 float priceSale = float.Parse(txtPriceSa.Text == "" ? "0" : txtPriceSa.Text);
                 float priceRe = float.Parse(txtPriceRe.Text == "" ? "0" : txtPriceRe.Text);
+                //Child
+                float priceSaleChild = float.Parse(txtPriceSaChild.Text == "" ? "0" : txtPriceSaChild.Text);
+                float priceReChild = float.Parse(txtPriceReChild.Text == "" ? "0" : txtPriceReChild.Text);
+                //
                 float pricePartner = float.Parse(txtPartnerPrice.Text == "" ? "0" : txtPartnerPrice.Text);
                 float priceService = getTotalPriceService();
                 float moneySale = 0;
@@ -268,14 +277,19 @@ namespace KimTravel.GUI.UControls
                     moneySale = float.Parse(txtPromotionMoney.Text);
                 }
 
-                float priceTotal = priceRe + priceService;
+                //Tinh tien tre em
+                double priceChild = double.Parse(numPaxChild.Value.ToString()) * priceReChild;
+                //Tinh tien nguoi lon
+                double priceTotal = priceRe + priceService;
                 double paxTotal = double.Parse(numPax.Value.ToString()) * priceTotal;
-
-                double total = paxTotal - moneySale;
+                //Tinh Tong
+                double total = (priceChild + paxTotal) - moneySale;
 
                 lblTotalBook.Text = total.ToString();
                 lblFGiaBan.Text = String.Format("{0:#,###}", priceSale);
                 lblFGiaNhan.Text = String.Format("{0:#,###}", priceRe);
+                lblFPriceSaChild.Text = String.Format("{0:#,###}", priceSaleChild);
+                lblFPriceReChild.Text = String.Format("{0:#,###}", priceReChild);
                 lblFThuHo.Text = String.Format("{0:#,###}", pricePartner);
                 lblMoney.Text = String.Format("{0:#,###}", priceService);
                 lblMsgTotal.Text = String.Format("{0:#,###}", total);

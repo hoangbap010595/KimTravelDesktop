@@ -67,7 +67,7 @@ namespace KimTravel.GUI.UControls
             int gID = int.Parse(cbbGroupTourID.SelectedValue.ToString());
             var dateStart = dtpStartDate.Value.ToString("yyyy-MM-dd");
             bool isCancel = rdBinhThuong.Checked == true ? false : true;
-            gridControlTour.DataSource = objService.GetListBookedNotInCar(gID, dateStart, false, isCancel);
+            gridControlTour.DataSource = objService.GetListBookedNotInCar(gID, dateStart, true, isCancel);
         }
 
         private void btnExportExcel_Click(object sender, EventArgs e)

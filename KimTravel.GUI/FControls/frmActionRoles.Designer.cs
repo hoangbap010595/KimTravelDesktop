@@ -204,9 +204,9 @@
             this.ck3_QLNhomDT.AutoSize = true;
             this.ck3_QLNhomDT.Location = new System.Drawing.Point(6, 113);
             this.ck3_QLNhomDT.Name = "ck3_QLNhomDT";
-            this.ck3_QLNhomDT.Size = new System.Drawing.Size(133, 21);
+            this.ck3_QLNhomDT.Size = new System.Drawing.Size(131, 21);
             this.ck3_QLNhomDT.TabIndex = 0;
-            this.ck3_QLNhomDT.Text = "QL Nhóm đối tác";
+            this.ck3_QLNhomDT.Text = "Giá nhận đối tác";
             this.ck3_QLNhomDT.UseVisualStyleBackColor = true;
             // 
             // ck3_QLNhomTour

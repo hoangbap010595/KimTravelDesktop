@@ -38,6 +38,7 @@ namespace KimTravel.GUI.FControls
             _ObjID = objID;
             tableService.Columns.Add("ServiceType");
             tableService.Columns.Add("Price", typeof(int));
+            _objectBook = new Book();
         }
 
         private void frmActionGroupTour_Load(object sender, EventArgs e)
@@ -67,8 +68,12 @@ namespace KimTravel.GUI.FControls
             numPax.Value = (decimal)_objectBook.Pax.Value;
             txtSaleBook.Text = _objectBook.StaffID;
 
-            txtCustomer.Text = _objectBook.CustomName;
-            txtPickup.Text = _objectBook.PickUp == "" ? cbbPartnerID.SelectedText : _objectBook.PickUp;
+            //Tre em
+            numPaxChild.Value = (decimal)_objectBook.PaxChild.Value;
+            txtPriceReChild.Text = _objectBook.PriceReChild.ToString();
+
+            //txtCustomer.Text = _objectBook.CustomName;
+            txtPickUp.Text = _objectBook.PickUp;
             txtRoom.Text = _objectBook.Room;
 
             txtPriceRe.Text = _objectBook.PriceReceive.ToString();
@@ -77,7 +82,7 @@ namespace KimTravel.GUI.FControls
             txtNote.Text = _objectBook.Note;
 
             txtPromotionPrice.Text = _objectBook.PromotionMoney.ToString();
-            lblTotalBook.Text = _objectBook.Total.ToString();
+            lblTotalBookFinal.Text = _objectBook.Total.ToString();
 
             parseJsonServiceType(_objectBook.ServiceType);
 
@@ -127,15 +132,20 @@ namespace KimTravel.GUI.FControls
                 book.StaffID = txtSaleBook.Text;
 
                 //Cus
-                book.CustomName = txtCustomer.Text;
+                book.CustomName = "";
                 book.Room = txtRoom.Text;
                 Partner p = pnService.GetByID(int.Parse(cbbPartnerID.SelectedValue.ToString()));
-                book.PickUp = txtPickup.Text.Trim() == "" ? p.Line + " " + p.Address : txtPickup.Text;
+                book.PickUp = txtPickUp.Text.Trim() == "" ? p.Line + " " + p.Address : txtPickUp.Text;
 
                 //Service
                 book.PartnerPrice = int.Parse(txtPartnerPrice.Text == "" ? "0" : txtPartnerPrice.Text);
                 book.PriceReceive = int.Parse(txtPriceRe.Text == "" ? "0" : txtPriceRe.Text);
                 book.PriceSale = int.Parse(txtPriceSa.Text == "" ? "0" : txtPriceSa.Text);
+
+                //Tre em
+                book.PaxChild = float.Parse(numPaxChild.Value.ToString());
+                book.PriceReChild = int.Parse(txtPriceReChild.Text == "" ? "0" : txtPriceReChild.Text);
+
                 //book.PriceVTQ = 0;
                 book.Note = txtNote.Text;
 
@@ -143,7 +153,7 @@ namespace KimTravel.GUI.FControls
                 book.ServiceName = getJsonServiceName();
                 book.PromotionMoney = int.Parse(txtPromotionPrice.Text == "" ? "0" : txtPromotionPrice.Text);
                 book.PromotionPercent = 0;
-                book.Total = int.Parse(lblTotalBook.Text);
+                book.Total = int.Parse(lblTotalBookFinal.Text);
                 book.LastUpdate = DateTime.Now;
                 book.UpdateBy = Constant.CurrentSessionUser;
                 //book.IsCancel = false;
@@ -298,21 +308,35 @@ namespace KimTravel.GUI.FControls
         }
         private void payment()
         {
-            int priceRe = int.Parse(txtPriceRe.Text == "" ? "0" : txtPriceRe.Text);
-            int priceService = getTotalPriceService();
-            int moneySale = 0;
+            float priceSale = float.Parse(txtPriceSa.Text == "" ? "0" : txtPriceSa.Text);
+            float priceRe = float.Parse(txtPriceRe.Text == "" ? "0" : txtPriceRe.Text);
+            //Child
+            float priceSaleChild = float.Parse(txtPriceSaChild.Text == "" ? "0" : txtPriceSaChild.Text);
+            float priceReChild = float.Parse(txtPriceReChild.Text == "" ? "0" : txtPriceReChild.Text);
+            //
+            float pricePartner = float.Parse(txtPartnerPrice.Text == "" ? "0" : txtPartnerPrice.Text);
+            float priceService = getTotalPriceService();
+            float moneySale = 0;
             if (txtPromotionPrice.Text != "")
             {
-                moneySale = int.Parse(txtPromotionPrice.Text);
+                moneySale = float.Parse(txtPromotionPrice.Text);
             }
-
-            float priceTotal = priceRe + priceService;
+            //Tinh tien tre em
+            double priceChild = double.Parse(numPaxChild.Value.ToString()) * priceReChild;
+            //Tinh tien nguoi lon
+            double priceTotal = priceRe + priceService;
             double paxTotal = double.Parse(numPax.Value.ToString()) * priceTotal;
+            //Tinh Tong
+            double total = (priceChild + paxTotal) - moneySale;
 
-            double total = paxTotal - moneySale;
-
-            lblTotalBook.Text = total.ToString();
+            lblTotalBookFinal.Text = total.ToString();
+            lblFGiaBan.Text = String.Format("{0:#,###}", priceSale);
+            lblFGiaNhan.Text = String.Format("{0:#,###}", priceRe);
+            lblFPriceSaChild.Text = String.Format("{0:#,###}", priceSaleChild);
+            lblFPriceReChild.Text = String.Format("{0:#,###}", priceReChild);
+            lblFThuHo.Text = String.Format("{0:#,###}", pricePartner);
             lblMoney.Text = String.Format("{0:#,###}", priceService);
+            lblTotalBook.Text = String.Format("{0:#,###}", total);
         }
 
         private void dataGridViewGroupTour_CellContentClick(object sender, DataGridViewCellEventArgs e)
