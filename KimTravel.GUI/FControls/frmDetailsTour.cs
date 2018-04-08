@@ -84,8 +84,11 @@ namespace KimTravel.GUI.FControls
             txtPromotionPrice.Text = _objectBook.PromotionMoney.ToString();
             lblTotalBookFinal.Text = _objectBook.Total.ToString();
 
-            parseJsonServiceType(_objectBook.ServiceType);
+            ckBookOK.Checked = _objectBook.IsBooked.Value;
+            ckIsPayment.Checked = _objectBook.IsPayment.Value;
 
+            parseJsonServiceType(_objectBook.ServiceType);
+            payment();
         }
         private void cbbTourID_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -97,13 +100,19 @@ namespace KimTravel.GUI.FControls
                 string date1 = dtpStartDate.Value.ToString("yyyy-MM-dd");
                 Tour tour = tService.GetByID(id);
                 txtPriceSa.Text = tour.PriceSale.ToString();
+                txtPriceSaChild.Text = tour.PriceSaleChild.ToString();
 
                 Dictionary<string, object> dataObject = bookService.getInfoBooked(gID, id, date1);
                 int C1 = int.Parse(dataObject["CurrentTotal"].ToString());
-
-                string msg = "Đã book: " + C1;
+                int C2 = int.Parse(dataObject["MaxPax"].ToString());
+                int C3 = C2 - C1;
+                string msg = "Đã book: " + C3;
                 //lblMsgPax.Text = msg;
-
+                //if (C3 <= 0)
+                //{
+                //    btnUpdate.Enabled = false;
+                //    XtraMessageBox.Show("Số lượng đã book vượt quá số lượng tour cho phép.");
+                //}
                 txtPriceRe.Text = priceService.GetPriceForPartner(partnerID, id);
             }
             catch { }
@@ -156,22 +165,25 @@ namespace KimTravel.GUI.FControls
                 book.Total = int.Parse(lblTotalBookFinal.Text);
                 book.LastUpdate = DateTime.Now;
                 book.UpdateBy = Constant.CurrentSessionUser;
-                //book.IsCancel = false;
-                book.IsBooked = false;
+                book.IsPayment = ckIsPayment.Checked;
+                book.IsBooked = ckBookOK.Checked;
 
                 if (book.StaffID == "" || book.StaffID == null) { XtraMessageBox.Show("Tên NV book không thể để trống!"); return; }
 
-                var rs = bookService.Update(book);
-                if (rs)
+                if (DialogResult.OK == XtraMessageBox.Show("Xác nhận cập nhật thông tin.", "Thông báo", MessageBoxButtons.OKCancel))
                 {
-                    XtraMessageBox.Show("Cập nhật thành công");
-                    if (loadData != null)
-                        loadData();
-                    this.Close();
-                }
-                else
-                {
-                    XtraMessageBox.Show("Xảy ra lỗi vui lòng kiểm tra lại.");
+                    var rs = bookService.Update(book);
+                    if (rs)
+                    {
+                        XtraMessageBox.Show("Cập nhật thành công");
+                        if (loadData != null)
+                            loadData();
+                        this.Close();
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Xảy ra lỗi vui lòng kiểm tra lại.");
+                    }
                 }
             }
             catch (Exception ex) { XtraMessageBox.Show("Xảy ra lỗi: " + ex.Message); }
@@ -290,7 +302,8 @@ namespace KimTravel.GUI.FControls
         }
         private void btnAddServiceType_Click(object sender, EventArgs e)
         {
-            frmFindServiceType frm = new frmFindServiceType();
+            int _TourID = int.Parse(cbbTourID.SelectedValue.ToString());
+            frmFindServiceType frm = new frmFindServiceType(_TourID);
             frm.sendData = new frmFindServiceType.LoadData(getService);
             frm.Show();
         }
@@ -366,6 +379,19 @@ namespace KimTravel.GUI.FControls
             cbbPartnerID.DataSource = pnService.GetListCobobox(content);
             cbbPartnerID.ValueMember = "PartnerID";
             cbbPartnerID.DisplayMember = "Address";
+        }
+
+        private void cbbPartnerID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int partnerID = int.Parse(cbbPartnerID.SelectedValue.ToString());
+                int tourID = int.Parse(cbbTourID.SelectedValue.ToString());
+
+                txtPriceRe.Text = priceService.GetPriceForPartner(partnerID, tourID);
+                txtPriceReChild.Text = priceService.GetPriceChildForPartner(partnerID, tourID);
+            }
+            catch { }
         }
     }
 }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDetailsTour));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtFindPartner = new DevExpress.XtraEditors.TextEdit();
             this.label5 = new System.Windows.Forms.Label();
@@ -56,7 +56,11 @@
             this.cbbTourID = new System.Windows.Forms.ComboBox();
             this.cbbGroupTourID = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ckBookOK = new System.Windows.Forms.CheckBox();
+            this.ckIsPayment = new System.Windows.Forms.CheckBox();
             this.txtPartnerPrice = new DevExpress.XtraEditors.TextEdit();
+            this.lblTotalBook = new System.Windows.Forms.Label();
             this.lblFThuHo = new System.Windows.Forms.Label();
             this.txtPriceSaChild = new DevExpress.XtraEditors.TextEdit();
             this.txtPriceReChild = new DevExpress.XtraEditors.TextEdit();
@@ -83,10 +87,9 @@
             this.label21 = new System.Windows.Forms.Label();
             this.txtPromotionPrice = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
+            this.btnUpdate = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnBack = new DevExpress.XtraEditors.SimpleButton();
-            this.lblTotalBook = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtFindPartner.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numPaxChild)).BeginInit();
@@ -96,6 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSaleBook.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPartnerPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPriceSaChild.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPriceReChild.Properties)).BeginInit();
@@ -375,6 +379,7 @@
             this.cbbPartnerID.Name = "cbbPartnerID";
             this.cbbPartnerID.Size = new System.Drawing.Size(210, 28);
             this.cbbPartnerID.TabIndex = 5;
+            this.cbbPartnerID.SelectedIndexChanged += new System.EventHandler(this.cbbPartnerID_SelectedIndexChanged);
             // 
             // cbbTourID
             // 
@@ -404,6 +409,7 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.groupBox2);
             this.groupBox3.Controls.Add(this.txtPartnerPrice);
             this.groupBox3.Controls.Add(this.lblTotalBook);
             this.groupBox3.Controls.Add(this.lblFThuHo);
@@ -434,6 +440,45 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dịch vụ";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.ckBookOK);
+            this.groupBox2.Controls.Add(this.ckIsPayment);
+            this.groupBox2.Location = new System.Drawing.Point(9, 450);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(255, 55);
+            this.groupBox2.TabIndex = 32;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Trạng thái";
+            // 
+            // ckBookOK
+            // 
+            this.ckBookOK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.ckBookOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckBookOK.ForeColor = System.Drawing.Color.Red;
+            this.ckBookOK.Location = new System.Drawing.Point(139, 20);
+            this.ckBookOK.Name = "ckBookOK";
+            this.ckBookOK.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ckBookOK.Size = new System.Drawing.Size(111, 30);
+            this.ckBookOK.TabIndex = 0;
+            this.ckBookOK.Text = "Book OK";
+            this.ckBookOK.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ckBookOK.UseVisualStyleBackColor = false;
+            // 
+            // ckIsPayment
+            // 
+            this.ckIsPayment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ckIsPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckIsPayment.ForeColor = System.Drawing.Color.Red;
+            this.ckIsPayment.Location = new System.Drawing.Point(6, 20);
+            this.ckIsPayment.Name = "ckIsPayment";
+            this.ckIsPayment.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ckIsPayment.Size = new System.Drawing.Size(127, 30);
+            this.ckIsPayment.TabIndex = 0;
+            this.ckIsPayment.Text = "Đã thu tiền";
+            this.ckIsPayment.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ckIsPayment.UseVisualStyleBackColor = false;
+            // 
             // txtPartnerPrice
             // 
             this.txtPartnerPrice.Location = new System.Drawing.Point(190, 139);
@@ -446,6 +491,17 @@
             this.txtPartnerPrice.TabIndex = 31;
             this.txtPartnerPrice.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
             this.txtPartnerPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+            // 
+            // lblTotalBook
+            // 
+            this.lblTotalBook.AutoSize = true;
+            this.lblTotalBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalBook.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblTotalBook.Location = new System.Drawing.Point(372, 425);
+            this.lblTotalBook.Name = "lblTotalBook";
+            this.lblTotalBook.Size = new System.Drawing.Size(64, 17);
+            this.lblTotalBook.TabIndex = 30;
+            this.lblTotalBook.Text = "0000000";
             // 
             // lblFThuHo
             // 
@@ -606,7 +662,7 @@
             this.btnAddServiceType.Appearance.Options.UseFont = true;
             this.btnAddServiceType.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddServiceType.ImageOptions.Image")));
             this.btnAddServiceType.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnAddServiceType.Location = new System.Drawing.Point(6, 182);
+            this.btnAddServiceType.Location = new System.Drawing.Point(6, 185);
             this.btnAddServiceType.Name = "btnAddServiceType";
             this.btnAddServiceType.Size = new System.Drawing.Size(64, 27);
             this.btnAddServiceType.TabIndex = 17;
@@ -645,14 +701,14 @@
             this.dataGridViewGroupTour.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPartnerID,
             this.colServiceType,
@@ -665,7 +721,7 @@
             this.dataGridViewGroupTour.RowHeadersWidth = 35;
             this.dataGridViewGroupTour.RowTemplate.Height = 23;
             this.dataGridViewGroupTour.RowTemplate.ReadOnly = true;
-            this.dataGridViewGroupTour.Size = new System.Drawing.Size(476, 198);
+            this.dataGridViewGroupTour.Size = new System.Drawing.Size(476, 186);
             this.dataGridViewGroupTour.TabIndex = 0;
             this.dataGridViewGroupTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroupTour_CellContentClick);
             // 
@@ -688,9 +744,9 @@
             // 
             this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPrice.DataPropertyName = "Price";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "#,###";
-            this.colPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "#,###";
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle5;
             this.colPrice.HeaderText = "Đơn giá";
             this.colPrice.Name = "colPrice";
             this.colPrice.ReadOnly = true;
@@ -699,9 +755,9 @@
             // colRemove
             // 
             this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.colRemove.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.colRemove.DefaultCellStyle = dataGridViewCellStyle6;
             this.colRemove.HeaderText = "";
             this.colRemove.Name = "colRemove";
             this.colRemove.ReadOnly = true;
@@ -715,9 +771,9 @@
             this.lblTotalBookFinal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalBookFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalBookFinal.ForeColor = System.Drawing.Color.Red;
-            this.lblTotalBookFinal.Location = new System.Drawing.Point(278, 450);
+            this.lblTotalBookFinal.Location = new System.Drawing.Point(278, 448);
             this.lblTotalBookFinal.Name = "lblTotalBookFinal";
-            this.lblTotalBookFinal.Size = new System.Drawing.Size(190, 47);
+            this.lblTotalBookFinal.Size = new System.Drawing.Size(190, 50);
             this.lblTotalBookFinal.TabIndex = 0;
             this.lblTotalBookFinal.Text = "1900000000";
             this.lblTotalBookFinal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -728,9 +784,9 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.label21);
             this.panel1.Controls.Add(this.txtPromotionPrice);
-            this.panel1.Location = new System.Drawing.Point(6, 423);
+            this.panel1.Location = new System.Drawing.Point(6, 407);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(266, 79);
+            this.panel1.Size = new System.Drawing.Size(266, 43);
             this.panel1.TabIndex = 3;
             // 
             // label21
@@ -738,7 +794,7 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label21.Location = new System.Drawing.Point(10, 18);
+            this.label21.Location = new System.Drawing.Point(10, 10);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(90, 17);
             this.label21.TabIndex = 0;
@@ -746,9 +802,9 @@
             // 
             // txtPromotionPrice
             // 
-            this.txtPromotionPrice.Location = new System.Drawing.Point(40, 38);
+            this.txtPromotionPrice.Location = new System.Drawing.Point(106, 7);
             this.txtPromotionPrice.Name = "txtPromotionPrice";
-            this.txtPromotionPrice.Size = new System.Drawing.Size(180, 23);
+            this.txtPromotionPrice.Size = new System.Drawing.Size(146, 23);
             this.txtPromotionPrice.TabIndex = 12;
             this.txtPromotionPrice.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
             this.txtPromotionPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
@@ -759,25 +815,25 @@
             this.label18.BackColor = System.Drawing.Color.ForestGreen;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(278, 423);
+            this.label18.Location = new System.Drawing.Point(278, 418);
             this.label18.Name = "label18";
             this.label18.Padding = new System.Windows.Forms.Padding(2);
             this.label18.Size = new System.Drawing.Size(88, 24);
             this.label18.TabIndex = 0;
             this.label18.Text = "Tổng cộng";
             // 
-            // btnTimKiem
+            // btnUpdate
             // 
-            this.btnTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnTimKiem.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnTimKiem.Appearance.Options.UseFont = true;
-            this.btnTimKiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.ImageOptions.Image")));
-            this.btnTimKiem.Location = new System.Drawing.Point(25, 479);
-            this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(138, 39);
-            this.btnTimKiem.TabIndex = 17;
-            this.btnTimKiem.Text = "Cập nhật";
-            this.btnTimKiem.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnUpdate.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnUpdate.Appearance.Options.UseFont = true;
+            this.btnUpdate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.ImageOptions.Image")));
+            this.btnUpdate.Location = new System.Drawing.Point(25, 479);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(138, 39);
+            this.btnUpdate.TabIndex = 17;
+            this.btnUpdate.Text = "Cập nhật";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnCancel
             // 
@@ -805,17 +861,6 @@
             this.btnBack.Text = "Quay lại";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // lblTotalBook
-            // 
-            this.lblTotalBook.AutoSize = true;
-            this.lblTotalBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalBook.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTotalBook.Location = new System.Drawing.Point(372, 430);
-            this.lblTotalBook.Name = "lblTotalBook";
-            this.lblTotalBook.Size = new System.Drawing.Size(64, 17);
-            this.lblTotalBook.TabIndex = 30;
-            this.lblTotalBook.Text = "0000000";
-            // 
             // frmDetailsTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -823,7 +868,7 @@
             this.ClientSize = new System.Drawing.Size(964, 527);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnTimKiem);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
@@ -847,6 +892,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtPartnerPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPriceSaChild.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPriceReChild.Properties)).EndInit();
@@ -886,7 +932,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtPromotionPrice;
-        private DevExpress.XtraEditors.SimpleButton btnTimKiem;
+        private DevExpress.XtraEditors.SimpleButton btnUpdate;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.SimpleButton btnBack;
         private DevExpress.XtraEditors.SimpleButton btnAddServiceType;
@@ -915,5 +961,8 @@
         private DevExpress.XtraEditors.TextEdit txtPartnerPrice;
         private System.Windows.Forms.Label lblFThuHo;
         private System.Windows.Forms.Label lblTotalBook;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox ckBookOK;
+        private System.Windows.Forms.CheckBox ckIsPayment;
     }
 }

@@ -40,9 +40,12 @@
             this.txtGiaBan = new DevExpress.XtraEditors.TextEdit();
             this.txtPriceVTQ = new DevExpress.XtraEditors.TextEdit();
             this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.txtPriceChild = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiaBan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPriceVTQ.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPriceChild.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // materialLabel1
@@ -80,7 +83,7 @@
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(29, 157);
+            this.materialLabel4.Location = new System.Drawing.Point(29, 197);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(64, 19);
@@ -120,7 +123,7 @@
             this.ckEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckEnabled.Depth = 0;
             this.ckEnabled.Font = new System.Drawing.Font("Roboto", 10F);
-            this.ckEnabled.Location = new System.Drawing.Point(140, 195);
+            this.ckEnabled.Location = new System.Drawing.Point(140, 235);
             this.ckEnabled.Margin = new System.Windows.Forms.Padding(0);
             this.ckEnabled.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ckEnabled.MouseState = MaterialSkin.MouseState.HOVER;
@@ -137,7 +140,7 @@
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel7.Location = new System.Drawing.Point(29, 200);
+            this.materialLabel7.Location = new System.Drawing.Point(29, 240);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
             this.materialLabel7.Size = new System.Drawing.Size(72, 19);
@@ -167,7 +170,7 @@
             // 
             // txtPriceVTQ
             // 
-            this.txtPriceVTQ.Location = new System.Drawing.Point(140, 152);
+            this.txtPriceVTQ.Location = new System.Drawing.Point(140, 192);
             this.txtPriceVTQ.Name = "txtPriceVTQ";
             this.txtPriceVTQ.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPriceVTQ.Properties.Appearance.Options.UseFont = true;
@@ -182,33 +185,58 @@
             this.btnTimKiem.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnTimKiem.Appearance.Options.UseFont = true;
             this.btnTimKiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.ImageOptions.Image")));
-            this.btnTimKiem.Location = new System.Drawing.Point(106, 250);
+            this.btnTimKiem.Location = new System.Drawing.Point(106, 289);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(188, 39);
             this.btnTimKiem.TabIndex = 11;
             this.btnTimKiem.Text = "Cập nhật";
             this.btnTimKiem.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel3.Location = new System.Drawing.Point(29, 155);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(106, 19);
+            this.materialLabel3.TabIndex = 0;
+            this.materialLabel3.Text = "Giá bán trẻ em";
+            // 
+            // txtPriceChild
+            // 
+            this.txtPriceChild.Location = new System.Drawing.Point(140, 150);
+            this.txtPriceChild.Name = "txtPriceChild";
+            this.txtPriceChild.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtPriceChild.Properties.Appearance.Options.UseFont = true;
+            this.txtPriceChild.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtPriceChild.Size = new System.Drawing.Size(223, 28);
+            this.txtPriceChild.TabIndex = 10;
+            this.txtPriceChild.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+            // 
             // frmActionTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(390, 304);
+            this.ClientSize = new System.Drawing.Size(390, 343);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.txtPriceVTQ);
+            this.Controls.Add(this.txtPriceChild);
             this.Controls.Add(this.txtGiaBan);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.ckEnabled);
             this.Controls.Add(this.materialLabel7);
             this.Controls.Add(this.cbbGroupTour);
             this.Controls.Add(this.materialLabel6);
+            this.Controls.Add(this.materialLabel3);
             this.Controls.Add(this.materialLabel4);
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.materialLabel1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(406, 343);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(406, 343);
             this.Name = "frmActionTour";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -218,6 +246,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiaBan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPriceVTQ.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPriceChild.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,5 +264,7 @@
         private DevExpress.XtraEditors.TextEdit txtGiaBan;
         private DevExpress.XtraEditors.TextEdit txtPriceVTQ;
         private DevExpress.XtraEditors.SimpleButton btnTimKiem;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private DevExpress.XtraEditors.TextEdit txtPriceChild;
     }
 }

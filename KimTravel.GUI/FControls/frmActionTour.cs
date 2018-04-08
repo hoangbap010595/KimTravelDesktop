@@ -50,6 +50,7 @@ namespace KimTravel.GUI.FControls
             {
                 txtName.Text = _objectData.Name;
                 txtGiaBan.Text = _objectData.PriceSale.ToString();
+                txtPriceChild.Text = _objectData.PriceSaleChild.ToString();
                 txtPriceVTQ.Text = _objectData.PriceVTQ.ToString();
                 ckEnabled.Checked = _objectData.Enable == true ? true : false; ;
                 cbbGroupTour.SelectedValue = _objectData.GroupID;
@@ -68,6 +69,7 @@ namespace KimTravel.GUI.FControls
             groupTourNew.TourID = _objID;
             groupTourNew.Name = txtName.Text;
             groupTourNew.PriceSale = int.Parse(txtGiaBan.Text == "" ? "0" : txtGiaBan.Text);
+            groupTourNew.PriceSaleChild = int.Parse(txtPriceChild.Text == "" ? "0" : txtPriceChild.Text);
             groupTourNew.PriceVTQ = int.Parse(txtPriceVTQ.Text == "" ? "0" : txtPriceVTQ.Text);
             groupTourNew.Enable = ckEnabled.Checked;
             groupTourNew.GroupID = int.Parse(cbbGroupTour.SelectedValue.ToString());

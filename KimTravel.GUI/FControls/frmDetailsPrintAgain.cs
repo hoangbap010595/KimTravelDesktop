@@ -79,26 +79,32 @@ namespace KimTravel.GUI.FControls
                 var txID = cbbTaiXe.SelectedValue == null ? "0" : cbbTaiXe.SelectedValue.ToString();
                 Staff _objectHDV = staffService.GetByID(int.Parse(hdvID));
                 Staff _objectTX = staffService.GetByID(int.Parse(txID));
-
                 var selectNameHDV = hdvName != "" ? hdvName : _objectHDV == null ? "" : _objectHDV.Name;
                 var selectNameTX = txName != "" ? txName : _objectTX == null ? "" : _objectTX.Name;
                 if (String.IsNullOrEmpty(selectNameHDV))
                 {
                     XtraMessageBox.Show("Vui lòng nhập thông tin hướng dẫn viên.", "Thông báo"); return;
                 }
-
+                if (String.IsNullOrEmpty(hdvName) && _objectHDV.ID == 87)
+                {
+                    XtraMessageBox.Show("Vui lòng nhập thông tin hướng dẫn viên.", "Thông báo"); return;
+                }
                 if (String.IsNullOrEmpty(selectNameTX))
+                {
+                    XtraMessageBox.Show("Vui lòng nhập thông tin tài xế.", "Thông báo"); return;
+                }
+                if (String.IsNullOrEmpty(txName) && _objectTX.ID == 88)
                 {
                     XtraMessageBox.Show("Vui lòng nhập thông tin tài xế.", "Thông báo"); return;
                 }
 
                 btnPrint.Enabled = btnBack.Enabled = false;
                 lblMessageProgress.Visible = true;
-
                 DataTable data = new DataTable();
                 data.Columns.Add("ID", typeof(int));
                 data.Columns.Add("PickUp");
                 data.Columns.Add("Room");
+                data.Columns.Add("ServiceName");
                 data.Columns.Add("Pax", typeof(float));
                 data.Columns.Add("PartnerPrice", typeof(int));
                 data.Columns.Add("Note");
@@ -108,6 +114,7 @@ namespace KimTravel.GUI.FControls
                     dr["ID"] = int.Parse(gridViewData.GetRowCellValue(i, "DetailID").ToString());
                     dr["PickUp"] = gridViewData.GetRowCellValue(i, "PickUp").ToString();
                     dr["Room"] = gridViewData.GetRowCellValue(i, "Room").ToString();
+                    dr["ServiceName"] = float.Parse(gridViewData.GetRowCellValue(i, "ServiceName").ToString());
                     dr["Pax"] = float.Parse(gridViewData.GetRowCellValue(i, "Pax").ToString());
                     dr["PartnerPrice"] = int.Parse(gridViewData.GetRowCellValue(i, "PartnerPrice").ToString());
                     dr["Note"] = gridViewData.GetRowCellValue(i, "Note").ToString();
@@ -155,6 +162,11 @@ namespace KimTravel.GUI.FControls
             {
                 txtBKS.Text = "";
             }
+        }
+
+        private void btnDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            //gridViewData.ro
         }
     }
 }

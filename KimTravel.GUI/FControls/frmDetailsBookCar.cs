@@ -136,8 +136,15 @@ namespace KimTravel.GUI.FControls
             {
                 XtraMessageBox.Show("Vui lòng nhập thông tin hướng dẫn viên.", "Thông báo"); return;
             }
-
+            if (String.IsNullOrEmpty(hdvName) && _objectHDV.ID == 87)
+            {
+                XtraMessageBox.Show("Vui lòng nhập thông tin hướng dẫn viên.", "Thông báo"); return;
+            }
             if (String.IsNullOrEmpty(selectNameTX))
+            {
+                XtraMessageBox.Show("Vui lòng nhập thông tin tài xế.", "Thông báo"); return;
+            }
+            if (String.IsNullOrEmpty(txName) && _objectTX.ID == 88)
             {
                 XtraMessageBox.Show("Vui lòng nhập thông tin tài xế.", "Thông báo"); return;
             }
@@ -148,7 +155,7 @@ namespace KimTravel.GUI.FControls
             if (DialogResult.Yes == msg)
             {
                 insertPrintDetails();
-                updateStatusBooked();
+                //updateStatusBooked();
                 xtraRPPrintBookTour xtra = new xtraRPPrintBookTour(_dataTemp, _tourName, _startDate.ToString("dd-MM-yyyy"), selectNameHDV, selectNameTX);
                 //xtra.Print();
                 //xtra.PrintDialog();
@@ -156,7 +163,7 @@ namespace KimTravel.GUI.FControls
                 if (refreshData != null)
                     refreshData(_numCar);
             }
-            btnBack.Enabled = true;
+            btnPrint.Enabled = btnBack.Enabled = true;
             lblMessageProgress.Visible = false;
         }
 

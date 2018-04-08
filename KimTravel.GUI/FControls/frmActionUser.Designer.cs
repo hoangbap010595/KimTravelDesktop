@@ -165,6 +165,7 @@
             this.txtConfirmPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtConfirmPass.Properties.Appearance.Options.UseFont = true;
             this.txtConfirmPass.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtConfirmPass.Properties.PasswordChar = '*';
             this.txtConfirmPass.Size = new System.Drawing.Size(223, 28);
             this.txtConfirmPass.TabIndex = 1;
             // 
@@ -175,6 +176,7 @@
             this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPassword.Properties.Appearance.Options.UseFont = true;
             this.txtPassword.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtPassword.Properties.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(223, 28);
             this.txtPassword.TabIndex = 1;
             // 

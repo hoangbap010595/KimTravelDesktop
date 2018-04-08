@@ -18,6 +18,8 @@ namespace KimTravel.GUI.FControls
 {
     public partial class frmActionService : XtraForm
     {
+        private TourService tourService = new TourService();
+        GroupTourService grTourService = new GroupTourService();
         private ServiceTypeService gtService = new ServiceTypeService();
         ServiceType _objectData;
         private int _action = -1;
@@ -34,6 +36,9 @@ namespace KimTravel.GUI.FControls
 
         private void frmActionGroupTour_Load(object sender, EventArgs e)
         {
+            cbbGroupTourID.DataSource = grTourService.GetListCombobox();
+            cbbGroupTourID.ValueMember = "GroupID";
+            cbbGroupTourID.DisplayMember = "Name";
             txtServiceName.Focus();
 
             if (_action == -1)
@@ -59,7 +64,7 @@ namespace KimTravel.GUI.FControls
             service.ID = _objID;
             service.Name = txtServiceName.Text;
             service.Price = int.Parse(txtPrice.Text);
-
+            service.TourID = int.Parse(cbbTour.SelectedValue.ToString());
             var rs = false;
             var msg = "";
             if (_action == -1)
@@ -91,6 +96,25 @@ namespace KimTravel.GUI.FControls
             {
                 e.Handled = true;
             }
+        }
+
+        private void cbbTour_SelectedValueChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void cbbGroupTourID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var x = cbbGroupTourID.SelectedValue.ToString();
+                int gID = int.Parse(x);
+                cbbTour.DataSource = tourService.GetListForGroup(gID);
+                cbbTour.ValueMember = "TourID";
+                cbbTour.DisplayMember = "Name";
+                cbbTour.SelectedValue = _objectData.TourID;
+            }
+            catch { }
         }
     }
 }

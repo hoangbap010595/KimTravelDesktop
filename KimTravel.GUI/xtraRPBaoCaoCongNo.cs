@@ -14,13 +14,18 @@ namespace KimTravel.GUI
         private BookService objService;
         private PartnerService partnerService;
         private GroupTourService groupTourService;
-        public xtraRPBaoCaoCongNo(int partnerID, int month, int year,bool? isPayment)
+        public xtraRPBaoCaoCongNo(int partnerID, int month, int year, int isPayment)
         {
             InitializeComponent();
             objService = new BookService();
             partnerService = new PartnerService();
             groupTourService = new GroupTourService();
-            this.objectDataSource1.DataSource = objService.GetListBookedDoneReport(partnerID,  month, year, isPayment, true);
+            if (isPayment == 3)
+                this.objectDataSource1.DataSource = objService.GetListBookedDoneReport(partnerID, month, year, null, true);
+            else if (isPayment == 1)
+                this.objectDataSource1.DataSource = objService.GetListBookedDoneReport(partnerID, month, year, true, true);
+            else if (isPayment == 2)
+                this.objectDataSource1.DataSource = objService.GetListBookedDoneReport(partnerID, month, year, false, true);
             //GroupTour g = groupTourService.GetByID(groupID);
             string title = "CÔNG NỢ THÁNG " + month + "/" + year;
             lblTitle.Text = title.ToUpper();

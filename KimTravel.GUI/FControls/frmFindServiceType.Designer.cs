@@ -28,93 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFindServiceType));
-            this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             this.btnThemMoi = new DevExpress.XtraEditors.SimpleButton();
             this.txtPartner = new DevExpress.XtraEditors.TextEdit();
             this.btnBack = new DevExpress.XtraEditors.SimpleButton();
             this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
+            this.gridDataControl = new DevExpress.XtraGrid.GridControl();
+            this.gridViewData = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumnID = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnPrice = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnEdit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnEdit = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gridColumnDelete = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPartner.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDataControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridViewGroupTour
-            // 
-            this.dataGridViewGroupTour.AllowUserToAddRows = false;
-            this.dataGridViewGroupTour.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewGroupTour.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
-            this.dataGridViewGroupTour.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewGroupTour.ColumnHeadersHeight = 30;
-            this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colID,
-            this.colCheck,
-            this.colName,
-            this.colPrice});
-            this.dataGridViewGroupTour.Location = new System.Drawing.Point(12, 50);
-            this.dataGridViewGroupTour.MultiSelect = false;
-            this.dataGridViewGroupTour.Name = "dataGridViewGroupTour";
-            this.dataGridViewGroupTour.RowHeadersWidth = 35;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewGroupTour.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewGroupTour.RowTemplate.Height = 25;
-            this.dataGridViewGroupTour.Size = new System.Drawing.Size(508, 432);
-            this.dataGridViewGroupTour.TabIndex = 0;
-            this.dataGridViewGroupTour.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroupTour_CellClick);
-            this.dataGridViewGroupTour.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroupTour_CellValueChanged);
-            // 
-            // colID
-            // 
-            this.colID.DataPropertyName = "ID";
-            this.colID.HeaderText = "ID";
-            this.colID.Name = "colID";
-            this.colID.Visible = false;
-            this.colID.Width = 43;
-            // 
-            // colCheck
-            // 
-            this.colCheck.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colCheck.HeaderText = "Chọn";
-            this.colCheck.Name = "colCheck";
-            this.colCheck.Width = 60;
-            // 
-            // colName
-            // 
-            this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colName.DataPropertyName = "Name";
-            this.colName.HeaderText = "Tên dịch vụ";
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            // 
-            // colPrice
-            // 
-            this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPrice.DataPropertyName = "Price";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "#,###";
-            this.colPrice.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colPrice.HeaderText = "Giá";
-            this.colPrice.Name = "colPrice";
-            this.colPrice.ReadOnly = true;
-            this.colPrice.Width = 145;
             // 
             // btnThemMoi
             // 
@@ -166,16 +101,149 @@
             this.btnTimKiem.Text = "Hoàn tất";
             this.btnTimKiem.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // gridDataControl
+            // 
+            this.gridDataControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridDataControl.Location = new System.Drawing.Point(12, 50);
+            this.gridDataControl.MainView = this.gridViewData;
+            this.gridDataControl.Name = "gridDataControl";
+            this.gridDataControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.btnEdit,
+            this.btnDelete});
+            this.gridDataControl.Size = new System.Drawing.Size(508, 432);
+            this.gridDataControl.TabIndex = 9;
+            this.gridDataControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewData});
+            // 
+            // gridViewData
+            // 
+            this.gridViewData.ColumnPanelRowHeight = 35;
+            this.gridViewData.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumnID,
+            this.gridColumnName,
+            this.gridColumnPrice,
+            this.gridColumnEdit,
+            this.gridColumnDelete});
+            this.gridViewData.GridControl = this.gridDataControl;
+            this.gridViewData.IndicatorWidth = 35;
+            this.gridViewData.Name = "gridViewData";
+            this.gridViewData.OptionsCustomization.AllowColumnMoving = false;
+            this.gridViewData.OptionsSelection.MultiSelect = true;
+            this.gridViewData.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridViewData.OptionsView.ShowAutoFilterRow = true;
+            this.gridViewData.OptionsView.ShowGroupPanel = false;
+            this.gridViewData.RowHeight = 25;
+            // 
+            // gridColumnID
+            // 
+            this.gridColumnID.Caption = "ID";
+            this.gridColumnID.FieldName = "ID";
+            this.gridColumnID.Name = "gridColumnID";
+            // 
+            // gridColumnName
+            // 
+            this.gridColumnName.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnName.AppearanceCell.Options.UseFont = true;
+            this.gridColumnName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnName.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnName.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnName.Caption = "Tên dịch vụ";
+            this.gridColumnName.FieldName = "Name";
+            this.gridColumnName.MinWidth = 10;
+            this.gridColumnName.Name = "gridColumnName";
+            this.gridColumnName.OptionsColumn.AllowEdit = false;
+            this.gridColumnName.OptionsColumn.ReadOnly = true;
+            this.gridColumnName.Visible = true;
+            this.gridColumnName.VisibleIndex = 1;
+            this.gridColumnName.Width = 174;
+            // 
+            // gridColumnPrice
+            // 
+            this.gridColumnPrice.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnPrice.AppearanceCell.Options.UseFont = true;
+            this.gridColumnPrice.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnPrice.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumnPrice.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnPrice.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnPrice.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnPrice.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPrice.Caption = "Price";
+            this.gridColumnPrice.DisplayFormat.FormatString = "#,###";
+            this.gridColumnPrice.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumnPrice.FieldName = "Price";
+            this.gridColumnPrice.MaxWidth = 120;
+            this.gridColumnPrice.MinWidth = 120;
+            this.gridColumnPrice.Name = "gridColumnPrice";
+            this.gridColumnPrice.OptionsColumn.AllowEdit = false;
+            this.gridColumnPrice.OptionsColumn.ReadOnly = true;
+            this.gridColumnPrice.Visible = true;
+            this.gridColumnPrice.VisibleIndex = 2;
+            this.gridColumnPrice.Width = 120;
+            // 
+            // gridColumnEdit
+            // 
+            this.gridColumnEdit.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnEdit.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnEdit.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnEdit.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnEdit.Caption = "Sửa";
+            this.gridColumnEdit.ColumnEdit = this.btnEdit;
+            this.gridColumnEdit.MaxWidth = 50;
+            this.gridColumnEdit.MinWidth = 50;
+            this.gridColumnEdit.Name = "gridColumnEdit";
+            this.gridColumnEdit.Visible = true;
+            this.gridColumnEdit.VisibleIndex = 3;
+            this.gridColumnEdit.Width = 50;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.btnEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions1, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnEdit_ButtonClick);
+            // 
+            // gridColumnDelete
+            // 
+            this.gridColumnDelete.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnDelete.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnDelete.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnDelete.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnDelete.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumnDelete.Caption = "Xóa";
+            this.gridColumnDelete.ColumnEdit = this.btnDelete;
+            this.gridColumnDelete.MaxWidth = 50;
+            this.gridColumnDelete.MinWidth = 50;
+            this.gridColumnDelete.Name = "gridColumnDelete";
+            this.gridColumnDelete.Visible = true;
+            this.gridColumnDelete.VisibleIndex = 4;
+            this.gridColumnDelete.Width = 50;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.AutoHeight = false;
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            this.btnDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions2, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDelete_ButtonClick);
+            // 
             // frmFindServiceType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(527, 533);
+            this.Controls.Add(this.gridDataControl);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.txtPartner);
             this.Controls.Add(this.btnThemMoi);
-            this.Controls.Add(this.dataGridViewGroupTour);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmFindServiceType";
@@ -184,21 +252,28 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chọn loại dịch vụ";
             this.Load += new System.EventHandler(this.frmActionGroupTour_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPartner.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridDataControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridViewGroupTour;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colCheck;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
         private DevExpress.XtraEditors.SimpleButton btnThemMoi;
         private DevExpress.XtraEditors.TextEdit txtPartner;
         private DevExpress.XtraEditors.SimpleButton btnBack;
         private DevExpress.XtraEditors.SimpleButton btnTimKiem;
+        private DevExpress.XtraGrid.GridControl gridDataControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewData;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnID;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnName;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPrice;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnEdit;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDelete;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnEdit;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnDelete;
     }
 }

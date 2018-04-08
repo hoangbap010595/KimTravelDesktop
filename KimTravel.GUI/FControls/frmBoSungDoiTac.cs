@@ -20,7 +20,7 @@ namespace KimTravel.GUI.FControls
         private TourService tService = new TourService();
         private BookService bookService;
         private string _dateStart = "";
-        
+
         public delegate void ConfirmAddPartner(DataTable data);
         public ConfirmAddPartner confirm;
         public frmBoSungDoiTac(string dateStart)
@@ -32,7 +32,7 @@ namespace KimTravel.GUI.FControls
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             DataTable data = GetRowsChecked();
-            if(DialogResult.OK == XtraMessageBox.Show("Xác nhận bổ sung thêm " + data.Rows.Count + " đối tác", "Thông báo", MessageBoxButtons.OKCancel))
+            if (DialogResult.OK == XtraMessageBox.Show("Xác nhận bổ sung thêm " + data.Rows.Count + " đối tác", "Thông báo", MessageBoxButtons.OKCancel))
             {
                 if (confirm != null)
                     confirm(data);
@@ -42,11 +42,14 @@ namespace KimTravel.GUI.FControls
         }
         private DataTable GetRowsChecked()
         {
+            var tID = cbbTourID.SelectedValue.ToString();
+            Tour t = tService.GetByID(int.Parse(tID));
             DataTable data = new DataTable();
             data.Columns.Add("ID", typeof(int));
             data.Columns.Add("Pax", typeof(float));
             data.Columns.Add("PickUp");
             data.Columns.Add("Room");
+            data.Columns.Add("ServiceName");
             data.Columns.Add("PartnerPrice", typeof(int));
             data.Columns.Add("Note");
             for (int i = 0; i < gridViewData.SelectedRowsCount; i++)
@@ -57,8 +60,9 @@ namespace KimTravel.GUI.FControls
                     DataRow dr = data.NewRow();
                     dr["ID"] = int.Parse(gridViewData.GetRowCellValue(a, "ID").ToString());
                     dr["Pax"] = float.Parse(gridViewData.GetRowCellValue(a, "Pax").ToString());
-                    dr["PickUp"] = gridViewData.GetRowCellValue(a, "PickUp").ToString();
+                    dr["PickUp"] = gridViewData.GetRowCellValue(a, "PickUp").ToString() + " (" + t.Name + ")";
                     dr["Room"] = gridViewData.GetRowCellValue(a, "Room").ToString();
+                    dr["ServiceName"] = gridViewData.GetRowCellValue(a, "ServiceName").ToString();
                     dr["PartnerPrice"] = int.Parse(gridViewData.GetRowCellValue(a, "PartnerPrice").ToString());
                     dr["Note"] = gridViewData.GetRowCellValue(a, "Note").ToString();
                     data.Rows.Add(dr);

@@ -186,7 +186,8 @@ namespace KimTravel.GUI.FControls
         }
         private void btnAddServiceType_Click(object sender, EventArgs e)
         {
-            frmFindServiceType frm = new frmFindServiceType();
+            int _TourID = int.Parse(cbbTourID.SelectedValue.ToString());
+            frmFindServiceType frm = new frmFindServiceType(_TourID);
             frm.sendData = new frmFindServiceType.LoadData(getService);
             frm.Show();
         }

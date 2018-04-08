@@ -46,6 +46,7 @@
             this.gridColumnID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnPax = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnPickUp = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnServiceName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnRoom = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnPartnerPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnNote = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -62,9 +63,10 @@
             // 
             // btnPrint
             // 
+            this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnPrint.Depth = 0;
-            this.btnPrint.Location = new System.Drawing.Point(554, 600);
+            this.btnPrint.Location = new System.Drawing.Point(671, 601);
             this.btnPrint.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Primary = true;
@@ -80,7 +82,7 @@
             this.lblTour.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTour.Location = new System.Drawing.Point(71, 28);
             this.lblTour.Name = "lblTour";
-            this.lblTour.Size = new System.Drawing.Size(232, 25);
+            this.lblTour.Size = new System.Drawing.Size(282, 25);
             this.lblTour.TabIndex = 0;
             this.lblTour.Text = "XE 1";
             this.lblTour.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -91,7 +93,7 @@
             this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDate.Location = new System.Drawing.Point(71, 62);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(232, 25);
+            this.lblDate.Size = new System.Drawing.Size(282, 25);
             this.lblDate.TabIndex = 0;
             this.lblDate.Text = "XE 1";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -123,7 +125,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(340, 31);
+            this.label3.Location = new System.Drawing.Point(457, 28);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 17);
             this.label3.TabIndex = 0;
@@ -134,7 +136,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(340, 65);
+            this.label4.Location = new System.Drawing.Point(457, 62);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 17);
             this.label4.TabIndex = 0;
@@ -146,7 +148,7 @@
             this.cbbHDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbHDV.FormattingEnabled = true;
             this.cbbHDV.ItemHeight = 20;
-            this.cbbHDV.Location = new System.Drawing.Point(398, 27);
+            this.cbbHDV.Location = new System.Drawing.Point(515, 24);
             this.cbbHDV.Name = "cbbHDV";
             this.cbbHDV.Size = new System.Drawing.Size(164, 28);
             this.cbbHDV.TabIndex = 1;
@@ -157,7 +159,7 @@
             this.cbbTaiXe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTaiXe.FormattingEnabled = true;
             this.cbbTaiXe.ItemHeight = 20;
-            this.cbbTaiXe.Location = new System.Drawing.Point(398, 61);
+            this.cbbTaiXe.Location = new System.Drawing.Point(515, 58);
             this.cbbTaiXe.Name = "cbbTaiXe";
             this.cbbTaiXe.Size = new System.Drawing.Size(164, 28);
             this.cbbTaiXe.TabIndex = 2;
@@ -178,9 +180,10 @@
             // 
             // btnBack
             // 
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnBack.Depth = 0;
-            this.btnBack.Location = new System.Drawing.Point(413, 600);
+            this.btnBack.Location = new System.Drawing.Point(530, 601);
             this.btnBack.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnBack.Name = "btnBack";
             this.btnBack.Primary = true;
@@ -221,7 +224,7 @@
             this.gridControlData.Location = new System.Drawing.Point(11, 147);
             this.gridControlData.MainView = this.gridViewData;
             this.gridControlData.Name = "gridControlData";
-            this.gridControlData.Size = new System.Drawing.Size(679, 449);
+            this.gridControlData.Size = new System.Drawing.Size(797, 449);
             this.gridControlData.TabIndex = 5;
             this.gridControlData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewData});
@@ -233,6 +236,7 @@
             this.gridColumnID,
             this.gridColumnPax,
             this.gridColumnPickUp,
+            this.gridColumnServiceName,
             this.gridColumnRoom,
             this.gridColumnPartnerPrice,
             this.gridColumnNote});
@@ -288,6 +292,23 @@
             this.gridColumnPickUp.VisibleIndex = 1;
             this.gridColumnPickUp.Width = 83;
             // 
+            // gridColumnServiceName
+            // 
+            this.gridColumnServiceName.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnServiceName.AppearanceCell.Options.UseFont = true;
+            this.gridColumnServiceName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnServiceName.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnServiceName.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnServiceName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnServiceName.Caption = "Dịch vụ";
+            this.gridColumnServiceName.FieldName = "ServiceName";
+            this.gridColumnServiceName.MaxWidth = 160;
+            this.gridColumnServiceName.MinWidth = 160;
+            this.gridColumnServiceName.Name = "gridColumnServiceName";
+            this.gridColumnServiceName.Visible = true;
+            this.gridColumnServiceName.VisibleIndex = 3;
+            this.gridColumnServiceName.Width = 160;
+            // 
             // gridColumnRoom
             // 
             this.gridColumnRoom.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -327,7 +348,7 @@
             this.gridColumnPartnerPrice.OptionsColumn.AllowEdit = false;
             this.gridColumnPartnerPrice.OptionsColumn.ReadOnly = true;
             this.gridColumnPartnerPrice.Visible = true;
-            this.gridColumnPartnerPrice.VisibleIndex = 3;
+            this.gridColumnPartnerPrice.VisibleIndex = 4;
             this.gridColumnPartnerPrice.Width = 130;
             // 
             // gridColumnNote
@@ -346,12 +367,12 @@
             this.gridColumnNote.OptionsColumn.AllowEdit = false;
             this.gridColumnNote.OptionsColumn.ReadOnly = true;
             this.gridColumnNote.Visible = true;
-            this.gridColumnNote.VisibleIndex = 4;
+            this.gridColumnNote.VisibleIndex = 5;
             this.gridColumnNote.Width = 140;
             // 
             // txtHdvName
             // 
-            this.txtHdvName.Location = new System.Drawing.Point(568, 27);
+            this.txtHdvName.Location = new System.Drawing.Point(685, 24);
             this.txtHdvName.Name = "txtHdvName";
             this.txtHdvName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtHdvName.Properties.Appearance.Options.UseFont = true;
@@ -361,7 +382,7 @@
             // 
             // txtTXName
             // 
-            this.txtTXName.Location = new System.Drawing.Point(568, 60);
+            this.txtTXName.Location = new System.Drawing.Point(685, 57);
             this.txtTXName.Name = "txtTXName";
             this.txtTXName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtTXName.Properties.Appearance.Options.UseFont = true;
@@ -371,7 +392,7 @@
             // 
             // txtBKS
             // 
-            this.txtBKS.Location = new System.Drawing.Point(398, 93);
+            this.txtBKS.Location = new System.Drawing.Point(515, 90);
             this.txtBKS.Name = "txtBKS";
             this.txtBKS.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtBKS.Properties.Appearance.Options.UseFont = true;
@@ -384,7 +405,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(340, 100);
+            this.label5.Location = new System.Drawing.Point(457, 97);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 17);
             this.label5.TabIndex = 0;
@@ -394,7 +415,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 650);
+            this.ClientSize = new System.Drawing.Size(818, 650);
             this.Controls.Add(this.txtBKS);
             this.Controls.Add(this.txtTXName);
             this.Controls.Add(this.txtHdvName);
@@ -414,7 +435,6 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnPrint);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(716, 689);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(716, 689);
             this.Name = "frmDetailsBookCar";
@@ -459,5 +479,6 @@
         private DevExpress.XtraEditors.TextEdit txtTXName;
         private DevExpress.XtraEditors.TextEdit txtBKS;
         private System.Windows.Forms.Label label5;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnServiceName;
     }
 }

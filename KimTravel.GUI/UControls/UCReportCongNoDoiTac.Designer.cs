@@ -190,23 +190,23 @@
             this.gridColumnSLTour.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
             this.gridColumnSLTour.AppearanceCell.Options.UseFont = true;
             this.gridColumnSLTour.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumnSLTour.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumnSLTour.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnSLTour.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.gridColumnSLTour.AppearanceHeader.Options.UseFont = true;
             this.gridColumnSLTour.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnSLTour.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumnSLTour.Caption = "Số lượng tour";
+            this.gridColumnSLTour.Caption = "Tổng SL Khách";
             this.gridColumnSLTour.DisplayFormat.FormatString = "#,###";
             this.gridColumnSLTour.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gridColumnSLTour.FieldName = "Count";
-            this.gridColumnSLTour.MaxWidth = 160;
-            this.gridColumnSLTour.MinWidth = 160;
+            this.gridColumnSLTour.FieldName = "CountPax";
+            this.gridColumnSLTour.MaxWidth = 120;
+            this.gridColumnSLTour.MinWidth = 120;
             this.gridColumnSLTour.Name = "gridColumnSLTour";
             this.gridColumnSLTour.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Count", "{0:#,###}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "CountPax", "{0:#,###}")});
             this.gridColumnSLTour.Visible = true;
             this.gridColumnSLTour.VisibleIndex = 1;
-            this.gridColumnSLTour.Width = 160;
+            this.gridColumnSLTour.Width = 120;
             // 
             // gridColumnPriceNotPayment
             // 

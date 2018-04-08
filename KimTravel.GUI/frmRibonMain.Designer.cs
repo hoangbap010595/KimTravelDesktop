@@ -100,7 +100,7 @@
             this.ribbonPage1,
             this.ribbonPage2});
             this.ribbonControl1.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl1.Size = new System.Drawing.Size(1350, 141);
+            this.ribbonControl1.Size = new System.Drawing.Size(1344, 141);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
             // barBtnQuanLyTaiKhoan
@@ -117,7 +117,7 @@
             // 
             // barBtnPhanQuyen
             // 
-            this.barBtnPhanQuyen.Caption = "Quản lý phân quyền";
+            this.barBtnPhanQuyen.Caption = "Phân quyền báo cáo";
             this.barBtnPhanQuyen.Id = 2;
             this.barBtnPhanQuyen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtnPhanQuyen.ImageOptions.Image")));
             this.barBtnPhanQuyen.LargeWidth = 80;
@@ -153,9 +153,10 @@
             // 
             // barBtnPhanXe
             // 
-            this.barBtnPhanXe.Caption = "Phân bổ xe";
+            this.barBtnPhanXe.Caption = "Phân xe";
             this.barBtnPhanXe.Id = 5;
             this.barBtnPhanXe.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barBtnPhanXe.ImageOptions.Image")));
+            this.barBtnPhanXe.LargeWidth = 60;
             this.barBtnPhanXe.Name = "barBtnPhanXe";
             this.barBtnPhanXe.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
@@ -421,11 +422,11 @@
             // 
             this.ribbonStatusBar1.ItemLinks.Add(this.lblAccount);
             this.ribbonStatusBar1.ItemLinks.Add(this.lblCurrent);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 702);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 694);
             this.ribbonStatusBar1.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(1350, 27);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(1344, 27);
             // 
             // xtraTabControlMain
             // 
@@ -436,7 +437,7 @@
             this.xtraTabControlMain.Location = new System.Drawing.Point(0, 141);
             this.xtraTabControlMain.Margin = new System.Windows.Forms.Padding(4);
             this.xtraTabControlMain.Name = "xtraTabControlMain";
-            this.xtraTabControlMain.Size = new System.Drawing.Size(1350, 561);
+            this.xtraTabControlMain.Size = new System.Drawing.Size(1344, 553);
             this.xtraTabControlMain.TabIndex = 2;
             this.xtraTabControlMain.CloseButtonClick += new System.EventHandler(this.xtraTabControlMain_CloseButtonClick);
             // 
@@ -445,13 +446,14 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.ClientSize = new System.Drawing.Size(1344, 721);
             this.Controls.Add(this.xtraTabControlMain);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl1);
             this.Font = new System.Drawing.Font("Tahoma", 12F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(1360, 760);
             this.Name = "frmRibonMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kim Travel";

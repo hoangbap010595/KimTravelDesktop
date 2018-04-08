@@ -43,7 +43,15 @@ namespace KimTravel.GUI.UControls
         private void loadDataGroup()
         {
             objService = new BookService();
-            btnPaymentAll.PerformClick();
+            if (_IsPayment == 1)
+                gridControlData.DataSource = objService.GetListBookedDone(_PartnerID, _Month, _Year, true, true);
+            else if (_IsPayment == 2)
+            {
+                btnPaymentAll.Visible = true;
+                gridControlData.DataSource = objService.GetListBookedDone(_PartnerID, _Month, _Year, false, true);
+            }
+            else
+                gridControlData.DataSource = objService.GetListBookedDone(_PartnerID, _Month, _Year, null, true);
         }
         private DataTable listMonth()
         {
@@ -83,16 +91,7 @@ namespace KimTravel.GUI.UControls
         private void UCGroupTour_Load(object sender, EventArgs e)
         {
             btnPaymentAll.Visible = false;
-            objService = new BookService();
-            if (_IsPayment == 1)
-                gridControlData.DataSource = objService.GetListBookedDone(_PartnerID, _Month, _Year, true, true);
-            else if (_IsPayment == 2)
-            {
-                btnPaymentAll.Visible = true;
-                gridControlData.DataSource = objService.GetListBookedDone(_PartnerID, _Month, _Year, false, true);
-            }
-            else
-                gridControlData.DataSource = objService.GetListBookedDone(_PartnerID, _Month, _Year, null, true);
+            loadDataGroup();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -101,7 +100,22 @@ namespace KimTravel.GUI.UControls
         }
         private void btnPaymentAll_Click(object sender, EventArgs e)
         {
-
+            if (DialogResult.OK == XtraMessageBox.Show("Bạn muốn cập nhật trạng thái thanh toán toàn bộ đối tác ?", "Thông báo", MessageBoxButtons.OKCancel))
+            {
+                int count = 0;
+                for (int i = 0; i < gridViewData.RowCount; i++)
+                {
+                    var id = int.Parse(gridViewData.GetRowCellValue(i, "ID").ToString());
+                    var x = objService.UpdateBookPayment(id, true);
+                    if (x)
+                        count++;
+                }
+                if (count > 0)
+                    XtraMessageBox.Show("Cập nhật thanh toán thành công " + count + " đối tác!", "Thông báo");
+                else
+                    XtraMessageBox.Show("Không tìm thấy đối tác cần cập nhật!", "Thông báo");
+                loadDataGroup();
+            }
         }
         private void btnExportExcel_Click(object sender, EventArgs e)
         {
@@ -135,18 +149,8 @@ namespace KimTravel.GUI.UControls
 
         private void btnXuatBaoCao_Click(object sender, EventArgs e)
         {
-            //var partnerID = int.Parse(cbbPartnerID.SelectedValue.ToString());
-            //var month = int.Parse(cbbMonth.SelectedValue.ToString());
-            //var year = int.Parse(cbbYear.SelectedValue.ToString());
-            //bool? isPayment = rdDaThanhToan.Checked == true ? true : false;
-
-            //if (rdALL.Checked)
-            //{
-            //    isPayment = null;
-            //}
-
-            //xtraRPBaoCaoCongNo rp = new xtraRPBaoCaoCongNo(partnerID, month, year, isPayment);
-            //rp.ShowPreview();
+            xtraRPBaoCaoCongNo rp = new xtraRPBaoCaoCongNo(_PartnerID, _Month, _Year, _IsPayment);
+            rp.ShowPreview();
         }
 
         private void btnClickViews2_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

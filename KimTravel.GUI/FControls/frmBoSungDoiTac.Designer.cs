@@ -44,6 +44,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
             this.btnBack = new DevExpress.XtraEditors.SimpleButton();
+            this.gridColumnServiceName = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +54,7 @@
             this.btnConfirm.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnConfirm.Appearance.Options.UseFont = true;
             this.btnConfirm.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirm.ImageOptions.Image")));
-            this.btnConfirm.Location = new System.Drawing.Point(738, 403);
+            this.btnConfirm.Location = new System.Drawing.Point(858, 404);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(114, 35);
             this.btnConfirm.TabIndex = 2;
@@ -68,7 +69,7 @@
             this.gridControlData.Location = new System.Drawing.Point(12, 55);
             this.gridControlData.MainView = this.gridViewData;
             this.gridControlData.Name = "gridControlData";
-            this.gridControlData.Size = new System.Drawing.Size(840, 343);
+            this.gridControlData.Size = new System.Drawing.Size(960, 343);
             this.gridControlData.TabIndex = 5;
             this.gridControlData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewData});
@@ -81,6 +82,7 @@
             this.gridColumnPax,
             this.gridColumnPickUp,
             this.gridColumnRoom,
+            this.gridColumnServiceName,
             this.gridColumnPartnerPrice,
             this.gridColumnNote});
             this.gridViewData.GridControl = this.gridControlData;
@@ -171,7 +173,7 @@
             this.gridColumnPartnerPrice.MinWidth = 111;
             this.gridColumnPartnerPrice.Name = "gridColumnPartnerPrice";
             this.gridColumnPartnerPrice.Visible = true;
-            this.gridColumnPartnerPrice.VisibleIndex = 4;
+            this.gridColumnPartnerPrice.VisibleIndex = 5;
             this.gridColumnPartnerPrice.Width = 111;
             // 
             // gridColumnNote
@@ -188,7 +190,7 @@
             this.gridColumnNote.MinWidth = 150;
             this.gridColumnNote.Name = "gridColumnNote";
             this.gridColumnNote.Visible = true;
-            this.gridColumnNote.VisibleIndex = 5;
+            this.gridColumnNote.VisibleIndex = 6;
             this.gridColumnNote.Width = 150;
             // 
             // cbbTourID
@@ -252,19 +254,35 @@
             // 
             this.btnBack.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnBack.Appearance.Options.UseFont = true;
-            this.btnBack.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnBack.Location = new System.Drawing.Point(618, 403);
+            this.btnBack.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.ImageOptions.Image")));
+            this.btnBack.Location = new System.Drawing.Point(738, 404);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(114, 35);
             this.btnBack.TabIndex = 2;
             this.btnBack.Text = "Quay lại";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // gridColumnServiceName
+            // 
+            this.gridColumnServiceName.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnServiceName.AppearanceCell.Options.UseFont = true;
+            this.gridColumnServiceName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnServiceName.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnServiceName.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnServiceName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnServiceName.Caption = "Dịch vụ";
+            this.gridColumnServiceName.FieldName = "ServiceName";
+            this.gridColumnServiceName.MinWidth = 120;
+            this.gridColumnServiceName.Name = "gridColumnServiceName";
+            this.gridColumnServiceName.Visible = true;
+            this.gridColumnServiceName.VisibleIndex = 4;
+            this.gridColumnServiceName.Width = 120;
+            // 
             // frmBoSungDoiTac
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 451);
+            this.ClientSize = new System.Drawing.Size(984, 451);
             this.ControlBox = false;
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.cbbTourID);
@@ -275,9 +293,8 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnConfirm);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(880, 490);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(880, 490);
+            this.MinimumSize = new System.Drawing.Size(1000, 490);
             this.Name = "frmBoSungDoiTac";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -307,5 +324,6 @@
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.SimpleButton btnTimKiem;
         private DevExpress.XtraEditors.SimpleButton btnBack;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnServiceName;
     }
 }

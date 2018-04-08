@@ -36,11 +36,11 @@
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.ahahaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.txtUserName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtPassword = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.btnLogin = new MaterialSkin.Controls.MaterialRaisedButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.progressLogin = new System.Windows.Forms.ProgressBar();
+            this.txtUserName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.materialContextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -102,23 +102,6 @@
             this.materialRaisedButton1.TabIndex = 0;
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
             // 
-            // txtUserName
-            // 
-            this.txtUserName.Depth = 0;
-            this.txtUserName.Hint = "Email";
-            this.txtUserName.Location = new System.Drawing.Point(22, 225);
-            this.txtUserName.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.PasswordChar = '\0';
-            this.txtUserName.SelectedText = "";
-            this.txtUserName.SelectionLength = 0;
-            this.txtUserName.SelectionStart = 0;
-            this.txtUserName.Size = new System.Drawing.Size(222, 23);
-            this.txtUserName.TabIndex = 1;
-            this.txtUserName.Text = "hoanglc3";
-            this.txtUserName.UseSystemPasswordChar = false;
-            this.txtUserName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserName_KeyPress);
-            // 
             // txtPassword
             // 
             this.txtPassword.Depth = 0;
@@ -168,6 +151,23 @@
             this.progressLogin.Size = new System.Drawing.Size(260, 5);
             this.progressLogin.TabIndex = 0;
             // 
+            // txtUserName
+            // 
+            this.txtUserName.Depth = 0;
+            this.txtUserName.Hint = "Email";
+            this.txtUserName.Location = new System.Drawing.Point(22, 225);
+            this.txtUserName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.PasswordChar = '\0';
+            this.txtUserName.SelectedText = "";
+            this.txtUserName.SelectionLength = 0;
+            this.txtUserName.SelectionStart = 0;
+            this.txtUserName.Size = new System.Drawing.Size(222, 23);
+            this.txtUserName.TabIndex = 1;
+            this.txtUserName.Text = "hoanglc3";
+            this.txtUserName.UseSystemPasswordChar = false;
+            this.txtUserName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUserName_KeyPress);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,11 +203,11 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem ahahaToolStripMenuItem;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtUserName;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtPassword;
         private MaterialSkin.Controls.MaterialRaisedButton btnLogin;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ProgressBar progressLogin;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtUserName;
     }
 }
 

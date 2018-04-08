@@ -32,6 +32,7 @@
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCReportCongNo));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             this.repositoryItemCheckEditPayment = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.btnClickViews2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.btnClickViews = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -66,6 +67,7 @@
             this.btnPaymentAll = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnBack = new DevExpress.XtraEditors.SimpleButton();
+            this.btnViewDetails = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEditPayment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClickViews2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClickViews)).BeginInit();
@@ -73,6 +75,7 @@
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnViewDetails)).BeginInit();
             this.SuspendLayout();
             // 
             // repositoryItemCheckEditPayment
@@ -133,6 +136,8 @@
             this.gridControlData.Location = new System.Drawing.Point(3, 51);
             this.gridControlData.MainView = this.gridViewData;
             this.gridControlData.Name = "gridControlData";
+            this.gridControlData.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.btnViewDetails});
             this.gridControlData.Size = new System.Drawing.Size(1162, 591);
             this.gridControlData.TabIndex = 13;
             this.gridControlData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -558,7 +563,7 @@
             this.gridColumnEdit.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnEdit.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnEdit.Caption = "Sửa";
-            this.gridColumnEdit.ColumnEdit = this.btnClickViews2;
+            this.gridColumnEdit.ColumnEdit = this.btnViewDetails;
             this.gridColumnEdit.MaxWidth = 60;
             this.gridColumnEdit.MinWidth = 60;
             this.gridColumnEdit.Name = "gridColumnEdit";
@@ -641,6 +646,16 @@
             this.btnBack.Text = "Quay lại";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // btnViewDetails
+            // 
+            this.btnViewDetails.AutoHeight = false;
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
+            this.btnViewDetails.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions3, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
+            this.btnViewDetails.Name = "btnViewDetails";
+            this.btnViewDetails.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnViewDetails.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnClickViews2_ButtonClick);
+            // 
             // UCReportCongNo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -660,6 +675,7 @@
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnViewDetails)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -699,5 +715,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEditPayment;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnClickViews2;
         private DevExpress.XtraEditors.SimpleButton btnBack;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnViewDetails;
     }
 }

@@ -59,6 +59,7 @@ namespace KimTravel.GUI.UControls
             _tableTemp.Columns.Add("Pax", typeof(float));
             _tableTemp.Columns.Add("PickUp");
             _tableTemp.Columns.Add("Room");
+            _tableTemp.Columns.Add("ServiceName");
             _tableTemp.Columns.Add("PartnerPrice", typeof(int));
             _tableTemp.Columns.Add("Note");
             _tableTemp.Columns.Add("colCar1", typeof(bool));
@@ -228,6 +229,9 @@ namespace KimTravel.GUI.UControls
                             case "Room":
                                 dr["Room"] = propValue.ToString();
                                 break;
+                            case "ServiceName":
+                                dr["ServiceName"] = propValue.ToString();
+                                break;
                             case "PartnerPrice":
                                 dr["PartnerPrice"] = int.Parse(propValue.ToString());
                                 break;
@@ -284,6 +288,7 @@ namespace KimTravel.GUI.UControls
             data.Columns.Add("ID", typeof(int));
             data.Columns.Add("PickUp");
             data.Columns.Add("Room");
+            data.Columns.Add("ServiceName");
             data.Columns.Add("Pax", typeof(float));
             data.Columns.Add("PartnerPrice", typeof(int));
             data.Columns.Add("Note");
@@ -295,6 +300,7 @@ namespace KimTravel.GUI.UControls
                     dr["ID"] = int.Parse(row.Cells["colID"].Value.ToString());
                     dr["PickUp"] = row.Cells["colPickUp"].Value.ToString();
                     dr["Room"] = row.Cells["colRoom"].Value.ToString();
+                    dr["ServiceName"] = row.Cells["colServiceName"].Value.ToString();
                     dr["Pax"] = float.Parse(row.Cells["colPax"].Value.ToString());
                     dr["PartnerPrice"] = int.Parse(row.Cells["colPartnerPrice"].Value.ToString());
                     dr["Note"] = row.Cells["colNote"].Value.ToString();
@@ -316,19 +322,19 @@ namespace KimTravel.GUI.UControls
         }
         private void refreshData(int numCar)
         {
-            var colName = "colCar" + numCar;
+            //var colName = "colCar" + numCar;
 
-            for (int i = 0; i < dataGridViewGroupTour.RowCount; i++)
-            {
-                if (dataGridViewGroupTour.Rows[i].Cells[colName].Value != null && (bool)dataGridViewGroupTour.Rows[i].Cells[colName].Value)
-                {
-                    dataGridViewGroupTour.Rows.RemoveAt(i);
-                    i--;
-                }
-            }
-            dataGridViewGroupTour.Update();
-            dataGridViewGroupTour.Refresh();
-            listControl[numCar - 1].Text = "0";
+            //for (int i = 0; i < dataGridViewGroupTour.RowCount; i++)
+            //{
+            //    if (dataGridViewGroupTour.Rows[i].Cells[colName].Value != null && (bool)dataGridViewGroupTour.Rows[i].Cells[colName].Value)
+            //    {
+            //        dataGridViewGroupTour.Rows.RemoveAt(i);
+            //        i--;
+            //    }
+            //}
+            //dataGridViewGroupTour.Update();
+            //dataGridViewGroupTour.Refresh();
+            //listControl[numCar - 1].Text = "0";
         }
         #region ====Car
         private void btnCar1_Click(object sender, EventArgs e)
@@ -398,6 +404,7 @@ namespace KimTravel.GUI.UControls
                 dr["Pax"] = float.Parse(item["Pax"].ToString());
                 dr["PickUp"] = item["PickUp"].ToString();
                 dr["Room"] = item["Room"].ToString();
+                dr["ServiceName"] = item["ServiceName"].ToString();
                 dr["PartnerPrice"] = int.Parse(item["PartnerPrice"].ToString());
                 dr["Note"] = item["Note"].ToString();
                 dr["colCar1"] = false;
@@ -434,40 +441,44 @@ namespace KimTravel.GUI.UControls
         }
         private void dataGridViewGroupTour_DataBindingComplete()
         {
-            setLabelCar();
-            float total = 0;
-            foreach (DataGridViewRow row in dataGridViewGroupTour.Rows)
+            try
             {
-                float pax = float.Parse(row.Cells["colPax"].Value.ToString());
-                bool check = false;
-                for (int i = 6; i < dataGridViewGroupTour.Columns.Count; i++)
+                setLabelCar();
+                float total = 0;
+                foreach (DataGridViewRow row in dataGridViewGroupTour.Rows)
                 {
+                    float pax = float.Parse(row.Cells["colPax"].Value.ToString());
+                    bool check = false;
+                    for (int i = 7; i < dataGridViewGroupTour.Columns.Count; i++)
+                    {
 
-                    bool colCar = bool.Parse(row.Cells[i].Value.ToString());
-                    if (colCar)
-                    {
-                        getTotalInCar(dataGridViewGroupTour.Columns[i].Name, pax);
-                        check = true;
-                        row.DefaultCellStyle.BackColor = Color.LightGray;
-                        row.Cells[i].ReadOnly = false;
+                        bool colCar = bool.Parse(row.Cells[i].Value.ToString());
+                        if (colCar)
+                        {
+                            getTotalInCar(dataGridViewGroupTour.Columns[i].Name, pax);
+                            check = true;
+                            row.DefaultCellStyle.BackColor = Color.LightGray;
+                            row.Cells[i].ReadOnly = false;
+                        }
+                        else
+                        {
+                            row.Cells[i].ReadOnly = true;
+                        }
                     }
-                    else
+                    if (!check)
                     {
-                        row.Cells[i].ReadOnly = true;
+                        for (int i = 7; i < dataGridViewGroupTour.Columns.Count; i++)
+                        {
+                            row.Cells[i].ReadOnly = false;
+                        }
+
+                        total += pax;
                     }
                 }
-                if (!check)
-                {
-                    for (int i = 6; i < dataGridViewGroupTour.Columns.Count; i++)
-                    {
-                        row.Cells[i].ReadOnly = false;
-                    }
-
-                    total += pax;
-                }
+                _Selected = total;
+                lblSelected.Text = total.ToString();
             }
-            _Selected = total;
-            lblSelected.Text = total.ToString();
+            catch { }
         }
 
         private void xoaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -496,6 +507,7 @@ namespace KimTravel.GUI.UControls
                     dr["Pax"] = float.Parse(row.Cells["colPax"].Value.ToString());
                     dr["PickUp"] = row.Cells["colPickUp"].Value.ToString();
                     dr["Room"] = row.Cells["colRoom"].Value.ToString();
+                    dr["ServiceName"] = row.Cells["colServiceName"].Value.ToString();
                     dr["PartnerPrice"] = int.Parse(row.Cells["colPartnerPrice"].Value.ToString());
                     dr["Note"] = row.Cells["colNote"].Value.ToString();
                     dr["colCar1"] = false;

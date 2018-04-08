@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCBook));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtNote = new DevExpress.XtraEditors.MemoEdit();
             this.btnAddPartner = new DevExpress.XtraEditors.SimpleButton();
@@ -81,12 +81,16 @@
             this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRemove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTreEm = new System.Windows.Forms.Label();
+            this.lblNguoiLon = new System.Windows.Forms.Label();
             this.btnUpdate = new DevExpress.XtraEditors.SimpleButton();
-            this.lblTotalBook = new System.Windows.Forms.Label();
+            this.lblMsgBook = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.txtPromotionMoney = new DevExpress.XtraEditors.TextEdit();
-            this.lblMsgTotal = new System.Windows.Forms.Label();
+            this.lblTotalBook = new System.Windows.Forms.Label();
+            this.lblTotalTreEm = new System.Windows.Forms.Label();
+            this.lblTotalNguoiLon = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.gridControlData = new DevExpress.XtraGrid.GridControl();
             this.gridViewData = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -171,14 +175,14 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(10, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(446, 579);
+            this.groupBox1.Size = new System.Drawing.Size(446, 587);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
             // 
             // txtNote
             // 
-            this.txtNote.Location = new System.Drawing.Point(131, 435);
+            this.txtNote.Location = new System.Drawing.Point(131, 437);
             this.txtNote.Name = "txtNote";
             this.txtNote.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtNote.Properties.Appearance.Options.UseFont = true;
@@ -198,7 +202,7 @@
             // 
             // txtPartnerPrice
             // 
-            this.txtPartnerPrice.Location = new System.Drawing.Point(131, 396);
+            this.txtPartnerPrice.Location = new System.Drawing.Point(131, 400);
             this.txtPartnerPrice.Name = "txtPartnerPrice";
             this.txtPartnerPrice.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPartnerPrice.Properties.Appearance.Options.UseFont = true;
@@ -211,12 +215,13 @@
             // 
             // txtPriceSaChild
             // 
-            this.txtPriceSaChild.Location = new System.Drawing.Point(243, 338);
+            this.txtPriceSaChild.Location = new System.Drawing.Point(243, 341);
             this.txtPriceSaChild.Name = "txtPriceSaChild";
             this.txtPriceSaChild.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPriceSaChild.Properties.Appearance.Options.UseFont = true;
             this.txtPriceSaChild.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.txtPriceSaChild.Properties.MaxLength = 9;
+            this.txtPriceSaChild.Properties.ReadOnly = true;
             this.txtPriceSaChild.Size = new System.Drawing.Size(99, 28);
             this.txtPriceSaChild.TabIndex = 13;
             this.txtPriceSaChild.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
@@ -224,7 +229,7 @@
             // 
             // txtPriceReChild
             // 
-            this.txtPriceReChild.Location = new System.Drawing.Point(132, 338);
+            this.txtPriceReChild.Location = new System.Drawing.Point(132, 341);
             this.txtPriceReChild.Name = "txtPriceReChild";
             this.txtPriceReChild.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPriceReChild.Properties.Appearance.Options.UseFont = true;
@@ -237,12 +242,13 @@
             // 
             // txtPriceSa
             // 
-            this.txtPriceSa.Location = new System.Drawing.Point(243, 285);
+            this.txtPriceSa.Location = new System.Drawing.Point(243, 290);
             this.txtPriceSa.Name = "txtPriceSa";
             this.txtPriceSa.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPriceSa.Properties.Appearance.Options.UseFont = true;
             this.txtPriceSa.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.txtPriceSa.Properties.MaxLength = 9;
+            this.txtPriceSa.Properties.ReadOnly = true;
             this.txtPriceSa.Size = new System.Drawing.Size(99, 28);
             this.txtPriceSa.TabIndex = 11;
             this.txtPriceSa.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
@@ -250,7 +256,7 @@
             // 
             // txtPriceRe
             // 
-            this.txtPriceRe.Location = new System.Drawing.Point(132, 285);
+            this.txtPriceRe.Location = new System.Drawing.Point(132, 290);
             this.txtPriceRe.Name = "txtPriceRe";
             this.txtPriceRe.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPriceRe.Properties.Appearance.Options.UseFont = true;
@@ -263,7 +269,7 @@
             // 
             // txtSaleBook
             // 
-            this.txtSaleBook.Location = new System.Drawing.Point(131, 243);
+            this.txtSaleBook.Location = new System.Drawing.Point(131, 249);
             this.txtSaleBook.Name = "txtSaleBook";
             this.txtSaleBook.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtSaleBook.Properties.Appearance.Options.UseFont = true;
@@ -274,7 +280,7 @@
             // 
             // txtPickUp
             // 
-            this.txtPickUp.Location = new System.Drawing.Point(132, 208);
+            this.txtPickUp.Location = new System.Drawing.Point(132, 212);
             this.txtPickUp.Name = "txtPickUp";
             this.txtPickUp.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtPickUp.Properties.Appearance.Options.UseFont = true;
@@ -285,7 +291,7 @@
             // 
             // txtRoom
             // 
-            this.txtRoom.Location = new System.Drawing.Point(348, 208);
+            this.txtRoom.Location = new System.Drawing.Point(348, 212);
             this.txtRoom.Name = "txtRoom";
             this.txtRoom.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtRoom.Properties.Appearance.Options.UseFont = true;
@@ -310,7 +316,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label10.Location = new System.Drawing.Point(7, 215);
+            this.label10.Location = new System.Drawing.Point(7, 219);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(103, 17);
             this.label10.TabIndex = 0;
@@ -321,7 +327,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label15.Location = new System.Drawing.Point(8, 440);
+            this.label15.Location = new System.Drawing.Point(8, 442);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(57, 17);
             this.label15.TabIndex = 0;
@@ -332,7 +338,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label14.Location = new System.Drawing.Point(7, 401);
+            this.label14.Location = new System.Drawing.Point(7, 405);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(59, 17);
             this.label14.TabIndex = 0;
@@ -354,7 +360,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label12.Location = new System.Drawing.Point(5, 346);
+            this.label12.Location = new System.Drawing.Point(5, 349);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(116, 17);
             this.label12.TabIndex = 0;
@@ -364,8 +370,8 @@
             // 
             this.lblFPriceSaChild.AutoSize = true;
             this.lblFPriceSaChild.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFPriceSaChild.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblFPriceSaChild.Location = new System.Drawing.Point(259, 368);
+            this.lblFPriceSaChild.ForeColor = System.Drawing.Color.Gray;
+            this.lblFPriceSaChild.Location = new System.Drawing.Point(259, 371);
             this.lblFPriceSaChild.Name = "lblFPriceSaChild";
             this.lblFPriceSaChild.Size = new System.Drawing.Size(64, 17);
             this.lblFPriceSaChild.TabIndex = 0;
@@ -375,8 +381,8 @@
             // 
             this.lblFThuHo.AutoSize = true;
             this.lblFThuHo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFThuHo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblFThuHo.Location = new System.Drawing.Point(283, 403);
+            this.lblFThuHo.ForeColor = System.Drawing.Color.Teal;
+            this.lblFThuHo.Location = new System.Drawing.Point(283, 407);
             this.lblFThuHo.Name = "lblFThuHo";
             this.lblFThuHo.Size = new System.Drawing.Size(64, 17);
             this.lblFThuHo.TabIndex = 0;
@@ -387,7 +393,7 @@
             this.lblFPriceReChild.AutoSize = true;
             this.lblFPriceReChild.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFPriceReChild.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblFPriceReChild.Location = new System.Drawing.Point(138, 368);
+            this.lblFPriceReChild.Location = new System.Drawing.Point(138, 371);
             this.lblFPriceReChild.Name = "lblFPriceReChild";
             this.lblFPriceReChild.Size = new System.Drawing.Size(64, 17);
             this.lblFPriceReChild.TabIndex = 0;
@@ -397,8 +403,8 @@
             // 
             this.lblFGiaBan.AutoSize = true;
             this.lblFGiaBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFGiaBan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblFGiaBan.Location = new System.Drawing.Point(259, 315);
+            this.lblFGiaBan.ForeColor = System.Drawing.Color.Gray;
+            this.lblFGiaBan.Location = new System.Drawing.Point(259, 320);
             this.lblFGiaBan.Name = "lblFGiaBan";
             this.lblFGiaBan.Size = new System.Drawing.Size(64, 17);
             this.lblFGiaBan.TabIndex = 0;
@@ -409,7 +415,7 @@
             this.lblFGiaNhan.AutoSize = true;
             this.lblFGiaNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFGiaNhan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblFGiaNhan.Location = new System.Drawing.Point(138, 315);
+            this.lblFGiaNhan.Location = new System.Drawing.Point(138, 320);
             this.lblFGiaNhan.Name = "lblFGiaNhan";
             this.lblFGiaNhan.Size = new System.Drawing.Size(64, 17);
             this.lblFGiaNhan.TabIndex = 0;
@@ -433,7 +439,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label7.Location = new System.Drawing.Point(37, 364);
+            this.label7.Location = new System.Drawing.Point(37, 367);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 15);
             this.label7.TabIndex = 0;
@@ -457,7 +463,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label5.Location = new System.Drawing.Point(37, 307);
+            this.label5.Location = new System.Drawing.Point(37, 312);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 15);
             this.label5.TabIndex = 0;
@@ -468,7 +474,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label4.Location = new System.Drawing.Point(7, 250);
+            this.label4.Location = new System.Drawing.Point(7, 256);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 17);
             this.label4.TabIndex = 0;
@@ -479,7 +485,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label11.Location = new System.Drawing.Point(5, 289);
+            this.label11.Location = new System.Drawing.Point(5, 294);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(116, 17);
             this.label11.TabIndex = 0;
@@ -667,14 +673,14 @@
             this.dataGridViewGroupTour.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewGroupTour.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewGroupTour.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroupTour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewGroupTour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colPartnerID,
             this.colServiceType,
@@ -710,9 +716,9 @@
             // 
             this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPrice.DataPropertyName = "Price";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "#,###";
-            this.colPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "#,###";
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle5;
             this.colPrice.HeaderText = "Đơn giá";
             this.colPrice.Name = "colPrice";
             this.colPrice.ReadOnly = true;
@@ -721,9 +727,9 @@
             // colRemove
             // 
             this.colRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.colRemove.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.colRemove.DefaultCellStyle = dataGridViewCellStyle6;
             this.colRemove.HeaderText = "";
             this.colRemove.Name = "colRemove";
             this.colRemove.ReadOnly = true;
@@ -737,16 +743,42 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.Menu;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.lblTreEm);
+            this.panel1.Controls.Add(this.lblNguoiLon);
             this.panel1.Controls.Add(this.btnUpdate);
-            this.panel1.Controls.Add(this.lblTotalBook);
+            this.panel1.Controls.Add(this.lblMsgBook);
             this.panel1.Controls.Add(this.label18);
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.txtPromotionMoney);
-            this.panel1.Controls.Add(this.lblMsgTotal);
+            this.panel1.Controls.Add(this.lblTotalBook);
+            this.panel1.Controls.Add(this.lblTotalTreEm);
+            this.panel1.Controls.Add(this.lblTotalNguoiLon);
             this.panel1.Location = new System.Drawing.Point(6, 173);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1110, 79);
             this.panel1.TabIndex = 3;
+            // 
+            // lblTreEm
+            // 
+            this.lblTreEm.AutoSize = true;
+            this.lblTreEm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTreEm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblTreEm.Location = new System.Drawing.Point(272, 42);
+            this.lblTreEm.Name = "lblTreEm";
+            this.lblTreEm.Size = new System.Drawing.Size(57, 17);
+            this.lblTreEm.TabIndex = 0;
+            this.lblTreEm.Text = "Trẻ em:";
+            // 
+            // lblNguoiLon
+            // 
+            this.lblNguoiLon.AutoSize = true;
+            this.lblNguoiLon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNguoiLon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblNguoiLon.Location = new System.Drawing.Point(272, 17);
+            this.lblNguoiLon.Name = "lblNguoiLon";
+            this.lblNguoiLon.Size = new System.Drawing.Size(72, 17);
+            this.lblNguoiLon.TabIndex = 0;
+            this.lblNguoiLon.Text = "Người lớn:";
             // 
             // btnUpdate
             // 
@@ -763,24 +795,26 @@
             this.btnUpdate.Text = "Hoàn tất";
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // lblTotalBook
+            // lblMsgBook
             // 
-            this.lblTotalBook.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblTotalBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalBook.ForeColor = System.Drawing.Color.Red;
-            this.lblTotalBook.Location = new System.Drawing.Point(417, 2);
-            this.lblTotalBook.Name = "lblTotalBook";
-            this.lblTotalBook.Size = new System.Drawing.Size(209, 47);
-            this.lblTotalBook.TabIndex = 0;
-            this.lblTotalBook.Text = "1900000000";
-            this.lblTotalBook.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMsgBook.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMsgBook.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblMsgBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMsgBook.ForeColor = System.Drawing.Color.Red;
+            this.lblMsgBook.Location = new System.Drawing.Point(811, 13);
+            this.lblMsgBook.Name = "lblMsgBook";
+            this.lblMsgBook.Size = new System.Drawing.Size(135, 47);
+            this.lblMsgBook.TabIndex = 0;
+            this.lblMsgBook.Text = "1900000000";
+            this.lblMsgBook.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label18
             // 
+            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label18.Location = new System.Drawing.Point(329, 3);
+            this.label18.Location = new System.Drawing.Point(722, 14);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(86, 46);
             this.label18.TabIndex = 0;
@@ -810,16 +844,40 @@
             this.txtPromotionMoney.TextChanged += new System.EventHandler(this.PriceChanged_TextChanged);
             this.txtPromotionMoney.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
-            // lblMsgTotal
+            // lblTotalBook
             // 
-            this.lblMsgTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMsgTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblMsgTotal.Location = new System.Drawing.Point(414, 50);
-            this.lblMsgTotal.Name = "lblMsgTotal";
-            this.lblMsgTotal.Size = new System.Drawing.Size(212, 25);
-            this.lblMsgTotal.TabIndex = 0;
-            this.lblMsgTotal.Text = "0000000";
-            this.lblMsgTotal.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblTotalBook.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTotalBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalBook.ForeColor = System.Drawing.Color.Gray;
+            this.lblTotalBook.Location = new System.Drawing.Point(582, 2);
+            this.lblTotalBook.Name = "lblTotalBook";
+            this.lblTotalBook.Size = new System.Drawing.Size(134, 26);
+            this.lblTotalBook.TabIndex = 0;
+            this.lblTotalBook.Text = "Total Money";
+            this.lblTotalBook.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblTotalBook.Visible = false;
+            // 
+            // lblTotalTreEm
+            // 
+            this.lblTotalTreEm.AutoSize = true;
+            this.lblTotalTreEm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalTreEm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblTotalTreEm.Location = new System.Drawing.Point(350, 42);
+            this.lblTotalTreEm.Name = "lblTotalTreEm";
+            this.lblTotalTreEm.Size = new System.Drawing.Size(64, 17);
+            this.lblTotalTreEm.TabIndex = 0;
+            this.lblTotalTreEm.Text = "0000000";
+            // 
+            // lblTotalNguoiLon
+            // 
+            this.lblTotalNguoiLon.AutoSize = true;
+            this.lblTotalNguoiLon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalNguoiLon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblTotalNguoiLon.Location = new System.Drawing.Point(350, 16);
+            this.lblTotalNguoiLon.Name = "lblTotalNguoiLon";
+            this.lblTotalNguoiLon.Size = new System.Drawing.Size(64, 17);
+            this.lblTotalNguoiLon.TabIndex = 0;
+            this.lblTotalNguoiLon.Text = "0000000";
             // 
             // groupBox2
             // 
@@ -830,7 +888,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(461, 274);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1122, 313);
+            this.groupBox2.Size = new System.Drawing.Size(1122, 326);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tour đã book";
@@ -844,7 +902,7 @@
             this.gridControlData.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnClickDelete,
             this.btnClickEdit});
-            this.gridControlData.Size = new System.Drawing.Size(1116, 291);
+            this.gridControlData.Size = new System.Drawing.Size(1116, 304);
             this.gridControlData.TabIndex = 1;
             this.gridControlData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewData});
@@ -1039,9 +1097,9 @@
             // btnClickEdit
             // 
             this.btnClickEdit.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
             this.btnClickEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions1, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
+            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions3, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
             this.btnClickEdit.Name = "btnClickEdit";
             this.btnClickEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnClickEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnClickEdit_ButtonClick);
@@ -1071,9 +1129,9 @@
             // btnClickDelete
             // 
             this.btnClickDelete.AutoHeight = false;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions4.Image")));
             this.btnClickDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Xóa", -1, true, true, false, editorButtonImageOptions2)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Xóa", -1, true, true, false, editorButtonImageOptions4)});
             this.btnClickDelete.Name = "btnClickDelete";
             this.btnClickDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnClickDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnClickDelete_ButtonClick);
@@ -1140,7 +1198,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.DataGridView dataGridViewGroupTour;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblTotalBook;
+        private System.Windows.Forms.Label lblMsgBook;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPartnerID;
@@ -1178,7 +1236,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnClickEdit;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnDelete;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnClickDelete;
-        private System.Windows.Forms.Label lblMsgTotal;
+        private System.Windows.Forms.Label lblTotalBook;
         private DevExpress.XtraEditors.TextEdit txtPriceSaChild;
         private DevExpress.XtraEditors.TextEdit txtPriceReChild;
         private System.Windows.Forms.Label lblFPriceSaChild;
@@ -1190,5 +1248,9 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label13;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnPartnerPrice;
+        private System.Windows.Forms.Label lblTreEm;
+        private System.Windows.Forms.Label lblNguoiLon;
+        private System.Windows.Forms.Label lblTotalTreEm;
+        private System.Windows.Forms.Label lblTotalNguoiLon;
     }
 }

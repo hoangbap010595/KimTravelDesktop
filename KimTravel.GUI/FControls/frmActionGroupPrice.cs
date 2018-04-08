@@ -59,7 +59,8 @@ namespace KimTravel.GUI.FControls
                 txtPriceRe.Text = _objectData.PriceRe.ToString();
                 txtPriceReChild.Text = _objectData.PriceReChild.ToString();
                 cbbGroupPartner.SelectedValue = _objectData.GroupID;
-                cbbTour.SelectedValue = _objectData.TourID;
+                Tour t = tourService.GetByID((int)_objectData.TourID);
+                cbbGroupTour.SelectedValue = t.GroupID;
             }
         }
 
@@ -123,6 +124,7 @@ namespace KimTravel.GUI.FControls
                 cbbTour.DataSource = tourService.GetListForGroup(gID);
                 cbbTour.ValueMember = "TourID";
                 cbbTour.DisplayMember = "Name";
+                cbbTour.SelectedValue = _objectData.TourID;
             }
             catch { }
         }

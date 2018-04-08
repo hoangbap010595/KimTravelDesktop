@@ -18,54 +18,53 @@ namespace KimTravel.GUI.FControls
 {
     public partial class frmFindServiceType : XtraForm
     {
-        private ServiceTypeService gtService = new ServiceTypeService();
+        private ServiceTypeService serviceType = new ServiceTypeService();
 
         public delegate void LoadData(string name, int price, int add);
         public LoadData sendData;
 
         private int _PartnerID = -1;
-        public frmFindServiceType()
+        private int _TourID = 0;
+        public frmFindServiceType(int tourID)
         {
             InitializeComponent();
+            _TourID = tourID;
         }
 
         private void frmActionGroupTour_Load(object sender, EventArgs e)
         {
             txtPartner.Focus();
-            dataGridViewGroupTour.AutoGenerateColumns = false;
-            dataGridViewGroupTour.DataSource = gtService.GetList();
+            gridDataControl.DataSource = serviceType.GetList(_TourID);
 
         }
         private void loadData()
         {
-            gtService = new ServiceTypeService();
-            dataGridViewGroupTour.DataSource = gtService.GetList();
+            serviceType = new ServiceTypeService();
+            gridDataControl.DataSource = serviceType.GetList(_TourID);
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (sendData != null)
+                for (int i = 0; i < gridViewData.SelectedRowsCount; i++)
+                {
+                    var a = gridViewData.GetSelectedRows()[i];
+
+                    if (gridViewData.GetSelectedRows()[i] > -1)
+                    {
+                        string service = gridViewData.GetRowCellValue(a, "Name").ToString();
+                        int price = int.Parse(gridViewData.GetRowCellValue(a, "Price").ToString());
+                        sendData(service, price, 1);
+                    }
+                }
             this.Close();
         }
 
         private void txtPartner_KeyPress(object sender, KeyPressEventArgs e)
         {
             var content = txtPartner.Text;
-            dataGridViewGroupTour.DataSource = gtService.GetListFind(content);
-            dataGridViewGroupTour.Update();
-            dataGridViewGroupTour.Refresh();
-        }
-
-        private void dataGridViewGroupTour_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dataGridViewGroupTour_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-
-            }
-            catch { }
+            gridDataControl.DataSource = serviceType.GetListFind(content, _TourID);
+            gridDataControl.Update();
+            gridDataControl.Refresh();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -75,13 +74,13 @@ namespace KimTravel.GUI.FControls
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if(DialogResult.OK == XtraMessageBox.Show("Bạn muốn xóa dịch vụ ra khỏi hệ thống ?","Xác nhận",MessageBoxButtons.OKCancel))
+            if (DialogResult.OK == XtraMessageBox.Show("Bạn muốn xóa dịch vụ ra khỏi hệ thống ?", "Xác nhận", MessageBoxButtons.OKCancel))
             {
-                bool rs = gtService.Delete(_PartnerID);
+                bool rs = serviceType.Delete(_PartnerID);
                 if (rs)
                 {
-                    gtService = new ServiceTypeService();
-                    dataGridViewGroupTour.DataSource = gtService.GetList();
+                    serviceType = new ServiceTypeService();
+                    gridDataControl.DataSource = serviceType.GetList(_TourID);
                 }
                 else
                 {
@@ -99,39 +98,29 @@ namespace KimTravel.GUI.FControls
             }
         }
 
-        private void dataGridViewGroupTour_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-            var senderGrid = (DataGridView)sender;
-            if (senderGrid.DataSource != null)
-            {
-                if (senderGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "True")
-                {
-                    senderGrid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightGray;
-
-                    string service = dataGridViewGroupTour.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    int price = int.Parse(dataGridViewGroupTour.Rows[e.RowIndex].Cells[3].Value.ToString());
-                    int add = 1;
-                    if (sendData != null)
-                        sendData(service, price, add);
-                }
-                else
-                {
-                    senderGrid.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
-                    string service = dataGridViewGroupTour.Rows[e.RowIndex].Cells[2].Value.ToString();
-                    int price = int.Parse(dataGridViewGroupTour.Rows[e.RowIndex].Cells[3].Value.ToString());
-                    int add = -1;
-                    if (sendData != null)
-                        sendData(service, price, add);
-                }
-
-            }
-        }
-
         private void btnThemMoi_Click(object sender, EventArgs e)
         {
             frmActionService frm = new frmActionService();
             frm.loadData = new frmActionService.LoadData(loadData);
             frm.ShowDialog();
+        }
+
+        private void btnEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            int id = int.Parse(gridViewData.GetFocusedRowCellValue("ID").ToString());
+            frmActionService frm = new frmActionService(1, id);
+            frm.loadData = new frmActionService.LoadData(loadData);
+            frm.ShowDialog();
+        }
+
+        private void btnDelete_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            int id = int.Parse(gridViewData.GetFocusedRowCellValue("ID").ToString());
+            if (DialogResult.OK == XtraMessageBox.Show("Bạn muốn xóa dịch vụ ?", "Thông báo", MessageBoxButtons.OKCancel))
+            {
+                serviceType.Delete(id);
+                loadData();
+            }
         }
     }
 }

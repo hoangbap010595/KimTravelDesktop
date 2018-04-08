@@ -31,26 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCBookCar));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCBookCar));
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPickUp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPartnerPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCar1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colCar2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colCar3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colCar4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colCar5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colCar6 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colCar7 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colCar8 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colCar9 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colCar10 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.contextMenuStripGrid = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.xoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bôSungThêmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,6 +74,23 @@
             this.lblSelected = new System.Windows.Forms.Label();
             this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
             this.btnBoSungDoiTac = new DevExpress.XtraEditors.SimpleButton();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPickUp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colServiceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPartnerPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCar1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colCar2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colCar3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colCar4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colCar5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colCar6 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colCar7 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colCar8 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colCar9 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colCar10 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
             this.contextMenuStripGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).BeginInit();
@@ -119,6 +120,7 @@
             this.colPax,
             this.colPickUp,
             this.colRoom,
+            this.colServiceName,
             this.colPartnerPrice,
             this.colNote,
             this.colCar1,
@@ -145,145 +147,6 @@
             this.dataGridViewGroupTour.TabIndex = 0;
             this.dataGridViewGroupTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridViewGroupTour.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroupTour_CellValueChanged);
-            // 
-            // colID
-            // 
-            this.colID.DataPropertyName = "ID";
-            this.colID.HeaderText = "ID";
-            this.colID.Name = "colID";
-            this.colID.Visible = false;
-            // 
-            // colPax
-            // 
-            this.colPax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPax.DataPropertyName = "Pax";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colPax.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colPax.HeaderText = "Pax";
-            this.colPax.Name = "colPax";
-            this.colPax.Width = 50;
-            // 
-            // colPickUp
-            // 
-            this.colPickUp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPickUp.DataPropertyName = "PickUp";
-            this.colPickUp.HeaderText = "Pick Up";
-            this.colPickUp.Name = "colPickUp";
-            this.colPickUp.ReadOnly = true;
-            // 
-            // colRoom
-            // 
-            this.colRoom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colRoom.DataPropertyName = "Room";
-            this.colRoom.HeaderText = "Room";
-            this.colRoom.Name = "colRoom";
-            this.colRoom.ReadOnly = true;
-            this.colRoom.Width = 80;
-            // 
-            // colPartnerPrice
-            // 
-            this.colPartnerPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPartnerPrice.DataPropertyName = "PartnerPrice";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "#,###";
-            this.colPartnerPrice.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colPartnerPrice.HeaderText = "Thu hộ";
-            this.colPartnerPrice.Name = "colPartnerPrice";
-            this.colPartnerPrice.Width = 80;
-            // 
-            // colNote
-            // 
-            this.colNote.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colNote.DataPropertyName = "Note";
-            this.colNote.HeaderText = "Ghi chú";
-            this.colNote.Name = "colNote";
-            this.colNote.ReadOnly = true;
-            this.colNote.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colNote.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colNote.Width = 120;
-            // 
-            // colCar1
-            // 
-            this.colCar1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colCar1.DataPropertyName = "colCar1";
-            this.colCar1.HeaderText = "Xe 1";
-            this.colCar1.Name = "colCar1";
-            this.colCar1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colCar1.Width = 55;
-            // 
-            // colCar2
-            // 
-            this.colCar2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colCar2.DataPropertyName = "colCar2";
-            this.colCar2.HeaderText = "Xe 2";
-            this.colCar2.Name = "colCar2";
-            this.colCar2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colCar2.Width = 55;
-            // 
-            // colCar3
-            // 
-            this.colCar3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colCar3.DataPropertyName = "colCar3";
-            this.colCar3.HeaderText = "Xe 3";
-            this.colCar3.Name = "colCar3";
-            this.colCar3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colCar3.Width = 55;
-            // 
-            // colCar4
-            // 
-            this.colCar4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colCar4.DataPropertyName = "colCar4";
-            this.colCar4.HeaderText = "Xe 4";
-            this.colCar4.Name = "colCar4";
-            this.colCar4.Width = 55;
-            // 
-            // colCar5
-            // 
-            this.colCar5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colCar5.DataPropertyName = "colCar5";
-            this.colCar5.HeaderText = "Xe 5";
-            this.colCar5.Name = "colCar5";
-            this.colCar5.Width = 55;
-            // 
-            // colCar6
-            // 
-            this.colCar6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colCar6.DataPropertyName = "colCar6";
-            this.colCar6.HeaderText = "Xe 6";
-            this.colCar6.Name = "colCar6";
-            this.colCar6.Width = 55;
-            // 
-            // colCar7
-            // 
-            this.colCar7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colCar7.DataPropertyName = "colCar7";
-            this.colCar7.HeaderText = "Xe 7";
-            this.colCar7.Name = "colCar7";
-            this.colCar7.Width = 55;
-            // 
-            // colCar8
-            // 
-            this.colCar8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colCar8.DataPropertyName = "colCar8";
-            this.colCar8.HeaderText = "Xe 8";
-            this.colCar8.Name = "colCar8";
-            this.colCar8.Width = 55;
-            // 
-            // colCar9
-            // 
-            this.colCar9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colCar9.DataPropertyName = "colCar9";
-            this.colCar9.HeaderText = "Xe 9";
-            this.colCar9.Name = "colCar9";
-            this.colCar9.Width = 55;
-            // 
-            // colCar10
-            // 
-            this.colCar10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colCar10.DataPropertyName = "colCar10";
-            this.colCar10.HeaderText = "Xe 10";
-            this.colCar10.Name = "colCar10";
-            this.colCar10.Width = 55;
             // 
             // contextMenuStripGrid
             // 
@@ -789,6 +652,153 @@
             this.btnBoSungDoiTac.Text = "Bổ sung";
             this.btnBoSungDoiTac.Click += new System.EventHandler(this.btnBoSungDoiTac_Click);
             // 
+            // colID
+            // 
+            this.colID.DataPropertyName = "ID";
+            this.colID.HeaderText = "ID";
+            this.colID.Name = "colID";
+            this.colID.Visible = false;
+            // 
+            // colPax
+            // 
+            this.colPax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colPax.DataPropertyName = "Pax";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colPax.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colPax.HeaderText = "Pax";
+            this.colPax.Name = "colPax";
+            this.colPax.Width = 50;
+            // 
+            // colPickUp
+            // 
+            this.colPickUp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPickUp.DataPropertyName = "PickUp";
+            this.colPickUp.HeaderText = "Pick Up";
+            this.colPickUp.Name = "colPickUp";
+            this.colPickUp.ReadOnly = true;
+            // 
+            // colRoom
+            // 
+            this.colRoom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colRoom.DataPropertyName = "Room";
+            this.colRoom.HeaderText = "Room";
+            this.colRoom.Name = "colRoom";
+            this.colRoom.ReadOnly = true;
+            this.colRoom.Width = 80;
+            // 
+            // colServiceName
+            // 
+            this.colServiceName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colServiceName.DataPropertyName = "ServiceName";
+            this.colServiceName.HeaderText = "Dịch vụ";
+            this.colServiceName.Name = "colServiceName";
+            this.colServiceName.Width = 120;
+            // 
+            // colPartnerPrice
+            // 
+            this.colPartnerPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colPartnerPrice.DataPropertyName = "PartnerPrice";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "#,###";
+            this.colPartnerPrice.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colPartnerPrice.HeaderText = "Thu hộ";
+            this.colPartnerPrice.Name = "colPartnerPrice";
+            this.colPartnerPrice.Width = 80;
+            // 
+            // colNote
+            // 
+            this.colNote.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colNote.DataPropertyName = "Note";
+            this.colNote.HeaderText = "Ghi chú";
+            this.colNote.Name = "colNote";
+            this.colNote.ReadOnly = true;
+            this.colNote.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colNote.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colNote.Width = 120;
+            // 
+            // colCar1
+            // 
+            this.colCar1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar1.DataPropertyName = "colCar1";
+            this.colCar1.HeaderText = "Xe 1";
+            this.colCar1.Name = "colCar1";
+            this.colCar1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colCar1.Width = 55;
+            // 
+            // colCar2
+            // 
+            this.colCar2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar2.DataPropertyName = "colCar2";
+            this.colCar2.HeaderText = "Xe 2";
+            this.colCar2.Name = "colCar2";
+            this.colCar2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colCar2.Width = 55;
+            // 
+            // colCar3
+            // 
+            this.colCar3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar3.DataPropertyName = "colCar3";
+            this.colCar3.HeaderText = "Xe 3";
+            this.colCar3.Name = "colCar3";
+            this.colCar3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colCar3.Width = 55;
+            // 
+            // colCar4
+            // 
+            this.colCar4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar4.DataPropertyName = "colCar4";
+            this.colCar4.HeaderText = "Xe 4";
+            this.colCar4.Name = "colCar4";
+            this.colCar4.Width = 55;
+            // 
+            // colCar5
+            // 
+            this.colCar5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar5.DataPropertyName = "colCar5";
+            this.colCar5.HeaderText = "Xe 5";
+            this.colCar5.Name = "colCar5";
+            this.colCar5.Width = 55;
+            // 
+            // colCar6
+            // 
+            this.colCar6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar6.DataPropertyName = "colCar6";
+            this.colCar6.HeaderText = "Xe 6";
+            this.colCar6.Name = "colCar6";
+            this.colCar6.Width = 55;
+            // 
+            // colCar7
+            // 
+            this.colCar7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar7.DataPropertyName = "colCar7";
+            this.colCar7.HeaderText = "Xe 7";
+            this.colCar7.Name = "colCar7";
+            this.colCar7.Width = 55;
+            // 
+            // colCar8
+            // 
+            this.colCar8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar8.DataPropertyName = "colCar8";
+            this.colCar8.HeaderText = "Xe 8";
+            this.colCar8.Name = "colCar8";
+            this.colCar8.Width = 55;
+            // 
+            // colCar9
+            // 
+            this.colCar9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar9.DataPropertyName = "colCar9";
+            this.colCar9.HeaderText = "Xe 9";
+            this.colCar9.Name = "colCar9";
+            this.colCar9.Width = 55;
+            // 
+            // colCar10
+            // 
+            this.colCar10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCar10.DataPropertyName = "colCar10";
+            this.colCar10.HeaderText = "Xe 10";
+            this.colCar10.Name = "colCar10";
+            this.colCar10.Width = 55;
+            // 
             // UCBookCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -882,6 +892,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPax;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPickUp;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRoom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colServiceName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPartnerPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNote;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colCar1;

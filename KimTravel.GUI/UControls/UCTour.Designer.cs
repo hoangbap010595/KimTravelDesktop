@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCTour));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             this.cbbGroupTour = new System.Windows.Forms.ComboBox();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.gridControlData = new DevExpress.XtraGrid.GridControl();
@@ -48,6 +48,7 @@
             this.btnClickDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnLamMOi = new DevExpress.XtraEditors.SimpleButton();
+            this.gridColumnPriceChild = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckEnable)).BeginInit();
@@ -105,6 +106,7 @@
             this.gridViewData.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumnID,
             this.gridColumnName,
+            this.gridColumnPriceChild,
             this.gridColumnPriceSale,
             this.gridColumnPriceVTQ,
             this.gridColumnDateCreate,
@@ -153,7 +155,7 @@
             this.gridColumnPriceSale.AppearanceHeader.Options.UseFont = true;
             this.gridColumnPriceSale.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnPriceSale.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumnPriceSale.Caption = "Giá bán";
+            this.gridColumnPriceSale.Caption = "Giá bán người lớn";
             this.gridColumnPriceSale.DisplayFormat.FormatString = "#,###";
             this.gridColumnPriceSale.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumnPriceSale.FieldName = "PriceSale";
@@ -186,7 +188,7 @@
             this.gridColumnPriceVTQ.OptionsColumn.AllowEdit = false;
             this.gridColumnPriceVTQ.OptionsColumn.ReadOnly = true;
             this.gridColumnPriceVTQ.Visible = true;
-            this.gridColumnPriceVTQ.VisibleIndex = 2;
+            this.gridColumnPriceVTQ.VisibleIndex = 3;
             this.gridColumnPriceVTQ.Width = 150;
             // 
             // gridColumnDateCreate
@@ -209,7 +211,7 @@
             this.gridColumnDateCreate.OptionsColumn.AllowEdit = false;
             this.gridColumnDateCreate.OptionsColumn.ReadOnly = true;
             this.gridColumnDateCreate.Visible = true;
-            this.gridColumnDateCreate.VisibleIndex = 3;
+            this.gridColumnDateCreate.VisibleIndex = 4;
             this.gridColumnDateCreate.Width = 120;
             // 
             // gridColumnEnable
@@ -229,7 +231,7 @@
             this.gridColumnEnable.MinWidth = 90;
             this.gridColumnEnable.Name = "gridColumnEnable";
             this.gridColumnEnable.Visible = true;
-            this.gridColumnEnable.VisibleIndex = 4;
+            this.gridColumnEnable.VisibleIndex = 5;
             this.gridColumnEnable.Width = 90;
             // 
             // ckEnable
@@ -252,15 +254,15 @@
             this.gridColumnEdit.OptionsFilter.AllowAutoFilter = false;
             this.gridColumnEdit.OptionsFilter.AllowFilter = false;
             this.gridColumnEdit.Visible = true;
-            this.gridColumnEdit.VisibleIndex = 5;
+            this.gridColumnEdit.VisibleIndex = 6;
             this.gridColumnEdit.Width = 60;
             // 
             // btnClickEdit
             // 
             this.btnClickEdit.AutoHeight = false;
-            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.btnClickEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions3, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
+            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions1, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
             this.btnClickEdit.Name = "btnClickEdit";
             this.btnClickEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnClickEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnClickEdit_ButtonClick);
@@ -284,15 +286,15 @@
             this.gridColumnDelete.OptionsFilter.AllowAutoFilter = false;
             this.gridColumnDelete.OptionsFilter.AllowFilter = false;
             this.gridColumnDelete.Visible = true;
-            this.gridColumnDelete.VisibleIndex = 6;
+            this.gridColumnDelete.VisibleIndex = 7;
             this.gridColumnDelete.Width = 60;
             // 
             // btnClickDelete
             // 
             this.btnClickDelete.AutoHeight = false;
-            editorButtonImageOptions4.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions4.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.btnClickDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Xóa", -1, true, true, false, editorButtonImageOptions4)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "Xóa", -1, true, true, false, editorButtonImageOptions2)});
             this.btnClickDelete.Name = "btnClickDelete";
             this.btnClickDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.btnClickDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnClickDelete_ButtonClick);
@@ -322,6 +324,27 @@
             this.btnLamMOi.TabIndex = 2;
             this.btnLamMOi.Text = "Làm mới";
             this.btnLamMOi.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
+            // gridColumnPriceChild
+            // 
+            this.gridColumnPriceChild.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnPriceChild.AppearanceCell.Options.UseFont = true;
+            this.gridColumnPriceChild.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnPriceChild.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumnPriceChild.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnPriceChild.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnPriceChild.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnPriceChild.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPriceChild.Caption = "Giá bán trẻ em";
+            this.gridColumnPriceChild.DisplayFormat.FormatString = "#,###";
+            this.gridColumnPriceChild.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumnPriceChild.FieldName = "PriceSaleChild";
+            this.gridColumnPriceChild.MaxWidth = 120;
+            this.gridColumnPriceChild.MinWidth = 120;
+            this.gridColumnPriceChild.Name = "gridColumnPriceChild";
+            this.gridColumnPriceChild.Visible = true;
+            this.gridColumnPriceChild.VisibleIndex = 2;
+            this.gridColumnPriceChild.Width = 120;
             // 
             // UCTour
             // 
@@ -363,5 +386,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnClickDelete;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton btnLamMOi;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPriceChild;
     }
 }

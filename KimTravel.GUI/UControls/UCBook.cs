@@ -23,11 +23,13 @@ namespace KimTravel.GUI.UControls
         private BookService bService = new BookService();
         private PriceService priceService = new PriceService();
         private DataTable tableService = new DataTable();
-
+        private bool AllowBook = true;
+        private float AllowPax = 0;
+        private Book book;
         public UCBook()
         {
             InitializeComponent();
-            dtpStartDate.MinDate = DateTime.Now.AddDays(-1);
+            //dtpStartDate.MinDate = DateTime.Now.AddDays(-2);
             dtpStartDate.Value = DateTime.Now.AddDays(1);
             tableService.Columns.Add("ServiceType");
             tableService.Columns.Add("Price", typeof(int));
@@ -83,13 +85,18 @@ namespace KimTravel.GUI.UControls
                 string date1 = dtpStartDate.Value.ToString("yyyy-MM-dd");
                 Tour tour = tService.GetByID(id);
                 txtPriceSa.Text = tour.PriceSale.ToString();
+                txtPriceSaChild.Text = tour.PriceSaleChild.ToString();
 
                 Dictionary<string, object> dataObject = bService.getInfoBooked(gID, id, date1);
                 float C1 = float.Parse(dataObject["CurrentTotal"].ToString());
                 float C2 = float.Parse(dataObject["MaxPax"].ToString());
-                string msg = "Đã book: " + C1; 
+                AllowPax = C2 - C1;
+                string msg = "Đã book: " + AllowPax;
                 //lblMsgPax.Text = msg;
-
+                if (AllowPax <= 0)
+                    AllowBook = false;
+                else
+                    AllowBook = true;
                 txtPriceRe.Text = priceService.GetPriceForPartner(partnerID, id);
             }
             catch { }
@@ -99,7 +106,12 @@ namespace KimTravel.GUI.UControls
         {
             try
             {
-                Book book = new Book();
+                if (!AllowBook)
+                {
+                    XtraMessageBox.Show("Số lượng đã book vượt quá số lượng tour cho phép.\n Số lượng có thể book thêm: " + AllowPax, "Thông báo");
+                    return;
+                }
+                book = new Book();
                 book.TourID = int.Parse(cbbTourID.SelectedValue.ToString());
                 book.PartnerID = int.Parse(cbbPartnerID.SelectedValue.ToString());
                 book.StartDate = dtpStartDate.Value;
@@ -134,7 +146,9 @@ namespace KimTravel.GUI.UControls
                 book.IsBooked = true;
                 book.IsPayment = false;
                 if (book.StaffID == "" || book.StaffID == null) { XtraMessageBox.Show("Tên NV book không thể để trống!"); return; }
+
                 Tour t = tService.GetByID((int)book.TourID);
+                Partner partner = pnService.GetByID((int)book.PartnerID);
                 string msg = "Xác nhận thông tin book tour:";
                 msg += "\n\tNgày đi     :\t" + book.StartDate.Value.ToString("dd-MM-yyyy");
                 msg += "\n\tSố lượng   :\t" + book.Pax;
@@ -143,28 +157,32 @@ namespace KimTravel.GUI.UControls
                 msg += "\n\tĐối tác      :\t" + p.Name;
                 msg += "\n\tGhi chú      :\t" + book.Note;
                 msg += "\n\tNV Book     :\t" + book.StaffID;
-                if (DialogResult.OK == XtraMessageBox.Show(msg, "Xác nhận", MessageBoxButtons.OKCancel))
-                {
-                    var rs = bService.Insert(book);
-                    if (rs)
-                    {
-                        XtraMessageBox.Show("Book tour thành công!");
-                        txtNote.Text = txtRoom.Text = txtSaleBook.Text = txtPickUp.Text = txtPartnerPrice.Text = txtPriceSaChild.Text = "";
-                        numPax.Value = 2;
-                        numPaxChild.Value = 0;
-                        cbbPartnerID_SelectedValueChanged(sender, e);
-                        tableService.Rows.Clear();
-                        dataGridViewGroupTour.DataSource = tableService;
-                    }
-                    else
-                    {
-                        XtraMessageBox.Show("Các điều kiện không hợp lệ!. Book tour thất bại.");
-                    }
-                }
+
+                frmShowConfirmBookTour frm = new frmShowConfirmBookTour(dtpStartDate.Value.ToString("dd-MM-yyyy"), t.Name, String.Format("{0:N2}", book.Pax), book.ServiceName, book.StaffID, book.PickUp, book.Room, partner.Name, String.Format("{0:N0}", book.PartnerPrice), book.Note);
+                frm.okbook = new frmShowConfirmBookTour.OKBookTour(okBook);
+                frm.ShowDialog();
             }
             catch (Exception ex)
             {
                 XtraMessageBox.Show("Xảy ra lỗi: " + ex.Message);
+            }
+        }
+        private void okBook()
+        {
+            var rs = bService.Insert(book);
+            if (rs)
+            {
+                XtraMessageBox.Show("Book tour thành công!");
+                txtNote.Text = txtRoom.Text = txtSaleBook.Text = txtPickUp.Text = txtPartnerPrice.Text = "";
+                numPax.Value = 2;
+                numPaxChild.Value = 0;
+                LoadDataPartnerID_SelectedValueChanged();
+                tableService.Rows.Clear();
+                dataGridViewGroupTour.DataSource = tableService;
+            }
+            else
+            {
+                XtraMessageBox.Show("Các điều kiện không hợp lệ!. Book tour thất bại.");
             }
         }
         private string getJsonServiceName()
@@ -216,7 +234,8 @@ namespace KimTravel.GUI.UControls
         }
         private void btnAddServiceType_Click(object sender, EventArgs e)
         {
-            frmFindServiceType frm = new frmFindServiceType();
+            int _TourID = int.Parse(cbbTourID.SelectedValue.ToString());
+            frmFindServiceType frm = new frmFindServiceType(_TourID);
             frm.sendData = new frmFindServiceType.LoadData(getService);
             frm.Show();
         }
@@ -240,6 +259,11 @@ namespace KimTravel.GUI.UControls
 
         private void cbbPartnerID_SelectedValueChanged(object sender, EventArgs e)
         {
+            LoadDataPartnerID_SelectedValueChanged();
+        }
+
+        private void LoadDataPartnerID_SelectedValueChanged()
+        {
             try
             {
                 string date = dtpStartDate.Value.ToString("yyyy-MM-dd");
@@ -253,7 +277,6 @@ namespace KimTravel.GUI.UControls
             }
             catch { }
         }
-
         private void PriceChanged_TextChanged(object sender, EventArgs e)
         {
             payment();
@@ -285,14 +308,19 @@ namespace KimTravel.GUI.UControls
                 //Tinh Tong
                 double total = (priceChild + paxTotal) - moneySale;
 
-                lblTotalBook.Text = total.ToString();
+                //
                 lblFGiaBan.Text = String.Format("{0:#,###}", priceSale);
                 lblFGiaNhan.Text = String.Format("{0:#,###}", priceRe);
                 lblFPriceSaChild.Text = String.Format("{0:#,###}", priceSaleChild);
                 lblFPriceReChild.Text = String.Format("{0:#,###}", priceReChild);
                 lblFThuHo.Text = String.Format("{0:#,###}", pricePartner);
                 lblMoney.Text = String.Format("{0:#,###}", priceService);
-                lblMsgTotal.Text = String.Format("{0:#,###}", total);
+                //Total
+                lblTotalNguoiLon.Text = String.Format("{0:#,###}", paxTotal);
+                lblTotalTreEm.Text = String.Format("{0:#,###}", priceChild);
+                //  
+                lblTotalBook.Text = total.ToString();
+                lblMsgBook.Text = String.Format("{0:#,###}", total);
             }
             catch
             {
