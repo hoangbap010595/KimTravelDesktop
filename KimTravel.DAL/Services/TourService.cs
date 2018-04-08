@@ -22,6 +22,7 @@ namespace KimTravel.DAL.Services
                                   t.Name,
                                   //t.PriceReceive,
                                   t.PriceSale,
+                                  t.PriceSaleChild,
                                   t.PriceVTQ,
                                   t.Enable,
                                   t.DateCreate,
@@ -42,6 +43,7 @@ namespace KimTravel.DAL.Services
                                   t.Name,
                                   //t.PriceReceive,
                                   t.PriceSale,
+                                  t.PriceSaleChild,
                                   t.PriceVTQ,
                                   t.Enable,
                                   t.DateCreate,
@@ -106,7 +108,7 @@ namespace KimTravel.DAL.Services
                     currObject.Enable = gTour.Enable;
                     currObject.PriceSale = gTour.PriceSale;
                     currObject.PriceVTQ = gTour.PriceVTQ;
-                    //currObject.Type = gTour.Type;
+                    currObject.PriceSaleChild = gTour.PriceSaleChild;
                     db.SubmitChanges();
                 }
                 return true;

@@ -11,9 +11,9 @@ namespace KimTravel.DAL.Services
     {
         private readonly KimTravelDataContext db = new KimTravelDataContext();
 
-        public IEnumerable<ServiceType> GetList()
+        public IEnumerable<ServiceType> GetList(int tourID)
         {
-            IEnumerable<ServiceType> data = db.ServiceTypes.ToList();
+            IEnumerable<ServiceType> data = db.ServiceTypes.Where(x=>x.TourID == tourID).ToList();
 
             return data;
         }
@@ -23,19 +23,19 @@ namespace KimTravel.DAL.Services
 
             return data;
         }
-        public IQueryable GetListFind(string content)
+        public IQueryable GetListFind(string content, int TourID)
         {
             IQueryable data = from p in db.ServiceTypes
-                              where p.Name.Contains(content)
+                              where p.Name.Contains(content) && p.TourID == TourID
                               select new
                               {
-                                 p.ID,p.Name,p.Price,p.HotelID
+                                 p.ID,p.Name,p.Price,p.TourID
                               };
             return data;
         }
         public bool Insert(ServiceType obj)
         {
-            bool checkName = db.ServiceTypes.Count(x => x.Name == obj.Name) > 0 ? true : false;
+            bool checkName = db.ServiceTypes.Count(x => x.Name == obj.Name && x.TourID == obj.TourID) > 0 ? true : false;
             //bool check = db.ApplicationUsers.Count(x => x.Username == user.Username) > 0 ? true : false;
             if (!checkName)
             {
@@ -49,16 +49,16 @@ namespace KimTravel.DAL.Services
 
         public bool Update(ServiceType obj)
         {
-            bool checkUName = db.ServiceTypes.Count(x => x.Name == obj.Name && x.ID != obj.ID) > 0 ? true : false;
+            bool checkUName = db.ServiceTypes.Count(x => x.Name == obj.Name && x.TourID == obj.TourID && x.ID != obj.ID) > 0 ? true : false;
             //bool check = db.ApplicationUsers.Count(x => x.Username == user.Username) > 0 ? true : false;
-            if (checkUName)
+            if (!checkUName)
             {
                 ServiceType currObject = db.ServiceTypes.FirstOrDefault(x => x.ID == obj.ID);
                 if (currObject != null)
                 {
                     currObject.ID = obj.ID;
                     currObject.Price = obj.Price;
-                    currObject.HotelID = obj.HotelID;
+                    currObject.TourID = obj.TourID;
                     db.SubmitChanges();
                 }
                 return true;

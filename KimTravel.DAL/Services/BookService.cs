@@ -73,10 +73,11 @@ namespace KimTravel.DAL.Services
                                     b.ID,
                                     b.PartnerID,
                                     b.Total,
+                                    b.Pax,
                                     Payment = b.IsPayment == true ? b.Total : 0,
                                     NotPayment = b.IsPayment == false ? b.Total : 0,
                                     p.Name
-                                }).GroupBy(x => x.PartnerID).Select(o => new { ID = o.Key, Count = o.Count(), Payment = o.Sum(x => x.Payment), NotPayment = o.Sum(x => x.NotPayment) })).Join(db.Partners, O1 => O1.ID, O2 => O2.PartnerID, (O1, O2) => new { ID = O1.ID, PartnerName = O2.Name, Count = O1.Count, Payment = O1.Payment, NotPayment = O1.NotPayment });
+                                }).GroupBy(x => x.PartnerID).Select(o => new { ID = o.Key, CountPax = o.Sum(x=>x.Pax), Payment = o.Sum(x => x.Payment), NotPayment = o.Sum(x => x.NotPayment) })).Join(db.Partners, O1 => O1.ID, O2 => O2.PartnerID, (O1, O2) => new { ID = O1.ID, PartnerName = O2.Name, CountPax = O1.CountPax, Payment = O1.Payment, NotPayment = O1.NotPayment });
 
             return data;
         }
@@ -115,7 +116,7 @@ namespace KimTravel.DAL.Services
                        join p in db.Partners on b.PartnerID equals p.PartnerID
                        join t in db.Tours on b.TourID equals t.TourID
                        join g in db.GroupTours on t.GroupID equals g.GroupID
-                       where b.IsBooked == isBooked && b.PartnerID == partnerID 
+                       where b.IsBooked == isBooked && b.PartnerID == partnerID
                              && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
                        orderby b.StartDate
                        select new BookTourModel
@@ -462,6 +463,8 @@ namespace KimTravel.DAL.Services
         {
             try
             {
+                if (obj.IsBooked == true)
+                    obj.FinishDate = DateTime.Now;
                 obj.DateCreate = DateTime.Now;
                 db.Books.InsertOnSubmit(obj);
                 db.SubmitChanges();
@@ -487,6 +490,7 @@ namespace KimTravel.DAL.Services
             }
             return false;
         }
+
         public bool UpdateBookCancel(int id, bool isCancel)
         {
             Book currObject = db.Books.FirstOrDefault(x => x.ID == id);
@@ -547,6 +551,11 @@ namespace KimTravel.DAL.Services
                 currObject.Total = obj.Total;
                 currObject.LastUpdate = obj.LastUpdate;
                 currObject.UpdateBy = obj.UpdateBy;
+
+                currObject.IsBooked = obj.IsBooked;
+                currObject.IsPayment = obj.IsPayment;
+                if (obj.IsPayment == true)
+                    currObject.DatePayment = DateTime.Now;
 
                 db.SubmitChanges();
                 return true;

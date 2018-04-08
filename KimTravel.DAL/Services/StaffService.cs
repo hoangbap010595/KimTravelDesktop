@@ -90,6 +90,7 @@ namespace KimTravel.DAL.Services
         {
             IQueryable data = from s in db.Staffs
                               where s.Status == 1 && (s.Kind == 1 || s.Kind == 3)
+                              orderby s.Name
                               select new
                               {
                                   s.ID,
@@ -102,6 +103,7 @@ namespace KimTravel.DAL.Services
         {
             IQueryable data = from s in db.Staffs
                               where s.Status == 1 && (s.Kind == 2 || s.Kind == 4)
+                              orderby s.Name
                               select new
                               {
                                   s.ID,
