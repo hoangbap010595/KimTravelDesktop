@@ -77,7 +77,7 @@ namespace KimTravel.DAL.Services
                                     Payment = b.IsPayment == true ? b.Total : 0,
                                     NotPayment = b.IsPayment == false ? b.Total : 0,
                                     p.Name
-                                }).GroupBy(x => x.PartnerID).Select(o => new { ID = o.Key, CountPax = o.Sum(x=>x.Pax), Payment = o.Sum(x => x.Payment), NotPayment = o.Sum(x => x.NotPayment) })).Join(db.Partners, O1 => O1.ID, O2 => O2.PartnerID, (O1, O2) => new { ID = O1.ID, PartnerName = O2.Name, CountPax = O1.CountPax, Payment = O1.Payment, NotPayment = O1.NotPayment });
+                                }).GroupBy(x => x.PartnerID).Select(o => new { ID = o.Key, CountPax = o.Sum(x => x.Pax), Payment = o.Sum(x => x.Payment), NotPayment = o.Sum(x => x.NotPayment) })).Join(db.Partners, O1 => O1.ID, O2 => O2.PartnerID, (O1, O2) => new { ID = O1.ID, PartnerName = O2.Name, CountPax = O1.CountPax, Payment = O1.Payment, NotPayment = O1.NotPayment });
 
             return data;
         }
@@ -100,10 +100,11 @@ namespace KimTravel.DAL.Services
                                 select new
                                 {
                                     TourID = t.TourID,
-                                    b.Pax
+                                    b.Pax,
+                                    b.PaxChild
                                 }).GroupBy(x => x.TourID)
-                                .Select(o => new { ID = o.Key, Total = o.Sum(x => x.Pax) }))
-                                .Join(db.Tours, O1 => O1.ID, O2 => O2.TourID, (O1, O2) => new { TourID = O1.ID, TourName = O2.Name, Pax = O1.Total });
+                                .Select(o => new { ID = o.Key, Total = o.Sum(x => x.Pax), TotalChild = o.Sum(x => x.PaxChild) }))
+                                .Join(db.Tours, O1 => O1.ID, O2 => O2.TourID, (O1, O2) => new { TourID = O1.ID, TourName = O2.Name, O2.MaxPax, Pax = O1.Total, PaxChild = O1.TotalChild });
 
             return data;
         }
@@ -392,6 +393,13 @@ namespace KimTravel.DAL.Services
 
             return data;
         }
+        /// <summary>
+        /// Lấy tất cả danh sách đã book có theo tour
+        /// </summary>
+        /// <param name="tourID"></param>
+        /// <param name="dateS"></param>
+        /// <param name="isCancel"></param>
+        /// <returns></returns>
         public IQueryable GetListBooked(int tourID, string dateS, bool isCancel = false)
         {
             DateTime date = DateTime.Parse(dateS);
@@ -403,6 +411,55 @@ namespace KimTravel.DAL.Services
                                     && b.IsCancel == isCancel
                                     && b.IsBooked == true
                               orderby p.Address, p.Line
+                              select new
+                              {
+                                  b.ID,
+                                  t.TourID,
+                                  TourName = t.Name,
+                                  ParnerID = p.PartnerID,
+                                  PartName = p.Name,
+                                  BookID = b.ID,
+                                  b.StartDate,
+                                  b.EndDate,
+                                  b.Pax,
+                                  b.PaxChild,
+                                  b.PickUp,
+                                  b.Room,
+                                  b.CustomName,
+                                  b.PartnerPrice,
+                                  b.PriceReceive,
+                                  b.PriceSale,
+                                  b.PriceVTQ,
+                                  b.PromotionMoney,
+                                  b.PromotionPercent,
+                                  b.StaffID,
+                                  b.DateCreate,
+                                  b.Note,
+                                  b.ServiceType,
+                                  b.Total,
+                                  b.ServiceName
+                              };
+
+            return data;
+        }
+        /// <summary>
+        /// Lây tất cả danh sách đã book ko theo tour
+        /// Lọc theo ngày tạo
+        /// </summary>
+        /// <param name="dateS"></param>
+        /// <param name="isCancel"></param>
+        /// <returns></returns>
+        public IQueryable GetListBooked(string dateS, bool isCancel = false)
+        {
+            DateTime date = DateTime.Parse(dateS);
+            DateTime date2 = DateTime.Parse(dateS).AddDays(1);
+            IQueryable data = from b in db.Books
+                              join t in db.Tours on b.TourID equals t.TourID
+                              from p in db.Partners.Where(x => x.PartnerID == b.PartnerID)
+                              where b.DateCreate.Value >= date && b.DateCreate.Value < date2
+                                    && b.IsCancel == isCancel
+                                    && b.IsBooked == true
+                              orderby b.DateCreate
                               select new
                               {
                                   b.ID,
@@ -428,28 +485,34 @@ namespace KimTravel.DAL.Services
                                   b.Note,
                                   b.ServiceType,
                                   b.Total,
-                                  b.ServiceName
+                                  b.ServiceName,
+                                  b.IsDone,
+                                  b.DoneBy
                               };
 
             return data;
         }
-        public Dictionary<string, object> getInfoBooked(int groupID, int tourID, string SDate)
+        public Dictionary<string, object> getInfoBooked(int tourID, string SDate)
         {
             var date1 = DateTime.Parse(SDate);
             Dictionary<string, object> dataResult = new Dictionary<string, object>();
             var data = (from b in db.Books
                         join t in db.Tours on b.TourID equals t.TourID
-                        join g in db.GroupTours on t.GroupID equals g.GroupID
                         where b.TourID == tourID && b.StartDate.Value == date1 && b.IsCancel == false && b.IsBooked == true
                         select new
                         {
                             b
                         }).Sum(x => x.b.Pax);
+            var paxPickup = data == null ? 0 : data;
+            Tour tour = db.Tours.FirstOrDefault(x => x.TourID == tourID);
+            var minPax = tour.MinPax == null ? 0 : tour.MinPax;
+            var maxPax = tour.MaxPax == null ? 0 : tour.MaxPax;
+            var allowPick = maxPax - paxPickup;
 
-            var maxG = db.GroupTours.FirstOrDefault(x => x.GroupID == groupID).MaxPax;
-
-            dataResult.Add("MaxPax", maxG == null ? 0 : maxG);
-            dataResult.Add("CurrentTotal", data == null ? 0 : data);
+            dataResult.Add("MinPax", minPax);
+            dataResult.Add("MaxPax", maxPax);
+            dataResult.Add("AllowPick", allowPick);
+            dataResult.Add("CurrentTotal", paxPickup);
 
             return dataResult;
         }
@@ -470,7 +533,7 @@ namespace KimTravel.DAL.Services
                 db.SubmitChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
             }
@@ -512,6 +575,18 @@ namespace KimTravel.DAL.Services
                     currObject.FinishDate = DateTime.Now;
                 else
                     currObject.FinishDate = null;
+                db.SubmitChanges();
+                return true;
+            }
+            return false;
+        }
+        public bool UpdateDone(int id, bool isDone, string doneBy)
+        {
+            Book currObject = db.Books.FirstOrDefault(x => x.ID == id);
+            if (currObject != null)
+            {
+                currObject.IsDone = isDone;
+                currObject.DoneBy = doneBy;
                 db.SubmitChanges();
                 return true;
             }

@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using KimTravel.GUI.FControls;
 using KimTravel.DAL.Services;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid;
 
 namespace KimTravel.GUI.UControls
 {
@@ -90,6 +92,12 @@ namespace KimTravel.GUI.UControls
             frmActionPartner frm = new frmActionPartner(1, id);
             frm.loadData = new frmActionPartner.LoadData(loadDataGroup);
             frm.ShowDialog();
+        }
+        private void gridViewData_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+            GridView gw = sender as GridView;
+            if (e.RowHandle >= 0)
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
         }
     }
 }

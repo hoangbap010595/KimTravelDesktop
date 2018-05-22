@@ -102,12 +102,14 @@ namespace KimTravel.GUI.FControls
                 txtPriceSa.Text = tour.PriceSale.ToString();
                 txtPriceSaChild.Text = tour.PriceSaleChild.ToString();
 
-                Dictionary<string, object> dataObject = bookService.getInfoBooked(gID, id, date1);
-                int C1 = int.Parse(dataObject["CurrentTotal"].ToString());
-                int C2 = int.Parse(dataObject["MaxPax"].ToString());
-                int C3 = C2 - C1;
-                string msg = "Đã book: " + C3;
-                //lblMsgPax.Text = msg;
+                Dictionary<string, object> dataObject = bookService.getInfoBooked(id, date1);
+                float AllowPick = float.Parse(dataObject["AllowPick"].ToString());
+                float MinPax = float.Parse(dataObject["MinPax"].ToString());
+                float MaxPax = float.Parse(dataObject["MaxPax"].ToString());
+                float CurrentTotal = float.Parse(dataObject["CurrentTotal"].ToString());
+
+                string msg = "Đã book: " + CurrentTotal;
+                lblMsgPax.Text = msg;
                 //if (C3 <= 0)
                 //{
                 //    btnUpdate.Enabled = false;

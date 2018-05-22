@@ -47,6 +47,7 @@ namespace KimTravel.GUI.FControls
             DataTable data = new DataTable();
             data.Columns.Add("ID", typeof(int));
             data.Columns.Add("Pax", typeof(float));
+            data.Columns.Add("PaxChild", typeof(float));
             data.Columns.Add("PickUp");
             data.Columns.Add("Room");
             data.Columns.Add("ServiceName");
@@ -60,6 +61,7 @@ namespace KimTravel.GUI.FControls
                     DataRow dr = data.NewRow();
                     dr["ID"] = int.Parse(gridViewData.GetRowCellValue(a, "ID").ToString());
                     dr["Pax"] = float.Parse(gridViewData.GetRowCellValue(a, "Pax").ToString());
+                    dr["PaxChild"] = float.Parse(gridViewData.GetRowCellValue(a, "PaxChild").ToString());
                     dr["PickUp"] = gridViewData.GetRowCellValue(a, "PickUp").ToString() + " (" + t.Name + ")";
                     dr["Room"] = gridViewData.GetRowCellValue(a, "Room").ToString();
                     dr["ServiceName"] = gridViewData.GetRowCellValue(a, "ServiceName").ToString();

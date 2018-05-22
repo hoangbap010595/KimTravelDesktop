@@ -55,44 +55,55 @@ namespace KimTravel.GUI.FControls
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (txtServiceName.Text == "")
+            try
             {
-                XtraMessageBox.Show("Tên dịch vụ không thể để trống.");
-                return;
-            }
-            ServiceType service = new ServiceType();
-            service.ID = _objID;
-            service.Name = txtServiceName.Text;
-            service.Price = int.Parse(txtPrice.Text);
-            service.TourID = int.Parse(cbbTour.SelectedValue.ToString());
-            var rs = false;
-            var msg = "";
-            if (_action == -1)
-            {
-                rs = this.gtService.Insert(service);
-                msg = "Thêm mới thành công";
-            }
-            else
-            {
-                rs = this.gtService.Update(service);
-                msg = "Cập nhật thành công";
-            }
-            if (rs)
-            {
-                XtraMessageBox.Show(msg);
+                if (txtServiceName.Text == "")
+                {
+                    XtraMessageBox.Show("Tên dịch vụ không thể để trống.");
+                    return;
+                }
+                if (txtPrice.Text == "")
+                {
+                    XtraMessageBox.Show("Vui lòng nhập giá tiền.");
+                    return;
+                }
+                ServiceType service = new ServiceType();
+                service.ID = _objID;
+                service.Name = txtServiceName.Text;
+                service.Price = int.Parse(txtPrice.Text);
+                service.TourID = int.Parse(cbbTour.SelectedValue.ToString());
+                var rs = false;
+                var msg = "";
+                if (_action == -1)
+                {
+                    rs = this.gtService.Insert(service);
+                    msg = "Thêm mới thành công";
+                }
+                else
+                {
+                    rs = this.gtService.Update(service);
+                    msg = "Cập nhật thành công";
+                }
+                if (rs)
+                {
+                    XtraMessageBox.Show(msg);
 
-                if (loadData != null)
-                    loadData();
-                this.Close();
+                    if (loadData != null)
+                        loadData();
+                    this.Close();
+                }
+                else
+                    XtraMessageBox.Show("Dịch vụ đã tồn tại trong hệ thống. Vui lòng kiểm tra lại.");
             }
-            else
-                XtraMessageBox.Show("Dịch vụ đã tồn tại trong hệ thống. Vui lòng kiểm tra lại.");
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
 
         }
         private void TextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
-
-            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar) && e.KeyChar != 45)
             {
                 e.Handled = true;
             }
@@ -100,7 +111,7 @@ namespace KimTravel.GUI.FControls
 
         private void cbbTour_SelectedValueChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void cbbGroupTourID_SelectedIndexChanged(object sender, EventArgs e)

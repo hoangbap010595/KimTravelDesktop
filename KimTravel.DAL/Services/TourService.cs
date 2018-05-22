@@ -26,6 +26,8 @@ namespace KimTravel.DAL.Services
                                   t.PriceVTQ,
                                   t.Enable,
                                   t.DateCreate,
+                                  t.MinPax,
+                                  t.MaxPax,
                                   GName = g.Name
                               };
 
@@ -47,6 +49,8 @@ namespace KimTravel.DAL.Services
                                   t.PriceVTQ,
                                   t.Enable,
                                   t.DateCreate,
+                                  t.MinPax,
+                                  t.MaxPax,
                                   GName = g.Name
                               };
 

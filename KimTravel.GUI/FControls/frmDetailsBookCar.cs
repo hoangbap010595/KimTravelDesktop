@@ -59,7 +59,8 @@ namespace KimTravel.GUI.FControls
             cbbTaiXe.DisplayMember = "Name";
             cbbTaiXe.ValueMember = "ID";
 
-            lblTotal.Text = countPax() + " pax";
+            lblTotal.Text = countPax() + " pax (NL)";
+            lblTotalPaxChild.Text = countPaxChild() + " pax (TE)";
         }
 
         private float countPax()
@@ -76,7 +77,20 @@ namespace KimTravel.GUI.FControls
 
             return x;
         }
+        private float countPaxChild()
+        {
+            float x = 0;
+            for (int i = 0; i < gridViewData.RowCount; i++)
+            {
+                if (gridViewData.GetRowCellValue(i, "PaxChild").ToString() != "")
+                {
+                    float z = float.Parse(gridViewData.GetRowCellValue(i, "PaxChild").ToString());
+                    x += z;
+                }
+            }
 
+            return x;
+        }
         private void updateStatusBooked()
         {
             for (int i = 0; i < gridViewData.RowCount; i++)
@@ -123,48 +137,55 @@ namespace KimTravel.GUI.FControls
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            var hdvName = txtHdvName.Text;
-            var txName = txtTXName.Text;
-            var hdvID = cbbHDV.SelectedValue == null ? "0" : cbbHDV.SelectedValue.ToString();
-            var txID = cbbTaiXe.SelectedValue == null ? "0" : cbbTaiXe.SelectedValue.ToString();
-            Staff _objectHDV = staffService.GetByID(int.Parse(hdvID));
-            Staff _objectTX = staffService.GetByID(int.Parse(txID));
+            try
+            {
+                var hdvName = txtHdvName.Text;
+                var txName = txtTXName.Text;
+                var hdvID = cbbHDV.SelectedValue == null ? "0" : cbbHDV.SelectedValue.ToString();
+                var txID = cbbTaiXe.SelectedValue == null ? "0" : cbbTaiXe.SelectedValue.ToString();
+                Staff _objectHDV = staffService.GetByID(int.Parse(hdvID));
+                Staff _objectTX = staffService.GetByID(int.Parse(txID));
 
-            var selectNameHDV = hdvName != "" ? hdvName : _objectHDV == null ? "" : _objectHDV.Name;
-            var selectNameTX = txName != "" ? txName : _objectTX == null ? "" : _objectTX.Name;
-            if (String.IsNullOrEmpty(selectNameHDV))
-            {
-                XtraMessageBox.Show("Vui lòng nhập thông tin hướng dẫn viên.", "Thông báo"); return;
-            }
-            if (String.IsNullOrEmpty(hdvName) && _objectHDV.ID == 87)
-            {
-                XtraMessageBox.Show("Vui lòng nhập thông tin hướng dẫn viên.", "Thông báo"); return;
-            }
-            if (String.IsNullOrEmpty(selectNameTX))
-            {
-                XtraMessageBox.Show("Vui lòng nhập thông tin tài xế.", "Thông báo"); return;
-            }
-            if (String.IsNullOrEmpty(txName) && _objectTX.ID == 88)
-            {
-                XtraMessageBox.Show("Vui lòng nhập thông tin tài xế.", "Thông báo"); return;
-            }
+                var selectNameHDV = hdvName != "" ? hdvName : _objectHDV == null ? "" : _objectHDV.Name;
+                var selectNameTX = txName != "" ? txName : _objectTX == null ? "" : _objectTX.Name;
+                if (String.IsNullOrEmpty(selectNameHDV))
+                {
+                    XtraMessageBox.Show("Vui lòng nhập thông tin hướng dẫn viên.", "Thông báo"); return;
+                }
+                if (String.IsNullOrEmpty(hdvName) && _objectHDV.ID == 87)
+                {
+                    XtraMessageBox.Show("Vui lòng nhập thông tin hướng dẫn viên.", "Thông báo"); return;
+                }
+                if (String.IsNullOrEmpty(selectNameTX))
+                {
+                    XtraMessageBox.Show("Vui lòng nhập thông tin tài xế.", "Thông báo"); return;
+                }
+                if (String.IsNullOrEmpty(txName) && _objectTX.ID == 88)
+                {
+                    XtraMessageBox.Show("Vui lòng nhập thông tin tài xế.", "Thông báo"); return;
+                }
 
-            btnPrint.Enabled = btnBack.Enabled = false;
-            lblMessageProgress.Visible = true;
-            var msg = XtraMessageBox.Show("Hệ thống sẽ cập nhật trạng thái tour đã được book.\nBạn muốn cập nhật dữ liệu vào hệ thống và in các bản ghi ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (DialogResult.Yes == msg)
-            {
-                insertPrintDetails();
-                //updateStatusBooked();
-                xtraRPPrintBookTour xtra = new xtraRPPrintBookTour(_dataTemp, _tourName, _startDate.ToString("dd-MM-yyyy"), selectNameHDV, selectNameTX);
-                //xtra.Print();
-                //xtra.PrintDialog();
-                xtra.ShowPreview();
-                if (refreshData != null)
-                    refreshData(_numCar);
+                btnPrint.Enabled = btnBack.Enabled = false;
+                lblMessageProgress.Visible = true;
+                var msg = XtraMessageBox.Show("Hệ thống sẽ cập nhật trạng thái tour đã được book.\nBạn muốn cập nhật dữ liệu vào hệ thống và in các bản ghi ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (DialogResult.Yes == msg)
+                {
+                    insertPrintDetails();
+                    //updateStatusBooked();
+                    xtraRPPrintBookTour xtra = new xtraRPPrintBookTour(_dataTemp, _tourName, _startDate.ToString("dd-MM-yyyy"), selectNameHDV, selectNameTX);
+                    //xtra.Print();
+                    //xtra.PrintDialog();
+                    xtra.ShowPreview();
+                    if (refreshData != null)
+                        refreshData(_numCar);
+                }
+                btnPrint.Enabled = btnBack.Enabled = true;
+                lblMessageProgress.Visible = false;
             }
-            btnPrint.Enabled = btnBack.Enabled = true;
-            lblMessageProgress.Visible = false;
+            catch(Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
         }
 
         private void TextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)

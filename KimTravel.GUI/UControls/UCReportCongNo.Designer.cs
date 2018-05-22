@@ -62,12 +62,14 @@
             this.gridColumnPayment = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnDateCreate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnEdit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnViewDetails = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.gridColumnDatePayment = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnExportExcel = new DevExpress.XtraEditors.SimpleButton();
             this.btnPaymentAll = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnBack = new DevExpress.XtraEditors.SimpleButton();
-            this.btnViewDetails = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.lblTenDoiTac = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEditPayment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClickViews2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClickViews)).BeginInit();
@@ -138,7 +140,7 @@
             this.gridControlData.Name = "gridControlData";
             this.gridControlData.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnViewDetails});
-            this.gridControlData.Size = new System.Drawing.Size(1162, 591);
+            this.gridControlData.Size = new System.Drawing.Size(2261, 591);
             this.gridControlData.TabIndex = 13;
             this.gridControlData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewData});
@@ -196,16 +198,16 @@
             this.gridColumnName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnName.Caption = "SL";
             this.gridColumnName.FieldName = "Pax";
-            this.gridColumnName.MaxWidth = 50;
-            this.gridColumnName.MinWidth = 50;
+            this.gridColumnName.MaxWidth = 60;
+            this.gridColumnName.MinWidth = 60;
             this.gridColumnName.Name = "gridColumnName";
             this.gridColumnName.OptionsColumn.AllowEdit = false;
             this.gridColumnName.OptionsColumn.ReadOnly = true;
             this.gridColumnName.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Pax", "{0:0.##}")});
             this.gridColumnName.Visible = true;
-            this.gridColumnName.VisibleIndex = 0;
-            this.gridColumnName.Width = 50;
+            this.gridColumnName.VisibleIndex = 6;
+            this.gridColumnName.Width = 60;
             // 
             // gridColumnTour
             // 
@@ -217,13 +219,13 @@
             this.gridColumnTour.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnTour.Caption = "Tour";
             this.gridColumnTour.FieldName = "TourName";
-            this.gridColumnTour.MinWidth = 150;
+            this.gridColumnTour.MinWidth = 200;
             this.gridColumnTour.Name = "gridColumnTour";
             this.gridColumnTour.OptionsColumn.AllowEdit = false;
             this.gridColumnTour.OptionsColumn.ReadOnly = true;
             this.gridColumnTour.Visible = true;
             this.gridColumnTour.VisibleIndex = 1;
-            this.gridColumnTour.Width = 150;
+            this.gridColumnTour.Width = 200;
             // 
             // gridColumnService
             // 
@@ -258,7 +260,7 @@
             this.gridColumnPartner.OptionsColumn.AllowEdit = false;
             this.gridColumnPartner.OptionsColumn.ReadOnly = true;
             this.gridColumnPartner.Visible = true;
-            this.gridColumnPartner.VisibleIndex = 3;
+            this.gridColumnPartner.VisibleIndex = 11;
             this.gridColumnPartner.Width = 180;
             // 
             // gridColumnCustomName
@@ -285,13 +287,13 @@
             this.gridColumnPickUp.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnPickUp.Caption = "Pick Up";
             this.gridColumnPickUp.FieldName = "PickUp";
-            this.gridColumnPickUp.MinWidth = 200;
+            this.gridColumnPickUp.MinWidth = 230;
             this.gridColumnPickUp.Name = "gridColumnPickUp";
             this.gridColumnPickUp.OptionsColumn.AllowEdit = false;
             this.gridColumnPickUp.OptionsColumn.ReadOnly = true;
             this.gridColumnPickUp.Visible = true;
-            this.gridColumnPickUp.VisibleIndex = 4;
-            this.gridColumnPickUp.Width = 200;
+            this.gridColumnPickUp.VisibleIndex = 3;
+            this.gridColumnPickUp.Width = 230;
             // 
             // gridColumnRoom
             // 
@@ -308,7 +310,7 @@
             this.gridColumnRoom.OptionsColumn.AllowEdit = false;
             this.gridColumnRoom.OptionsColumn.ReadOnly = true;
             this.gridColumnRoom.Visible = true;
-            this.gridColumnRoom.VisibleIndex = 5;
+            this.gridColumnRoom.VisibleIndex = 4;
             this.gridColumnRoom.Width = 100;
             // 
             // gridColumnPartnerPrice
@@ -331,7 +333,7 @@
             this.gridColumnPartnerPrice.OptionsColumn.AllowEdit = false;
             this.gridColumnPartnerPrice.OptionsColumn.ReadOnly = true;
             this.gridColumnPartnerPrice.Visible = true;
-            this.gridColumnPartnerPrice.VisibleIndex = 6;
+            this.gridColumnPartnerPrice.VisibleIndex = 5;
             this.gridColumnPartnerPrice.Width = 120;
             // 
             // gridColumnSales
@@ -349,7 +351,7 @@
             this.gridColumnSales.OptionsColumn.AllowEdit = false;
             this.gridColumnSales.OptionsColumn.ReadOnly = true;
             this.gridColumnSales.Visible = true;
-            this.gridColumnSales.VisibleIndex = 7;
+            this.gridColumnSales.VisibleIndex = 9;
             this.gridColumnSales.Width = 120;
             // 
             // gridColumnNote
@@ -367,7 +369,7 @@
             this.gridColumnNote.OptionsColumn.AllowEdit = false;
             this.gridColumnNote.OptionsColumn.ReadOnly = true;
             this.gridColumnNote.Visible = true;
-            this.gridColumnNote.VisibleIndex = 8;
+            this.gridColumnNote.VisibleIndex = 10;
             this.gridColumnNote.Width = 160;
             // 
             // gridColumnStartDate
@@ -390,7 +392,7 @@
             this.gridColumnStartDate.OptionsColumn.AllowEdit = false;
             this.gridColumnStartDate.OptionsColumn.ReadOnly = true;
             this.gridColumnStartDate.Visible = true;
-            this.gridColumnStartDate.VisibleIndex = 9;
+            this.gridColumnStartDate.VisibleIndex = 0;
             this.gridColumnStartDate.Width = 120;
             // 
             // gridColumnPriceReceive
@@ -413,7 +415,7 @@
             this.gridColumnPriceReceive.OptionsColumn.AllowEdit = false;
             this.gridColumnPriceReceive.OptionsColumn.ReadOnly = true;
             this.gridColumnPriceReceive.Visible = true;
-            this.gridColumnPriceReceive.VisibleIndex = 10;
+            this.gridColumnPriceReceive.VisibleIndex = 7;
             this.gridColumnPriceReceive.Width = 120;
             // 
             // gridColumnPriceSale
@@ -436,7 +438,7 @@
             this.gridColumnPriceSale.OptionsColumn.AllowEdit = false;
             this.gridColumnPriceSale.OptionsColumn.ReadOnly = true;
             this.gridColumnPriceSale.Visible = true;
-            this.gridColumnPriceSale.VisibleIndex = 11;
+            this.gridColumnPriceSale.VisibleIndex = 12;
             this.gridColumnPriceSale.Width = 120;
             // 
             // gridColumnPriceVTQ
@@ -459,7 +461,7 @@
             this.gridColumnPriceVTQ.OptionsColumn.AllowEdit = false;
             this.gridColumnPriceVTQ.OptionsColumn.ReadOnly = true;
             this.gridColumnPriceVTQ.Visible = true;
-            this.gridColumnPriceVTQ.VisibleIndex = 12;
+            this.gridColumnPriceVTQ.VisibleIndex = 13;
             this.gridColumnPriceVTQ.Width = 120;
             // 
             // gridColumnPromotionMoney
@@ -482,7 +484,7 @@
             this.gridColumnPromotionMoney.OptionsColumn.AllowEdit = false;
             this.gridColumnPromotionMoney.OptionsColumn.ReadOnly = true;
             this.gridColumnPromotionMoney.Visible = true;
-            this.gridColumnPromotionMoney.VisibleIndex = 13;
+            this.gridColumnPromotionMoney.VisibleIndex = 14;
             this.gridColumnPromotionMoney.Width = 120;
             // 
             // gridColumnTotal
@@ -507,7 +509,7 @@
             this.gridColumnTotal.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Total", "{0:#,###}")});
             this.gridColumnTotal.Visible = true;
-            this.gridColumnTotal.VisibleIndex = 14;
+            this.gridColumnTotal.VisibleIndex = 8;
             this.gridColumnTotal.Width = 120;
             // 
             // gridColumnPayment
@@ -573,6 +575,16 @@
             this.gridColumnEdit.VisibleIndex = 18;
             this.gridColumnEdit.Width = 60;
             // 
+            // btnViewDetails
+            // 
+            this.btnViewDetails.AutoHeight = false;
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
+            this.btnViewDetails.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions3, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
+            this.btnViewDetails.Name = "btnViewDetails";
+            this.btnViewDetails.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnViewDetails.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnClickViews2_ButtonClick);
+            // 
             // gridColumnDatePayment
             // 
             this.gridColumnDatePayment.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -600,7 +612,7 @@
             this.btnExportExcel.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnExportExcel.Appearance.Options.UseFont = true;
             this.btnExportExcel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.ImageOptions.Image")));
-            this.btnExportExcel.Location = new System.Drawing.Point(742, 6);
+            this.btnExportExcel.Location = new System.Drawing.Point(1841, 6);
             this.btnExportExcel.Name = "btnExportExcel";
             this.btnExportExcel.Size = new System.Drawing.Size(137, 39);
             this.btnExportExcel.TabIndex = 2;
@@ -613,7 +625,7 @@
             this.btnPaymentAll.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnPaymentAll.Appearance.Options.UseFont = true;
             this.btnPaymentAll.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPaymentAll.ImageOptions.Image")));
-            this.btnPaymentAll.Location = new System.Drawing.Point(578, 6);
+            this.btnPaymentAll.Location = new System.Drawing.Point(1677, 6);
             this.btnPaymentAll.Name = "btnPaymentAll";
             this.btnPaymentAll.Size = new System.Drawing.Size(158, 39);
             this.btnPaymentAll.TabIndex = 1;
@@ -626,7 +638,7 @@
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(885, 6);
+            this.simpleButton1.Location = new System.Drawing.Point(1984, 6);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(137, 39);
             this.simpleButton1.TabIndex = 3;
@@ -639,34 +651,46 @@
             this.btnBack.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnBack.Appearance.Options.UseFont = true;
             this.btnBack.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBack.ImageOptions.Image")));
-            this.btnBack.Location = new System.Drawing.Point(1028, 6);
+            this.btnBack.Location = new System.Drawing.Point(2127, 6);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(137, 39);
             this.btnBack.TabIndex = 4;
             this.btnBack.Text = "Quay lại";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // btnViewDetails
+            // lblTenDoiTac
             // 
-            this.btnViewDetails.AutoHeight = false;
-            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
-            this.btnViewDetails.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions3, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
-            this.btnViewDetails.Name = "btnViewDetails";
-            this.btnViewDetails.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.btnViewDetails.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnClickViews2_ButtonClick);
+            this.lblTenDoiTac.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.lblTenDoiTac.Appearance.Options.UseFont = true;
+            this.lblTenDoiTac.Location = new System.Drawing.Point(82, 6);
+            this.lblTenDoiTac.Name = "lblTenDoiTac";
+            this.lblTenDoiTac.Size = new System.Drawing.Size(115, 25);
+            this.lblTenDoiTac.TabIndex = 0;
+            this.lblTenDoiTac.Text = "Tên đối tác";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 16F);
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(3, 6);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(73, 25);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Đối tác:";
             // 
             // UCReportCongNo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.lblTenDoiTac);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.btnPaymentAll);
             this.Controls.Add(this.gridControlData);
             this.Name = "UCReportCongNo";
-            this.Size = new System.Drawing.Size(1168, 651);
+            this.Size = new System.Drawing.Size(2267, 651);
             this.Load += new System.EventHandler(this.UCGroupTour_Load);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEditPayment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClickViews2)).EndInit();
@@ -677,6 +701,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnViewDetails)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -716,5 +741,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnClickViews2;
         private DevExpress.XtraEditors.SimpleButton btnBack;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnViewDetails;
+        private DevExpress.XtraEditors.LabelControl lblTenDoiTac;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

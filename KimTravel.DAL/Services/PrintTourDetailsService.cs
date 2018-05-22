@@ -26,6 +26,7 @@ namespace KimTravel.DAL.Services
                            b.PickUp,
                            b.Room,
                            b.PartnerPrice,
+                           b.ServiceName,
                            b.Note
                        };
             return data;

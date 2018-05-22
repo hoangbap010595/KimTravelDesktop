@@ -68,7 +68,6 @@ namespace KimTravel.GUI.UControls
 
         private void TextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
-
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
@@ -86,18 +85,16 @@ namespace KimTravel.GUI.UControls
                 Tour tour = tService.GetByID(id);
                 txtPriceSa.Text = tour.PriceSale.ToString();
                 txtPriceSaChild.Text = tour.PriceSaleChild.ToString();
-
-                Dictionary<string, object> dataObject = bService.getInfoBooked(gID, id, date1);
-                float C1 = float.Parse(dataObject["CurrentTotal"].ToString());
-                float C2 = float.Parse(dataObject["MaxPax"].ToString());
-                AllowPax = C2 - C1;
-                string msg = "Đã book: " + AllowPax;
-                //lblMsgPax.Text = msg;
-                if (AllowPax <= 0)
-                    AllowBook = false;
-                else
-                    AllowBook = true;
                 txtPriceRe.Text = priceService.GetPriceForPartner(partnerID, id);
+
+                Dictionary<string, object> dataObject = bService.getInfoBooked(id, date1);
+                float AllowPick = float.Parse(dataObject["AllowPick"].ToString());
+                float MinPax = float.Parse(dataObject["MinPax"].ToString());
+                float MaxPax = float.Parse(dataObject["MaxPax"].ToString());
+                float CurrentTotal = float.Parse(dataObject["CurrentTotal"].ToString());
+
+                AllowPax = AllowPick;
+                lblMsgPax.Text = CurrentTotal + "/"+ MaxPax + " (pick)";     
             }
             catch { }
         }
@@ -106,9 +103,16 @@ namespace KimTravel.GUI.UControls
         {
             try
             {
+                var paxNL = float.Parse(numPax.Value.ToString());
+                var paxTE = float.Parse(numPaxChild.Value.ToString());
+                if (AllowPax <= 0 || AllowPax < (paxNL + paxTE))
+                    AllowBook = false;
+                else
+                    AllowBook = true;
+
                 if (!AllowBook)
                 {
-                    XtraMessageBox.Show("Số lượng đã book vượt quá số lượng tour cho phép.\n Số lượng có thể book thêm: " + AllowPax, "Thông báo");
+                    XtraMessageBox.Show("Số lượng người đi đã book vượt quá số lượng tour cho phép.\nVui lòng kiểm tra lại.", "Thông báo");
                     return;
                 }
                 book = new Book();
@@ -116,7 +120,7 @@ namespace KimTravel.GUI.UControls
                 book.PartnerID = int.Parse(cbbPartnerID.SelectedValue.ToString());
                 book.StartDate = dtpStartDate.Value;
                 book.EndDate = dtpStartDate.Value;
-                book.Pax = float.Parse(numPax.Value.ToString());
+                book.Pax = paxNL;
                 book.StaffID = txtSaleBook.Text;
 
                 //Cus
@@ -131,7 +135,7 @@ namespace KimTravel.GUI.UControls
                 book.PriceSale = int.Parse(txtPriceSa.Text == "" ? "0" : txtPriceSa.Text);
                 //Tre em
                 book.PriceReChild = int.Parse(txtPriceReChild.Text == "" ? "0" : txtPriceReChild.Text);
-                book.PaxChild = float.Parse(numPaxChild.Value.ToString());
+                book.PaxChild = paxTE;
                 //book.PriceVTQ = 0;
                 book.Note = txtNote.Text;
 
@@ -145,18 +149,11 @@ namespace KimTravel.GUI.UControls
                 book.IsCancel = false;
                 book.IsBooked = true;
                 book.IsPayment = false;
+                book.IsDone = false;
                 if (book.StaffID == "" || book.StaffID == null) { XtraMessageBox.Show("Tên NV book không thể để trống!"); return; }
 
                 Tour t = tService.GetByID((int)book.TourID);
                 Partner partner = pnService.GetByID((int)book.PartnerID);
-                string msg = "Xác nhận thông tin book tour:";
-                msg += "\n\tNgày đi     :\t" + book.StartDate.Value.ToString("dd-MM-yyyy");
-                msg += "\n\tSố lượng   :\t" + book.Pax;
-                msg += "\n\tTour          :\t" + t.Name;
-                msg += "\n\tDịch vụ      :\t" + book.ServiceName;
-                msg += "\n\tĐối tác      :\t" + p.Name;
-                msg += "\n\tGhi chú      :\t" + book.Note;
-                msg += "\n\tNV Book     :\t" + book.StaffID;
 
                 frmShowConfirmBookTour frm = new frmShowConfirmBookTour(dtpStartDate.Value.ToString("dd-MM-yyyy"), t.Name, String.Format("{0:N2}", book.Pax), book.ServiceName, book.StaffID, book.PickUp, book.Room, partner.Name, String.Format("{0:N0}", book.PartnerPrice), book.Note);
                 frm.okbook = new frmShowConfirmBookTour.OKBookTour(okBook);

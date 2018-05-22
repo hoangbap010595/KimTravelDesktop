@@ -54,6 +54,8 @@
             this.txtTXName = new DevExpress.XtraEditors.TextEdit();
             this.txtBKS = new DevExpress.XtraEditors.TextEdit();
             this.label5 = new System.Windows.Forms.Label();
+            this.gridColumnPaxChild = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.lblTotalPaxChild = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHdvName.Properties)).BeginInit();
@@ -66,7 +68,7 @@
             this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnPrint.Depth = 0;
-            this.btnPrint.Location = new System.Drawing.Point(671, 601);
+            this.btnPrint.Location = new System.Drawing.Point(893, 601);
             this.btnPrint.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Primary = true;
@@ -125,7 +127,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(457, 28);
+            this.label3.Location = new System.Drawing.Point(453, 28);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 17);
             this.label3.TabIndex = 0;
@@ -136,7 +138,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(457, 62);
+            this.label4.Location = new System.Drawing.Point(453, 62);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 17);
             this.label4.TabIndex = 0;
@@ -148,7 +150,7 @@
             this.cbbHDV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbHDV.FormattingEnabled = true;
             this.cbbHDV.ItemHeight = 20;
-            this.cbbHDV.Location = new System.Drawing.Point(515, 24);
+            this.cbbHDV.Location = new System.Drawing.Point(511, 24);
             this.cbbHDV.Name = "cbbHDV";
             this.cbbHDV.Size = new System.Drawing.Size(164, 28);
             this.cbbHDV.TabIndex = 1;
@@ -159,7 +161,7 @@
             this.cbbTaiXe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbTaiXe.FormattingEnabled = true;
             this.cbbTaiXe.ItemHeight = 20;
-            this.cbbTaiXe.Location = new System.Drawing.Point(515, 58);
+            this.cbbTaiXe.Location = new System.Drawing.Point(511, 58);
             this.cbbTaiXe.Name = "cbbTaiXe";
             this.cbbTaiXe.Size = new System.Drawing.Size(164, 28);
             this.cbbTaiXe.TabIndex = 2;
@@ -183,7 +185,7 @@
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnBack.Depth = 0;
-            this.btnBack.Location = new System.Drawing.Point(530, 601);
+            this.btnBack.Location = new System.Drawing.Point(752, 601);
             this.btnBack.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnBack.Name = "btnBack";
             this.btnBack.Primary = true;
@@ -198,7 +200,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(13, 131);
+            this.label6.Location = new System.Drawing.Point(13, 116);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(236, 13);
             this.label6.TabIndex = 0;
@@ -209,7 +211,7 @@
             this.lblMessageProgress.AutoSize = true;
             this.lblMessageProgress.BackColor = System.Drawing.Color.Transparent;
             this.lblMessageProgress.ForeColor = System.Drawing.Color.Red;
-            this.lblMessageProgress.Location = new System.Drawing.Point(121, 624);
+            this.lblMessageProgress.Location = new System.Drawing.Point(221, 624);
             this.lblMessageProgress.Name = "lblMessageProgress";
             this.lblMessageProgress.Size = new System.Drawing.Size(136, 13);
             this.lblMessageProgress.TabIndex = 0;
@@ -221,10 +223,10 @@
             this.gridControlData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControlData.Location = new System.Drawing.Point(11, 147);
+            this.gridControlData.Location = new System.Drawing.Point(11, 132);
             this.gridControlData.MainView = this.gridViewData;
             this.gridControlData.Name = "gridControlData";
-            this.gridControlData.Size = new System.Drawing.Size(797, 449);
+            this.gridControlData.Size = new System.Drawing.Size(1019, 464);
             this.gridControlData.TabIndex = 5;
             this.gridControlData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewData});
@@ -235,6 +237,7 @@
             this.gridViewData.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumnID,
             this.gridColumnPax,
+            this.gridColumnPaxChild,
             this.gridColumnPickUp,
             this.gridColumnServiceName,
             this.gridColumnRoom,
@@ -289,7 +292,7 @@
             this.gridColumnPickUp.OptionsColumn.AllowEdit = false;
             this.gridColumnPickUp.OptionsColumn.ReadOnly = true;
             this.gridColumnPickUp.Visible = true;
-            this.gridColumnPickUp.VisibleIndex = 1;
+            this.gridColumnPickUp.VisibleIndex = 2;
             this.gridColumnPickUp.Width = 83;
             // 
             // gridColumnServiceName
@@ -306,7 +309,7 @@
             this.gridColumnServiceName.MinWidth = 160;
             this.gridColumnServiceName.Name = "gridColumnServiceName";
             this.gridColumnServiceName.Visible = true;
-            this.gridColumnServiceName.VisibleIndex = 3;
+            this.gridColumnServiceName.VisibleIndex = 4;
             this.gridColumnServiceName.Width = 160;
             // 
             // gridColumnRoom
@@ -325,7 +328,7 @@
             this.gridColumnRoom.OptionsColumn.AllowEdit = false;
             this.gridColumnRoom.OptionsColumn.ReadOnly = true;
             this.gridColumnRoom.Visible = true;
-            this.gridColumnRoom.VisibleIndex = 2;
+            this.gridColumnRoom.VisibleIndex = 3;
             this.gridColumnRoom.Width = 120;
             // 
             // gridColumnPartnerPrice
@@ -348,7 +351,7 @@
             this.gridColumnPartnerPrice.OptionsColumn.AllowEdit = false;
             this.gridColumnPartnerPrice.OptionsColumn.ReadOnly = true;
             this.gridColumnPartnerPrice.Visible = true;
-            this.gridColumnPartnerPrice.VisibleIndex = 4;
+            this.gridColumnPartnerPrice.VisibleIndex = 5;
             this.gridColumnPartnerPrice.Width = 130;
             // 
             // gridColumnNote
@@ -367,12 +370,12 @@
             this.gridColumnNote.OptionsColumn.AllowEdit = false;
             this.gridColumnNote.OptionsColumn.ReadOnly = true;
             this.gridColumnNote.Visible = true;
-            this.gridColumnNote.VisibleIndex = 5;
+            this.gridColumnNote.VisibleIndex = 6;
             this.gridColumnNote.Width = 140;
             // 
             // txtHdvName
             // 
-            this.txtHdvName.Location = new System.Drawing.Point(685, 24);
+            this.txtHdvName.Location = new System.Drawing.Point(681, 24);
             this.txtHdvName.Name = "txtHdvName";
             this.txtHdvName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtHdvName.Properties.Appearance.Options.UseFont = true;
@@ -382,7 +385,7 @@
             // 
             // txtTXName
             // 
-            this.txtTXName.Location = new System.Drawing.Point(685, 57);
+            this.txtTXName.Location = new System.Drawing.Point(681, 57);
             this.txtTXName.Name = "txtTXName";
             this.txtTXName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtTXName.Properties.Appearance.Options.UseFont = true;
@@ -392,7 +395,7 @@
             // 
             // txtBKS
             // 
-            this.txtBKS.Location = new System.Drawing.Point(515, 90);
+            this.txtBKS.Location = new System.Drawing.Point(864, 57);
             this.txtBKS.Name = "txtBKS";
             this.txtBKS.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.txtBKS.Properties.Appearance.Options.UseFont = true;
@@ -405,17 +408,51 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(457, 97);
+            this.label5.Location = new System.Drawing.Point(820, 64);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(39, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "BKS:";
             // 
+            // gridColumnPaxChild
+            // 
+            this.gridColumnPaxChild.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnPaxChild.AppearanceCell.Options.UseFont = true;
+            this.gridColumnPaxChild.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnPaxChild.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPaxChild.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnPaxChild.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnPaxChild.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnPaxChild.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPaxChild.Caption = "Pax TE";
+            this.gridColumnPaxChild.FieldName = "PaxChild";
+            this.gridColumnPaxChild.MaxWidth = 50;
+            this.gridColumnPaxChild.MinWidth = 50;
+            this.gridColumnPaxChild.Name = "gridColumnPaxChild";
+            this.gridColumnPaxChild.OptionsColumn.AllowEdit = false;
+            this.gridColumnPaxChild.OptionsColumn.ReadOnly = true;
+            this.gridColumnPaxChild.Visible = true;
+            this.gridColumnPaxChild.VisibleIndex = 1;
+            this.gridColumnPaxChild.Width = 50;
+            // 
+            // lblTotalPaxChild
+            // 
+            this.lblTotalPaxChild.BackColor = System.Drawing.Color.Plum;
+            this.lblTotalPaxChild.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblTotalPaxChild.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPaxChild.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblTotalPaxChild.Location = new System.Drawing.Point(116, 602);
+            this.lblTotalPaxChild.Name = "lblTotalPaxChild";
+            this.lblTotalPaxChild.Size = new System.Drawing.Size(99, 36);
+            this.lblTotalPaxChild.TabIndex = 0;
+            this.lblTotalPaxChild.Text = "20 pax";
+            this.lblTotalPaxChild.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmDetailsBookCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(818, 650);
+            this.ClientSize = new System.Drawing.Size(1040, 650);
             this.Controls.Add(this.txtBKS);
             this.Controls.Add(this.txtTXName);
             this.Controls.Add(this.txtHdvName);
@@ -427,6 +464,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblTotalPaxChild);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -480,5 +518,7 @@
         private DevExpress.XtraEditors.TextEdit txtBKS;
         private System.Windows.Forms.Label label5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnServiceName;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPaxChild;
+        private System.Windows.Forms.Label lblTotalPaxChild;
     }
 }

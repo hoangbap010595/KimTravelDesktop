@@ -51,18 +51,19 @@
             this.gridColumnRoom = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnPartnerPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnNote = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnDelete = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.txtHdvName = new DevExpress.XtraEditors.TextEdit();
             this.txtTXName = new DevExpress.XtraEditors.TextEdit();
             this.txtBKS = new DevExpress.XtraEditors.TextEdit();
             this.label5 = new System.Windows.Forms.Label();
-            this.gridColumnDelete = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnDelete = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.gridColumnServiceName = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHdvName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTXName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBKS.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
             this.SuspendLayout();
             // 
             // btnPrint
@@ -241,6 +242,7 @@
             this.gridColumnPax,
             this.gridColumnPickUp,
             this.gridColumnRoom,
+            this.gridColumnServiceName,
             this.gridColumnPartnerPrice,
             this.gridColumnNote,
             this.gridColumnDelete});
@@ -335,7 +337,7 @@
             this.gridColumnPartnerPrice.OptionsColumn.AllowEdit = false;
             this.gridColumnPartnerPrice.OptionsColumn.ReadOnly = true;
             this.gridColumnPartnerPrice.Visible = true;
-            this.gridColumnPartnerPrice.VisibleIndex = 3;
+            this.gridColumnPartnerPrice.VisibleIndex = 4;
             this.gridColumnPartnerPrice.Width = 130;
             // 
             // gridColumnNote
@@ -354,8 +356,33 @@
             this.gridColumnNote.OptionsColumn.AllowEdit = false;
             this.gridColumnNote.OptionsColumn.ReadOnly = true;
             this.gridColumnNote.Visible = true;
-            this.gridColumnNote.VisibleIndex = 4;
+            this.gridColumnNote.VisibleIndex = 5;
             this.gridColumnNote.Width = 140;
+            // 
+            // gridColumnDelete
+            // 
+            this.gridColumnDelete.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnDelete.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnDelete.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnDelete.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnDelete.Caption = "Xóa";
+            this.gridColumnDelete.ColumnEdit = this.btnDelete;
+            this.gridColumnDelete.MaxWidth = 60;
+            this.gridColumnDelete.MinWidth = 60;
+            this.gridColumnDelete.Name = "gridColumnDelete";
+            this.gridColumnDelete.Visible = true;
+            this.gridColumnDelete.VisibleIndex = 6;
+            this.gridColumnDelete.Width = 60;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.AutoHeight = false;
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            this.btnDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions1, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            this.btnDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDelete_ButtonClick);
             // 
             // txtHdvName
             // 
@@ -398,30 +425,21 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "BKS:";
             // 
-            // gridColumnDelete
+            // gridColumnServiceName
             // 
-            this.gridColumnDelete.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.gridColumnDelete.AppearanceHeader.Options.UseFont = true;
-            this.gridColumnDelete.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumnDelete.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumnDelete.Caption = "Xóa";
-            this.gridColumnDelete.ColumnEdit = this.btnDelete;
-            this.gridColumnDelete.MaxWidth = 60;
-            this.gridColumnDelete.MinWidth = 60;
-            this.gridColumnDelete.Name = "gridColumnDelete";
-            this.gridColumnDelete.Visible = true;
-            this.gridColumnDelete.VisibleIndex = 5;
-            this.gridColumnDelete.Width = 60;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.AutoHeight = false;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
-            this.btnDelete.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(editorButtonImageOptions1, DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, null)});
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-            this.btnDelete.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.btnDelete_ButtonClick);
+            this.gridColumnServiceName.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnServiceName.AppearanceCell.Options.UseFont = true;
+            this.gridColumnServiceName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnServiceName.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnServiceName.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnServiceName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnServiceName.Caption = "Dịch vụ";
+            this.gridColumnServiceName.FieldName = "ServiceName";
+            this.gridColumnServiceName.MinWidth = 90;
+            this.gridColumnServiceName.Name = "gridColumnServiceName";
+            this.gridColumnServiceName.Visible = true;
+            this.gridColumnServiceName.VisibleIndex = 3;
+            this.gridColumnServiceName.Width = 90;
             // 
             // frmDetailsPrintAgain
             // 
@@ -458,10 +476,10 @@
             this.Load += new System.EventHandler(this.frmActionGroupTour_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHdvName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTXName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBKS.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -495,5 +513,6 @@
         private System.Windows.Forms.Label label5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnDelete;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit btnDelete;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnServiceName;
     }
 }

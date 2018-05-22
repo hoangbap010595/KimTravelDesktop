@@ -91,6 +91,8 @@ namespace KimTravel.GUI.UControls
         private void UCGroupTour_Load(object sender, EventArgs e)
         {
             btnPaymentAll.Visible = false;
+            Partner p = partnerService.GetByID(_PartnerID);
+            lblTenDoiTac.Text = p.Name;
             loadDataGroup();
         }
 

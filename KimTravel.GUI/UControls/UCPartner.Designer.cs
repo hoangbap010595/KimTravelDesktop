@@ -91,6 +91,7 @@
             this.gridViewData.OptionsView.ShowAutoFilterRow = true;
             this.gridViewData.OptionsView.ShowGroupPanel = false;
             this.gridViewData.RowHeight = 25;
+            this.gridViewData.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridViewData_CustomDrawRowIndicator);
             // 
             // gridColumnID
             // 

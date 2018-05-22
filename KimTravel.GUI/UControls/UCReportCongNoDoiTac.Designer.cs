@@ -179,6 +179,8 @@
             this.gridColumnPartner.FieldName = "PartnerName";
             this.gridColumnPartner.MinWidth = 180;
             this.gridColumnPartner.Name = "gridColumnPartner";
+            this.gridColumnPartner.OptionsColumn.AllowEdit = false;
+            this.gridColumnPartner.OptionsColumn.AllowFocus = false;
             this.gridColumnPartner.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "PartnerName", "Tổng: {0}")});
             this.gridColumnPartner.Visible = true;
@@ -202,6 +204,8 @@
             this.gridColumnSLTour.MaxWidth = 120;
             this.gridColumnSLTour.MinWidth = 120;
             this.gridColumnSLTour.Name = "gridColumnSLTour";
+            this.gridColumnSLTour.OptionsColumn.AllowEdit = false;
+            this.gridColumnSLTour.OptionsColumn.AllowFocus = false;
             this.gridColumnSLTour.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "CountPax", "{0:#,###}")});
             this.gridColumnSLTour.Visible = true;
@@ -225,6 +229,8 @@
             this.gridColumnPriceNotPayment.MaxWidth = 150;
             this.gridColumnPriceNotPayment.MinWidth = 150;
             this.gridColumnPriceNotPayment.Name = "gridColumnPriceNotPayment";
+            this.gridColumnPriceNotPayment.OptionsColumn.AllowEdit = false;
+            this.gridColumnPriceNotPayment.OptionsColumn.AllowFocus = false;
             this.gridColumnPriceNotPayment.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "NotPayment", "{0:#,###}")});
             this.gridColumnPriceNotPayment.Visible = true;
@@ -248,6 +254,8 @@
             this.gridColumnPricePayment.MaxWidth = 150;
             this.gridColumnPricePayment.MinWidth = 150;
             this.gridColumnPricePayment.Name = "gridColumnPricePayment";
+            this.gridColumnPricePayment.OptionsColumn.AllowEdit = false;
+            this.gridColumnPricePayment.OptionsColumn.AllowFocus = false;
             this.gridColumnPricePayment.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Payment", "{0:#,###}")});
             this.gridColumnPricePayment.Visible = true;

@@ -114,7 +114,7 @@ namespace KimTravel.GUI.FControls
                     dr["ID"] = int.Parse(gridViewData.GetRowCellValue(i, "DetailID").ToString());
                     dr["PickUp"] = gridViewData.GetRowCellValue(i, "PickUp").ToString();
                     dr["Room"] = gridViewData.GetRowCellValue(i, "Room").ToString();
-                    dr["ServiceName"] = float.Parse(gridViewData.GetRowCellValue(i, "ServiceName").ToString());
+                    dr["ServiceName"] = gridViewData.GetRowCellValue(i, "ServiceName").ToString();
                     dr["Pax"] = float.Parse(gridViewData.GetRowCellValue(i, "Pax").ToString());
                     dr["PartnerPrice"] = int.Parse(gridViewData.GetRowCellValue(i, "PartnerPrice").ToString());
                     dr["Note"] = gridViewData.GetRowCellValue(i, "Note").ToString();
@@ -130,7 +130,7 @@ namespace KimTravel.GUI.FControls
             }
             catch (Exception ex)
             {
-                btnPrint.Enabled = btnBack.Enabled = false;
+                btnPrint.Enabled = btnBack.Enabled = true;
                 XtraMessageBox.Show(ex.Message);
             }
         }

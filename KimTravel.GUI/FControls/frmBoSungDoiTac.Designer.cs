@@ -36,6 +36,7 @@
             this.gridColumnPax = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnPickUp = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnRoom = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnServiceName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnPartnerPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnNote = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbbTourID = new System.Windows.Forms.ComboBox();
@@ -44,7 +45,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
             this.btnBack = new DevExpress.XtraEditors.SimpleButton();
-            this.gridColumnServiceName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnPaxChild = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
             this.SuspendLayout();
@@ -80,6 +81,7 @@
             this.gridViewData.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumnID,
             this.gridColumnPax,
+            this.gridColumnPaxChild,
             this.gridColumnPickUp,
             this.gridColumnRoom,
             this.gridColumnServiceName,
@@ -109,16 +111,17 @@
             this.gridColumnPax.AppearanceHeader.Options.UseFont = true;
             this.gridColumnPax.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumnPax.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumnPax.Caption = "Pax";
+            this.gridColumnPax.Caption = "Pax (NL)";
             this.gridColumnPax.FieldName = "Pax";
-            this.gridColumnPax.MaxWidth = 60;
-            this.gridColumnPax.MinWidth = 60;
+            this.gridColumnPax.MaxWidth = 80;
+            this.gridColumnPax.MinWidth = 80;
             this.gridColumnPax.Name = "gridColumnPax";
             this.gridColumnPax.OptionsColumn.AllowEdit = false;
             this.gridColumnPax.OptionsColumn.ReadOnly = true;
+            this.gridColumnPax.ToolTip = "Số lượng người lớn";
             this.gridColumnPax.Visible = true;
             this.gridColumnPax.VisibleIndex = 1;
-            this.gridColumnPax.Width = 60;
+            this.gridColumnPax.Width = 80;
             // 
             // gridColumnPickUp
             // 
@@ -135,7 +138,7 @@
             this.gridColumnPickUp.OptionsColumn.AllowEdit = false;
             this.gridColumnPickUp.OptionsColumn.ReadOnly = true;
             this.gridColumnPickUp.Visible = true;
-            this.gridColumnPickUp.VisibleIndex = 2;
+            this.gridColumnPickUp.VisibleIndex = 3;
             this.gridColumnPickUp.Width = 300;
             // 
             // gridColumnRoom
@@ -152,8 +155,24 @@
             this.gridColumnRoom.MinWidth = 100;
             this.gridColumnRoom.Name = "gridColumnRoom";
             this.gridColumnRoom.Visible = true;
-            this.gridColumnRoom.VisibleIndex = 3;
+            this.gridColumnRoom.VisibleIndex = 4;
             this.gridColumnRoom.Width = 100;
+            // 
+            // gridColumnServiceName
+            // 
+            this.gridColumnServiceName.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnServiceName.AppearanceCell.Options.UseFont = true;
+            this.gridColumnServiceName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnServiceName.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnServiceName.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnServiceName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnServiceName.Caption = "Dịch vụ";
+            this.gridColumnServiceName.FieldName = "ServiceName";
+            this.gridColumnServiceName.MinWidth = 120;
+            this.gridColumnServiceName.Name = "gridColumnServiceName";
+            this.gridColumnServiceName.Visible = true;
+            this.gridColumnServiceName.VisibleIndex = 5;
+            this.gridColumnServiceName.Width = 120;
             // 
             // gridColumnPartnerPrice
             // 
@@ -173,7 +192,7 @@
             this.gridColumnPartnerPrice.MinWidth = 111;
             this.gridColumnPartnerPrice.Name = "gridColumnPartnerPrice";
             this.gridColumnPartnerPrice.Visible = true;
-            this.gridColumnPartnerPrice.VisibleIndex = 5;
+            this.gridColumnPartnerPrice.VisibleIndex = 6;
             this.gridColumnPartnerPrice.Width = 111;
             // 
             // gridColumnNote
@@ -190,7 +209,7 @@
             this.gridColumnNote.MinWidth = 150;
             this.gridColumnNote.Name = "gridColumnNote";
             this.gridColumnNote.Visible = true;
-            this.gridColumnNote.VisibleIndex = 6;
+            this.gridColumnNote.VisibleIndex = 7;
             this.gridColumnNote.Width = 150;
             // 
             // cbbTourID
@@ -262,21 +281,26 @@
             this.btnBack.Text = "Quay lại";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // gridColumnServiceName
+            // gridColumnPaxChild
             // 
-            this.gridColumnServiceName.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.gridColumnServiceName.AppearanceCell.Options.UseFont = true;
-            this.gridColumnServiceName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.gridColumnServiceName.AppearanceHeader.Options.UseFont = true;
-            this.gridColumnServiceName.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumnServiceName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumnServiceName.Caption = "Dịch vụ";
-            this.gridColumnServiceName.FieldName = "ServiceName";
-            this.gridColumnServiceName.MinWidth = 120;
-            this.gridColumnServiceName.Name = "gridColumnServiceName";
-            this.gridColumnServiceName.Visible = true;
-            this.gridColumnServiceName.VisibleIndex = 4;
-            this.gridColumnServiceName.Width = 120;
+            this.gridColumnPaxChild.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnPaxChild.AppearanceCell.Options.UseFont = true;
+            this.gridColumnPaxChild.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnPaxChild.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPaxChild.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnPaxChild.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnPaxChild.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnPaxChild.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPaxChild.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumnPaxChild.Caption = "Pax (TE)";
+            this.gridColumnPaxChild.FieldName = "PaxChild";
+            this.gridColumnPaxChild.MaxWidth = 80;
+            this.gridColumnPaxChild.MinWidth = 80;
+            this.gridColumnPaxChild.Name = "gridColumnPaxChild";
+            this.gridColumnPaxChild.ToolTip = "Số lượng trẻ em";
+            this.gridColumnPaxChild.Visible = true;
+            this.gridColumnPaxChild.VisibleIndex = 2;
+            this.gridColumnPaxChild.Width = 80;
             // 
             // frmBoSungDoiTac
             // 
@@ -325,5 +349,6 @@
         private DevExpress.XtraEditors.SimpleButton btnTimKiem;
         private DevExpress.XtraEditors.SimpleButton btnBack;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnServiceName;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPaxChild;
     }
 }

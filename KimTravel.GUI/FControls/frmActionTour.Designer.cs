@@ -42,10 +42,16 @@
             this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.txtPriceChild = new DevExpress.XtraEditors.TextEdit();
+            this.txtMaxPax = new DevExpress.XtraEditors.TextEdit();
+            this.txtMinPax = new DevExpress.XtraEditors.TextEdit();
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiaBan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPriceVTQ.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPriceChild.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaxPax.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMinPax.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // materialLabel1
@@ -123,7 +129,7 @@
             this.ckEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ckEnabled.Depth = 0;
             this.ckEnabled.Font = new System.Drawing.Font("Roboto", 10F);
-            this.ckEnabled.Location = new System.Drawing.Point(140, 235);
+            this.ckEnabled.Location = new System.Drawing.Point(140, 313);
             this.ckEnabled.Margin = new System.Windows.Forms.Padding(0);
             this.ckEnabled.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ckEnabled.MouseState = MaterialSkin.MouseState.HOVER;
@@ -140,7 +146,7 @@
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel7.Location = new System.Drawing.Point(29, 240);
+            this.materialLabel7.Location = new System.Drawing.Point(29, 318);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
             this.materialLabel7.Size = new System.Drawing.Size(72, 19);
@@ -185,7 +191,7 @@
             this.btnTimKiem.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnTimKiem.Appearance.Options.UseFont = true;
             this.btnTimKiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.ImageOptions.Image")));
-            this.btnTimKiem.Location = new System.Drawing.Point(106, 289);
+            this.btnTimKiem.Location = new System.Drawing.Point(106, 363);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(188, 39);
             this.btnTimKiem.TabIndex = 11;
@@ -217,11 +223,67 @@
             this.txtPriceChild.TabIndex = 10;
             this.txtPriceChild.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
+            // txtMaxPax
+            // 
+            this.txtMaxPax.EditValue = "50";
+            this.txtMaxPax.Location = new System.Drawing.Point(140, 276);
+            this.txtMaxPax.Name = "txtMaxPax";
+            this.txtMaxPax.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtMaxPax.Properties.Appearance.Options.UseFont = true;
+            this.txtMaxPax.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtMaxPax.Size = new System.Drawing.Size(223, 28);
+            this.txtMaxPax.TabIndex = 15;
+            this.txtMaxPax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+            // 
+            // txtMinPax
+            // 
+            this.txtMinPax.EditValue = "0";
+            this.txtMinPax.Location = new System.Drawing.Point(140, 234);
+            this.txtMinPax.Name = "txtMinPax";
+            this.txtMinPax.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtMinPax.Properties.Appearance.Options.UseFont = true;
+            this.txtMinPax.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.txtMinPax.Size = new System.Drawing.Size(223, 28);
+            this.txtMinPax.TabIndex = 14;
+            this.txtMinPax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+            // 
+            // materialLabel5
+            // 
+            this.materialLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel5.Location = new System.Drawing.Point(29, 281);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(84, 19);
+            this.materialLabel5.TabIndex = 0;
+            this.materialLabel5.Text = "Max Pax";
+            this.materialLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // materialLabel8
+            // 
+            this.materialLabel8.BackColor = System.Drawing.Color.Transparent;
+            this.materialLabel8.Depth = 0;
+            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel8.Location = new System.Drawing.Point(29, 239);
+            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel8.Name = "materialLabel8";
+            this.materialLabel8.Size = new System.Drawing.Size(84, 19);
+            this.materialLabel8.TabIndex = 0;
+            this.materialLabel8.Text = "Min Pax";
+            this.materialLabel8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // frmActionTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(390, 343);
+            this.ClientSize = new System.Drawing.Size(390, 417);
+            this.Controls.Add(this.txtMaxPax);
+            this.Controls.Add(this.txtMinPax);
+            this.Controls.Add(this.materialLabel5);
+            this.Controls.Add(this.materialLabel8);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.txtPriceVTQ);
             this.Controls.Add(this.txtPriceChild);
@@ -247,6 +309,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtGiaBan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPriceVTQ.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPriceChild.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaxPax.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMinPax.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,5 +330,9 @@
         private DevExpress.XtraEditors.SimpleButton btnTimKiem;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private DevExpress.XtraEditors.TextEdit txtPriceChild;
+        private DevExpress.XtraEditors.TextEdit txtMaxPax;
+        private DevExpress.XtraEditors.TextEdit txtMinPax;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
+        private MaterialSkin.Controls.MaterialLabel materialLabel8;
     }
 }

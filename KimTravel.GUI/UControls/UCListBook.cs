@@ -14,6 +14,8 @@ using KimTravel.DAL;
 using DevExpress.XtraPrinting;
 using System.IO;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid;
 
 namespace KimTravel.GUI.UControls
 {
@@ -42,11 +44,6 @@ namespace KimTravel.GUI.UControls
         private void UCGroupTour_Load(object sender, EventArgs e)
         {
             objService = new BookService();
-            cbbGroupTourID.DataSource = grTourService.GetListCombobox();
-            cbbGroupTourID.ValueMember = "GroupID";
-            cbbGroupTourID.DisplayMember = "Name";
-
-            dtpStartDate.Value = DateTime.Now.AddDays(1);
         }
 
         private void cbbGroupTourID_SelectedIndexChanged(object sender, EventArgs e)
@@ -64,10 +61,9 @@ namespace KimTravel.GUI.UControls
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            int gID = int.Parse(cbbGroupTourID.SelectedValue.ToString());
             var dateStart = dtpStartDate.Value.ToString("yyyy-MM-dd");
             bool isCancel = rdBinhThuong.Checked == true ? false : true;
-            gridControlTour.DataSource = objService.GetListBookedNotInCar(gID, dateStart, true, isCancel);
+            gridControlData.DataSource = objService.GetListBooked(dateStart, isCancel);
         }
 
         private void btnExportExcel_Click(object sender, EventArgs e)
@@ -109,12 +105,45 @@ namespace KimTravel.GUI.UControls
             frm.ShowDialog();
         }
 
-        private void gridViewTour_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        private void gridViewData_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
         {
-            int tourID = int.Parse(gridViewTour.GetFocusedRowCellValue("TourID").ToString());
-            var dateStart = dtpStartDate.Value.ToString("yyyy-MM-dd");
-            bool isCancel = rdBinhThuong.Checked == true ? false : true;
-            gridControlData.DataSource = objService.GetListBooked(tourID, dateStart, isCancel);
+            try
+            {
+                GridView View = sender as GridView;
+                if (e.RowHandle >= 0)
+                {
+                    var v = View.GetRowCellValue(e.RowHandle, "IsDone");
+                    bool isDone = (bool)v;
+                    if (isDone)
+                    {
+                        e.Appearance.BackColor = Color.LightBlue;
+                    }
+                }
+            }
+            catch { }
+        }
+        private void confirmSaleBook(string value)
+        {
+            int BookID = int.Parse(gridViewData.GetFocusedRowCellValue("ID").ToString());
+            var rs = objService.UpdateDone(BookID, true, value);
+            if (rs)
+                XtraMessageBox.Show("Xác nhận hoàn tất thành công.\nHãy làm mới lại dữ liệu để hiển thị.", "Thông báo");
+        }
+        private void đaNhânBookingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.OK == XtraMessageBox.Show("Bạn muốn hoàn tất tour này ?", "Thông báo", MessageBoxButtons.OKCancel))
+            {
+                frmConfirmSaleBook frm = new frmConfirmSaleBook();
+                frm.confirm = new frmConfirmSaleBook.ConfirmSaleBook(confirmSaleBook);
+                frm.ShowDialog();
+            }
+        }
+
+        private void gridViewData_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+            GridView gw = sender as GridView;
+            if (e.RowHandle >= 0)
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
         }
     }
 }

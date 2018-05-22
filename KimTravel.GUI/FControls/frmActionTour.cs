@@ -54,6 +54,8 @@ namespace KimTravel.GUI.FControls
                 txtPriceVTQ.Text = _objectData.PriceVTQ.ToString();
                 ckEnabled.Checked = _objectData.Enable == true ? true : false; ;
                 cbbGroupTour.SelectedValue = _objectData.GroupID;
+                txtMinPax.Text = _objectData.MinPax.ToString();
+                txtMaxPax.Text = _objectData.MaxPax.ToString();
             }
         }
 
@@ -73,6 +75,8 @@ namespace KimTravel.GUI.FControls
             groupTourNew.PriceVTQ = int.Parse(txtPriceVTQ.Text == "" ? "0" : txtPriceVTQ.Text);
             groupTourNew.Enable = ckEnabled.Checked;
             groupTourNew.GroupID = int.Parse(cbbGroupTour.SelectedValue.ToString());
+            groupTourNew.MaxPax = int.Parse(txtMaxPax.Text.ToString());
+            groupTourNew.MinPax = int.Parse(txtMinPax.Text.ToString());
             var rs = false;
             var msg = "";
             if (_action == -1)

@@ -82,6 +82,7 @@
             // 
             // txtPrice
             // 
+            this.txtPrice.EditValue = "0";
             this.txtPrice.Location = new System.Drawing.Point(114, 132);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F);
