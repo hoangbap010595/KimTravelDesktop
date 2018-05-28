@@ -8,11 +8,12 @@ namespace KimTravel.Service.Models
     public partial class KimTravelModel : DbContext
     {
         public KimTravelModel()
-            //: base("name=sqlDataConnection") //Server
-            : base("name=LocalConnection")
+            : base("name=sqlDataConnection") //Server
+            //: base("name=LocalConnection")
         {
         }
 
+        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<Car> Cars { get; set; }
         public virtual DbSet<CarType> CarTypes { get; set; }

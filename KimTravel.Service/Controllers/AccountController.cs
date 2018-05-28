@@ -9,6 +9,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using KimTravel.Service.Models;
+using System.Security.Cryptography;
+using System.Text;
+using System.Collections.Generic;
 
 namespace KimTravel.Service.Controllers
 {
@@ -91,6 +94,66 @@ namespace KimTravel.Service.Controllers
             }
         }
 
+        //[HttpPost]
+        [AllowAnonymous]
+        public JsonResult SystemLogin(string username, string password) {
+            Dictionary<string, object> result = new Dictionary<string, object>();
+            KimTravelModel db = new KimTravelModel();
+            var hashPass = GetSHA1HashData(password);
+            User u = db.Users.FirstOrDefault(x => x.Username == username && x.Password == hashPass);
+            if(u == null)
+            {
+                result.Add("status", 0);
+                result.Add("message", "Tên đăng nhập hoặc mật khẩu không đúng.");
+            }
+            else
+            {
+                if (u.Locked == true)
+                {
+                    result.Add("status", 0);
+                    result.Add("message", "Tài khoản đang bị khóa.");
+                }
+                else
+                {
+                    if(u.Status == 0)
+                    {
+                        result.Add("status", 0);
+                        result.Add("message", "Tài khoản không được cấp quyền vào hệ thống.");
+                    }
+                    else
+                    {
+                        result.Add("status", 1);
+                        result.Add("message", "Đăng nhập thành công");
+                        result.Add("username", u.Username);
+                    }
+                }
+            }
+            var json = Json(result, JsonRequestBehavior.AllowGet);
+            json.MaxJsonLength = int.MaxValue;
+            return json;
+        }
+        public static string GetSHA1HashData(string data)
+        {
+            if (string.IsNullOrEmpty(data))
+                return "";
+            //create new instance of md5
+            SHA1 sha1 = SHA1.Create();
+
+            //convert the input text to array of bytes
+            byte[] hashData = sha1.ComputeHash(Encoding.Default.GetBytes(data));
+
+            //create new instance of StringBuilder to save hashed data
+            StringBuilder returnValue = new StringBuilder();
+
+            //loop for each byte and add it to StringBuilder
+            for (int i = 0; i < hashData.Length; i++)
+            {
+                returnValue.Append(hashData[i].ToString());
+            }
+
+            // return hexadecimal string
+            return returnValue.ToString();
+        }
         //
         // GET: /Account/VerifyCode
         [AllowAnonymous]
