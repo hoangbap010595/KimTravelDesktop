@@ -35,6 +35,24 @@ namespace KimTravel.GUI.UControls
             tableService.Columns.Add("Price", typeof(int));
         }
 
+        private void LoadNewData()
+        {
+            int id = int.Parse(cbbTourID.SelectedValue.ToString());
+            string date1 = dtpStartDate.Value.ToString("yyyy-MM-dd");
+            int partnerID = int.Parse(cbbPartnerID.SelectedValue.ToString());
+            //Check Số lượng PAX
+            Dictionary<string, object> dataObject = bService.getInfoBooked(id, date1);
+            float AllowPick = float.Parse(dataObject["AllowPick"].ToString());
+            float MinPax = float.Parse(dataObject["MinPax"].ToString());
+            float MaxPax = float.Parse(dataObject["MaxPax"].ToString());
+            float CurrentTotal = float.Parse(dataObject["CurrentTotal"].ToString());
+
+            AllowPax = AllowPick;
+            lblMsgPax.Text = CurrentTotal + "/" + MaxPax + " (pick)";
+
+            //
+            LoadDataPartnerID_SelectedValueChanged();
+        }
         private void choosePartner(int pid)
         {
             if (pid != -1)
@@ -87,14 +105,8 @@ namespace KimTravel.GUI.UControls
                 txtPriceSaChild.Text = tour.PriceSaleChild.ToString();
                 txtPriceRe.Text = priceService.GetPriceForPartner(partnerID, id);
 
-                Dictionary<string, object> dataObject = bService.getInfoBooked(id, date1);
-                float AllowPick = float.Parse(dataObject["AllowPick"].ToString());
-                float MinPax = float.Parse(dataObject["MinPax"].ToString());
-                float MaxPax = float.Parse(dataObject["MaxPax"].ToString());
-                float CurrentTotal = float.Parse(dataObject["CurrentTotal"].ToString());
-
-                AllowPax = AllowPick;
-                lblMsgPax.Text = CurrentTotal + "/"+ MaxPax + " (pick)";     
+                //Load
+                LoadNewData();
             }
             catch { }
         }
@@ -176,6 +188,8 @@ namespace KimTravel.GUI.UControls
                 LoadDataPartnerID_SelectedValueChanged();
                 tableService.Rows.Clear();
                 dataGridViewGroupTour.DataSource = tableService;
+                //Load
+                LoadNewData();
             }
             else
             {

@@ -11,7 +11,7 @@ namespace KimTravel.Service.Controllers
     {
         private KimTravelModel db = new KimTravelModel();
         // GET: Books
-        public ActionResult Index()
+        public ActionResult BookDetail()
         {
             return View();
         }
@@ -43,6 +43,52 @@ namespace KimTravel.Service.Controllers
                 result.Add("status", -1);
                 result.Add("error", ex.Message);
             }
+
+            var json = Json(result, JsonRequestBehavior.AllowGet);
+            json.MaxJsonLength = int.MaxValue;
+            return json;
+        }
+
+        public JsonResult GetListBooked(string dateS)
+        {
+            DateTime date = DateTime.Parse(dateS);
+            DateTime date2 = DateTime.Parse(dateS).AddDays(1);
+            IQueryable result = from b in db.Books
+                              join t in db.Tours on b.TourID equals t.TourID
+                              from p in db.Partners.Where(x => x.PartnerID == b.PartnerID)
+                              where b.DateCreate.Value >= date && b.DateCreate.Value < date2
+                                    && b.IsBooked == true
+                              orderby b.DateCreate
+                              select new
+                              {
+                                  b.ID,
+                                  t.TourID,
+                                  TourName = t.Name,
+                                  ParnerID = p.PartnerID,
+                                  PartName = p.Name,
+                                  BookID = b.ID,
+                                  b.StartDate,
+                                  b.EndDate,
+                                  b.Pax,
+                                  b.PickUp,
+                                  b.Room,
+                                  b.CustomName,
+                                  b.PartnerPrice,
+                                  b.PriceReceive,
+                                  b.PriceSale,
+                                  b.PriceVTQ,
+                                  b.PromotionMoney,
+                                  b.PromotionPercent,
+                                  b.StaffID,
+                                  b.DateCreate,
+                                  b.Note,
+                                  b.ServiceType,
+                                  b.Total,
+                                  b.ServiceName,
+                                  b.IsDone,
+                                  b.DoneBy,
+                                  b.IsCancel
+                              };
 
             var json = Json(result, JsonRequestBehavior.AllowGet);
             json.MaxJsonLength = int.MaxValue;

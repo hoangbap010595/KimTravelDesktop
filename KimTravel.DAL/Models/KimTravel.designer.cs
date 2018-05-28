@@ -75,13 +75,10 @@ namespace KimTravel.DAL.Models
     partial void InsertDetailPrintTour(DetailPrintTour instance);
     partial void UpdateDetailPrintTour(DetailPrintTour instance);
     partial void DeleteDetailPrintTour(DetailPrintTour instance);
+    partial void InsertTempBookCar(TempBookCar instance);
+    partial void UpdateTempBookCar(TempBookCar instance);
+    partial void DeleteTempBookCar(TempBookCar instance);
     #endregion
-		
-        //public KimTravelDataContext() : 
-        //        base(global::KimTravel.DAL.Properties.Settings.Default.KimTravelConnectionString, mappingSource)
-        //{
-        //    OnCreated();
-        //}
 		
 		public KimTravelDataContext(string connection) : 
 				base(connection, mappingSource)
@@ -224,6 +221,14 @@ namespace KimTravel.DAL.Models
 			get
 			{
 				return this.GetTable<DetailPrintTour>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TempBookCar> TempBookCars
+		{
+			get
+			{
+				return this.GetTable<TempBookCar>();
 			}
 		}
 	}
@@ -4049,6 +4054,380 @@ namespace KimTravel.DAL.Models
 						this._PrintID = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("PrintTour");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TempBookCar")]
+	public partial class TempBookCar : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private System.Nullable<System.DateTime> _StartDate;
+		
+		private System.Nullable<int> _BookID;
+		
+		private System.Nullable<bool> _Car1;
+		
+		private System.Nullable<bool> _Car2;
+		
+		private System.Nullable<bool> _Car3;
+		
+		private System.Nullable<bool> _Car4;
+		
+		private System.Nullable<bool> _Car5;
+		
+		private System.Nullable<bool> _Car6;
+		
+		private System.Nullable<bool> _Car7;
+		
+		private System.Nullable<bool> _Car8;
+		
+		private System.Nullable<bool> _Car9;
+		
+		private System.Nullable<bool> _Car10;
+		
+		private System.Nullable<bool> _Added;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnStartDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnStartDateChanged();
+    partial void OnBookIDChanging(System.Nullable<int> value);
+    partial void OnBookIDChanged();
+    partial void OnCar1Changing(System.Nullable<bool> value);
+    partial void OnCar1Changed();
+    partial void OnCar2Changing(System.Nullable<bool> value);
+    partial void OnCar2Changed();
+    partial void OnCar3Changing(System.Nullable<bool> value);
+    partial void OnCar3Changed();
+    partial void OnCar4Changing(System.Nullable<bool> value);
+    partial void OnCar4Changed();
+    partial void OnCar5Changing(System.Nullable<bool> value);
+    partial void OnCar5Changed();
+    partial void OnCar6Changing(System.Nullable<bool> value);
+    partial void OnCar6Changed();
+    partial void OnCar7Changing(System.Nullable<bool> value);
+    partial void OnCar7Changed();
+    partial void OnCar8Changing(System.Nullable<bool> value);
+    partial void OnCar8Changed();
+    partial void OnCar9Changing(System.Nullable<bool> value);
+    partial void OnCar9Changed();
+    partial void OnCar10Changing(System.Nullable<bool> value);
+    partial void OnCar10Changed();
+    partial void OnAddedChanging(System.Nullable<bool> value);
+    partial void OnAddedChanged();
+    #endregion
+		
+		public TempBookCar()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="Date")]
+		public System.Nullable<System.DateTime> StartDate
+		{
+			get
+			{
+				return this._StartDate;
+			}
+			set
+			{
+				if ((this._StartDate != value))
+				{
+					this.OnStartDateChanging(value);
+					this.SendPropertyChanging();
+					this._StartDate = value;
+					this.SendPropertyChanged("StartDate");
+					this.OnStartDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BookID", DbType="Int")]
+		public System.Nullable<int> BookID
+		{
+			get
+			{
+				return this._BookID;
+			}
+			set
+			{
+				if ((this._BookID != value))
+				{
+					this.OnBookIDChanging(value);
+					this.SendPropertyChanging();
+					this._BookID = value;
+					this.SendPropertyChanged("BookID");
+					this.OnBookIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Car1", DbType="Bit")]
+		public System.Nullable<bool> Car1
+		{
+			get
+			{
+				return this._Car1;
+			}
+			set
+			{
+				if ((this._Car1 != value))
+				{
+					this.OnCar1Changing(value);
+					this.SendPropertyChanging();
+					this._Car1 = value;
+					this.SendPropertyChanged("Car1");
+					this.OnCar1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Car2", DbType="Bit")]
+		public System.Nullable<bool> Car2
+		{
+			get
+			{
+				return this._Car2;
+			}
+			set
+			{
+				if ((this._Car2 != value))
+				{
+					this.OnCar2Changing(value);
+					this.SendPropertyChanging();
+					this._Car2 = value;
+					this.SendPropertyChanged("Car2");
+					this.OnCar2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Car3", DbType="Bit")]
+		public System.Nullable<bool> Car3
+		{
+			get
+			{
+				return this._Car3;
+			}
+			set
+			{
+				if ((this._Car3 != value))
+				{
+					this.OnCar3Changing(value);
+					this.SendPropertyChanging();
+					this._Car3 = value;
+					this.SendPropertyChanged("Car3");
+					this.OnCar3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Car4", DbType="Bit")]
+		public System.Nullable<bool> Car4
+		{
+			get
+			{
+				return this._Car4;
+			}
+			set
+			{
+				if ((this._Car4 != value))
+				{
+					this.OnCar4Changing(value);
+					this.SendPropertyChanging();
+					this._Car4 = value;
+					this.SendPropertyChanged("Car4");
+					this.OnCar4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Car5", DbType="Bit")]
+		public System.Nullable<bool> Car5
+		{
+			get
+			{
+				return this._Car5;
+			}
+			set
+			{
+				if ((this._Car5 != value))
+				{
+					this.OnCar5Changing(value);
+					this.SendPropertyChanging();
+					this._Car5 = value;
+					this.SendPropertyChanged("Car5");
+					this.OnCar5Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Car6", DbType="Bit")]
+		public System.Nullable<bool> Car6
+		{
+			get
+			{
+				return this._Car6;
+			}
+			set
+			{
+				if ((this._Car6 != value))
+				{
+					this.OnCar6Changing(value);
+					this.SendPropertyChanging();
+					this._Car6 = value;
+					this.SendPropertyChanged("Car6");
+					this.OnCar6Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Car7", DbType="Bit")]
+		public System.Nullable<bool> Car7
+		{
+			get
+			{
+				return this._Car7;
+			}
+			set
+			{
+				if ((this._Car7 != value))
+				{
+					this.OnCar7Changing(value);
+					this.SendPropertyChanging();
+					this._Car7 = value;
+					this.SendPropertyChanged("Car7");
+					this.OnCar7Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Car8", DbType="Bit")]
+		public System.Nullable<bool> Car8
+		{
+			get
+			{
+				return this._Car8;
+			}
+			set
+			{
+				if ((this._Car8 != value))
+				{
+					this.OnCar8Changing(value);
+					this.SendPropertyChanging();
+					this._Car8 = value;
+					this.SendPropertyChanged("Car8");
+					this.OnCar8Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Car9", DbType="Bit")]
+		public System.Nullable<bool> Car9
+		{
+			get
+			{
+				return this._Car9;
+			}
+			set
+			{
+				if ((this._Car9 != value))
+				{
+					this.OnCar9Changing(value);
+					this.SendPropertyChanging();
+					this._Car9 = value;
+					this.SendPropertyChanged("Car9");
+					this.OnCar9Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Car10", DbType="Bit")]
+		public System.Nullable<bool> Car10
+		{
+			get
+			{
+				return this._Car10;
+			}
+			set
+			{
+				if ((this._Car10 != value))
+				{
+					this.OnCar10Changing(value);
+					this.SendPropertyChanging();
+					this._Car10 = value;
+					this.SendPropertyChanged("Car10");
+					this.OnCar10Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Added", DbType="Bit")]
+		public System.Nullable<bool> Added
+		{
+			get
+			{
+				return this._Added;
+			}
+			set
+			{
+				if ((this._Added != value))
+				{
+					this.OnAddedChanging(value);
+					this.SendPropertyChanging();
+					this._Added = value;
+					this.SendPropertyChanged("Added");
+					this.OnAddedChanged();
 				}
 			}
 		}

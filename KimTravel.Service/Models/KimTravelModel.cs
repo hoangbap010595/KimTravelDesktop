@@ -8,8 +8,8 @@ namespace KimTravel.Service.Models
     public partial class KimTravelModel : DbContext
     {
         public KimTravelModel()
-            : base("name=sqlDataConnection") //Server
-            //: base("name=LocalConnection")
+            //: base("name=sqlDataConnection") //Server
+            : base("name=LocalConnection")
         {
         }
 

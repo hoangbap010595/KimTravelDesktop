@@ -120,5 +120,11 @@
         <classShapeMoniker Id="4f64319f-ef3e-457c-bc22-02482ccac065" />
       </nodes>
     </associationConnector>
+    <classShape Id="b0ee9a7a-4e63-40b2-a62b-f07b087c4f62" absoluteBounds="3.5, 10.625, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/KimTravelDataContext/TempBookCar" />
+      <nestedChildShapes>
+        <elementListCompartment Id="30a42971-4120-4a4f-9d2c-c335fee8e962" absoluteBounds="3.5149999999999997, 11.085, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

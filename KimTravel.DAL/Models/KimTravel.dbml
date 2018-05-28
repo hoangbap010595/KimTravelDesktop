@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="KimTravelDesktop" Class="KimTravelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=103.53.231.198;Initial Catalog=KimTravelDesktop;Persist Security Info=True;User ID=hoang1995" SettingsObjectName="KimTravel.DAL.Properties.Settings" SettingsPropertyName="KimTravelConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=KimTravelDesktop;Integrated Security=True;User ID=sa;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="KimTravel.DAL.Properties.Settings" SettingsPropertyName="KimTravelDesktopConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ApplicationRole" Member="ApplicationRoles">
     <Type Name="ApplicationRole">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -191,6 +191,24 @@
       <Column Name="BookID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="PrintTour_DetailPrintTour" Member="PrintTour" ThisKey="PrintID" OtherKey="ID" Type="PrintTour" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TempBookCar" Member="TempBookCars">
+    <Type Name="TempBookCar">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="BookID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Car1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Car2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Car3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Car4" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Car5" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Car6" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Car7" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Car8" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Car9" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Car10" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Added" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

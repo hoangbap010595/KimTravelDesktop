@@ -36,7 +36,7 @@ namespace KimTravel.DAL
 
         public static string getStringConnection()
         {
-            bool isLocal = false;
+            bool isLocal = true;
             if (isLocal)
                 return ConnectionStringLocal;
             else

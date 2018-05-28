@@ -10,7 +10,7 @@ namespace KimTravel.DAL.Services
     public class StaffService
     {
         private readonly KimTravelDataContext db = new KimTravelDataContext(AppConfig.getStringConnection());
-
+        private ApplicationUserService userService = new ApplicationUserService();
         public IQueryable GetList()
         {
             var kindStaff = Constant.getListKindStaff();
@@ -113,7 +113,7 @@ namespace KimTravel.DAL.Services
             return data;
         }
 
-        public bool Insert(Staff obj)
+        public bool Insert(Staff obj,Dictionary<string,object> objAccount)
         {
             bool checkName = db.Staffs.Count(x => x.PSID == obj.PSID) > 0 ? true : false;
             //bool check = db.ApplicationUsers.Count(x => x.Username == user.Username) > 0 ? true : false;
@@ -122,6 +122,20 @@ namespace KimTravel.DAL.Services
                 if (obj.PartnerID == -1)
                     obj.PartnerID = null;
                 db.Staffs.InsertOnSubmit(obj);
+
+                if (objAccount != null)
+                {
+                    var staffID = obj.ID;
+                    ApplicationUser user = new ApplicationUser();
+                    user.Username = objAccount["Username"].ToString();
+                    user.Password = HashText.GetSHA1HashData(objAccount["Password"].ToString());
+                    user.Phone = obj.Phone;
+                    user.Status = 1;
+                    user.Locked = false;
+                    user.DateCreate = DateTime.Now;
+                    //user.StaffID = staffID;
+                    db.ApplicationUsers.InsertOnSubmit(user);
+                }
                 db.SubmitChanges();
                 return true;
             }

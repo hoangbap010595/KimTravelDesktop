@@ -66,7 +66,7 @@ namespace KimTravel.DAL.Services
                                 join p in db.Partners on b.PartnerID equals p.PartnerID
                                 join t in db.Tours on b.TourID equals t.TourID
                                 join g in db.GroupTours on t.GroupID equals g.GroupID
-                                where lsPartner.Contains((int)b.PartnerID) && b.IsBooked == isBooked && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
+                                where lsPartner.Contains((int)b.PartnerID) && b.IsBooked == isBooked && b.IsCancel == false && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
                                 orderby p.Address, p.Line
                                 select new
                                 {
@@ -105,7 +105,6 @@ namespace KimTravel.DAL.Services
                                 }).GroupBy(x => x.TourID)
                                 .Select(o => new { ID = o.Key, Total = o.Sum(x => x.Pax), TotalChild = o.Sum(x => x.PaxChild) }))
                                 .Join(db.Tours, O1 => O1.ID, O2 => O2.TourID, (O1, O2) => new { TourID = O1.ID, TourName = O2.Name, O2.MaxPax, Pax = O1.Total, PaxChild = O1.TotalChild });
-
             return data;
         }
         public IEnumerable<BookTourModel> GetListBookedDoneReport(int partnerID, int month, int year, bool? isPayment = true, bool isBooked = true)
@@ -117,7 +116,7 @@ namespace KimTravel.DAL.Services
                        join p in db.Partners on b.PartnerID equals p.PartnerID
                        join t in db.Tours on b.TourID equals t.TourID
                        join g in db.GroupTours on t.GroupID equals g.GroupID
-                       where b.IsBooked == isBooked && b.PartnerID == partnerID
+                       where b.IsBooked == isBooked && b.IsCancel == false && b.PartnerID == partnerID
                              && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
                        orderby b.StartDate
                        select new BookTourModel
@@ -139,7 +138,7 @@ namespace KimTravel.DAL.Services
                        join p in db.Partners on b.PartnerID equals p.PartnerID
                        join t in db.Tours on b.TourID equals t.TourID
                        join g in db.GroupTours on t.GroupID equals g.GroupID
-                       where b.IsPayment == isPayment && b.IsBooked == isBooked && b.PartnerID == partnerID
+                       where b.IsPayment == isPayment && b.IsBooked == isBooked && b.IsCancel == false && b.PartnerID == partnerID
                              && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
                        orderby b.StartDate
                        select new BookTourModel
@@ -166,7 +165,7 @@ namespace KimTravel.DAL.Services
                        join p in db.Partners on b.PartnerID equals p.PartnerID
                        join t in db.Tours on b.TourID equals t.TourID
                        join g in db.GroupTours on t.GroupID equals g.GroupID
-                       where b.IsBooked == isBooked && b.PartnerID == partnerID
+                       where b.IsBooked == isBooked && b.IsCancel == false && b.PartnerID == partnerID
                              && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
                        orderby b.StartDate
                        select new
@@ -206,7 +205,7 @@ namespace KimTravel.DAL.Services
                        join p in db.Partners on b.PartnerID equals p.PartnerID
                        join t in db.Tours on b.TourID equals t.TourID
                        join g in db.GroupTours on t.GroupID equals g.GroupID
-                       where b.IsPayment == isPayment && b.IsBooked == isBooked && b.PartnerID == partnerID
+                       where b.IsPayment == isPayment && b.IsCancel == false && b.IsBooked == isBooked && b.PartnerID == partnerID
                              && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
                        orderby b.StartDate
                        select new
@@ -251,7 +250,7 @@ namespace KimTravel.DAL.Services
                        join p in db.Partners on b.PartnerID equals p.PartnerID
                        join t in db.Tours on b.TourID equals t.TourID
                        join g in db.GroupTours on t.GroupID equals g.GroupID
-                       where b.IsBooked == isBooked
+                       where b.IsBooked == isBooked && b.IsCancel == false
                              && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
                        orderby b.StartDate
                        select new
@@ -291,7 +290,7 @@ namespace KimTravel.DAL.Services
                        join p in db.Partners on b.PartnerID equals p.PartnerID
                        join t in db.Tours on b.TourID equals t.TourID
                        join g in db.GroupTours on t.GroupID equals g.GroupID
-                       where b.IsPayment == isPayment && b.IsBooked == isBooked
+                       where b.IsPayment == isPayment && b.IsBooked == isBooked && b.IsCancel == false
                              && b.StartDate.Value.Month == month && b.StartDate.Value.Year == year
                        orderby b.StartDate
                        select new
@@ -366,6 +365,14 @@ namespace KimTravel.DAL.Services
 
             return data;
         }
+
+        /// <summary>
+        /// Get danh sach tour da  book của đối tác: Màn hình book tour
+        /// </summary>
+        /// <param name="partnerID"></param>
+        /// <param name="dateS"></param>
+        /// <param name="isCancel"></param>
+        /// <returns></returns>
         public IQueryable GetList(int partnerID, string dateS, bool isCancel = false)
         {
             DateTime date = DateTime.Parse(dateS);
@@ -530,6 +537,23 @@ namespace KimTravel.DAL.Services
                     obj.FinishDate = DateTime.Now;
                 obj.DateCreate = DateTime.Now;
                 db.Books.InsertOnSubmit(obj);
+                db.SubmitChanges();
+
+                TempBookCar temp = new TempBookCar();
+                temp.BookID = obj.ID;
+                temp.StartDate = obj.StartDate;
+                temp.Added = false;
+                temp.Car1 = false;
+                temp.Car2 = false;
+                temp.Car3 = false;
+                temp.Car4 = false;
+                temp.Car5 = false;
+                temp.Car6 = false;
+                temp.Car7 = false;
+                temp.Car8 = false;
+                temp.Car9 = false;
+                temp.Car10 = false;
+                db.TempBookCars.InsertOnSubmit(temp);
                 db.SubmitChanges();
                 return true;
             }

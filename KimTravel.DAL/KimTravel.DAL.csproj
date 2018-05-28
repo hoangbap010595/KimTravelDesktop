@@ -92,6 +92,7 @@
     <Compile Include="Services\PartnerService.cs" />
     <Compile Include="Services\StaffService.cs" />
     <Compile Include="Services\BookService.cs" />
+    <Compile Include="Services\TempBookCarService.cs" />
     <Compile Include="Services\TourService.cs" />
     <Compile Include="Services\GroupTourService.cs" />
     <Compile Include="Services\ApplicationRoleService.cs" />

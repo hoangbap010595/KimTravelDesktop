@@ -20,12 +20,12 @@ namespace KimTravel.Service.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        private KimTravelModel db = new KimTravelModel();
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -37,9 +37,9 @@ namespace KimTravel.Service.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -55,6 +55,119 @@ namespace KimTravel.Service.Controllers
             }
         }
 
+        #region ============API CUSTOM=============
+        /// <summary>
+        /// Đăng nhập hệ thống
+        /// </summary>
+        /// <param name="username">Tên đăng nhập</param>
+        /// <param name="password">Mật khẩu</param>
+        /// <returns>Trạng thái tài khoản đăng nhập</returns>
+        //[HttpPost]
+        [AllowAnonymous]
+        public JsonResult SystemLogin(string username, string password)
+        {
+            Dictionary<string, object> result = new Dictionary<string, object>();
+            var hashPass = GetSHA1HashData(password);
+            User u = db.Users.FirstOrDefault(x => x.Username == username && x.Password == hashPass);
+            if (u == null)
+            {
+                result.Add("status", 0);
+                result.Add("message", "Tên đăng nhập hoặc mật khẩu không đúng.");
+            }
+            else
+            {
+                if (u.Locked == true)
+                {
+                    result.Add("status", 0);
+                    result.Add("message", "Tài khoản đang bị khóa.");
+                }
+                else
+                {
+                    if (u.Status == 0)
+                    {
+                        result.Add("status", 0);
+                        result.Add("message", "Tài khoản không được cấp quyền vào hệ thống.");
+                    }
+                    else
+                    {
+                        result.Add("status", 1);
+                        result.Add("message", "Đăng nhập thành công");
+                        result.Add("username", u.Username);
+                    }
+                }
+            }
+            var json = Json(result, JsonRequestBehavior.AllowGet);
+            json.MaxJsonLength = int.MaxValue;
+            return json;
+        }
+
+        [AllowAnonymous]
+        public JsonResult SystemChangePassword(string username, string oldPass, string newPass)
+        {
+            Dictionary<string, object> result = new Dictionary<string, object>();
+            var hashPass = GetSHA1HashData(oldPass);
+            User u = db.Users.FirstOrDefault(x => x.Username == username && x.Password == hashPass);
+            if (u == null)
+            {
+                result.Add("status", 0);
+                result.Add("message", "Mật khẩu củ không đúng.");
+            }
+            else
+            {
+                var hashNewPass = GetSHA1HashData(newPass);
+                u.Password = hashNewPass;
+                u.LastUpdate = DateTime.Now;
+                result.Add("status", 1);
+                result.Add("message", "Cập nhật mật khẩu thành công.");
+            }
+            var json = Json(result, JsonRequestBehavior.AllowGet);
+            json.MaxJsonLength = int.MaxValue;
+            return json;
+        }
+
+        [AllowAnonymous]
+        public JsonResult GetInfomationAccount(string username)
+        {
+            Dictionary<string, object> result = new Dictionary<string, object>();
+            User u = db.Users.FirstOrDefault(x => x.Username == username);
+            if (u == null)
+            {
+                result.Add("status", 0);
+                result.Add("message", "Không tìm thấy thông tin.");
+            }
+            else
+            {
+                result.Add("status", 1);
+                result.Add("data", u);
+            }
+            var json = Json(result, JsonRequestBehavior.AllowGet);
+            json.MaxJsonLength = int.MaxValue;
+            return json;
+        }
+
+        public static string GetSHA1HashData(string data)
+        {
+            if (string.IsNullOrEmpty(data))
+                return "";
+            //create new instance of md5
+            SHA1 sha1 = SHA1.Create();
+
+            //convert the input text to array of bytes
+            byte[] hashData = sha1.ComputeHash(Encoding.Default.GetBytes(data));
+
+            //create new instance of StringBuilder to save hashed data
+            StringBuilder returnValue = new StringBuilder();
+
+            //loop for each byte and add it to StringBuilder
+            for (int i = 0; i < hashData.Length; i++)
+            {
+                returnValue.Append(hashData[i].ToString());
+            }
+
+            // return hexadecimal string
+            return returnValue.ToString();
+        }
+        #endregion
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -94,66 +207,6 @@ namespace KimTravel.Service.Controllers
             }
         }
 
-        //[HttpPost]
-        [AllowAnonymous]
-        public JsonResult SystemLogin(string username, string password) {
-            Dictionary<string, object> result = new Dictionary<string, object>();
-            KimTravelModel db = new KimTravelModel();
-            var hashPass = GetSHA1HashData(password);
-            User u = db.Users.FirstOrDefault(x => x.Username == username && x.Password == hashPass);
-            if(u == null)
-            {
-                result.Add("status", 0);
-                result.Add("message", "Tên đăng nhập hoặc mật khẩu không đúng.");
-            }
-            else
-            {
-                if (u.Locked == true)
-                {
-                    result.Add("status", 0);
-                    result.Add("message", "Tài khoản đang bị khóa.");
-                }
-                else
-                {
-                    if(u.Status == 0)
-                    {
-                        result.Add("status", 0);
-                        result.Add("message", "Tài khoản không được cấp quyền vào hệ thống.");
-                    }
-                    else
-                    {
-                        result.Add("status", 1);
-                        result.Add("message", "Đăng nhập thành công");
-                        result.Add("username", u.Username);
-                    }
-                }
-            }
-            var json = Json(result, JsonRequestBehavior.AllowGet);
-            json.MaxJsonLength = int.MaxValue;
-            return json;
-        }
-        public static string GetSHA1HashData(string data)
-        {
-            if (string.IsNullOrEmpty(data))
-                return "";
-            //create new instance of md5
-            SHA1 sha1 = SHA1.Create();
-
-            //convert the input text to array of bytes
-            byte[] hashData = sha1.ComputeHash(Encoding.Default.GetBytes(data));
-
-            //create new instance of StringBuilder to save hashed data
-            StringBuilder returnValue = new StringBuilder();
-
-            //loop for each byte and add it to StringBuilder
-            for (int i = 0; i < hashData.Length; i++)
-            {
-                returnValue.Append(hashData[i].ToString());
-            }
-
-            // return hexadecimal string
-            return returnValue.ToString();
-        }
         //
         // GET: /Account/VerifyCode
         [AllowAnonymous]
@@ -183,7 +236,7 @@ namespace KimTravel.Service.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -218,8 +271,8 @@ namespace KimTravel.Service.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

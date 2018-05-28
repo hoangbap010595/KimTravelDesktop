@@ -21,6 +21,7 @@ namespace KimTravel.GUI.FControls
         private Staff _objectData;
         private StaffService gtService = new StaffService();
         private PartnerService pnService = new PartnerService();
+        private ApplicationUserService userService = new ApplicationUserService();
         private int _action = -1;
         private int _objID = -1;
         public delegate void LoadData();
@@ -52,7 +53,10 @@ namespace KimTravel.GUI.FControls
             if (_action == -1)
                 this.Text = "Thêm mới nhân viên";
             else
+            {
                 this.Text = "Cập nhật nhân viên";
+                groupBoxAccount.Enabled = false;
+            } 
 
             if (_objectData != null)
             {
@@ -64,7 +68,8 @@ namespace KimTravel.GUI.FControls
                 cbbStatus.SelectedValue = _objectData.Status;
                 cbbKindStaff.SelectedValue = _objectData.Kind;
                 cbbPartnerID.SelectedValue = _objectData.PartnerID == null ? 0 : _objectData.PartnerID;
-            }else
+            }
+            else
             {
                 txtPSID.Text = gtService.GetPSID();
             }
@@ -82,6 +87,11 @@ namespace KimTravel.GUI.FControls
                 XtraMessageBox.Show("Tên nhân viên không thể để trống.");
                 return;
             }
+            if (userService.checkExistsUsername(txtUsername.Text))
+            {
+                XtraMessageBox.Show("Tên đăng nhập đã tồn tại trong hệ thống. Vui lòng thử với 1 tên khác.");
+                return;
+            }
             Staff staff = new Staff();
             staff.ID = _objID;
             staff.PSID = txtPSID.Text;
@@ -94,11 +104,21 @@ namespace KimTravel.GUI.FControls
             var partnerID = cbbPartnerID.Enabled == true ? cbbPartnerID.SelectedValue.ToString() : "-1";
             staff.PartnerID = int.Parse(partnerID);
             staff.Note = txtNote.Text;
+
+            Dictionary<string, object> objAccount = null;
+            if (partnerID != "-1" && _action == -1)
+            {
+                objAccount = new Dictionary<string, object>();
+                objAccount.Add("PartnerID", partnerID);
+                objAccount.Add("PartnerCode", txtCodePartner.Text);
+                objAccount.Add("Username", txtUsername.Text);
+                objAccount.Add("Password", txtPassword.Text);
+            }
             var rs = false;
             var msg = "";
             if (_action == -1)
             {
-                rs = this.gtService.Insert(staff);
+                rs = this.gtService.Insert(staff, objAccount);
                 msg = "Thêm mới thành công";
             }
             else
@@ -125,11 +145,44 @@ namespace KimTravel.GUI.FControls
             {
                 int id = int.Parse(cbbKindStaff.SelectedValue.ToString());
                 if (id == 5)
+                {
                     cbbPartnerID.Enabled = true;
+                    txtFindPartner.Enabled = true;
+                }
                 else
+                {
                     cbbPartnerID.Enabled = false;
+                    txtFindPartner.Enabled = false;
+                }
             }
             catch { }
+        }
+
+        private void txtFindPartner_TextChanged(object sender, EventArgs e)
+        {
+            string content = txtFindPartner.Text.Trim();
+            cbbPartnerID.DataSource = pnService.GetListCobobox(content);
+            cbbPartnerID.ValueMember = "PartnerID";
+            cbbPartnerID.DisplayMember = "Address";
+        }
+
+        private void cbbPartnerID_SelectedValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int pID = int.Parse(cbbPartnerID.SelectedValue.ToString());
+                Partner p = pnService.GetByID(pID);
+                txtCodePartner.Text = p.PartnerCode;
+                int id = int.Parse(cbbKindStaff.SelectedValue.ToString());
+                if (id != 5)
+                {
+                    txtCodePartner.Text = "";
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
 }

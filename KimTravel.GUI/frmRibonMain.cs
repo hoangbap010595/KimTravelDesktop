@@ -100,7 +100,7 @@ namespace KimTravel.GUI
 
         private void barBtnPhanXe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            XtraUserControl xtraUserControl = new UCBookCar();
+            XtraUserControl xtraUserControl = new UCTempBookCar();
             xtraUserControl.Name = barBtnPhanXe.Name + "UControl";
             xtraUserControl.Text = barBtnPhanXe.Caption;
             xtraUserControl.Dock = DockStyle.Fill;

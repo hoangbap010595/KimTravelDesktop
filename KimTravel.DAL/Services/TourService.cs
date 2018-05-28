@@ -113,6 +113,8 @@ namespace KimTravel.DAL.Services
                     currObject.PriceSale = gTour.PriceSale;
                     currObject.PriceVTQ = gTour.PriceVTQ;
                     currObject.PriceSaleChild = gTour.PriceSaleChild;
+                    currObject.MinPax = gTour.MinPax;
+                    currObject.MaxPax = gTour.MaxPax;
                     db.SubmitChanges();
                 }
                 return true;

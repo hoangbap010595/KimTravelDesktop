@@ -123,7 +123,8 @@ namespace KimTravel.GUI
         private void săpXêpTourToolStripMenuItem_Click(object sender, EventArgs e)
         {
             lblTitle.Text = "Phân bổ xe theo tour";
-            UCBookCar uc = new UCBookCar();
+            //UCBookCar uc = new UCBookCar();
+            UCTempBookCar uc = new UCTempBookCar();
             addControlToPanel(uc);
         }
 

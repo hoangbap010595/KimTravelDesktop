@@ -44,6 +44,10 @@ namespace KimTravel.DAL.Services
                 return "";
             return data.Email;
         }
+        public bool checkExistsUsername(string username)
+        {
+            return db.ApplicationUsers.Count(x => x.Username == username) > 0 ? true : false;
+        }
         public int CheckLogin(string username, string password)
         {
             string hashPass = HashText.GetSHA1HashData(password);
