@@ -9,7 +9,7 @@ namespace KimTravel.DAL.Services
 {
     public class ApplicationUserRoleService
     {
-        private readonly KimTravelDataContext db = new KimTravelDataContext();
+        private readonly KimTravelDataContext db = new KimTravelDataContext(AppConfig.getStringConnection());
 
         public string GetListRoles(string username)
         {

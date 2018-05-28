@@ -77,11 +77,11 @@ namespace KimTravel.DAL.Models
     partial void DeleteDetailPrintTour(DetailPrintTour instance);
     #endregion
 		
-		public KimTravelDataContext() : 
-				base(global::KimTravel.DAL.Properties.Settings.Default.KimTravelConnectionString, mappingSource)
-		{
-			OnCreated();
-		}
+        //public KimTravelDataContext() : 
+        //        base(global::KimTravel.DAL.Properties.Settings.Default.KimTravelConnectionString, mappingSource)
+        //{
+        //    OnCreated();
+        //}
 		
 		public KimTravelDataContext(string connection) : 
 				base(connection, mappingSource)

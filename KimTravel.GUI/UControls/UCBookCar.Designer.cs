@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCBookCar));
             this.dataGridViewGroupTour = new System.Windows.Forms.DataGridView();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,11 +90,11 @@
             this.gridColumnID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnTour = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumnPax = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnPaxChild = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnMaxPax = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lblSelected = new System.Windows.Forms.Label();
             this.btnTimKiem = new DevExpress.XtraEditors.SimpleButton();
             this.btnBoSungDoiTac = new DevExpress.XtraEditors.SimpleButton();
-            this.gridColumnPaxChild = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnMaxPax = new DevExpress.XtraGrid.Columns.GridColumn();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroupTour)).BeginInit();
             this.contextMenuStripGrid.SuspendLayout();
@@ -147,12 +147,12 @@
             this.dataGridViewGroupTour.MultiSelect = false;
             this.dataGridViewGroupTour.Name = "dataGridViewGroupTour";
             this.dataGridViewGroupTour.RowHeadersWidth = 30;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewGroupTour.RowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewGroupTour.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewGroupTour.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.dataGridViewGroupTour.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dataGridViewGroupTour.RowTemplate.Height = 25;
-            this.dataGridViewGroupTour.Size = new System.Drawing.Size(1033, 410);
+            this.dataGridViewGroupTour.Size = new System.Drawing.Size(1015, 410);
             this.dataGridViewGroupTour.TabIndex = 0;
             this.dataGridViewGroupTour.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridViewGroupTour.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewGroupTour_CellValueChanged);
@@ -169,10 +169,10 @@
             // 
             this.colPax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPax.DataPropertyName = "Pax";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.colPax.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.colPax.DefaultCellStyle = dataGridViewCellStyle2;
             this.colPax.HeaderText = "Pax (NL)";
             this.colPax.Name = "colPax";
             this.colPax.Width = 50;
@@ -181,10 +181,10 @@
             // 
             this.colPaxChild.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPaxChild.DataPropertyName = "PaxChild";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.colPaxChild.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.colPaxChild.DefaultCellStyle = dataGridViewCellStyle3;
             this.colPaxChild.HeaderText = "Pax (TE)";
             this.colPaxChild.Name = "colPaxChild";
             this.colPaxChild.Width = 50;
@@ -219,9 +219,9 @@
             // 
             this.colPartnerPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colPartnerPrice.DataPropertyName = "PartnerPrice";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.Format = "#,###";
-            this.colPartnerPrice.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "#,###";
+            this.colPartnerPrice.DefaultCellStyle = dataGridViewCellStyle4;
             this.colPartnerPrice.HeaderText = "Thu hộ";
             this.colPartnerPrice.Name = "colPartnerPrice";
             this.colPartnerPrice.Width = 80;
@@ -360,7 +360,7 @@
             // 
             // btnCar1
             // 
-            this.btnCar1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnCar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCar1.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.btnCar1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -375,7 +375,7 @@
             // 
             // btnCar2
             // 
-            this.btnCar2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnCar2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCar2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btnCar2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -390,7 +390,7 @@
             // 
             // btnCar3
             // 
-            this.btnCar3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnCar3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCar3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnCar3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCar3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -405,7 +405,7 @@
             // 
             // btnCar4
             // 
-            this.btnCar4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnCar4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCar4.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.btnCar4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCar4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -420,7 +420,7 @@
             // 
             // btnCar5
             // 
-            this.btnCar5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnCar5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCar5.FlatAppearance.BorderColor = System.Drawing.Color.Green;
             this.btnCar5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCar5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -435,7 +435,7 @@
             // 
             // btnCar6
             // 
-            this.btnCar6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnCar6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCar6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnCar6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCar6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -450,7 +450,7 @@
             // 
             // btnCar7
             // 
-            this.btnCar7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnCar7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCar7.FlatAppearance.BorderColor = System.Drawing.Color.Fuchsia;
             this.btnCar7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCar7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -465,7 +465,7 @@
             // 
             // btnCar8
             // 
-            this.btnCar8.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnCar8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCar8.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
             this.btnCar8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCar8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -480,7 +480,7 @@
             // 
             // btnCar9
             // 
-            this.btnCar9.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnCar9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCar9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnCar9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCar9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -495,7 +495,7 @@
             // 
             // btnCar10
             // 
-            this.btnCar10.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnCar10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCar10.BackColor = System.Drawing.SystemColors.Control;
             this.btnCar10.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnCar10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -511,7 +511,7 @@
             // 
             // lblTotalXe1
             // 
-            this.lblTotalXe1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblTotalXe1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTotalXe1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalXe1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalXe1.ForeColor = System.Drawing.Color.Red;
@@ -524,7 +524,7 @@
             // 
             // lblTotalXe2
             // 
-            this.lblTotalXe2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblTotalXe2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTotalXe2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalXe2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalXe2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
@@ -537,7 +537,7 @@
             // 
             // lblTotalXe3
             // 
-            this.lblTotalXe3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblTotalXe3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTotalXe3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalXe3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalXe3.ForeColor = System.Drawing.Color.Black;
@@ -550,7 +550,7 @@
             // 
             // lblTotalXe4
             // 
-            this.lblTotalXe4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblTotalXe4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTotalXe4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalXe4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalXe4.ForeColor = System.Drawing.Color.RoyalBlue;
@@ -563,7 +563,7 @@
             // 
             // lblTotalXe5
             // 
-            this.lblTotalXe5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblTotalXe5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTotalXe5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalXe5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalXe5.ForeColor = System.Drawing.Color.Green;
@@ -576,7 +576,7 @@
             // 
             // lblTotalXe6
             // 
-            this.lblTotalXe6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblTotalXe6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTotalXe6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalXe6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalXe6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -589,7 +589,7 @@
             // 
             // lblTotalXe7
             // 
-            this.lblTotalXe7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblTotalXe7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTotalXe7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalXe7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalXe7.ForeColor = System.Drawing.Color.Fuchsia;
@@ -602,7 +602,7 @@
             // 
             // lblTotalXe8
             // 
-            this.lblTotalXe8.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblTotalXe8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTotalXe8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalXe8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalXe8.ForeColor = System.Drawing.Color.Blue;
@@ -615,7 +615,7 @@
             // 
             // lblTotalXe9
             // 
-            this.lblTotalXe9.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblTotalXe9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTotalXe9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalXe9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalXe9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -628,7 +628,7 @@
             // 
             // lblTotalXe10
             // 
-            this.lblTotalXe10.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblTotalXe10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTotalXe10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotalXe10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalXe10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -649,7 +649,7 @@
             this.cbbGroupTourID.ItemHeight = 20;
             this.cbbGroupTourID.Location = new System.Drawing.Point(10, 85);
             this.cbbGroupTourID.Name = "cbbGroupTourID";
-            this.cbbGroupTourID.Size = new System.Drawing.Size(214, 28);
+            this.cbbGroupTourID.Size = new System.Drawing.Size(283, 28);
             this.cbbGroupTourID.TabIndex = 1;
             this.cbbGroupTourID.SelectedIndexChanged += new System.EventHandler(this.cbbGroupTourID_SelectedIndexChanged);
             // 
@@ -696,14 +696,14 @@
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpStartDate.Location = new System.Drawing.Point(10, 26);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(162, 26);
+            this.dtpStartDate.Size = new System.Drawing.Size(180, 26);
             this.dtpStartDate.TabIndex = 3;
             // 
             // rdCar05
             // 
             this.rdCar05.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rdCar05.AutoSize = true;
-            this.rdCar05.Location = new System.Drawing.Point(884, 7);
+            this.rdCar05.Location = new System.Drawing.Point(866, 7);
             this.rdCar05.Name = "rdCar05";
             this.rdCar05.Size = new System.Drawing.Size(67, 17);
             this.rdCar05.TabIndex = 12;
@@ -715,7 +715,7 @@
             // 
             this.rdCar510.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rdCar510.AutoSize = true;
-            this.rdCar510.Location = new System.Drawing.Point(959, 7);
+            this.rdCar510.Location = new System.Drawing.Point(941, 7);
             this.rdCar510.Name = "rdCar510";
             this.rdCar510.Size = new System.Drawing.Size(73, 17);
             this.rdCar510.TabIndex = 12;
@@ -730,7 +730,7 @@
             this.gridControlData.Location = new System.Drawing.Point(11, 138);
             this.gridControlData.MainView = this.gridViewData;
             this.gridControlData.Name = "gridControlData";
-            this.gridControlData.Size = new System.Drawing.Size(273, 372);
+            this.gridControlData.Size = new System.Drawing.Size(291, 372);
             this.gridControlData.TabIndex = 13;
             this.gridControlData.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewData});
@@ -775,11 +775,11 @@
             this.gridColumnTour.OptionsColumn.ReadOnly = true;
             this.gridColumnTour.Visible = true;
             this.gridColumnTour.VisibleIndex = 0;
-            this.gridColumnTour.Width = 79;
+            this.gridColumnTour.Width = 159;
             // 
             // gridColumnPax
             // 
-            this.gridColumnPax.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridColumnPax.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
             this.gridColumnPax.AppearanceCell.Options.UseFont = true;
             this.gridColumnPax.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumnPax.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -789,15 +789,61 @@
             this.gridColumnPax.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumnPax.Caption = "NL";
             this.gridColumnPax.FieldName = "Pax";
-            this.gridColumnPax.MaxWidth = 50;
-            this.gridColumnPax.MinWidth = 50;
+            this.gridColumnPax.MaxWidth = 40;
+            this.gridColumnPax.MinWidth = 40;
             this.gridColumnPax.Name = "gridColumnPax";
             this.gridColumnPax.OptionsColumn.AllowEdit = false;
             this.gridColumnPax.OptionsColumn.AllowFocus = false;
             this.gridColumnPax.OptionsColumn.ReadOnly = true;
             this.gridColumnPax.Visible = true;
             this.gridColumnPax.VisibleIndex = 1;
-            this.gridColumnPax.Width = 50;
+            this.gridColumnPax.Width = 40;
+            // 
+            // gridColumnPaxChild
+            // 
+            this.gridColumnPaxChild.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumnPaxChild.AppearanceCell.Options.UseFont = true;
+            this.gridColumnPaxChild.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnPaxChild.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPaxChild.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnPaxChild.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnPaxChild.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnPaxChild.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnPaxChild.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumnPaxChild.Caption = "TE";
+            this.gridColumnPaxChild.FieldName = "PaxChild";
+            this.gridColumnPaxChild.MaxWidth = 40;
+            this.gridColumnPaxChild.MinWidth = 40;
+            this.gridColumnPaxChild.Name = "gridColumnPaxChild";
+            this.gridColumnPaxChild.OptionsColumn.AllowEdit = false;
+            this.gridColumnPaxChild.OptionsColumn.AllowFocus = false;
+            this.gridColumnPaxChild.Visible = true;
+            this.gridColumnPaxChild.VisibleIndex = 2;
+            this.gridColumnPaxChild.Width = 40;
+            // 
+            // gridColumnMaxPax
+            // 
+            this.gridColumnMaxPax.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.gridColumnMaxPax.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.gridColumnMaxPax.AppearanceCell.Options.UseFont = true;
+            this.gridColumnMaxPax.AppearanceCell.Options.UseForeColor = true;
+            this.gridColumnMaxPax.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumnMaxPax.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnMaxPax.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.gridColumnMaxPax.AppearanceHeader.Options.UseFont = true;
+            this.gridColumnMaxPax.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumnMaxPax.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumnMaxPax.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumnMaxPax.Caption = "Max";
+            this.gridColumnMaxPax.FieldName = "MaxPax";
+            this.gridColumnMaxPax.MaxWidth = 40;
+            this.gridColumnMaxPax.MinWidth = 40;
+            this.gridColumnMaxPax.Name = "gridColumnMaxPax";
+            this.gridColumnMaxPax.OptionsColumn.AllowEdit = false;
+            this.gridColumnMaxPax.OptionsColumn.AllowFocus = false;
+            this.gridColumnMaxPax.Visible = true;
+            this.gridColumnMaxPax.VisibleIndex = 3;
+            this.gridColumnMaxPax.Width = 40;
             // 
             // lblSelected
             // 
@@ -819,9 +865,9 @@
             this.btnTimKiem.Appearance.Options.UseFont = true;
             this.btnTimKiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTimKiem.ImageOptions.Image")));
             this.btnTimKiem.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnTimKiem.Location = new System.Drawing.Point(230, 71);
+            this.btnTimKiem.Location = new System.Drawing.Point(196, 21);
             this.btnTimKiem.Name = "btnTimKiem";
-            this.btnTimKiem.Size = new System.Drawing.Size(54, 42);
+            this.btnTimKiem.Size = new System.Drawing.Size(46, 42);
             this.btnTimKiem.TabIndex = 14;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
@@ -832,57 +878,11 @@
             this.btnBoSungDoiTac.Appearance.Options.UseFont = true;
             this.btnBoSungDoiTac.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBoSungDoiTac.ImageOptions.Image")));
             this.btnBoSungDoiTac.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnBoSungDoiTac.Location = new System.Drawing.Point(230, 24);
+            this.btnBoSungDoiTac.Location = new System.Drawing.Point(248, 21);
             this.btnBoSungDoiTac.Name = "btnBoSungDoiTac";
-            this.btnBoSungDoiTac.Size = new System.Drawing.Size(54, 41);
+            this.btnBoSungDoiTac.Size = new System.Drawing.Size(45, 42);
             this.btnBoSungDoiTac.TabIndex = 14;
             this.btnBoSungDoiTac.Click += new System.EventHandler(this.btnBoSungDoiTac_Click);
-            // 
-            // gridColumnPaxChild
-            // 
-            this.gridColumnPaxChild.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.gridColumnPaxChild.AppearanceCell.Options.UseFont = true;
-            this.gridColumnPaxChild.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumnPaxChild.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumnPaxChild.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.gridColumnPaxChild.AppearanceHeader.Options.UseFont = true;
-            this.gridColumnPaxChild.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumnPaxChild.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumnPaxChild.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumnPaxChild.Caption = "TE";
-            this.gridColumnPaxChild.FieldName = "PaxChild";
-            this.gridColumnPaxChild.MaxWidth = 50;
-            this.gridColumnPaxChild.MinWidth = 50;
-            this.gridColumnPaxChild.Name = "gridColumnPaxChild";
-            this.gridColumnPaxChild.OptionsColumn.AllowEdit = false;
-            this.gridColumnPaxChild.OptionsColumn.AllowFocus = false;
-            this.gridColumnPaxChild.Visible = true;
-            this.gridColumnPaxChild.VisibleIndex = 2;
-            this.gridColumnPaxChild.Width = 50;
-            // 
-            // gridColumnMaxPax
-            // 
-            this.gridColumnMaxPax.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.gridColumnMaxPax.AppearanceCell.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.gridColumnMaxPax.AppearanceCell.Options.UseFont = true;
-            this.gridColumnMaxPax.AppearanceCell.Options.UseForeColor = true;
-            this.gridColumnMaxPax.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumnMaxPax.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumnMaxPax.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.gridColumnMaxPax.AppearanceHeader.Options.UseFont = true;
-            this.gridColumnMaxPax.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumnMaxPax.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumnMaxPax.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumnMaxPax.Caption = "Max";
-            this.gridColumnMaxPax.FieldName = "MaxPax";
-            this.gridColumnMaxPax.MaxWidth = 50;
-            this.gridColumnMaxPax.MinWidth = 50;
-            this.gridColumnMaxPax.Name = "gridColumnMaxPax";
-            this.gridColumnMaxPax.OptionsColumn.AllowEdit = false;
-            this.gridColumnMaxPax.OptionsColumn.AllowFocus = false;
-            this.gridColumnMaxPax.Visible = true;
-            this.gridColumnMaxPax.VisibleIndex = 3;
-            this.gridColumnMaxPax.Width = 50;
             // 
             // splitContainerControl1
             // 
@@ -924,7 +924,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.btnCar9);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(1333, 513);
-            this.splitContainerControl1.SplitterPosition = 288;
+            this.splitContainerControl1.SplitterPosition = 306;
             this.splitContainerControl1.TabIndex = 15;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 

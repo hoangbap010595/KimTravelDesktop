@@ -9,7 +9,7 @@ namespace KimTravel.DAL.Services
 {
     public class GroupPartnerService
     {
-        private readonly KimTravelDataContext db = new KimTravelDataContext();
+        private readonly KimTravelDataContext db = new KimTravelDataContext(AppConfig.getStringConnection());
 
         public IEnumerable<GroupPartner> GetList()
         {

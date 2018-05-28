@@ -10,7 +10,7 @@ namespace KimTravel.DAL.Services
 {
     public class BookService
     {
-        private readonly KimTravelDataContext db = new KimTravelDataContext();
+        private readonly KimTravelDataContext db = new KimTravelDataContext(AppConfig.getStringConnection());
         private readonly ApplicationUserService uService = new ApplicationUserService();
         public IEnumerable<PartnerBookTourModel> GetListBookedDoneReportPartner(int partnerID, int month, int year, bool isBooked = true)
         {
@@ -533,7 +533,7 @@ namespace KimTravel.DAL.Services
                 db.SubmitChanges();
                 return true;
             }
-            catch (Exception ex)
+            catch //(Exception ex)
             {
                 return false;
             }

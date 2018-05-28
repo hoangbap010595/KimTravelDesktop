@@ -11,7 +11,7 @@ namespace KimTravel.DAL.Services
 {
     public class PartnerService
     {
-        private KimTravelDataContext db = new KimTravelDataContext();
+        private KimTravelDataContext db = new KimTravelDataContext(AppConfig.getStringConnection());
 
         public IQueryable GetList()
         {

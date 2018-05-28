@@ -9,7 +9,7 @@ namespace KimTravel.DAL.Services
 {
     public class ServiceTypeService
     {
-        private readonly KimTravelDataContext db = new KimTravelDataContext();
+        private readonly KimTravelDataContext db = new KimTravelDataContext(AppConfig.getStringConnection());
 
         public IEnumerable<ServiceType> GetList(int tourID)
         {
